@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>네이버 API CAPTCHA - Hexo</title>
+    <title>네이버 API CAPTCHA - Re-Coder</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
@@ -22,8 +22,8 @@
 
 
 네이버 API CAPCHA를 이용한,"> 
-    <meta name="author" content="John Doe"> 
-    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <meta name="author" content="Jakezo"> 
+    <link rel="alternative" href="atom.xml" title="Re-Coder" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
     <link href="https://fonts.loli.net/css?family=Roboto+Mono|Rubik&display=swap" rel="stylesheet">
     
@@ -60,7 +60,7 @@
             <div></div>
         </div>
     </div>
-    <span id="config-title" style="display:none">Hexo</span>
+    <span id="config-title" style="display:none">Re-Coder</span>
     <div id="loader"></div>
     <div id="single">
     <div class="scrollbar gradient-bg-rev"></div>
@@ -179,7 +179,7 @@
 <li><a href="#captcha%EC%9D%B4%EB%AF%B8%EC%A7%80%EC%99%80-%EC%9E%85%EB%A0%A5%EA%B0%92%EC%9D%98-%EA%B2%B0%EA%B3%BC-%EC%B6%9C%EB%A0%A5">9. Captcha이미지와 입력값의 결과 출력</a></li>
 <li><a href="#%EB%A7%88%EC%B9%98%EB%A9%B0">마치며</a></li>
 </ul>
-<h3 id="인덱스-페이지"><a href="#인덱스-페이지" class="headerlink" title="인덱스 페이지"></a>인덱스 페이지</h3><hr>
+<h3 id="인덱스-페이지ddsddddddddddddddddd"><a href="#인덱스-페이지ddsddddddddddddddddd" class="headerlink" title="인덱스 페이지ddsddddddddddddddddd"></a>인덱스 페이지ddsddddddddddddddddd</h3><hr>
 <pre><code class="html">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
     pageEncoding=&quot;UTF-8&quot;%&gt;
 &lt;!DOCTYPE html&gt;
@@ -416,6 +416,7 @@ public class GetImageCaptchaCommand implements Command &#123;
             con.disconnect();
         &#125;
     &#125;
+
 
     // 1) 캡차 키 발급 요청용 connect() 메소드
     // 2) 캡차 이미지 요청용 connect() 메소드
@@ -774,10 +775,10 @@ public class InputKeyCheckCommand implements Command &#123;
             <div class="box animated fadeInRight">
                 <div class="subbox">
                     <img src="https://res.cloudinary.com/tridiamond/image/upload/v1573019751/TriDiamond_logo_ui_xeublz.jpg" height=300 width=300></img>
-                    <p>John Doe</p>
+                    <p>Jakezo</p>
                     <span>Think like an artist, develop like an artisan</span>
                     <dl>
-                        <dd><a href="https://github.com/TriDiamond" target="_blank"><span
+                        <dd><a href="https://github.com/Jakezo" target="_blank"><span
                                     class=" iconfont icon-github"></span></a></dd>
                         <dd><a href="https://twitter.com/TriDiamond6" target="_blank"><span
                                     class=" iconfont icon-twitter"></span></a></dd>
@@ -797,7 +798,7 @@ public class InputKeyCheckCommand implements Command &#123;
             <div class="box sticky animated fadeInRight faster">
                 <div id="toc" class="subbox">
                     <h4>Contents</h4>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#title"><span class="toc-number">1.</span> <span class="toc-text">네이버 API CAPCHA를 이용한 로그인 페이지 구현</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%9D%B8%EB%8D%B1%EC%8A%A4-%ED%8E%98%EC%9D%B4%EC%A7%80"><span class="toc-number">1.1.</span> <span class="toc-text">인덱스 페이지</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Servlet%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-Controller"><span class="toc-number">1.2.</span> <span class="toc-text">Servlet을 이용한 Controller</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pathNRedirect-%EC%99%80-command"><span class="toc-number">1.3.</span> <span class="toc-text">pathNRedirect 와 command</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#index%EC%9D%98-%EB%A1%9C%EA%B7%B8%EC%9D%B8%ED%95%98%EB%9F%AC-%EA%B0%80%EA%B8%B0"><span class="toc-number">1.4.</span> <span class="toc-text">index의 로그인하러 가기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%BA%A1%EC%B0%A8-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%83%9D%EC%84%B1%EC%9D%84-%EC%9C%84%ED%95%9C-GetImageCaptchaCommand-%EC%83%9D%EC%84%B1"><span class="toc-number">1.5.</span> <span class="toc-text">캡차 이미지 생성을 위한 GetImageCaptchaCommand 생성</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#index%ED%8E%98%EC%9D%B4%EC%A7%80%EC%97%90%EC%84%9C-loginPage%EB%A1%9C-%EC%9D%B4%EB%8F%99"><span class="toc-number">1.6.</span> <span class="toc-text">index페이지에서 loginPage로 이동</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#loginPage%EC%9D%98-login-do-%EC%9A%94%EC%B2%AD-%EC%B2%98%EB%A6%AC%EB%A5%BC-%EC%9C%84%ED%95%9C-%EC%BB%A8%ED%8A%B8%EB%A1%A4%EB%9F%AC-%EC%9E%91%EC%84%B1"><span class="toc-number">1.7.</span> <span class="toc-text">loginPage의 login.do 요청 처리를 위한 컨트롤러 작성</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#login-do-%EC%9D%98-%EB%AA%A8%EB%8D%B8-InputKeyCheckCommand-%EC%83%9D%EC%84%B1"><span class="toc-number">1.8.</span> <span class="toc-text">login.do 의 모델 InputKeyCheckCommand 생성</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Captcha%EC%9D%B4%EB%AF%B8%EC%A7%80%EC%99%80-%EC%9E%85%EB%A0%A5%EA%B0%92%EC%9D%98-%EA%B2%B0%EA%B3%BC-%EC%B6%9C%EB%A0%A5"><span class="toc-number">1.9.</span> <span class="toc-text">Captcha이미지와 입력값의 결과 출력</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%A7%88%EC%B9%98%EB%A9%B0"><span class="toc-number">1.10.</span> <span class="toc-text">마치며</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#title"><span class="toc-number">1.</span> <span class="toc-text">네이버 API CAPCHA를 이용한 로그인 페이지 구현</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%9D%B8%EB%8D%B1%EC%8A%A4-%ED%8E%98%EC%9D%B4%EC%A7%80ddsddddddddddddddddd"><span class="toc-number">1.1.</span> <span class="toc-text">인덱스 페이지ddsddddddddddddddddd</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Servlet%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-Controller"><span class="toc-number">1.2.</span> <span class="toc-text">Servlet을 이용한 Controller</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pathNRedirect-%EC%99%80-command"><span class="toc-number">1.3.</span> <span class="toc-text">pathNRedirect 와 command</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#index%EC%9D%98-%EB%A1%9C%EA%B7%B8%EC%9D%B8%ED%95%98%EB%9F%AC-%EA%B0%80%EA%B8%B0"><span class="toc-number">1.4.</span> <span class="toc-text">index의 로그인하러 가기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%BA%A1%EC%B0%A8-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%83%9D%EC%84%B1%EC%9D%84-%EC%9C%84%ED%95%9C-GetImageCaptchaCommand-%EC%83%9D%EC%84%B1"><span class="toc-number">1.5.</span> <span class="toc-text">캡차 이미지 생성을 위한 GetImageCaptchaCommand 생성</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#index%ED%8E%98%EC%9D%B4%EC%A7%80%EC%97%90%EC%84%9C-loginPage%EB%A1%9C-%EC%9D%B4%EB%8F%99"><span class="toc-number">1.6.</span> <span class="toc-text">index페이지에서 loginPage로 이동</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#loginPage%EC%9D%98-login-do-%EC%9A%94%EC%B2%AD-%EC%B2%98%EB%A6%AC%EB%A5%BC-%EC%9C%84%ED%95%9C-%EC%BB%A8%ED%8A%B8%EB%A1%A4%EB%9F%AC-%EC%9E%91%EC%84%B1"><span class="toc-number">1.7.</span> <span class="toc-text">loginPage의 login.do 요청 처리를 위한 컨트롤러 작성</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#login-do-%EC%9D%98-%EB%AA%A8%EB%8D%B8-InputKeyCheckCommand-%EC%83%9D%EC%84%B1"><span class="toc-number">1.8.</span> <span class="toc-text">login.do 의 모델 InputKeyCheckCommand 생성</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Captcha%EC%9D%B4%EB%AF%B8%EC%A7%80%EC%99%80-%EC%9E%85%EB%A0%A5%EA%B0%92%EC%9D%98-%EA%B2%B0%EA%B3%BC-%EC%B6%9C%EB%A0%A5"><span class="toc-number">1.9.</span> <span class="toc-text">Captcha이미지와 입력값의 결과 출력</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%A7%88%EC%B9%98%EB%A9%B0"><span class="toc-number">1.10.</span> <span class="toc-text">마치며</span></a></li></ol></li></ol>
                 </div>
             </div>
             
@@ -818,7 +819,7 @@ public class InputKeyCheckCommand implements Command &#123;
     <p class="copyright" id="copyright">
         &copy; 2021
         <span class="gradient-text">
-            John Doe
+            Jakezo
         </span>.
         Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
         Theme
