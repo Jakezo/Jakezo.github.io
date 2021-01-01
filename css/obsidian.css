@@ -84,6 +84,7 @@ pre code .language-mark b {
 }
 .CodeMirror .CodeMirror-scroll {
   padding: 55px 30px 60px 10px !important;
+  margin-right: 0px !important;
 }
 .CodeMirror.cm-s-dracula {
   height: 100%;
@@ -92,6 +93,10 @@ pre code .language-mark b {
 .CodeMirror .CodeMirror-lines {
   font-size: 0.8rem;
   font-family: Rubik, Lato, lucida grande, lucida sans unicode, Tahoma, 'Microsoft Yahei', 'WenQuanYi Micro Hei', sans-serif;
+}
+.CodeMirror-wrap pre.CodeMirror-line,
+.CodeMirror-wrap pre.CodeMirror-line-like {
+  white-space: pre !important;
 }
 /* Responsive style */
 body {
@@ -358,11 +363,11 @@ audio {
   background-size: 75px 32px;
   background-repeat: no-repeat;
   background-position: center center;
-  -webkit-mask-box-image: url("../img/logo.png");
-  background-color: #fff;
-  width: 75px;
+  -webkit-mask-box-image: url("../img/newlogo.png");
+  background-color: #ffc83b;
+  width: 150px;
   height: 32px;
-  mask-image: url("../img/logo.png");
+  mask-image: url("../img/newlogo.png");
   mask-size: contain;
   transition: background-color 0.5s ease-in-out;
 }
@@ -1061,7 +1066,7 @@ footer .copyright a {
   font-weight: 700;
 }
 .menu a {
-  color: #666;
+  color: #008e24;
   letter-spacing: 2px;
   background: rgba(255,255,255,0.96);
   opacity: 0.86;
@@ -3516,6 +3521,20 @@ pre .keyword {
   .comment .gt-btn-public .gt-btn-text:after {
     content: "";
   }
+}
+#title {
+  color: #f90e37 !important;
+  font-weight: bolder;
+}
+.content a {
+  color: #ff9008 !important;
+}
+.article .sidebar .box .subbox p {
+  padding-top: 0rem !important;
+}
+.box img {
+  width: 200px !important;
+  height: 200px !important;
 }
 @-moz-keyframes spin {
   from {

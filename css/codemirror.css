@@ -53,6 +53,7 @@ pre code .language-mark b {
 }
 .CodeMirror .CodeMirror-scroll {
   padding: 55px 30px 60px 10px !important;
+  margin-right: 0px !important;
 }
 .CodeMirror.cm-s-dracula {
   height: 100%;
@@ -61,4 +62,8 @@ pre code .language-mark b {
 .CodeMirror .CodeMirror-lines {
   font-size: 0.8rem;
   font-family: Rubik, Lato, lucida grande, lucida sans unicode, Tahoma, 'Microsoft Yahei', 'WenQuanYi Micro Hei', sans-serif;
+}
+.CodeMirror-wrap pre.CodeMirror-line,
+.CodeMirror-wrap pre.CodeMirror-line-like {
+  white-space: pre !important;
 }
