@@ -2978,7 +2978,7 @@ pre {
   margin: 2em 0;
 }
 pre .comment {
-  color: #999;
+  color: #7b9df8;
 }
 pre .title {
   color: #999;
@@ -3541,6 +3541,9 @@ pre .keyword {
 }
 #back-to-top {
   right: 130px !important;
+}
+.cm-s-dracula span.cm-comment {
+  color: #73c5ec !important;
 }
 @-moz-keyframes spin {
   from {
