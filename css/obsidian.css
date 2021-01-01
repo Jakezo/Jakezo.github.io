@@ -3536,6 +3536,12 @@ pre .keyword {
   width: 200px !important;
   height: 200px !important;
 }
+.article {
+  padding: 2em 2em !important;
+}
+#back-to-top {
+  right: 130px !important;
+}
 @-moz-keyframes spin {
   from {
     transform: rotate(0deg);
