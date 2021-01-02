@@ -50,10 +50,10 @@ pre code .language-mark b {
 .CodeMirror .CodeMirror-linenumber {
   background: #201c29 !important;
   padding: 0 3px 0 15px;
+  left: 0px !important;
 }
 .CodeMirror .CodeMirror-scroll {
   padding: 55px 30px 60px 10px !important;
-  margin-right: 0px !important;
 }
 .CodeMirror.cm-s-dracula {
   height: 100%;
@@ -68,5 +68,5 @@ pre code .language-mark b {
   white-space: pre !important;
 }
 div > .CodeMirror-line > span {
-  padding-right: 3rem !important;
+  padding-right: 2.5rem !important;
 }

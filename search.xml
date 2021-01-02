@@ -4,11 +4,138 @@
   
     
     <entry>
+      <title>JSP-7</title>
+      <link href="2021/01/02/JSP-7/"/>
+      <url>2021/01/02/JSP-7/</url>
+      
+        <content type="html"><![CDATA[<p>dsffas</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> JAVA-WEB </category>
+          
+          <category> API </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> JSP </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>JSP-5</title>
+      <link href="2021/01/02/JSP-5/"/>
+      <url>2021/01/02/JSP-5/</url>
+      
+        <content type="html"><![CDATA[<p>fd</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> JAVA-WEB </category>
+          
+          <category> API </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> JSP </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>JSP-4</title>
+      <link href="2021/01/02/JSP-4/"/>
+      <url>2021/01/02/JSP-4/</url>
+      
+        <content type="html"><![CDATA[<p>dsfsdf</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> JAVA-WEB </category>
+          
+          <category> API </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> JSP </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>JSP-22</title>
+      <link href="2021/01/02/JSP-22/"/>
+      <url>2021/01/02/JSP-22/</url>
+      
+        <content type="html"><![CDATA[<p>wqd</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> JSP </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>JSP-01</title>
+      <link href="2021/01/02/JSP-01/"/>
+      <url>2021/01/02/JSP-01/</url>
+      
+        <content type="html"><![CDATA[<p>wed</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> JAVA-WEB </category>
+          
+          <category> API </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> JSP </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>jsp</title>
       <link href="2021/01/02/jsp/"/>
       <url>2021/01/02/jsp/</url>
       
-        <content type="html"><![CDATA[<p>스크립트릿 쉬벌</p><pre><code class="s">1. Java Server Page2. HTML 문서내에서 JAVA 코드를 사용할 수 있는 서블릿(Servlet) 기반의 서버측 스크립트 언어이다    JSP 스크립트 요소    1. &lt;%@ 지시어 %&gt; : 지시어 (directive)    2. &lt;%! 선언부 %&gt; : 선언부 (declaration), 전역변수 선언, 메소드 정의    3. &lt;%= 표현식 %&gt; : 표현식 (expression), 결과 출력(변수, 메소드 호출 결과, 식)    4. &lt;% 스크립트릿 %&gt; : 스크립트릿 (scriptlet), Java 코드</code></pre><ul><li><h3 id="EL"><a href="#EL" class="headerlink" title="EL"></a>EL</h3></li></ul><pre><code class="s">EL1. Expression Language (표현언어)2. JSP의 새로운 스크립트 언어이다.3. 기존의 표현식(&lt;%=표현식%&gt;)을 대체하는 역할이다.4. 대체방식    &lt;%=표현식%&gt; -&gt; $&#123;표현언어&#125;5. 데이터를 저장할 수 있는 4개 영역에서 사용할 수 있다.    1) pageContext    2) request    3) session    4) application6. 각 영역의 우선순위    pageContext &gt; request &gt; session &gt; application7. 각 영역의 스코프 키워드    1) pageContext: pageScope    2) request: requestScope    3) session: sessionScope    4) application: applicationScope8. 저장이 &quot;속성&quot;으로 된 경우 다음과 같이 사용한다.    1) pageContext.setAttribute(&quot;name&quot;, &quot;에밀리&quot;) -&gt; $&#123;name&#125;                                                    -&gt; $&#123;pageScope.name&#125;    2) request.setAttribute(&quot;age&quot;, 25) -&gt; $&#123;age&#125;                                        -&gt; $&#123;requestScope.age&#125;9. request에 파라미터로 저장된 경우 다음과 같이 사용한다.    1) &lt;input type=&quot;text&quot; name=&quot;id&quot; /&gt; -&gt; $&#123;param.id&#125;    2) &lt;input type=&quot;checkbox&quot; name=&quot;hobbies&quot; /&gt; -&gt; $&#123;paramValues.hobbies[0]&#125;        &lt;input type=&quot;checkbox&quot; name=&quot;hobbies&quot; /&gt; -&gt; $&#123;paramValues.hobbies[1]&#125;10. EL 연산자    1) +    2) -    3) *    4) /, div : 나누기    5) %, mod : 나머지    6) &gt;, gt  : 크다   &#123;a gt 5&#125;, &#123;a &gt; 5&#125;    7) &gt;=, ge : 크거나 같다    8) &lt;, lt  : 작다    9) &lt;=, le : 작거나 같다    10) ==, eq : 같다    11) !=, ne : 같지 않다    12) and    : 그리고    13) or     : 또는    14) not    : 부정    15) empty  : 비어 있다</code></pre><ul><li><h3 id="JSTL"><a href="#JSTL" class="headerlink" title="JSTL"></a>JSTL</h3></li></ul><pre><code class="s">JSTL(JavaServer Pages Standard Tag Library)1. JSP 표준 태그 라이브러리(여러 프로그램이 공통으로 사용하는 코드를 모아놓은 집합)의 약어2. 이미 만들어진 태그를 이용하여 JSP환경에서 보다 가독성 좋게 JAVA를 사용할 수 있다.3. 기본적으로 제공하는 태그 외에도 자신만의 태그를 만들어서 사용할 수 있다.taglib를 사용하려면 taglib 지시어를 작성해야 한다.    1. 코어(core) 라이브러리: if, for문        &lt;%@ taglib uri=&quot;&quot; prefix=&quot;c&quot; %&gt;    2. 형식(fmt) 라이브러리: 숫자, 날짜 형식        &lt;%@ taglib uri=&quot;&quot; prefix=&quot;fmt&quot; %&gt;</code></pre>]]></content>
+        <content type="html"><![CDATA[<p>스크립트릿 쉬벌</p><pre><code class="s">1. Java Server Page2. HTML 문서내에서 JAVA 코드를 사용할 수 있는 서블릿(Servlet) 기반의 서버측 스크립트 언어이다    JSP 스크립트 요소    1. &lt;%@ 지시어 %&gt; : 지시어 (directive)    2. &lt;%! 선언부 %&gt; : 선언부 (declaration), 전역변수 선언, 메소드 정의    3. &lt;%= 표현식 %&gt; : 표현식 (expression), 결과 출력(변수, 메소드 호출 결과, 식)    4. &lt;% 스크립트릿 %&gt; : 스크립트릿 (scriptlet), Java 코드</code></pre>]]></content>
       
       
       
@@ -50,6 +177,33 @@
         <content type="html"><![CDATA[<p>##java</p><blockquote><p>자바 공부해봅시다</p></blockquote><pre><code class="java">package ex01;import java.io.IOException;import javax.servlet.ServletConfig;import javax.servlet.ServletException;import javax.servlet.annotation.WebServlet;import javax.servlet.http.HttpServlet;import javax.servlet.http.HttpServletRequest;import javax.servlet.http.HttpServletResponse;/** * Servlet implementation class Ex01_servlet */@WebServlet(&quot;/Ex01_servlet&quot;)public class Ex01_servlet extends HttpServlet &#123;    private static final long serialVersionUID = 1L;    /**     * Default constructor.      *      * 1. 생성자     *         생성자 호출 뒤 init() 메소드가 호출된다.     */    public Ex01_servlet() &#123;        System.out.println(&quot;생성자 호출&quot;);    &#125;    /**     * @see Servlet#init(ServletConfig)     *      * 2. init() 메소드     *    1) 최초 한 번만 호출된다.     *    2) 초기화 용도로 사용할 수 있다.     *    3) init() 호출 뒤 service() 메소드가 호출된다.     */    public void init(ServletConfig config) throws ServletException &#123;        System.out.println(&quot;init() 호출&quot;);    &#125;    /**     * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)     *      * 3. service() 메소드     *    1) 실제 처리를 할 수 있다.     *    2) 매개변수-1     *       (1) 타입: HttpServletRequest     *       (2) 변수: request     *       (3) 사용자의 요청을 저장하는 변수이다.     *           예) 사용자가 입력한 검색어, 아이디, 비밀번호 등이 저장된 곳이다.     *    3) 매개변수-2     *       (1) 타입: HttpServletResponse     *       (2) 변수: response     *       (3) 서버의 응답 정보를 저장하는 변수이다.     *           예) 검색어의 결과, 로그인 성공 유무 등이 저장된 곳이다.     */    protected void service(HttpServletRequest request, HttpServletResponse response)     throws ServletException, IOException &#123;        System.out.println(&quot;service() 호출&quot;);        if (request.getMethod().equalsIgnoreCase(&quot;GET&quot;)) &#123;  // GET방식의 요청이라면            doGet(request, response);  // doGet() 메소드 호출        &#125; else &#123;            doPost(request, response);        &#125;    &#125;    /**     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)     *      * 4. doGet()     *    1) GET 방식의 요청인 경우에 자동으로 호출되는 메소드이다. (service() 메소드가 없으면)     *    2) GET 방식의 요청 방법     *       (1) &lt;form method=&quot;get&quot;&gt;     *       (2) $.ajax(&#123; type: &#39;get&#39;, &#125;);     */    protected void doGet(HttpServletRequest request, HttpServletResponse response)     throws ServletException, IOException &#123;        System.out.println(&quot;doGet() 호출&quot;);        response.getWriter().append(&quot;Served at: &quot;).append(request.getContextPath());    &#125;    /**     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)     *      * 5. doPost()     *    1) POST 방식의 요청인 경우에 자동으로 호출되는 메소드이다. (service() 메소드가 없으면)     *    2) 요청(request)과 응답(response)를 모두 doGet() 메소드로 넘기고 자신은 아무 일도 하지 않는다.     */    protected void doPost(HttpServletRequest request, HttpServletResponse response)     throws ServletException, IOException &#123;        System.out.println(&quot;doPost() 호출&quot;);        doGet(request, response);    &#125;    /**     * @see Servlet#destroy()     *      * 6. destroy()     *      *    웹 서버에서 프로젝트가 소멸되면 자동으로 호출된다.     */    public void destroy() &#123;        System.out.println(&quot;destroy() 호출&quot;);    &#125;&#125;</code></pre>]]></content>
       
       
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>JSP-6</title>
+      <link href="2021/01/01/JSP-6/"/>
+      <url>2021/01/01/JSP-6/</url>
+      
+        <content type="html"><![CDATA[<p>sdfsdf</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> JAVA-WEB </category>
+          
+          <category> API </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> JSP </tag>
+            
+        </tags>
       
     </entry>
     
