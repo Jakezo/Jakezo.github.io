@@ -65,6 +65,9 @@ pre code .language-mark b {
 .CodeMirror-wrap pre.CodeMirror-line,
 .CodeMirror-wrap pre.CodeMirror-line-like {
   white-space: pre !important;
+  overflow-wrap: normal !important;
+  word-wrap: normal !important;
+  word-break: normal !important;
 }
 div > .CodeMirror-line > span {
   padding-right: 2.5rem !important;
