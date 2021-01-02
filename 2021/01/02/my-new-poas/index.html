@@ -118,11 +118,11 @@ import javax.servlet.ServletConfig;
                 </span>
                 
                 
-                <span id="/2021/01/02/my-new-poas/" class="leancloud_visitors" data-flag-title="my new poas">
-                    <b class="iconfont icon-read"></b> <i>Read count</i>
-                    <span class="leancloud-visitors-count">1000000</span>
-                </span>
                 
+                <span id="busuanzi_container_page_pv">
+                    <b class="iconfont icon-read"></b> <i>Read count</i>
+                    <span id="busuanzi_value_page_pv">0</span>
+                </span>
                 
             </p>
             
@@ -276,7 +276,18 @@ public class Ex01_servlet extends HttpServlet &#123;
             
             
             
-            <div id="vcomments"></div>
+    <div id='gitalk-container' class="comment link"
+        data-ae='true'
+        data-ci='332e4b255cba4d4c8700&#39;'
+        data-cs='a291c3988bc95c87a1e298430ba990754e524'
+        data-r='gitalkHexoComment'
+        data-o='jakezo'
+        data-a='Jakezo'
+        data-d=''
+    >Comments</div>
+
+
+            
             
         </div>
         <div class="sidebar">
@@ -389,6 +400,10 @@ public class Ex01_servlet extends HttpServlet &#123;
 
 
  
+<link rel="stylesheet" href="//cdn.bootcss.com/gitalk/1.5.0/gitalk.min.css">
+ 
+<script src="//cdn.bootcss.com/gitalk/1.5.0/gitalk.min.js"></script>
+  
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="/js/plugin.js"></script>
 <script src="/js/obsidian.js"></script>
@@ -520,38 +535,6 @@ public class Ex01_servlet extends HttpServlet &#123;
   }
 </script>
 
- 
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-
-<script>
-  var valine = new Valine();
-
-  function initValine(path) {
-    if (!path) path = window.location.pathname;
-    let language = 'en';
-    if (!language) {
-      language = 'en';
-    } else {
-      language = language.toLowerCase();
-    }
-    valine.init({
-      el: '#vcomments',
-      appId: 'QHCOIEBlyjBUMAjaE5ilzafk-gzGzoHsz',
-      appKey: 'ggeGwz8ypB9uiAIYSRH5T0PF',
-      notify: 'false',
-      verify: 'false',
-      avatar: 'mp',
-      placeholder: 'Leave your throughs behind~',
-      visitor: 'true',
-      path: path,
-      lang: language,
-    });
-  }
-
-  $(document).ready(function () {
-    initValine();
-  });
-</script>
 
 
 
