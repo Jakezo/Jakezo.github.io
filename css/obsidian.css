@@ -81,7 +81,6 @@ pre code .language-mark b {
 .CodeMirror .CodeMirror-linenumber {
   background: #201c29 !important;
   padding: 0 3px 0 15px;
-  left: 0px !important;
 }
 .CodeMirror .CodeMirror-scroll {
   padding: 55px 30px 60px 10px !important;
@@ -598,7 +597,7 @@ body.touch .article {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 14px;
+  font-size: 19px;
   margin-top: 12px;
   display: none;
   transition: display 400ms ease-in-out;
@@ -607,6 +606,9 @@ body.touch .article {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+/*여기서부턴 커스텀*/
+  font-family: 'Rubik', 'Microsoft Yahei', 'WenQuanYi Micro Hei', sans-serif;
+  font-weight: bolder;
 }
 .icon-play {
   position: absolute;
