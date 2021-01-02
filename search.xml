@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>JSP-02</title>
+      <link href="2021/01/02/JSP-02/"/>
+      <url>2021/01/02/JSP-02/</url>
+      
+        <content type="html"><![CDATA[<h2 id="DBCP-Database-Connection-Pool"><a href="#DBCP-Database-Connection-Pool" class="headerlink" title="DBCP (Database Connection Pool)"></a>DBCP (Database Connection Pool)</h2><hr><h2 id="DAO-생성"><a href="#DAO-생성" class="headerlink" title="DAO 생성"></a>DAO 생성</h2><pre><code class="java">package dao;import java.sql.Connection;import java.sql.PreparedStatement;import java.sql.ResultSet;import java.util.ArrayList;import javax.naming.Context;import javax.naming.InitialContext;import javax.naming.NamingException;import javax.sql.DataSource;import dto.BlueDto;public class BlueDao &#123;// 필드private Connection con;private PreparedStatement ps;private ResultSet rs;private String sql;// 그 동안 사용하던 DriverManager 클래스를 사용하지 않기 때문에// getConnection() 메소드를 만들어서 사용하지 않는다.// DBCP 방식은 Connection을 DataSource 클래스가 관리한다.// 앞으로는 DataSource 객체가 제공하는 getConnection() 메소드를 사용한다.// DataSource 객체 만들기 (새로운 작업)private static DataSource dataSource;// static &#123; &#125;  // static 블록에서 static 필드의 초기화를 할 수 있다.static &#123;    try &#123;        Context context = new InitialContext();        dataSource = (DataSource)context.lookup(&quot;java:comp/env/jdbc/oracle&quot;);        // Tomcat의 경우 java:comp/env/ 를 prefix로 사용한다.        // context.xml의 &lt;Resource&gt;태그의 name속성이 jdbc/oracle이다.    &#125; catch (NamingException e) &#123;        e.printStackTrace();    &#125;&#125;// Singleton patternprivate BlueDao() &#123; &#125;private static BlueDao blueDao = new BlueDao();public static BlueDao getInstance() &#123;    return blueDao;&#125;</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> JAVA-WEB </category>
+          
+          <category> API </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> JSP </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>java-24</title>
       <link href="2021/01/02/java-24/"/>
       <url>2021/01/02/java-24/</url>

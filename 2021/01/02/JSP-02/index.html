@@ -5,15 +5,17 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>jsp - Re-Coder</title>
+    <title>JSP-02 - Re-Coder</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="TriDiamond Obsidian,"> 
-    <meta name="description" content="스크립트릿 쉬벌
-1. Java Server Page
-2. HTML 문서내에서 JAVA 코드를 사용할 수 있는 서블릿(Servlet) 기반의 서버측 스크립트 언어이다
-    JSP,"> 
+    <meta name="description" content="DBCP (Database Connection Pool)
+DAO 생성
+package dao;
+
+import java.sql.Connection;
+import java.sql.Pr,"> 
     <meta name="author" content="Jakezo"> 
     <link rel="alternative" href="atom.xml" title="Re-Coder" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -61,7 +63,7 @@
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://jakezo.github.io">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">jsp</h3>
+        <h3 class="subtitle">JSP-02</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -91,18 +93,19 @@
         <div class="else">
             <p class="animated fadeInDown">
                 
-                <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
+                <a href="/categories/JAVA-WEB"><b>「
+                    </b>JAVA-WEB<b> 」</b></a>
                 
                 January 02, 2021
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2021/01/02/jsp/" title="jsp" class="">jsp</a>
+            <h3 class="post-title animated fadeInDown"><a href="/2021/01/02/JSP-02/" title="JSP-02" class="">JSP-02</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    374
+                    1.6k
                 </span>
                 
                 
@@ -120,6 +123,8 @@
                 
             </p>
             
+            
+            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/JSP/" rel="tag">JSP</a></li></ul>
             
         </div>
     </div>
@@ -140,14 +145,56 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <p>스크립트릿 쉬벌</p>
-<pre><code class="s">1. Java Server Page
-2. HTML 문서내에서 JAVA 코드를 사용할 수 있는 서블릿(Servlet) 기반의 서버측 스크립트 언어이다
-    JSP 스크립트 요소
-    1. &lt;%@ 지시어 %&gt; : 지시어 (directive)
-    2. &lt;%! 선언부 %&gt; : 선언부 (declaration), 전역변수 선언, 메소드 정의
-    3. &lt;%= 표현식 %&gt; : 표현식 (expression), 결과 출력(변수, 메소드 호출 결과, 식)
-    4. &lt;% 스크립트릿 %&gt; : 스크립트릿 (scriptlet), Java 코드</code></pre>
+            <h2 id="DBCP-Database-Connection-Pool"><a href="#DBCP-Database-Connection-Pool" class="headerlink" title="DBCP (Database Connection Pool)"></a>DBCP (Database Connection Pool)</h2><hr>
+<h2 id="DAO-생성"><a href="#DAO-생성" class="headerlink" title="DAO 생성"></a>DAO 생성</h2><pre><code class="java">
+package dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
+import dto.BlueDto;
+
+public class BlueDao &#123;
+
+// 필드
+private Connection con;
+private PreparedStatement ps;
+private ResultSet rs;
+private String sql;
+
+// 그 동안 사용하던 DriverManager 클래스를 사용하지 않기 때문에
+// getConnection() 메소드를 만들어서 사용하지 않는다.
+
+// DBCP 방식은 Connection을 DataSource 클래스가 관리한다.
+// 앞으로는 DataSource 객체가 제공하는 getConnection() 메소드를 사용한다.
+
+// DataSource 객체 만들기 (새로운 작업)
+private static DataSource dataSource;
+// static &#123; &#125;  // static 블록에서 static 필드의 초기화를 할 수 있다.
+static &#123;
+    try &#123;
+        Context context = new InitialContext();
+        dataSource = (DataSource)context.lookup(&quot;java:comp/env/jdbc/oracle&quot;);
+        // Tomcat의 경우 java:comp/env/ 를 prefix로 사용한다.
+        // context.xml의 &lt;Resource&gt;태그의 name속성이 jdbc/oracle이다.
+    &#125; catch (NamingException e) &#123;
+        e.printStackTrace();
+    &#125;
+&#125;
+
+// Singleton pattern
+private BlueDao() &#123; &#125;
+private static BlueDao blueDao = new BlueDao();
+public static BlueDao getInstance() &#123;
+    return blueDao;
+&#125;</code></pre>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -202,6 +249,13 @@
             </div>
             
             
+            
+            <div class="box sticky animated fadeInRight faster">
+                <div id="toc" class="subbox">
+                    <h4>Contents</h4>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#DBCP-Database-Connection-Pool"><span class="toc-number">1.</span> <span class="toc-text">DBCP (Database Connection Pool)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DAO-%EC%83%9D%EC%84%B1"><span class="toc-number">2.</span> <span class="toc-text">DAO 생성</span></a></li></ol>
+                </div>
+            </div>
             
             
         </div>
