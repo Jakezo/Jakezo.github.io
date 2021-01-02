@@ -109,11 +109,11 @@
                 </span>
                 
                 
-                
-                <span id="busuanzi_container_page_pv">
+                <span id="/2021/01/02/Java/" class="leancloud_visitors" data-flag-title="Java">
                     <b class="iconfont icon-read"></b> <i>Read count</i>
-                    <span id="busuanzi_value_page_pv">0</span>
+                    <span class="leancloud-visitors-count">1000000</span>
                 </span>
+                
                 
             </p>
             
@@ -154,18 +154,7 @@
             
             
             
-    <div id='gitalk-container' class="comment link"
-        data-ae='true'
-        data-ci='48b5cf795ac0e4896f7c'
-        data-cs='ea97bda66a626a70ab7627511c65a93becaa8899'
-        data-r='gitalkHexoComment'
-        data-o='Jakezo'
-        data-a='Jakezo'
-        data-d=''
-    >Comments</div>
-
-
-            
+            <div id="vcomments"></div>
             
         </div>
         <div class="sidebar">
@@ -278,10 +267,6 @@
 
 
  
-<link rel="stylesheet" href="//cdn.bootcss.com/gitalk/1.5.0/gitalk.min.css">
- 
-<script src="//cdn.bootcss.com/gitalk/1.5.0/gitalk.min.js"></script>
-  
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="/js/plugin.js"></script>
 <script src="/js/obsidian.js"></script>
@@ -413,6 +398,38 @@
   }
 </script>
 
+ 
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var valine = new Valine();
+
+  function initValine(path) {
+    if (!path) path = window.location.pathname;
+    let language = 'en';
+    if (!language) {
+      language = 'en';
+    } else {
+      language = language.toLowerCase();
+    }
+    valine.init({
+      el: '#vcomments',
+      appId: 'QHCOIEBlyjBUMAjaE5ilzafk-gzGzoHsz',
+      appKey: 'ggeGwz8ypB9uiAIYSRH5T0PF',
+      notify: 'false',
+      verify: 'false',
+      avatar: 'mp',
+      placeholder: 'Leave your throughs behind~',
+      visitor: 'true',
+      path: path,
+      lang: language,
+    });
+  }
+
+  $(document).ready(function () {
+    initValine();
+  });
+</script>
 
 
 
