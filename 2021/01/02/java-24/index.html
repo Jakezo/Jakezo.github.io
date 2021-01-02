@@ -5,21 +5,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>JSP-22 - Re-Coder</title>
+    <title>java-24 - Re-Coder</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="TriDiamond Obsidian,"> 
-    <meta name="description" content="##java
-
-자바 공부해봅시다
-
-
-package ex01;
-
-import java.io.IOException;
-import javax.servlet.ServletConfig;
-,"> 
+    <meta name="description" content="sdfsdfdsafsdf
+"> 
     <meta name="author" content="Jakezo"> 
     <link rel="alternative" href="atom.xml" title="Re-Coder" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -67,7 +59,7 @@ import javax.servlet.ServletConfig;
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://jakezo.github.io">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">JSP-22</h3>
+        <h3 class="subtitle">java-24</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -97,24 +89,25 @@ import javax.servlet.ServletConfig;
         <div class="else">
             <p class="animated fadeInDown">
                 
-                <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
+                <a href="/categories/JAVA-WEB"><b>「
+                    </b>JAVA-WEB<b> 」</b></a>
                 
                 January 02, 2021
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2021/01/02/JSP-22/" title="JSP-22" class="">JSP-22</a>
+            <h3 class="post-title animated fadeInDown"><a href="/2021/01/02/java-24/" title="java-24" class="">java-24</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    3.4k
+                    21
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    3 mins.
+                    1 mins.
                 </span>
                 
                 
@@ -148,119 +141,7 @@ import javax.servlet.ServletConfig;
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <p>##java</p>
-<blockquote>
-<p>자바 공부해봅시다</p>
-</blockquote>
-<pre><code class="java">
-package ex01;
-
-import java.io.IOException;
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-/**
- * Servlet implementation class Ex01_servlet
- */
-@WebServlet(&quot;/Ex01_servlet&quot;)
-public class Ex01_servlet extends HttpServlet &#123;
-    private static final long serialVersionUID = 1L;
-
-    /**
-     * Default constructor. 
-     * 
-     * 1. 생성자
-     *         생성자 호출 뒤 init() 메소드가 호출된다.
-     */
-    public Ex01_servlet() &#123;
-        System.out.println(&quot;생성자 호출&quot;);
-    &#125;
-
-    /**
-     * @see Servlet#init(ServletConfig)
-     * 
-     * 2. init() 메소드
-     *    1) 최초 한 번만 호출된다.
-     *    2) 초기화 용도로 사용할 수 있다.
-     *    3) init() 호출 뒤 service() 메소드가 호출된다.
-     */
-    public void init(ServletConfig config) throws ServletException &#123;
-        System.out.println(&quot;init() 호출&quot;);
-    &#125;
-
-    /**
-     * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
-     * 
-     * 3. service() 메소드
-     *    1) 실제 처리를 할 수 있다.
-     *    2) 매개변수-1
-     *       (1) 타입: HttpServletRequest
-     *       (2) 변수: request
-     *       (3) 사용자의 요청을 저장하는 변수이다.
-     *           예) 사용자가 입력한 검색어, 아이디, 비밀번호 등이 저장된 곳이다.
-     *    3) 매개변수-2
-     *       (1) 타입: HttpServletResponse
-     *       (2) 변수: response
-     *       (3) 서버의 응답 정보를 저장하는 변수이다.
-     *           예) 검색어의 결과, 로그인 성공 유무 등이 저장된 곳이다.
-     */
-    protected void service(HttpServletRequest request, HttpServletResponse response) 
-    throws ServletException, IOException &#123;
-        System.out.println(&quot;service() 호출&quot;);
-        if (request.getMethod().equalsIgnoreCase(&quot;GET&quot;)) &#123;  // GET방식의 요청이라면
-            doGet(request, response);  // doGet() 메소드 호출
-        &#125; else &#123;
-            doPost(request, response);
-        &#125;
-    &#125;
-
-    /**
-     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-     * 
-     * 4. doGet()
-     *    1) GET 방식의 요청인 경우에 자동으로 호출되는 메소드이다. (service() 메소드가 없으면)
-     *    2) GET 방식의 요청 방법
-     *       (1) &lt;form method=&quot;get&quot;&gt;
-     *       (2) $.ajax(&#123; type: &#39;get&#39;, &#125;);
-     */
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) 
-    throws ServletException, IOException &#123;
-        System.out.println(&quot;doGet() 호출&quot;);
-        response.getWriter().append(&quot;Served at: &quot;).append(request.getContextPath());
-    &#125;
-
-    /**
-     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-     * 
-     * 5. doPost()
-     *    1) POST 방식의 요청인 경우에 자동으로 호출되는 메소드이다. (service() 메소드가 없으면)
-     *    2) 요청(request)과 응답(response)를 모두 doGet() 메소드로 넘기고 자신은 아무 일도 하지 않는다.
-     */
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-     throws ServletException, IOException &#123;
-        System.out.println(&quot;doPost() 호출&quot;);
-        doGet(request, response);
-    &#125;
-
-    /**
-     * @see Servlet#destroy()
-     * 
-     * 6. destroy()
-     * 
-     *    웹 서버에서 프로젝트가 소멸되면 자동으로 호출된다.
-     */
-    public void destroy() &#123;
-        System.out.println(&quot;destroy() 호출&quot;);
-    &#125;
-
-&#125;
-
-
-</code></pre>
+            <p>sdfsdfdsafsdf</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
