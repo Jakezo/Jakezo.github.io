@@ -63,9 +63,10 @@ pre code .language-mark b {
   font-size: 0.8rem;
   font-family: Rubik, Lato, lucida grande, lucida sans unicode, Tahoma, 'Microsoft Yahei', 'WenQuanYi Micro Hei', sans-serif;
 }
-@media screen and (max-width: 900px) {
-  .CodeMirror-wrap pre.CodeMirror-line,
-  .CodeMirror-wrap pre.CodeMirror-line-like {
-    white-space: pre !important;
-  }
+.CodeMirror-wrap pre.CodeMirror-line,
+.CodeMirror-wrap pre.CodeMirror-line-like {
+  white-space: pre !important;
+}
+div > .CodeMirror-line > span {
+  padding-right: 3rem !important;
 }

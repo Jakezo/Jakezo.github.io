@@ -94,11 +94,12 @@ pre code .language-mark b {
   font-size: 0.8rem;
   font-family: Rubik, Lato, lucida grande, lucida sans unicode, Tahoma, 'Microsoft Yahei', 'WenQuanYi Micro Hei', sans-serif;
 }
-@media screen and (max-width: 900px) {
-  .CodeMirror-wrap pre.CodeMirror-line,
-  .CodeMirror-wrap pre.CodeMirror-line-like {
-    white-space: pre !important;
-  }
+.CodeMirror-wrap pre.CodeMirror-line,
+.CodeMirror-wrap pre.CodeMirror-line-like {
+  white-space: pre !important;
+}
+div > .CodeMirror-line > span {
+  padding-right: 3rem !important;
 }
 /* Responsive style */
 body {
@@ -112,7 +113,7 @@ body {
   font-weight: 700;
   position: relative;
   overflow-x: hidden;
-  font-size: 1em;
+  font-size: 1.3em;
   color: var(--font-color);
   line-height: 2;
 }
@@ -597,7 +598,7 @@ body.touch .article {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 14px;
+  font-size: 20px;
   margin-top: 12px;
   display: none;
   transition: display 400ms ease-in-out;
@@ -606,6 +607,8 @@ body.touch .article {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+  font-family: 'Rubik', 'Microsoft Yahei', 'WenQuanYi Micro Hei', sans-serif;
+  font-weight: bolder;
 }
 .icon-play {
   position: absolute;
@@ -1922,7 +1925,7 @@ h1.title {
   display: none;
 }
 .article {
-  padding: 2em 6em 2rem 10rem;
+  padding: 2em 6em 2rem 14rem;
   margin: 0;
   animation-delay: 400ms;
   animation-duration: 800ms;
