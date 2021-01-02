@@ -2428,8 +2428,8 @@ h1.title {
   background: #201c29 !important;
 }
 .else .md-content code {
-  overflow-wrap: break-word;
-  word-wrap: break-word;
+  overflow-wrap: normal;
+  word-wrap: normal;
   padding: 0.1rem 0.3rem 0.2rem;
   border-radius: 0.2rem;
   opacity: 0.9;
@@ -2992,8 +2992,8 @@ code {
   background: -webkit-linear-gradient(to right, var(--code-gradient-light), var(--code-gradient-dark));
   background: linear-gradient(to right, var(--code-gradient-light), var(--code-gradient-dark));
   color: #000;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
+  overflow-wrap: normal;
+  word-wrap: normal;
   padding: 0.1rem 0.3rem 0.2rem;
   border-radius: 8px;
   opacity: 0.9;
