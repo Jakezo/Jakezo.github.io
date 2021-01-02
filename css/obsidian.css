@@ -112,7 +112,7 @@ body {
   font-weight: 700;
   position: relative;
   overflow-x: hidden;
-  font-size: 1.3em;
+  font-size: 1em;
   color: var(--font-color);
   line-height: 2;
 }
@@ -1922,7 +1922,7 @@ h1.title {
   display: none;
 }
 .article {
-  padding: 2em 7em 2rem 13rem;
+  padding: 2em 6em 2rem 10rem;
   margin: 0;
   animation-delay: 400ms;
   animation-duration: 800ms;
@@ -1970,7 +1970,6 @@ h1.title {
   border-radius: 16px;
   box-shadow: 0 0 30px rgba(16,14,23,0.25);
   padding: 1rem;
-  margin-left: 10%;
   background: #fff;
 }
 .article .sidebar .box .subbox dl dd {
