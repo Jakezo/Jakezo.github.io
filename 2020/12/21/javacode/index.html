@@ -121,11 +121,11 @@
                 </span>
                 
                 
-                <span id="/2020/12/21/javacode/" class="leancloud_visitors" data-flag-title="네이버 API CAPTCHA">
-                    <b class="iconfont icon-read"></b> <i>Read count</i>
-                    <span class="leancloud-visitors-count">1000000</span>
-                </span>
                 
+                <span id="busuanzi_container_page_pv">
+                    <b class="iconfont icon-read"></b> <i>Read count</i>
+                    <span id="busuanzi_value_page_pv">0</span>
+                </span>
                 
             </p>
             
@@ -757,7 +757,18 @@ public class InputKeyCheckCommand implements Command &#123;
             
             
             
-            <div id="vcomments"></div>
+    <div id='gitalk-container' class="comment link"
+        data-ae='true'
+        data-ci='b71d412ba1e7a1a6a699'
+        data-cs='b5058587509d4ec60e52677d4c79d46bae266b57'
+        data-r='gitalkHexoComment'
+        data-o='Jakezo'
+        data-a='Jakezo'
+        data-d=''
+    >Comments</div>
+
+
+            
             
         </div>
         <div class="sidebar">
@@ -877,6 +888,10 @@ public class InputKeyCheckCommand implements Command &#123;
 
 
  
+<link rel="stylesheet" href="//cdn.bootcss.com/gitalk/1.5.0/gitalk.min.css">
+ 
+<script src="//cdn.bootcss.com/gitalk/1.5.0/gitalk.min.js"></script>
+  
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="/js/plugin.js"></script>
 <script src="/js/obsidian.js"></script>
@@ -992,7 +1007,7 @@ public class InputKeyCheckCommand implements Command &#123;
     var typedTextEl = $('.typed-text');
     if (typedTextEl && typedTextEl.length > 0) {
       var typed = new Typed('.typed-text', {
-        strings: ['Think like an artist, develop like an artisan', '코드 코딩 코더'],
+        strings: ['Think like an artist, develop like an artisan', 'It does not matter how slowly you go as long as you do not stop'],
         typeSpeed: 90,
         loop: true,
         loopCount: Infinity,
@@ -1008,38 +1023,6 @@ public class InputKeyCheckCommand implements Command &#123;
   }
 </script>
 
- 
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-
-<script>
-  var valine = new Valine();
-
-  function initValine(path) {
-    if (!path) path = window.location.pathname;
-    let language = 'en';
-    if (!language) {
-      language = 'en';
-    } else {
-      language = language.toLowerCase();
-    }
-    valine.init({
-      el: '#vcomments',
-      appId: 'QHCOIEBlyjBUMAjaE5ilzafk-gzGzoHsz',
-      appKey: 'ggeGwz8ypB9uiAIYSRH5T0PF',
-      notify: 'false',
-      verify: 'false',
-      avatar: 'mp',
-      placeholder: 'Leave your throughs behind~',
-      visitor: 'true',
-      path: path,
-      lang: language,
-    });
-  }
-
-  $(document).ready(function () {
-    initValine();
-  });
-</script>
 
 
 

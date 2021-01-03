@@ -10,12 +10,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Jakezo Obsidian,"> 
-    <meta name="description" content="DBCP (Database Connection Pool)
-DAO 생성
-package dao;
-
-import java.sql.Connection;
-import java.sql.Pr,"> 
+    
     <meta name="author" content="Jakezo"> 
     <link rel="alternative" href="atom.xml" title="Re-Coder" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -105,7 +100,7 @@ import java.sql.Pr,">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    1.6k
+                    0
                 </span>
                 
                 
@@ -115,11 +110,11 @@ import java.sql.Pr,">
                 </span>
                 
                 
-                <span id="/2021/01/02/JSP-02/" class="leancloud_visitors" data-flag-title="JSP-02">
-                    <b class="iconfont icon-read"></b> <i>Read count</i>
-                    <span class="leancloud-visitors-count">1000000</span>
-                </span>
                 
+                <span id="busuanzi_container_page_pv">
+                    <b class="iconfont icon-read"></b> <i>Read count</i>
+                    <span id="busuanzi_value_page_pv">0</span>
+                </span>
                 
             </p>
             
@@ -145,57 +140,7 @@ import java.sql.Pr,">
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <h2 id="DBCP-Database-Connection-Pool"><a href="#DBCP-Database-Connection-Pool" class="headerlink" title="DBCP (Database Connection Pool)"></a>DBCP (Database Connection Pool)</h2><hr>
-<h2 id="DAO-생성"><a href="#DAO-생성" class="headerlink" title="DAO 생성"></a>DAO 생성</h2><pre><code class="java">
-package dao;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.ArrayList;
-
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.sql.DataSource;
-
-import dto.BlueDto;
-
-public class BlueDao &#123;
-
-// 필드
-private Connection con;
-private PreparedStatement ps;
-private ResultSet rs;
-private String sql;
-
-// 그 동안 사용하던 DriverManager 클래스를 사용하지 않기 때문에
-// getConnection() 메소드를 만들어서 사용하지 않는다.
-
-// DBCP 방식은 Connection을 DataSource 클래스가 관리한다.
-// 앞으로는 DataSource 객체가 제공하는 getConnection() 메소드를 사용한다.
-
-// DataSource 객체 만들기 (새로운 작업)
-private static DataSource dataSource;
-// static &#123; &#125;  // static 블록에서 static 필드의 초기화를 할 수 있다.
-static &#123;
-    try &#123;
-        Context context = new InitialContext();
-        dataSource = (DataSource)context.lookup(&quot;java:comp/env/jdbc/oracle&quot;);
-        // Tomcat의 경우 java:comp/env/ 를 prefix로 사용한다.
-        // context.xml의 &lt;Resource&gt;태그의 name속성이 jdbc/oracle이다.
-    &#125; catch (NamingException e) &#123;
-        e.printStackTrace();
-    &#125;
-&#125;
-
-// Singleton pattern
-private BlueDao() &#123; &#125;
-private static BlueDao blueDao = new BlueDao();
-public static BlueDao getInstance() &#123;
-    return blueDao;
-&#125;</code></pre>
-
+            
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
                 data-autoplay="false">
@@ -212,7 +157,18 @@ public static BlueDao getInstance() &#123;
             
             
             
-            <div id="vcomments"></div>
+    <div id='gitalk-container' class="comment link"
+        data-ae='true'
+        data-ci='b71d412ba1e7a1a6a699'
+        data-cs='b5058587509d4ec60e52677d4c79d46bae266b57'
+        data-r='gitalkHexoComment'
+        data-o='Jakezo'
+        data-a='Jakezo'
+        data-d=''
+    >Comments</div>
+
+
+            
             
         </div>
         <div class="sidebar">
@@ -238,13 +194,6 @@ public static BlueDao getInstance() &#123;
             </div>
             
             
-            
-            <div class="box sticky animated fadeInRight faster">
-                <div id="toc" class="subbox">
-                    <h4>Contents</h4>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#DBCP-Database-Connection-Pool"><span class="toc-number">1.</span> <span class="toc-text">DBCP (Database Connection Pool)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DAO-%EC%83%9D%EC%84%B1"><span class="toc-number">2.</span> <span class="toc-text">DAO 생성</span></a></li></ol>
-                </div>
-            </div>
             
             
         </div>
@@ -332,6 +281,10 @@ public static BlueDao getInstance() &#123;
 
 
  
+<link rel="stylesheet" href="//cdn.bootcss.com/gitalk/1.5.0/gitalk.min.css">
+ 
+<script src="//cdn.bootcss.com/gitalk/1.5.0/gitalk.min.js"></script>
+  
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="/js/plugin.js"></script>
 <script src="/js/obsidian.js"></script>
@@ -447,7 +400,7 @@ public static BlueDao getInstance() &#123;
     var typedTextEl = $('.typed-text');
     if (typedTextEl && typedTextEl.length > 0) {
       var typed = new Typed('.typed-text', {
-        strings: ['Think like an artist, develop like an artisan', '코드 코딩 코더'],
+        strings: ['Think like an artist, develop like an artisan', 'It does not matter how slowly you go as long as you do not stop'],
         typeSpeed: 90,
         loop: true,
         loopCount: Infinity,
@@ -463,38 +416,6 @@ public static BlueDao getInstance() &#123;
   }
 </script>
 
- 
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-
-<script>
-  var valine = new Valine();
-
-  function initValine(path) {
-    if (!path) path = window.location.pathname;
-    let language = 'en';
-    if (!language) {
-      language = 'en';
-    } else {
-      language = language.toLowerCase();
-    }
-    valine.init({
-      el: '#vcomments',
-      appId: 'QHCOIEBlyjBUMAjaE5ilzafk-gzGzoHsz',
-      appKey: 'ggeGwz8ypB9uiAIYSRH5T0PF',
-      notify: 'false',
-      verify: 'false',
-      avatar: 'mp',
-      placeholder: 'Leave your throughs behind~',
-      visitor: 'true',
-      path: path,
-      lang: language,
-    });
-  }
-
-  $(document).ready(function () {
-    initValine();
-  });
-</script>
 
 
 

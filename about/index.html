@@ -157,6 +157,10 @@
 
 
  
+<link rel="stylesheet" href="//cdn.bootcss.com/gitalk/1.5.0/gitalk.min.css">
+ 
+<script src="//cdn.bootcss.com/gitalk/1.5.0/gitalk.min.js"></script>
+  
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="/js/plugin.js"></script>
 <script src="/js/obsidian.js"></script>
@@ -272,7 +276,7 @@
     var typedTextEl = $('.typed-text');
     if (typedTextEl && typedTextEl.length > 0) {
       var typed = new Typed('.typed-text', {
-        strings: ['Think like an artist, develop like an artisan', '코드 코딩 코더'],
+        strings: ['Think like an artist, develop like an artisan', 'It does not matter how slowly you go as long as you do not stop'],
         typeSpeed: 90,
         loop: true,
         loopCount: Infinity,
@@ -288,38 +292,6 @@
   }
 </script>
 
- 
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-
-<script>
-  var valine = new Valine();
-
-  function initValine(path) {
-    if (!path) path = window.location.pathname;
-    let language = 'en';
-    if (!language) {
-      language = 'en';
-    } else {
-      language = language.toLowerCase();
-    }
-    valine.init({
-      el: '#vcomments',
-      appId: 'QHCOIEBlyjBUMAjaE5ilzafk-gzGzoHsz',
-      appKey: 'ggeGwz8ypB9uiAIYSRH5T0PF',
-      notify: 'false',
-      verify: 'false',
-      avatar: 'mp',
-      placeholder: 'Leave your throughs behind~',
-      visitor: 'true',
-      path: path,
-      lang: language,
-    });
-  }
-
-  $(document).ready(function () {
-    initValine();
-  });
-</script>
 
 
 
