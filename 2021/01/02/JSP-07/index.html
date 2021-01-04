@@ -5,13 +5,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>JSP-7 - Re-Coder</title>
+    <title>JSP-07 AJAX와 JSON - Re-Coder</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Jakezo Obsidian,"> 
-    <meta name="description" content="dsffas
-"> 
+    <meta name="description" content="● AjaxAjax (Async Javascript And XML)는 웹 페이지에서 새로운 데이터를 보여주려고 할 때 웹페이지 전체를 새로고침 하지 않고, 보여주고자 하는 데이터,"> 
     <meta name="author" content="Jakezo"> 
     <link rel="alternative" href="atom.xml" title="Re-Coder" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -59,7 +58,7 @@
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://jakezo.github.io">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">JSP-7</h3>
+        <h3 class="subtitle">JSP-07 AJAX와 JSON</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -94,20 +93,20 @@
                 
                 January 02, 2021
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2021/01/02/JSP-7/" title="JSP-7" class="">JSP-7</a>
+            <h3 class="post-title animated fadeInDown"><a href="/2021/01/02/JSP-07/" title="JSP-07 AJAX와 JSON" class="">JSP-07 AJAX와 JSON</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    14
+                    4.4k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    1 mins.
+                    4 mins.
                 </span>
                 
                 
@@ -120,7 +119,7 @@
             </p>
             
             
-            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/JSP/" rel="tag">JSP</a></li></ul>
+            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Ajax/" rel="tag">Ajax</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/JSON/" rel="tag">JSON</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/JSP/" rel="tag">JSP</a></li></ul>
             
         </div>
     </div>
@@ -141,7 +140,91 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <p>dsffas</p>
+            <h2 id="●-Ajax"><a href="#●-Ajax" class="headerlink" title="● Ajax"></a>● Ajax</h2><p>Ajax (Async Javascript And XML)는 웹 페이지에서 새로운 데이터를 보여주려고 할 때 웹페이지 전체를 새로고침 하지 않고, 보여주고자 하는 데이터가 포함된 페이지의 일부 만을 로드 하기 위한 기법입니다.</p>
+<p>Ajax는 비동기 처리 모델 (또는 non-blocking 이라고도 함)을 사용하여 데이터를 처리합니다. 동기 처리 모델에서 브라우저는 자바스크립트 코드를 만나면 스크립트를 처리하기 전까지 다른 작업을 일시 중지하고, 자바스크립트 코드의 처리가 끝난 후 기존 작업을 진행합니다.</p>
+<p>반면에 Ajax를 사용하면 브라우저는 서버에 데이터를 요청한 뒤 페이지의 나머지를 로드하고 페이지와 사용자의 상호작용을 처리합니다. 웹서버가 사용자에게 데이터를 전달하면 이벤트가 발생하게 되며, 데이터를 처리할 함수를 호출하게 됩니다. 이를 다시 정리하면 아래와 같습니다.</p>
+<h3 id="Ajax의-장점"><a href="#Ajax의-장점" class="headerlink" title="Ajax의 장점"></a>Ajax의 장점</h3><p>Ajax를 이용하면 다음과 같은 장점이 있습니다.</p>
+<ol>
+<li><p>웹 페이지 전체를 다시 로딩하지 않고도, 웹 페이지의 일부분만을 갱신할 수 있습니다.</p>
+</li>
+<li><p>웹 페이지가 로드된 후에 서버로 데이터 요청을 보낼 수 있습니다.</p>
+</li>
+<li><p>웹 페이지가 로드된 후에 서버로부터 데이터를 받을 수 있습니다.</p>
+</li>
+<li><p>백그라운드 영역에서 서버로 데이터를 보낼 수 있습니다.</p>
+</li>
+</ol>
+<h3 id="Ajax-의-동작방식"><a href="#Ajax-의-동작방식" class="headerlink" title="Ajax 의 동작방식"></a>Ajax 의 동작방식</h3><ol>
+<li>요청(request) - 브라우저가 서버에 정보를 요청한다.</li>
+<li>서버의 동작 - 서버는 JSON, XML 등의 형식으로 데이터를 전달한다.</li>
+<li>응답(response) - 브라우저에서 이벤트가 발생하여 콘텐츠를 처리한다.</li>
+</ol>
+<hr>
+<h3 id="Ajax-의-구성요소"><a href="#Ajax-의-구성요소" class="headerlink" title="Ajax 의 구성요소"></a>Ajax 의 구성요소</h3><img src="https://i.esdrop.com/d/IO4qES3vWw.png" />
+
+<p> <em>AJAX 과정</em><br>#<br> 왼쪽 그림의 &lt;Ajax를 이용한 웹 응용 프로그램의 동작 원리&gt;는 다음과 같은 순서로 진행됩니다.</p>
+<ol>
+<li><p>: 사용자에 의한 요청 이벤트가 발생합니다.</p>
+</li>
+<li><p>: 요청 이벤트가 발생하면 이벤트 핸들러에 의해 자바스크립트가 호출됩니다.</p>
+</li>
+<li><p>: 자바스크립트는 XMLHttpRequest 객체를 사용하여 서버로 요청을 보냅니다.</p>
+<p>(이때 웹 브라우저는 요청을 보내고 나서, 서버의 응답을 기다릴 필요 없이 다른 작업을 처리할 수 있습니다.)</p>
+</li>
+<li><p>: 서버는 전달받은 XMLHttpRequest 객체를 가지고 Ajax 요청을 처리합니다.</p>
+</li>
+</ol>
+<p>5.와 6. : 서버는 처리한 결과를 HTML, XML 또는 JSON 형태의 데이터로 웹 브라우저에 전달합니다.</p>
+<p>(이때 전달되는 응답은 새로운 페이지를 전부 보내는 것이 아니라 필요한 데이터만을 전달합니다.)</p>
+<ol start="7">
+<li><p>: 서버로부터 전달받은 데이터를 가지고 웹 페이지의 일부분만을 갱신하는 자바스크립트를 호출합니다.</p>
+</li>
+<li><p>: 결과적으로 웹 페이지의 일부분만이 다시 로딩되어 표시됩니다.</p>
+</li>
+</ol>
+<hr>
+<h2 id="데이터-타입"><a href="#데이터-타입" class="headerlink" title="데이터 타입"></a>데이터 타입</h2><p>Ajax는 Async Javascript And XML의 약어로, 이름에 나와있는 것처럼 XML 형식으로 데이터를 주고 받을 수 있습니다. 하지만 최근에는 많은 경우 JSON (JavaScript Object Notation) 형식으로 데이터를 주고 받습니다.</p>
+<h3 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h3><p>JSON (JavaScript Object Notation)은 자바스크립트의 객체 표현식과 유사한 방식으로 데이터를 주고 받는 방법입니다. 자바스크립트 객체와 거의 유사하지만 몇가지 차이점이 존재합니다.</p>
+<p>JSON은 객체를 정의하지는 않습니다. 즉, 자바스크립트 객체가 아니라 객체 표현식으로 데이터를 표현합니다. 따라서 다른 도메인에서도 요청을 보낼 수 있습니다.</p>
+<p>JSON은 기존에 많이 사용하던 XML 문법보다 훨씬 간결한 문법을 가지고 있습니다. 다만, 문법에 예민한 편입니다.</p>
+<p>JSON 사용 시 악의적인 콘텐츠를 통한 공격이 있을 수 있으므로 주의해야 합니다.</p>
+<p>아래는 JSON의 기본적인 문법입니다. 코드를 손쉽게 이해할 수 있을겁니다.</p>
+<pre><code class="json">&#123;
+  &quot;key&quot;: &quot;반드시 큰따옴표로 둘러싸야한다&quot;,
+  &quot;value&quot;: &quot;값은 string, number, boolean, array, object, null이 올 수있다&quot;,
+  &quot;구분&quot;: &quot;키와 값은 : 을 이용해 구분하고 키/값 쌍은 , 로 구분한다&quot;,
+  &quot;name&quot;: &quot;Alice&quot;,
+  &quot;age&quot;: 10
+&#125;</code></pre>
+<pre><code class="json">&#123;
+  &quot;users&quot;: [
+    &#123;&quot;name&quot;: &quot;Alice&quot;, &quot;age&quot;: 10, &quot;gender&quot;: &quot;female&quot;&#125;,
+    &#123;&quot;name&quot;: &quot;Bob&quot;, &quot;age&quot;: 42, &quot;gender&quot;: &quot;male&quot;&#125;,
+    &#123;&quot;name&quot;: &quot;Chris&quot;, &quot;age&quot;: 21, &quot;gender&quot;: &quot;male&quot;&#125;
+  ]
+&#125;</code></pre>
+<h2 id="XML"><a href="#XML" class="headerlink" title="XML"></a>XML</h2><p>XML (eXtensible Markup Language)은 HTML과 유사한 구조를 가진 마크업 언어입니다. XML 은 모든 종류의 데이터 형식을 기술하기 위한 마크업 언어로써 개발되어졌습니다.</p>
+<p>유연한 데이터 타입을 기술 할 수 있어서 복잡한 데이터 표현이 가능며, HTML과 동일한 방식의 DOM 메서드를 이용해 데이터의 처리가 가능합니다.</p>
+<p>하지만 태그 형식으로 데이터를 저장하므로 실제 데이터 이외의 문자들이 사용되며 데이터가 많아질 경우 많은 양의 대역폭을 소비하게 되는 단점도 있습니다.</p>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+&lt;users&gt;
+  &lt;user&gt;
+    &lt;name&gt;Alice&lt;/name&gt;
+    &lt;age&gt;10&lt;/age&gt;
+    &lt;gender&gt;female&lt;/gender&gt;
+  &lt;/user&gt;
+  &lt;user&gt;
+    &lt;name&gt;Bob&lt;/name&gt;
+    &lt;age&gt;42&lt;/age&gt;
+    &lt;gender&gt;male&lt;/gender&gt;
+  &lt;/user&gt;
+  &lt;user&gt;
+    &lt;name&gt;Chris&lt;/name&gt;
+    &lt;age&gt;21&lt;/age&gt;
+    &lt;gender&gt;male&lt;/gender&gt;
+  &lt;/user&gt;
+&lt;/users&gt;</code></pre>
+<p>더 자세한 내용은 다음 <a href="https://jakezo.github.io/2021/01/02/JSP-08/">다음 포스트</a> 를 참조하길 바랍니다.</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -189,13 +272,20 @@
                     </dl>
                 </div>
                 <ul>
-                    <li><a href="/">15 <p>Articles</p></a></li>
+                    <li><a href="/">18 <p>Articles</p></a></li>
                     <li><a href="/categories">3 <p>Categories</p></a></li>
-                    <li><a href="/tags">4 <p>Tags</p></a></li>
+                    <li><a href="/tags">11 <p>Tags</p></a></li>
                 </ul>
             </div>
             
             
+            
+            <div class="box sticky animated fadeInRight faster">
+                <div id="toc" class="subbox">
+                    <h4>Contents</h4>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%97%8F-Ajax"><span class="toc-number">1.</span> <span class="toc-text">● Ajax</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ajax%EC%9D%98-%EC%9E%A5%EC%A0%90"><span class="toc-number">1.1.</span> <span class="toc-text">Ajax의 장점</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ajax-%EC%9D%98-%EB%8F%99%EC%9E%91%EB%B0%A9%EC%8B%9D"><span class="toc-number">1.2.</span> <span class="toc-text">Ajax 의 동작방식</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ajax-%EC%9D%98-%EA%B5%AC%EC%84%B1%EC%9A%94%EC%86%8C"><span class="toc-number">1.3.</span> <span class="toc-text">Ajax 의 구성요소</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85"><span class="toc-number">2.</span> <span class="toc-text">데이터 타입</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#JSON"><span class="toc-number">2.1.</span> <span class="toc-text">JSON</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#XML"><span class="toc-number">3.</span> <span class="toc-text">XML</span></a></li></ol>
+                </div>
+            </div>
             
             
         </div>

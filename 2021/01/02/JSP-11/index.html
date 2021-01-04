@@ -1,0 +1,801 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>JSP-11  MVC 패턴 - Re-Coder</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Jakezo Obsidian,"> 
+    <meta name="description" content="MVC 패턴을 배워봅시다.
+
+  MVC패턴 그림을 보고 구조를 이해해보자
+
+
+MVC 패턴의 의미MVC는 Model-View-Controller 의 약자입니다.개발 할 때, 3가지,"> 
+    <meta name="author" content="Jakezo"> 
+    <link rel="alternative" href="atom.xml" title="Re-Coder" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link href="https://fonts.loli.net/css?family=Roboto+Mono|Rubik&display=swap" rel="stylesheet">
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1429596_nzgqgvnmkjb.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.7.2/animate.min.css">
+
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/codemirror.min.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/theme/dracula.css">
+
+    
+<link rel="stylesheet" href="/css/obsidian.css">
+
+    
+<link rel="stylesheet" href="/css/ball-atom.min.css">
+
+    
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body class="loading">
+    <div class="loader">
+        <div class="la-ball-atom la-2x">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <span id="config-title" style="display:none">Re-Coder</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div class="scrollbar gradient-bg-rev"></div>
+<div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <div class="navigation animated fadeIn fast delay-1s">
+        <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://jakezo.github.io">
+        <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
+        <h3 class="subtitle">JSP-11  MVC 패턴</h3>
+        <div class="social">
+            <!--        <div class="like-icon">-->
+            <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+            <!--        </div>-->
+            <div>
+                <div class="share">
+                    
+                        <a href="javascript:;" class="iconfont icon-share1"></a>
+                        <div class="share-component-cc" data-disabled="facebook,douban,linkedin,diandian,tencent,google"></div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="section">
+        <div class=article-header-wrapper>
+    <div class="article-header">
+        <div class="article-cover animated fadeIn" style="
+            animation-delay: 600ms;
+            animation-duration: 1.2s;
+            background-image: 
+                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+                url(/img/cover.jpg) ">
+        </div>
+        <div class="else">
+            <p class="animated fadeInDown">
+                
+                <a href="/categories/JAVA-WEB"><b>「
+                    </b>JAVA-WEB<b> 」</b></a>
+                
+                January 02, 2021
+            </p>
+            <h3 class="post-title animated fadeInDown"><a href="/2021/01/02/JSP-11/" title="JSP-11  MVC 패턴" class="">JSP-11  MVC 패턴</a>
+            </h3>
+            
+            <p class="post-count animated fadeInDown">
+                
+                <span>
+                    <b class="iconfont icon-text2"></b> <i>Words count</i>
+                    15k
+                </span>
+                
+                
+                <span>
+                    <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
+                    13 mins.
+                </span>
+                
+                
+                
+                <span id="busuanzi_container_page_pv">
+                    <b class="iconfont icon-read"></b> <i>Read count</i>
+                    <span id="busuanzi_value_page_pv">0</span>
+                </span>
+                
+            </p>
+            
+            
+            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/JSP/" rel="tag">JSP</a></li></ul>
+            
+        </div>
+    </div>
+</div>
+
+<div class="screen-gradient-after">
+    <div class="screen-gradient-content">
+        <div class="screen-gradient-content-inside">
+            <div class="bold-underline-links screen-gradient-sponsor">
+                <p>
+                    <span class="animated fadeIn delay-1s"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="article">
+    <div class='main'>
+        <div class="content markdown animated fadeIn">
+            <h2 id="MVC-패턴을-배워봅시다"><a href="#MVC-패턴을-배워봅시다" class="headerlink" title="MVC 패턴을 배워봅시다."></a>MVC 패턴을 배워봅시다.</h2><img src="https://i.esdrop.com/d/f379sgqEJP.png"/>
+
+<p>  <em>MVC패턴 그림을 보고 구조를 이해해보자</em></p>
+<img src="https://i.esdrop.com/d/eEy443vxa4.png"/>
+
+<h3 id="MVC-패턴의-의미"><a href="#MVC-패턴의-의미" class="headerlink" title="MVC 패턴의 의미"></a>MVC 패턴의 의미</h3><p><code>MVC</code>는 Model-View-Controller 의 약자입니다.<br>개발 할 때, 3가지 형태로 역할을 나누어 개발하는 방법론입니다.<br>비지니스 처리 로직과 사용자 인터페이스 요소들을 분리시켜 서로 영향없이 개발 하기 수월하다는 장점이 있습니다.<br>Model은 어플리케이션이 “무엇”을 할 것인지를 정의 합니다. </p>
+<p>내부 비지니스 로직을 처리하기 위한 역할을 할 것입니다.<br>처리되는 알고리즘, DB 와 상호작용(CRUD Create Read Update Delete), 데이터 등등..<br>Controller는 모델이 “어떻게” 처리할 지를 알려주는 역할을 할 것이고, 모바일에서는 화면의 로직처리 부분입니다. 화면에서 사용자의 요청을 받아서 처리되는 부분을 구현되게 되며, 요청 내용을 분석해서 Model과 View에 업데이트 요청을 하게 됩니다.</p>
+<p>사용자로 부터의 입력 을 받고 Model 또는 View중개인 역할<br>View는 화면에 “무엇” 인가를 “보여주기 위한 역할”을 합니다. 컨트롤러 하위에 종속되어, 모델이나 컨트롤러가 보여주려고 하는 모든 필요한 것들을 보여줄 것입니다.<br>최종 사용자에게 “무엇”을 화면(UI)으로 보여줌<br>그리고 Controller는 Model과 View가 각각 무엇을 해야 할 지를 알고 있고, 통제합니다. 비지니스 로직을 처리하는 Model과 완전히 UI에 의존적인 View가 서로 직접 이야기 할 수 없게 합니다.</p>
+<h3 id="◆-JDBC-란-무엇일까요"><a href="#◆-JDBC-란-무엇일까요" class="headerlink" title="◆ JDBC 란 무엇일까요"></a>◆ JDBC 란 무엇일까요</h3><p>JDBC(Java Database Connectivity)는 자바에서 데이터베이스에 접속할 수 있도록 하는 자바 API이다. JDBC는 데이터베이스에서 자료를 쿼리하거나 업데이트하는 방법을 제공한다.</p>
+<h3 id="◆-MyBatis란-무엇이죠"><a href="#◆-MyBatis란-무엇이죠" class="headerlink" title="◆  MyBatis란 무엇이죠?"></a>◆  MyBatis란 무엇이죠?</h3><p>마이바티스는 개발자가 지정한 SQL, 저장프로시저 그리고 몇가지 고급 매핑을 지원하는 퍼시스턴스 프레임워크이다. 마이바티스는 JDBC로 처리하는 상당부분의 코드와 파라미터 설정및 결과 매핑을 대신해준다. 마이바티스는 데이터베이스 레코드에 원시타입과 Map 인터페이스 그리고 자바 POJO 를 설정해서 매핑하기 위해 XML과 애노테이션을 사용할 수 있다.</p>
+<ol>
+<li>객체 지향 언어인 자바의 관계형 데이터 베이스 프로그래밍을 보다 쉽게 도와주는 프레임 워크</li>
+</ol>
+<ol start="2">
+<li>자바에서는 관계형 데이터베이스 프로그래밍을 하기위해 JDBC를 제공</li>
+</ol>
+<blockquote>
+<p>MyBatis는 JDBC의 편한 사용을 위함</p>
+</blockquote>
+<hr>
+<h2 id="사용환경을-위한-준비"><a href="#사용환경을-위한-준비" class="headerlink" title="사용환경을 위한 준비"></a>사용환경을 위한 준비</h2><h3 id="jar-준비"><a href="#jar-준비" class="headerlink" title="jar 준비"></a>jar 준비</h3><ul>
+<li>mybatis.jar</li>
+<li>ojdbc6.jar</li>
+<li>taglib.jar<ul>
+<li>taglib-standard-impl.jar</li>
+<li>taglib-standard-jstlel.jar</li>
+<li>taglib-standard-spec.jar</li>
+</ul>
+</li>
+<li>json-simple.jar</li>
+</ul>
+<h3 id="MyBatis"><a href="#MyBatis" class="headerlink" title="MyBatis"></a>MyBatis</h3><blockquote>
+<p>mybatis를 사용하기 위한 설정<br>DBService.java 객체 생성<br>sqlmap-config.xml, member.xml 설정</p>
+</blockquote>
+<ul>
+<li>DBService.java</li>
+</ul>
+<pre><code class="java">package mybatis.config;
+
+import java.io.InputStream;
+
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+
+public class DBService &#123;
+
+    //DBService: SqlSessionFactory 반환
+
+    private SqlSessionFactory factory;
+
+    // DBService 생성자: Singleton
+
+    private DBService() &#123;
+        try &#123;
+            String resource = &quot;mybatis/config/sqlmap-config.xml&quot;;
+            InputStream inputStream = Resources.getResourceAsStream(resource);
+            factory = new SqlSessionFactoryBuilder().build(inputStream);
+        &#125; catch(Exception e) &#123;
+            e.printStackTrace();
+        &#125;
+    &#125;
+    private static DBService service = new DBService();
+    public static DBService getInstance() &#123;
+
+        return service;
+    &#125;
+
+    public SqlSessionFactory getFactory() &#123;
+        return factory;
+    &#125;
+
+&#125;
+</code></pre>
+<ul>
+<li>sqlmap-config.xml</li>
+</ul>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE configuration 
+PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot; 
+ &quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot; &gt;
+
+&lt;configuration&gt;
+
+    &lt;environments default=&quot;development&quot;&gt;
+        &lt;environment id=&quot;development&quot;&gt;
+            &lt;transactionManager type=&quot;JDBC&quot;/&gt;
+            &lt;dataSource type=&quot;POOLED&quot;&gt;
+                &lt;property name=&quot;driver&quot; value=&quot;oracle.jdbc.driver.OracleDriver&quot;/&gt;
+                &lt;property name=&quot;url&quot; value=&quot;jdbc:oracle:thin:@localhost:1521:xe&quot;/&gt;
+                &lt;property name=&quot;username&quot; value=&quot;spring&quot;/&gt;
+                &lt;property name=&quot;password&quot; value=&quot;oracle&quot;/&gt;
+            &lt;/dataSource&gt;
+        &lt;/environment&gt;
+    &lt;/environments&gt;
+
+    &lt;mappers&gt;
+        &lt;mapper resource=&quot;mybatis/mapper/member.xml&quot;/&gt;
+    &lt;/mappers&gt;
+
+&lt;/configuration&gt;
+</code></pre>
+<ul>
+<li>mapper.xml(member)</li>
+</ul>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE mapper 
+PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot; 
+&quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot; &gt;
+
+&lt;mapper namespace=&quot;mybatis.mapper.member&quot;&gt;
+&lt;/mapper&gt;</code></pre>
+<h3 id="DB"><a href="#DB" class="headerlink" title="DB"></a>DB</h3><pre><code class="sql">drop sequence member_seq;
+create sequence member_seq 
+start with 1
+increment by 1
+maxvalue 999999
+nocycle
+nocache;
+
+
+drop table member;
+create table member
+(
+    mno number primary key,
+    mid varchar2(30) not null unique,
+    mpw varchar2(30) not null,
+    mname varchar2(30),
+    memail varchar2(50) not null unique,
+    mphone varchar2(20),
+    maddress varchar2(100),
+    mregdate date
+);
+
+insert into member values(member_seq.nextval, &#39;admin&#39;, &#39;1111&#39;, &#39;관리자&#39;, &#39;admin@myhome.com&#39;, &#39;010-0000-0000&#39;, &#39;부천&#39;, sysdate);</code></pre>
+<h3 id="DAO"><a href="#DAO" class="headerlink" title="DAO"></a>DAO</h3><pre><code class="java">
+public class MemberDao &#123;
+
+private SqlSessionFactory factory;
+
+    private MemberDao()    &#123;
+        factory = DBService.getInstance().getFactory();
+    &#125;
+    private static MemberDao memberDao = new MemberDao();
+
+    public static MemberDao getInstance() &#123;
+
+        return memberDao;
+    &#125;
+
+&#125;</code></pre>
+<h3 id="DTO"><a href="#DTO" class="headerlink" title="DTO"></a>DTO</h3><pre><code class="java">package dto;
+
+import java.sql.Date;
+
+public class MemberDto &#123;
+
+    private int mNo;
+    private String mId;
+    private String mPw;
+    private String mName;
+    private String mEmail;
+    private String mPhone;
+    private String mAddress;
+    private Date mRegdate;
+
+    public int getmNo() &#123;
+        return mNo;
+    &#125;
+    public void setmNo(int mNo) &#123;
+        this.mNo = mNo;
+    &#125;
+    ...
+
+&#125;</code></pre>
+<hr>
+<h2 id="MVC-패턴-구축"><a href="#MVC-패턴-구축" class="headerlink" title="MVC 패턴 구축"></a>MVC 패턴 구축</h2><h3 id="Controller"><a href="#Controller" class="headerlink" title="- Controller"></a>- Controller</h3><pre><code class="java">package controller;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import command.member.MemberCommand;
+import command.member.MemberFindIdCommand;
+import command.member.MemberLoginCommand;
+import command.member.MemberLogoutCommand;
+import common.PathNRedirect;
+
+@WebServlet(&quot;*.member&quot;)
+public class MemberController extends HttpServlet &#123;
+    private static final long serialVersionUID = 1L;
+
+    public MemberController() &#123;
+        super();
+        // TODO Auto-generated constructor stub
+    &#125;
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException &#123;
+        request.setCharacterEncoding(&quot;utf-8&quot;);
+
+        String requestURI = request.getRequestURI();
+        String context = request.getContextPath();
+        String cmd = requestURI.substring(context.length());
+
+        MemberCommand command = null;
+        PathNRedirect pathNRedirect = null;
+
+    &#125;
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException &#123;
+        // TODO Auto-generated method stub
+        doGet(request, response);
+    &#125;
+
+&#125;
+</code></pre>
+<blockquote>
+<p>controller의 doGet()메소드의 pathNRedirect</p>
+</blockquote>
+<pre><code class="java">package common;
+
+public class PathNRedirect &#123;
+
+    private String path;
+    private boolean isRedirect;
+
+    public String getPath() &#123;
+        return path;
+    &#125;
+    public void setPath(String path) &#123;
+        this.path = path;
+    &#125;
+    public boolean isRedirect() &#123;
+        return isRedirect;
+    &#125;
+    public void setRedirect(boolean isRedirect) &#123;
+        this.isRedirect = isRedirect;
+    &#125;
+
+
+&#125;
+</code></pre>
+<h3 id="Command"><a href="#Command" class="headerlink" title="- Command"></a>- Command</h3><pre><code class="java">package command.member;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import common.PathNRedirect;
+
+public interface MemberCommand &#123;
+
+    public PathNRedirect execute(HttpServletRequest request, HttpServletResponse response);
+&#125;
+</code></pre>
+<h3 id="view"><a href="#view" class="headerlink" title="- view"></a>- view</h3><blockquote>
+<p>index 파일 - header와 footer를 include 해준다.</p>
+</blockquote>
+<pre><code class="html">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+    pageEncoding=&quot;UTF-8&quot;%&gt;
+    &lt;%@ taglib uri=&quot;http://java.sun.com/jsp/jstl/core&quot;    prefix=&quot;c&quot; %&gt;
+&lt;!-- 머리글 포함(파라미터(title)가 있으므로 동적 페이지 포함  --&gt;
+&lt;jsp:include page=&quot;template/header.jsp&quot;/&gt;
+&lt;c:if test=&quot;$&#123;loginDto.mId eq &#39;admin&#39; &#125;&quot;&gt;
+    &lt;h1&gt;관리자님 환영합니다.&lt;/h1&gt;
+    &lt;a href=&quot;/MyHome/memberList.admin&quot;&gt;회원관리&lt;/a&gt;&lt;br&gt;
+    &lt;a href=&quot;/MyHome/guestList.admin&quot;&gt;방명록관리&lt;/a&gt;&lt;br&gt;
+    &lt;a href=&quot;/MyHome/bbsList.admin&quot;&gt;BBS관리&lt;/a&gt;&lt;br&gt;
+    &lt;a href=&quot;/MyHome/boardList.admin&quot;&gt;게시판관리&lt;/a&gt;&lt;br&gt;
+
+&lt;/c:if&gt;
+
+&lt;c:if test=&quot;$&#123;loginDto.mId ne &#39;admin&#39;&#125;&quot; &gt;
+
+            &lt;h1&gt;MyHome에 오신 걸 환영합니다.&lt;/h1&gt;
+&lt;/c:if&gt;
+
+&lt;!-- 바닥글 포함(파라미터가 없으므로 정적 페이지 포함 --&gt;    
+&lt;%@include file=&quot;template/footer.jsp&quot; %&gt;
+
+</code></pre>
+<br>
+
+<blockquote>
+<p>header.jsp</p>
+</blockquote>
+<pre><code class="html">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+    pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;%@ taglib uri=&quot;http://java.sun.com/jsp/jstl/core&quot; prefix=&quot;c&quot; %&gt;
+    &lt;%
+        request.setCharacterEncoding(&quot;utf-8&quot;);
+        String title = request.getParameter(&quot;title&quot;);
+        if(title == null || title.isEmpty())&#123;
+            title = &quot;환영합니다.&quot;;
+        &#125;
+        pageContext.setAttribute(&quot;title&quot;, title);
+    %&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;$&#123;title &#125;&lt;/title&gt;
+&lt;!-- css --&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;asset/style/common.css?ver0.1&quot;&gt;
+&lt;script src=&quot;https://code.jquery.com/jquery-3.5.1.min.js&quot; integrity=&quot;sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    function fn_logout(f)&#123;
+        if(confirm(&#39;로그아웃 하시겠습니까?&#39;))&#123;
+            f.action = &#39;/MyHome/logout.member&#39;;
+            f.submit();
+        &#125;
+    &#125;
+    function fn_signOut()&#123;
+        location.href= &#39;/MyHome/signOutPage.member&#39;;
+
+&#125;
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class=&quot;wrap&quot;&gt;
+        &lt;img alt=&quot;고양이&quot; src=&quot;asset/image/cat-3059075_1920.jpg&quot; style=&quot;height: 100px; width: 250px&quot;&gt;
+        &lt;div class=&quot;head-wrap&quot;&gt;
+            &lt;!-- 로그인 안 된 상태 --&gt;
+            &lt;c:if test=&quot;$&#123;loginDto eq null &#125;&quot;&gt;
+            &lt;input type=&quot;button&quot; value=&quot;MyHome로그인&quot; onclick=&quot;location.href=&#39;/MyHome/loginPage.member&#39;&quot;/&gt;
+            &lt;input type=&quot;button&quot; value=&quot;회원가입&quot; onclick=&quot;location.href=&#39;/MyHome/signUpPage.member&#39;&quot;/&gt;
+            &lt;input type=&quot;button&quot; value=&quot;마이페이지&quot; onclick=&quot;location.href=&#39;/MyHome/loginPage.member&#39;&quot;/&gt;
+            &lt;input type=&quot;button&quot; value=&quot;방명록&quot; onclick=&quot;location.href=&#39;/MyHome/&#39;&quot;/&gt;
+            &lt;input type=&quot;button&quot; value=&quot;BBS&quot; onclick=&quot;location.href=&#39;/MyHome/&#39;&quot;/&gt;
+            &lt;input type=&quot;button&quot; value=&quot;게시판&quot; onclick=&quot;location.href=&#39;/MyHome/&#39;&quot;/&gt;
+            &lt;!-- 2.로그인 상태 --&gt;
+            &lt;/c:if&gt;
+            &lt;c:if test=&quot;$&#123;loginDto ne null &#125;&quot;&gt;
+                $&#123;loginDto.mName &#125; 님 반갑습니다.&amp;nbsp;&amp;nbsp;
+            &lt;form&gt;
+                &lt;input type=&quot;button&quot; value=&quot;로그아웃&quot; onclick=&quot;fn_logout(this.form)&quot;/&gt;
+                &lt;input type=&quot;button&quot; value=&quot;회원탈퇴&quot; onclick=&quot;fn_signOut()&quot;/&gt;
+                &lt;input type=&quot;button&quot; value=&quot;마이페이지&quot; onclick=&quot;location.href=&#39;/MyHome/myPage.member&#39;&quot;/&gt;
+                &lt;input type=&quot;button&quot; value=&quot;방명록&quot; onclick=&quot;location.href=&#39;/MyHome/&#39;&quot;/&gt;
+                &lt;input type=&quot;button&quot; value=&quot;BBS&quot; onclick=&quot;location.href=&#39;/MyHome/&#39;&quot;/&gt;
+                &lt;input type=&quot;button&quot; value=&quot;게시판&quot; onclick=&quot;location.href=&#39;/MyHome/&#39;&quot;/&gt;
+            &lt;/form&gt;
+            &lt;/c:if&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;body-wrap&quot;&gt;</code></pre>
+<br/>
+
+<blockquote>
+<p>footer.jsp</p>
+</blockquote>
+<pre><code class="html">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+    pageEncoding=&quot;UTF-8&quot;%&gt;
+
+    &lt;/div&gt;
+        &lt;div class=&quot;foot-wrap&quot;&gt;
+
+            개인정보보호정책 | 약관 | 저작권
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls"
+                data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+            <ul id="audio-list" style="display:none">
+                
+                
+                <li title='0' data-url='/statics/chengdu.mp3'></li>
+                
+                    
+            </ul>
+            
+            
+            
+    <div id='gitalk-container' class="comment link"
+        data-ae='true'
+        data-ci='b71d412ba1e7a1a6a699'
+        data-cs='b5058587509d4ec60e52677d4c79d46bae266b57'
+        data-r='gitalkHexoComment'
+        data-o='Jakezo'
+        data-a='Jakezo'
+        data-d=''
+    >Comments</div>
+
+
+            
+            
+        </div>
+        <div class="sidebar">
+            <div class="box animated fadeInRight">
+                <div class="subbox">
+                    <img src="/img/logo_icon.png" height=300 width=300></img>
+                    <p>Jakezo</p>
+                    <span>Think like an artist, develop like an artisan</span>
+                    <dl>
+                        <dd><a href="https://github.com/Jakezo" target="_blank"><span
+                                    class=" iconfont icon-github"></span></a></dd>
+                        <dd><a href="https://twitter.com/TriDiamond6" target="_blank"><span
+                                    class=" iconfont icon-twitter"></span></a></dd>
+                        <dd><a href="https://stackoverflow.com/users/7602324/tridiamond?tab=profile" target="_blank"><span
+                                    class=" iconfont icon-stack-overflow"></span></a></dd>
+                    </dl>
+                </div>
+                <ul>
+                    <li><a href="/">18 <p>Articles</p></a></li>
+                    <li><a href="/categories">3 <p>Categories</p></a></li>
+                    <li><a href="/tags">11 <p>Tags</p></a></li>
+                </ul>
+            </div>
+            
+            
+            
+            <div class="box sticky animated fadeInRight faster">
+                <div id="toc" class="subbox">
+                    <h4>Contents</h4>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#MVC-%ED%8C%A8%ED%84%B4%EC%9D%84-%EB%B0%B0%EC%9B%8C%EB%B4%85%EC%8B%9C%EB%8B%A4"><span class="toc-number">1.</span> <span class="toc-text">MVC 패턴을 배워봅시다.</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MVC-%ED%8C%A8%ED%84%B4%EC%9D%98-%EC%9D%98%EB%AF%B8"><span class="toc-number">1.1.</span> <span class="toc-text">MVC 패턴의 의미</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%97%86-JDBC-%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%EC%9A%94"><span class="toc-number">1.2.</span> <span class="toc-text">◆ JDBC 란 무엇일까요</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%97%86-MyBatis%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B4%EC%A3%A0"><span class="toc-number">1.3.</span> <span class="toc-text">◆  MyBatis란 무엇이죠?</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%82%AC%EC%9A%A9%ED%99%98%EA%B2%BD%EC%9D%84-%EC%9C%84%ED%95%9C-%EC%A4%80%EB%B9%84"><span class="toc-number">2.</span> <span class="toc-text">사용환경을 위한 준비</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#jar-%EC%A4%80%EB%B9%84"><span class="toc-number">2.1.</span> <span class="toc-text">jar 준비</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MyBatis"><span class="toc-number">2.2.</span> <span class="toc-text">MyBatis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DB"><span class="toc-number">2.3.</span> <span class="toc-text">DB</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DAO"><span class="toc-number">2.4.</span> <span class="toc-text">DAO</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DTO"><span class="toc-number">2.5.</span> <span class="toc-text">DTO</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MVC-%ED%8C%A8%ED%84%B4-%EA%B5%AC%EC%B6%95"><span class="toc-number">3.</span> <span class="toc-text">MVC 패턴 구축</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Controller"><span class="toc-number">3.1.</span> <span class="toc-text">- Controller</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Command"><span class="toc-number">3.2.</span> <span class="toc-text">- Command</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#view"><span class="toc-number">3.3.</span> <span class="toc-text">- view</span></a></li></ol></li></ol>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+</div>
+    <div id="back-to-top" class="animated fadeIn faster">
+        <div class="flow"></div>
+        <span class="percentage animated fadeIn faster">0%</span>
+        <span class="iconfont icon-top02 animated fadeIn faster"></span>
+    </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":0.85}});</script></body>
+<footer>
+    <p class="copyright" id="copyright">
+        &copy; 2021
+        <span class="gradient-text">
+            Jakezo
+        </span>.
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+        Theme
+        <span class="gradient-text">
+            <a href="https://github.com/TriDiamond/hexo-theme-obsidian" title="Obsidian" target="_blank" rel="noopener">Obsidian</a>
+        </span>
+        <small><a href="https://github.com/TriDiamond/hexo-theme-obsidian/blob/master/CHANGELOG.md" title="v1.4.4" target="_blank" rel="noopener">v1.4.4</a></small>
+    </p>
+</footer>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script>
+  MathJax.Hub.Config({
+    "HTML-CSS": {
+      preferredFont: "TeX",
+      availableFonts: ["STIX", "TeX"],
+      linebreaks: {
+        automatic: true
+      },
+      EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+      inlineMath: [
+        ["$", "$"],
+        ["\\(", "\\)"]
+      ],
+      processEscapes: true,
+      ignoreClass: "tex2jax_ignore|dno",
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      noUndefined: {
+        attributes: {
+          mathcolor: "red",
+          mathbackground: "#FFEEEE",
+          mathsize: "90%"
+        }
+      },
+      Macros: {
+        href: "{}"
+      }
+    },
+    messageStyle: "none"
+  });
+</script>
+<script>
+  function initialMathJax() {
+    MathJax.Hub.Queue(function () {
+      var all = MathJax.Hub.getAllJax(),
+        i;
+      // console.log(all);
+      for (i = 0; i < all.length; i += 1) {
+        console.log(all[i].SourceElement().parentNode)
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  }
+
+  function reprocessMathJax() {
+    if (typeof MathJax !== 'undefined') {
+      MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+    }
+  }
+</script>
+
+
+ 
+<link rel="stylesheet" href="//cdn.bootcss.com/gitalk/1.5.0/gitalk.min.css">
+ 
+<script src="//cdn.bootcss.com/gitalk/1.5.0/gitalk.min.js"></script>
+  
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/obsidian.js"></script>
+<script src="/js/jquery.truncate.js"></script>
+<script src="/js/search.js"></script>
+ 
+<script src="//cdn.bootcss.com/typed.js/2.0.10/typed.min.js"></script>
+ 
+<script src="//cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script>
+ 
+<script src="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+
+<script src="https://cdn.bootcss.com/codemirror/5.48.4/codemirror.min.js"></script>
+ 
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/javascript/javascript.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/css/css.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/xml/xml.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/htmlmixed/htmlmixed.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/clike/clike.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/php/php.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/shell/shell.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/python/python.min.js"></script>
+   
+<script src="/js/busuanzi.min.js"></script>
+
+<script>
+  $(document).ready(function () {
+    if ($('span[id^="busuanzi_"]').length) {
+      initialBusuanzi();
+    }
+  });
+</script>
+ 
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/default-skin/default-skin.min.css">
+
+
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+ 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="//www.googletagmanager.com/gtag/js?id=UA-149874671-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-149874671-1');
+</script>
+ 
+
+<script>
+  function initialTyped() {
+    var typedTextEl = $('.typed-text');
+    if (typedTextEl && typedTextEl.length > 0) {
+      var typed = new Typed('.typed-text', {
+        strings: ['Think like an artist, develop like an artisan', 'It doesn&#39;t matter how slowly you go as long as you don&#39;t stop'],
+        typeSpeed: 90,
+        loop: true,
+        loopCount: Infinity,
+        backSpeed: 20,
+      });
+    }
+  }
+
+  if ($('.article-header') && $('.article-header').length) {
+    $(document).ready(function () {
+      initialTyped();
+    });
+  }
+</script>
+
+
+
+
+ <!-- 例：百度统计 --> <script> var _hmt = _hmt || []; (function() { var hm = document.createElement("script"); hm.src = "https://hm.baidu.com/hm.js?your_code"; var s = document.getElementsByTagName("script")[0];  s.parentNode.insertBefore(hm, s); })(); </script> 
+
+</html>

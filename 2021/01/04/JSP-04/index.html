@@ -5,12 +5,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>JSP-04 - Re-Coder</title>
+    <title>JSP-04 SESSION - Re-Coder</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Jakezo Obsidian,"> 
-    
+    <meta name="description" content="Session 이란 무엇인가
+데이터를 저장하는 4개 영역 중 하나이다  (pageContext, application, request, session)
+서버 측 영역 (쿠키에 비,"> 
     <meta name="author" content="Jakezo"> 
     <link rel="alternative" href="atom.xml" title="Re-Coder" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -58,7 +60,7 @@
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://jakezo.github.io">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">JSP-04</h3>
+        <h3 class="subtitle">JSP-04 SESSION</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -88,24 +90,25 @@
         <div class="else">
             <p class="animated fadeInDown">
                 
-                <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
+                <a href="/categories/JAVA-WEB"><b>「
+                    </b>JAVA-WEB<b> 」</b></a>
                 
                 January 04, 2021
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2021/01/04/JSP-04/" title="JSP-04" class="">JSP-04</a>
+            <h3 class="post-title animated fadeInDown"><a href="/2021/01/04/JSP-04/" title="JSP-04 SESSION" class="">JSP-04 SESSION</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    0
+                    3.3k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    1 mins.
+                    3 mins.
                 </span>
                 
                 
@@ -117,6 +120,8 @@
                 
             </p>
             
+            
+            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/JSP/" rel="tag">JSP</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Session/" rel="tag">Session</a></li></ul>
             
         </div>
     </div>
@@ -137,7 +142,86 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            
+            <h2 id="Session-이란-무엇인가"><a href="#Session-이란-무엇인가" class="headerlink" title="Session 이란 무엇인가"></a>Session 이란 무엇인가</h2><ol>
+<li>데이터를 저장하는 4개 영역 중 하나이다  (pageContext, application, request, session)</li>
+<li>서버 측 영역 (쿠키에 비해 보안이 된다)</li>
+<li>웹 브라우저가 켜져 있는 동안 유지된다.</li>
+<li>session에 데이터 저장하기<br> setAttribute(“속성명”, 값); -&gt; 속성을 변수처럼 사용</li>
+<li>session의 데이터 알아내기<br> getAttribute(“속성명”) -&gt; 모든 속성은 Object  타입으로 저장되므로 정상적인 사용을 위해서 캐스팅이 필요</li>
+</ol>
+<hr>
+<h3 id="Session-A-jsp"><a href="#Session-A-jsp" class="headerlink" title="Session A.jsp"></a>Session A.jsp</h3><pre><code class="html">&lt;body&gt;
+
+    &lt;form action=&quot;/06_SESSION/ex01/02_session_B.jsp&quot;&gt;
+        &lt;input type=&quot;text&quot; name=&quot;data&quot; /&gt;
+        &lt;button&gt;세션에 저장하기&lt;/button&gt;
+
+    &lt;/form&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h3 id="Session-B-jsp"><a href="#Session-B-jsp" class="headerlink" title="Session B.jsp"></a>Session B.jsp</h3><pre><code class="html">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+    pageEncoding=&quot;UTF-8&quot;%&gt;
+
+    &lt;%
+        request.setCharacterEncoding(&quot;UTF-8&quot;);
+
+        String data = request.getParameter(&quot;data&quot;);
+
+        // 세션에 담기
+        session.setAttribute(&quot;data&quot;, data);
+
+        // 화면 이동
+        // 기존의 request 정보를 넘기지 않는 이동
+        response.sendRedirect(&quot;/06_SESSION/ex01/02_session_C.jsp&quot;);
+
+    %&gt;</code></pre>
+<h3 id="Session-C-jsp"><a href="#Session-C-jsp" class="headerlink" title="Session C.jsp"></a>Session C.jsp</h3><pre><code class="html">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+    pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;Insert title here&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;%
+        request.setCharacterEncoding(&quot;utf-8&quot;);
+
+        String data = &quot;데이터 없음&quot;;
+
+        if (session.getAttribute(&quot;data&quot;) != null ) &#123;
+            data = session.getAttribute(&quot;data&quot;).toString();
+            //data = (String)session.getAttribute(&quot;data&quot;);
+        &#125;
+    %&gt;
+
+    &lt;h3&gt;세션의 data : &lt;%=data%&gt;&lt;/h3&gt;
+
+    &lt;form action=&quot;/06_SESSION/ex01/02_session_D.jsp&quot;&gt;
+        &lt;button&gt;세션 data 삭제하기&lt;/button&gt;
+    &lt;/form&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h3 id="Session-D-jsp"><a href="#Session-D-jsp" class="headerlink" title="Session D.jsp"></a>Session D.jsp</h3><pre><code class="html">        // 1. 특정 속성만 제거하기
+        session.removeAttribute(&quot;data&quot;);
+
+        // 2. 세션 전부 초기화하기
+        session.invalidate();
+
+        // 3. 이전 페이지로 이동
+        response.sendRedirect(&quot;/06_SESSION/ex01/02_session_C.jsp&quot;);
+</code></pre>
+<hr>
+<h2 id="결과"><a href="#결과" class="headerlink" title="결과"></a>결과</h2><h3 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h3><img src="https://i.esdrop.com/d/FxBiUSL7vD.png"/>
+
+<h3 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h3><img src="https://i.esdrop.com/d/scsAgpRNzm.png"/>
+
+<h3 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h3><img src="https://i.esdrop.com/d/MfZRMAxi9o.png"/>
+
+
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
                 data-autoplay="false">
@@ -184,13 +268,20 @@
                     </dl>
                 </div>
                 <ul>
-                    <li><a href="/">15 <p>Articles</p></a></li>
+                    <li><a href="/">18 <p>Articles</p></a></li>
                     <li><a href="/categories">3 <p>Categories</p></a></li>
-                    <li><a href="/tags">4 <p>Tags</p></a></li>
+                    <li><a href="/tags">11 <p>Tags</p></a></li>
                 </ul>
             </div>
             
             
+            
+            <div class="box sticky animated fadeInRight faster">
+                <div id="toc" class="subbox">
+                    <h4>Contents</h4>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Session-%EC%9D%B4%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80"><span class="toc-number">1.</span> <span class="toc-text">Session 이란 무엇인가</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Session-A-jsp"><span class="toc-number">1.1.</span> <span class="toc-text">Session A.jsp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Session-B-jsp"><span class="toc-number">1.2.</span> <span class="toc-text">Session B.jsp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Session-C-jsp"><span class="toc-number">1.3.</span> <span class="toc-text">Session C.jsp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Session-D-jsp"><span class="toc-number">1.4.</span> <span class="toc-text">Session D.jsp</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EA%B2%B0%EA%B3%BC"><span class="toc-number">2.</span> <span class="toc-text">결과</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1"><span class="toc-number">2.1.</span> <span class="toc-text">1.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2"><span class="toc-number">2.2.</span> <span class="toc-text">2.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3"><span class="toc-number">2.3.</span> <span class="toc-text">3.</span></a></li></ol></li></ol>
+                </div>
+            </div>
             
             
         </div>

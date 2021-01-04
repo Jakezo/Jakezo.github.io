@@ -5,13 +5,15 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>JSP-8 - Re-Coder</title>
+    <title>JSP-09 AJAX 실전 (2) - Re-Coder</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Jakezo Obsidian,"> 
-    <meta name="description" content="sddf
-"> 
+    <meta name="description" content="AJAX 실전 (2)
+AJAX를 사용하기 위한 설정 My Batis의 DBService.java 객체 생성 sqlmap-config.xml, member.xml 설정
+
+mybat,"> 
     <meta name="author" content="Jakezo"> 
     <link rel="alternative" href="atom.xml" title="Re-Coder" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -59,7 +61,7 @@
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://jakezo.github.io">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">JSP-8</h3>
+        <h3 class="subtitle">JSP-09 AJAX 실전 (2)</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -94,20 +96,20 @@
                 
                 January 02, 2021
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2021/01/02/JSP-8/" title="JSP-8" class="">JSP-8</a>
+            <h3 class="post-title animated fadeInDown"><a href="/2021/01/02/JSP-09/" title="JSP-09 AJAX 실전 (2)" class="">JSP-09 AJAX 실전 (2)</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    12
+                    8.7k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    1 mins.
+                    8 mins.
                 </span>
                 
                 
@@ -120,7 +122,7 @@
             </p>
             
             
-            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/JSP/" rel="tag">JSP</a></li></ul>
+            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Ajax/" rel="tag">Ajax</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/JSON/" rel="tag">JSON</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/JSP/" rel="tag">JSP</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/SQL/" rel="tag">SQL</a></li></ul>
             
         </div>
     </div>
@@ -141,7 +143,260 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <p>sddf</p>
+            <h2 id="AJAX-실전-2"><a href="#AJAX-실전-2" class="headerlink" title="AJAX 실전 (2)"></a>AJAX 실전 (2)</h2><blockquote>
+<p>AJAX를 사용하기 위한 설정 My Batis의 DBService.java 객체 생성 sqlmap-config.xml, member.xml 설정</p>
+</blockquote>
+<h3 id="mybatis-config-DBService-java"><a href="#mybatis-config-DBService-java" class="headerlink" title="mybatis/config/DBService.java"></a>mybatis/config/DBService.java</h3><pre><code class="java">package mybatis.config;
+
+import java.io.InputStream;
+
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+
+public class DBService &#123;
+
+    // DBService: SqlSessionFactory 만들어서 반환하는 클래스
+
+    // 필드
+    private SqlSessionFactory factory;
+
+    // 생성자: Singleton
+    private DBService() &#123;
+        try &#123;
+            String resource = &quot;mybatis/config/sqlmap-config.xml&quot;;
+            InputStream inputStream = Resources.getResourceAsStream(resource);
+            factory = new SqlSessionFactoryBuilder().build(inputStream);
+        &#125; catch (Exception e) &#123;
+            e.printStackTrace();
+        &#125;
+    &#125;
+    private static DBService service = new DBService();
+    public static DBService getInstance() &#123;
+        return service;
+    &#125;
+
+    // 메소드
+    public SqlSessionFactory getFactory() &#123;
+        return factory;
+    &#125;
+
+&#125;</code></pre>
+<h3 id="sqlmap-config-xml"><a href="#sqlmap-config-xml" class="headerlink" title="sqlmap-config.xml"></a>sqlmap-config.xml</h3><pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE configuration 
+PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot; 
+&quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot; &gt;
+
+&lt;configuration&gt;
+
+    &lt;environments default=&quot;development&quot;&gt;
+        &lt;environment id=&quot;development&quot;&gt;
+            &lt;transactionManager type=&quot;JDBC&quot;/&gt;
+            &lt;dataSource type=&quot;POOLED&quot;&gt;
+                &lt;property name=&quot;driver&quot; value=&quot;oracle.jdbc.driver.OracleDriver&quot;/&gt;
+                &lt;property name=&quot;url&quot; value=&quot;jdbc:oracle:thin:@localhost:1521:xe&quot;/&gt;
+                &lt;property name=&quot;username&quot; value=&quot;spring&quot;/&gt;
+                &lt;property name=&quot;password&quot; value=&quot;oracle&quot;/&gt;
+            &lt;/dataSource&gt;
+        &lt;/environment&gt;
+    &lt;/environments&gt;
+
+    &lt;mappers&gt;
+        &lt;mapper resource=&quot;mybatis/mapper/member.xml&quot;/&gt;
+    &lt;/mappers&gt;
+
+&lt;/configuration&gt;</code></pre>
+<h3 id="mapper-xml-member"><a href="#mapper-xml-member" class="headerlink" title="mapper.xml(member)"></a>mapper.xml(member)</h3><pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE mapper 
+PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot; 
+&quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot; &gt;
+
+&lt;mapper namespace=&quot;mybatis.mapper.member&quot;&gt;
+&lt;/mapper&gt;</code></pre>
+<blockquote>
+<p>DataBase를 준비한다.</p>
+</blockquote>
+<h3 id="db-black-sql"><a href="#db-black-sql" class="headerlink" title="db/black.sql"></a>db/black.sql</h3><pre><code class="sql">DROP TABLE BLACK;
+CREATE TABLE BLACK
+(
+    NAME VARCHAR2(100),
+    AGE NUMBER,
+    GENDER VARCHAR2(10),
+    PHONE VARCHAR2(100),
+    ADDRESS VARCHAR2(100)
+);
+
+INSERT INTO BLACK VALUES (&#39;에밀리&#39;, 20, &#39;여&#39;, &#39;010-1111-1111&#39;, &#39;서울&#39;);
+INSERT INTO BLACK VALUES (&#39;제임스&#39;, 21, &#39;남&#39;, &#39;010-2222-1111&#39;, &#39;독도&#39;);
+INSERT INTO BLACK VALUES (&#39;앨리스&#39;, 22, &#39;여&#39;, &#39;010-3333-1111&#39;, &#39;충청&#39;);
+INSERT INTO BLACK VALUES (&#39;데이빗&#39;, 23, &#39;남&#39;, &#39;010-4444-1111&#39;, &#39;강원&#39;);
+INSERT INTO BLACK VALUES (&#39;아만다&#39;, 24, &#39;여&#39;, &#39;010-5555-1111&#39;, &#39;제주&#39;);</code></pre>
+<hr>
+<blockquote>
+<p>Dto 만들기</p>
+</blockquote>
+<h3 id="dto-BlackDto-java"><a href="#dto-BlackDto-java" class="headerlink" title="dto/BlackDto.java"></a>dto/BlackDto.java</h3><pre><code class="java">package dto;
+
+public class BlackDto &#123;
+
+    private String name;
+    private int age;
+    private String gender;
+    private String phone;
+    private String address;
+
+    public String getName() &#123;
+        return name;
+    &#125;
+    public void setName(String name) &#123;
+        this.name = name;
+    &#125;
+    public int getAge() &#123;
+        return age;
+    &#125;
+    public void setAge(int age) &#123;
+        this.age = age;
+    &#125;
+    public String getGender() &#123;
+        return gender;
+    &#125;
+    public void setGender(String gender) &#123;
+        this.gender = gender;
+    &#125;
+    public String getPhone() &#123;
+        return phone;
+    &#125;
+    public void setPhone(String phone) &#123;
+        this.phone = phone;
+    &#125;
+    public String getAddress() &#123;
+        return address;
+    &#125;
+    public void setAddress(String address) &#123;
+        this.address = address;
+    &#125;
+
+&#125;</code></pre>
+<blockquote>
+<p>Dao 만들기</p>
+</blockquote>
+<h3 id="dao-BlackDao-java"><a href="#dao-BlackDao-java" class="headerlink" title="dao/BlackDao.java"></a>dao/BlackDao.java</h3><pre><code class="java">package dao;
+
+import org.apache.ibatis.session.SqlSessionFactory;
+
+import mybatis.config.DBService;
+
+public class BlackDao &#123;
+
+    // 필드: SqlSessionFactory
+    // 모든 메소드는 factory에서 SqlSession을 생성하고
+    // SqlSession으로 DB 처리를 한다.
+
+    private SqlSessionFactory factory;
+
+    // Dao는 항상 Singleton 처리한다.
+    private BlackDao() &#123;
+        factory = DBService.getInstance().getFactory();
+    &#125;
+    private static BlackDao blackDao = new BlackDao();
+    public static BlackDao getInstance() &#123;
+        return blackDao;
+    &#125;
+
+
+    // DB처리 메소드
+
+&#125;</code></pre>
+<blockquote>
+<p>Controller 만들기</p>
+</blockquote>
+<h3 id="BlackController-java"><a href="#BlackController-java" class="headerlink" title="BlackController.java"></a>BlackController.java</h3><pre><code class="java">import command.BlackCommand;
+import common.PathNRedirect;
+
+@WebServlet(&quot;*.black&quot;)
+public class BlackController extends HttpServlet &#123;
+    private static final long serialVersionUID = 1L;
+    public BlackController() &#123;
+        super();
+    &#125;
+
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException &#123;
+
+        request.setCharacterEncoding(&quot;UTF-8&quot;);
+        response.setContentType(&quot;text/html; charset=UTF-8&quot;);
+
+        String requestURI = request.getRequestURI();
+        String contextPath = request.getContextPath();
+        String cmd = requestURI.substring(contextPath.length());
+
+        PathNRedirect pathNRedirect = null;
+
+        BlackCommand command = null;
+
+        switch (cmd) &#123;
+
+        &#125;
+
+        String path = pathNRedirect.getPath();
+        boolean isRedirect = pathNRedirect.isRedirect();
+
+        if (isRedirect) &#123;
+            response.sendRedirect(path);
+        &#125; else &#123;
+            request.getRequestDispatcher(path).forward(request, response);
+        &#125;
+
+    &#125;
+
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException &#123;
+        doGet(request, response);
+    &#125;
+&#125;
+</code></pre>
+<blockquote>
+<p>Common PathNRedirect 만들기</p>
+</blockquote>
+<h3 id="PathNRedirect-java"><a href="#PathNRedirect-java" class="headerlink" title="PathNRedirect.java"></a>PathNRedirect.java</h3><pre><code class="java">package common;
+
+public class PathNRedirect &#123;
+
+    private String path;
+    private boolean isRedirect;
+
+    public String getPath() &#123;
+        return path;
+    &#125;
+    public void setPath(String path) &#123;
+        this.path = path;
+    &#125;
+    public boolean isRedirect() &#123;
+        return isRedirect;
+    &#125;
+    public void setRedirect(boolean isRedirect) &#123;
+        this.isRedirect = isRedirect;
+    &#125;
+
+&#125;</code></pre>
+<hr>
+<blockquote>
+<p>Command 만들기</p>
+</blockquote>
+<h3 id="BlackCommand-java"><a href="#BlackCommand-java" class="headerlink" title="BlackCommand.java"></a>BlackCommand.java</h3><pre><code class="java">
+package command;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class BlackStringCommand implements BlackCommand &#123;
+
+    @Override
+    public String execute(HttpServletRequest request, HttpServletResponse response) &#123;
+        return &quot;&lt;tr&gt;&lt;td colspan=\&quot;5\&quot;&gt;AJAX통신결과&lt;/td&gt;&lt;/tr&gt;&quot;;
+    &#125;
+
+&#125;</code></pre>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -189,13 +444,20 @@
                     </dl>
                 </div>
                 <ul>
-                    <li><a href="/">15 <p>Articles</p></a></li>
+                    <li><a href="/">18 <p>Articles</p></a></li>
                     <li><a href="/categories">3 <p>Categories</p></a></li>
-                    <li><a href="/tags">4 <p>Tags</p></a></li>
+                    <li><a href="/tags">11 <p>Tags</p></a></li>
                 </ul>
             </div>
             
             
+            
+            <div class="box sticky animated fadeInRight faster">
+                <div id="toc" class="subbox">
+                    <h4>Contents</h4>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#AJAX-%EC%8B%A4%EC%A0%84-2"><span class="toc-number">1.</span> <span class="toc-text">AJAX 실전 (2)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#mybatis-config-DBService-java"><span class="toc-number">1.1.</span> <span class="toc-text">mybatis&#x2F;config&#x2F;DBService.java</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sqlmap-config-xml"><span class="toc-number">1.2.</span> <span class="toc-text">sqlmap-config.xml</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mapper-xml-member"><span class="toc-number">1.3.</span> <span class="toc-text">mapper.xml(member)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#db-black-sql"><span class="toc-number">1.4.</span> <span class="toc-text">db&#x2F;black.sql</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dto-BlackDto-java"><span class="toc-number">1.5.</span> <span class="toc-text">dto&#x2F;BlackDto.java</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dao-BlackDao-java"><span class="toc-number">1.6.</span> <span class="toc-text">dao&#x2F;BlackDao.java</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BlackController-java"><span class="toc-number">1.7.</span> <span class="toc-text">BlackController.java</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PathNRedirect-java"><span class="toc-number">1.8.</span> <span class="toc-text">PathNRedirect.java</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BlackCommand-java"><span class="toc-number">1.9.</span> <span class="toc-text">BlackCommand.java</span></a></li></ol></li></ol>
+                </div>
+            </div>
             
             
         </div>
