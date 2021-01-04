@@ -61,7 +61,7 @@
                 <div class="content animated fadeIn">
                     <div class="set">
                         <h1 style="text-align: center">Archived</h1>
-                        <p style="text-align: center">「 16 」</p>
+                        <p style="text-align: center">「 15 」</p>
                         <ul class="timeline timeline-centered">
                             
                             
@@ -76,13 +76,33 @@
                                 
                                 <li class="timeline-item">
                                     <div class="timeline-info">
+                                        <span class="gradient-text">January 04, 2021</span>
+                                    </div>
+                                    <div class="timeline-marker"></div>
+                                    <div class="timeline-content">
+                                        <a class="timeline-title" target="_self" href="/2021/01/04/JSP-04/">JSP-04</a>
+                                        <p>
+                                            
+                                        </p>
+                                    </div>
+                                </li>
+                            
+                                
+                                <li class="timeline-item">
+                                    <div class="timeline-info">
                                         <span class="gradient-text">January 02, 2021</span>
                                     </div>
                                     <div class="timeline-marker"></div>
                                     <div class="timeline-content">
-                                        <a class="timeline-title" target="_self" href="/2021/01/02/JSP-02/">JSP-02</a>
+                                        <a class="timeline-title" target="_self" href="/2021/01/02/JSP-02/">JSP-02 TEMPLATE</a>
                                         <p>
-                                            
+                                            01_SERVLET/EX01/Ex02_servlet.java 설명
+@WebServlet(&quot;/Ex01_servlet&quot;)
+public class Ex01_servlet extends HttpServlet &#123;
+    private static final long serialVersionUID = 1L;
+
+    /**
+     *...
                                         </p>
                                     </div>
                                 </li>
@@ -165,25 +185,21 @@ import javax.servlet.annotation.W...
                                     </div>
                                     <div class="timeline-marker"></div>
                                     <div class="timeline-content">
-                                        <a class="timeline-title" target="_self" href="/2021/01/02/JSP-5/">JSP-5</a>
+                                        <a class="timeline-title" target="_self" href="/2021/01/02/JSP-03/">JSP-03 CooKie</a>
                                         <p>
-                                            fd
+                                            Cookie 설명
+쿠키는 서버에서 만든다
 
-                                        </p>
-                                    </div>
-                                </li>
-                            
-                                
-                                <li class="timeline-item">
-                                    <div class="timeline-info">
-                                        <span class="gradient-text">January 02, 2021</span>
-                                    </div>
-                                    <div class="timeline-marker"></div>
-                                    <div class="timeline-content">
-                                        <a class="timeline-title" target="_self" href="/2021/01/02/JSP-4/">JSP-4</a>
-                                        <p>
-                                            dsfsdf
 
+자바 영역은 서버 영역
+
+
+쿠키 생성Cookie cookie = new Cookie(“name”, “emily”);    
+ 쿠키이름 :name, 쿠키 값 : emily
+
+쿠키 유효 기간 정하기 (초 단위)
+ cookie.setMaxAge(-1); 브라우저 종료까지
+ cookie.setMaxAge(60); ...
                                         </p>
                                     </div>
                                 </li>
@@ -223,8 +239,14 @@ import...
                                     <div class="timeline-content">
                                         <a class="timeline-title" target="_self" href="/2021/01/02/JSP-01/">JSP-01</a>
                                         <p>
-                                            wed
+                                            JSP 언어및 관련 내용들 정리
+JSP
 
+1. Java Server Page
+2. HTML 문서내에서 JAVA 코드를 사용할 수 있는 서블릿(Servlet) 기반의 서버측 스크립트 언어이다
+    JSP 스크립트 요소
+    1. &lt;%@ 지시어 %&gt; : 지시어 (directive)
+    2. &lt;%! 선언부 %&gt; : 선언부 (de...
                                         </p>
                                     </div>
                                 </li>
@@ -308,21 +330,6 @@ import javax.se...
                                     </div>
                                     <div class="timeline-marker"></div>
                                     <div class="timeline-content">
-                                        <a class="timeline-title" target="_self" href="/2021/01/01/JSP-6/">JSP-6</a>
-                                        <p>
-                                            sdfsdf
-
-                                        </p>
-                                    </div>
-                                </li>
-                            
-                                
-                                <li class="timeline-item">
-                                    <div class="timeline-info">
-                                        <span class="gradient-text">January 01, 2021</span>
-                                    </div>
-                                    <div class="timeline-marker"></div>
-                                    <div class="timeline-content">
                                         <a class="timeline-title" target="_self" href="/2021/01/01/hello-world/">Hello World</a>
                                         <p>
                                             Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
@@ -348,24 +355,14 @@ Qu...
                                     <div class="timeline-content">
                                         <a class="timeline-title" target="_self" href="/2020/12/21/javacode/">네이버 API CAPTCHA</a>
                                         <p>
-                                            
-
-    #title{
-        color: pink;
-    }
-
-    h3{
-        color: coral;
-    }
-
-
-네이버 API CAPCHA를 이용한 로그인 페이지 구현
-
-
-로그인 시 자동 입력 방지를 위해 사람의 눈으로 식별가능한 문자가 포함된 이미지를 전송하고 입력값을 검증하는 REST API 입니다.
+                                            로그인 시 자동 입력 방지를 위해 사람의 눈으로 식별가능한 문자가 포함된 이미지를 전송하고 입력값을 검증하는 REST API 입니다.
 목차
 
-1. 인덱...
+1. 인덱스 페이지
+2. Servlet을 이용한 Controller
+3. pathNRedirect 와 command
+4. index의 로그인하러 가기
+5. 캡차 이미지 생성을 위한 GetImageCaptchaCo...
                                         </p>
                                     </div>
                                 </li>
@@ -576,7 +573,7 @@ Qu...
     var typedTextEl = $('.typed-text');
     if (typedTextEl && typedTextEl.length > 0) {
       var typed = new Typed('.typed-text', {
-        strings: ['Think like an artist, develop like an artisan', 'It does not matter how slowly you go as long as you do not stop'],
+        strings: ['Think like an artist, develop like an artisan', 'It doesn&#39;t matter how slowly you go as long as you don&#39;t stop'],
         typeSpeed: 90,
         loop: true,
         loopCount: Infinity,

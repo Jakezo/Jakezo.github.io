@@ -5,13 +5,20 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>JSP-6 - Re-Coder</title>
+    <title>JSP-03 CooKie - Re-Coder</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Jakezo Obsidian,"> 
-    <meta name="description" content="sdfsdf
-"> 
+    <meta name="description" content="Cookie 설명
+쿠키는 서버에서 만든다
+
+
+자바 영역은 서버 영역
+
+
+쿠키 생성Cookie cookie = new Cookie(“name”, “emily”);    
+ 쿠키이름,"> 
     <meta name="author" content="Jakezo"> 
     <link rel="alternative" href="atom.xml" title="Re-Coder" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -59,7 +66,7 @@
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://jakezo.github.io">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">JSP-6</h3>
+        <h3 class="subtitle">JSP-03 CooKie</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -92,16 +99,16 @@
                 <a href="/categories/JAVA-WEB"><b>「
                     </b>JAVA-WEB<b> 」</b></a>
                 
-                January 01, 2021
+                January 02, 2021
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2021/01/01/JSP-6/" title="JSP-6" class="">JSP-6</a>
+            <h3 class="post-title animated fadeInDown"><a href="/2021/01/02/JSP-03/" title="JSP-03 CooKie" class="">JSP-03 CooKie</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    14
+                    1.2k
                 </span>
                 
                 
@@ -141,7 +148,43 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <p>sdfsdf</p>
+            <h2 id="Cookie-설명"><a href="#Cookie-설명" class="headerlink" title="Cookie 설명"></a>Cookie 설명</h2><h1 id=""><a href="#" class="headerlink" title=""></a></h1><blockquote>
+<p>쿠키는 서버에서 만든다</p>
+</blockquote>
+<blockquote>
+<p>자바 영역은 서버 영역</p>
+</blockquote>
+<ol>
+<li><p>쿠키 생성<br>Cookie cookie = new Cookie(“name”, “emily”);    </p>
+<p> 쿠키이름 :name, 쿠키 값 : emily</p>
+</li>
+<li><p>쿠키 유효 기간 정하기 (초 단위)</p>
+<p> cookie.setMaxAge(-1); 브라우저 종료까지</p>
+<p> cookie.setMaxAge(60);    1분(60초),</p>
+<p> cookie.setMaxAge(60 * 60); 1시간</p>
+<p> cookie.setMaxAge (60 * 60 * 24); // 1일</p>
+</li>
+<li><p>쿠키 저장 (클라이언트에게 쿠키 보내기)</p>
+<p> response.addCookie(cookie);</p>
+</li>
+</ol>
+<pre><code class="javascript">
+&lt;title&gt;Insert title here&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+
+    &lt;%-- 크롬 &gt; 설정 &gt; 개인 정보 및 보안 &gt; 쿠키 및 기타 사이트 &gt; 모든 쿠키 및 사이트 데이터 보기 &gt; localhost 검색 --%&gt;    
+
+    &lt;h3&gt;쿠키 확인하기&lt;/h3&gt;
+    &lt;ul&gt;
+        &lt;li&gt;쿠키이름 : &lt;%=cookie.getName() %&gt;&lt;/li&gt;
+        &lt;li&gt;쿠키유효기간 : &lt;%=cookie.getMaxAge() %&gt;&lt;/li&gt;
+        &lt;li&gt;쿠기 값 : &lt;%=cookie.getValue() %&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -189,13 +232,20 @@
                     </dl>
                 </div>
                 <ul>
-                    <li><a href="/">16 <p>Articles</p></a></li>
+                    <li><a href="/">15 <p>Articles</p></a></li>
                     <li><a href="/categories">3 <p>Categories</p></a></li>
                     <li><a href="/tags">4 <p>Tags</p></a></li>
                 </ul>
             </div>
             
             
+            
+            <div class="box sticky animated fadeInRight faster">
+                <div id="toc" class="subbox">
+                    <h4>Contents</h4>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Cookie-%EC%84%A4%EB%AA%85"><span class="toc-number">1.</span> <span class="toc-text">Cookie 설명</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text"></span></a>
+                </div>
+            </div>
             
             
         </div>
@@ -402,7 +452,7 @@
     var typedTextEl = $('.typed-text');
     if (typedTextEl && typedTextEl.length > 0) {
       var typed = new Typed('.typed-text', {
-        strings: ['Think like an artist, develop like an artisan', 'It does not matter how slowly you go as long as you do not stop'],
+        strings: ['Think like an artist, develop like an artisan', 'It doesn&#39;t matter how slowly you go as long as you don&#39;t stop'],
         typeSpeed: 90,
         loop: true,
         loopCount: Infinity,

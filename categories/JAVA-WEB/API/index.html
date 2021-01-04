@@ -144,19 +144,19 @@
             January 02, 2021
         </p>
         <h3 class="post-title animated fadeInDown">
-            <a href="/2021/01/02/JSP-02/" title="JSP-02" class="posttitle">JSP-02</a></h3>
+            <a href="/2021/01/02/JSP-02/" title="JSP-02 TEMPLATE" class="posttitle">JSP-02 TEMPLATE</a></h3>
         
         <p class="post-count animated fadeInDown">
             
             <span>
                 <b class="iconfont icon-text2"></b> <i>Words count</i>
-                0
+                13k
             </span>
             
             
             <span>
                 <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                1 mins.
+                11 mins.
             </span>
             
             
@@ -167,7 +167,10 @@
         
         <div class="md-content animated fadeIn">
             
-            
+            <pre><code class="java">
+@WebServlet(&quot;/Ex01_servlet&quot;)
+public class Ex01_servlet extends HttpServlet &#123;
+    private...</code></pre>
             
             <span class="read-more"><a href="/2021/01/02/JSP-02/" title="Read article" class="posttitle">Read article</a>
                 <b class="iconfont icon-arrow-right- gradient-text"></b></span>
@@ -359,13 +362,13 @@ import...</code></pre>
             
             January 02, 2021
         </p>
-        <h3 class="post-title animated fadeInDown"><a href="/2021/01/02/JSP-5/" title="JSP-5" class="posttitle">JSP-5</a></h3>
+        <h3 class="post-title animated fadeInDown"><a href="/2021/01/02/JSP-03/" title="JSP-03 CooKie" class="posttitle">JSP-03 CooKie</a></h3>
         
             <p class="post-count animated fadeInDown">
                 
                     <span>
                         <b class="iconfont icon-text2"></b> <i>Words count</i>
-                        10
+                        1.2k
                     </span>
                 
                 
@@ -382,57 +385,23 @@ import...</code></pre>
         
         <div class="md-content animated fadeIn">
             
-                <p>fd</p>
-
+                <blockquote>
+<p>쿠키는 서버에서 만든다</p>
+</blockquote>
+<blockquote>
+<p>자바 영역은 서버 영역</p>
+</blockquote>
+<ol>
+<li><p>쿠키 생성<br>Cookie cookie = new Cookie(“name”, “emily”);    </p>
+<p> 쿠키이름 :name, 쿠키 값 : emily</p>
+</li>
+<li><p>쿠키 유효 기간 정하기 (초 단위)</p>
+<p> cookie.setMaxAge(-1); 브라우저 종료까지</p>
+<p> cookie.setMaxAge(60);    1분(60초),</p>
+<p> cookie.setMaxAge(60 * 60); 1시간</p>
+<p> cookie.setMaxAge (60 * ...</p></li></ol>
             
-            <span class="read-more"><a href="/2021/01/02/JSP-5/" title="Read article" class="posttitle">Read article</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
-        </div>
-    </div>
-</div>
-
-
-<div class="post" id="post">
-    <div class="post-cover animated fadeIn" style="
-            background-image:
-            radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
-            url(/img/welcome-cover.jpg);">
-    </div>
-    <div class="else">
-        <p class="animated fadeInDown">
-            
-                <a href="/categories/JAVA-WEB">
-                  <b>「 </b>JAVA-WEB<b> 」</b>
-                </a>
-            
-            January 02, 2021
-        </p>
-        <h3 class="post-title animated fadeInDown"><a href="/2021/01/02/JSP-4/" title="JSP-4" class="posttitle">JSP-4</a></h3>
-        
-            <p class="post-count animated fadeInDown">
-                
-                    <span>
-                        <b class="iconfont icon-text2"></b> <i>Words count</i>
-                        14
-                    </span>
-                
-                
-                    <span>
-                        <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                        1 mins.
-                    </span>
-                
-                
-            </p>
-            
-                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/JSP/" rel="tag">JSP</a></li></ul>
-            
-        
-        <div class="md-content animated fadeIn">
-            
-                <p>dsfsdf</p>
-
-            
-            <span class="read-more"><a href="/2021/01/02/JSP-4/" title="Read article" class="posttitle">Read article</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
+            <span class="read-more"><a href="/2021/01/02/JSP-03/" title="Read article" class="posttitle">Read article</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
         </div>
     </div>
 </div>
@@ -459,13 +428,13 @@ import...</code></pre>
                 
                     <span>
                         <b class="iconfont icon-text2"></b> <i>Words count</i>
-                        11
+                        3.5k
                     </span>
                 
                 
                     <span>
                         <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                        1 mins.
+                        3 mins.
                     </span>
                 
                 
@@ -476,57 +445,17 @@ import...</code></pre>
         
         <div class="md-content animated fadeIn">
             
-                <p>wed</p>
-
+                <ul>
+<li><h3 id="JSP"><a href="#JSP" class="headerlink" title="JSP"></a>JSP</h3></li>
+</ul>
+<pre><code class="s">1. Java Server Page
+2. HTML 문서내에서 JAVA 코드를 사용할 수 있는 서블릿(Servlet) 기반의 서버측 스크립트 언어이다
+    JSP 스크립트 요소
+    1. &lt;%@ 지시어 %&gt; : 지시어 (directive)
+    2. &lt;%! 선언부 %&gt; : 선언부 (declaration), 전역변수 선언, 메소드 정의
+    3. &lt;%= 표현식 %&gt; : 표현식 (expression), 결과 출력(변수, 메소드 ...</code></pre>
             
             <span class="read-more"><a href="/2021/01/02/JSP-01/" title="Read article" class="posttitle">Read article</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
-        </div>
-    </div>
-</div>
-
-
-<div class="post" id="post">
-    <div class="post-cover animated fadeIn" style="
-            background-image:
-            radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
-            url(/img/welcome-cover.jpg);">
-    </div>
-    <div class="else">
-        <p class="animated fadeInDown">
-            
-                <a href="/categories/JAVA-WEB">
-                  <b>「 </b>JAVA-WEB<b> 」</b>
-                </a>
-            
-            January 01, 2021
-        </p>
-        <h3 class="post-title animated fadeInDown"><a href="/2021/01/01/JSP-6/" title="JSP-6" class="posttitle">JSP-6</a></h3>
-        
-            <p class="post-count animated fadeInDown">
-                
-                    <span>
-                        <b class="iconfont icon-text2"></b> <i>Words count</i>
-                        14
-                    </span>
-                
-                
-                    <span>
-                        <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                        1 mins.
-                    </span>
-                
-                
-            </p>
-            
-                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/JSP/" rel="tag">JSP</a></li></ul>
-            
-        
-        <div class="md-content animated fadeIn">
-            
-                <p>sdfsdf</p>
-
-            
-            <span class="read-more"><a href="/2021/01/01/JSP-6/" title="Read article" class="posttitle">Read article</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
         </div>
     </div>
 </div>
@@ -570,12 +499,7 @@ import...</code></pre>
         
         <div class="md-content animated fadeIn">
             
-                
-
-
-
-<hr>
-<p>로그인 시 자동 입력 방지를 위해 사람의 눈으로 식별가능한 문자가 포함된 이미지를 전송하고 입력값을 검증하는 REST API 입니다.</p>
+                <p>로그인 시 자동 입력 방지를 위해 사람의 눈으로 식별가능한 문자가 포함된 이미지를 전송하고 입력값을 검증하는 REST API 입니다.</p>
 <p><strong>목차</strong></p>
 <ul>
 <li><a href="#%EC%9D%B8%EB%8D%B1%EC%8A%A4-%ED%8E%98%EC%9D%B4%EC%A7%80">1. 인덱스 페이지</a></li>
@@ -584,7 +508,7 @@ import...</code></pre>
 <li><a href="#index%EC%9D%98-%EB%A1%9C%EA%B7%B8%EC%9D%B8%ED%95%98%EB%9F%AC-%EA%B0%80%EA%B8%B0">4. index의 로그인하러 가기</a></li>
 <li><a href="#%EC%BA%A1%EC%B0%A8-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%83%9D%EC%84%B1%EC%9D%84-%EC%9C%84%ED%95%9C-getimagecaptchacommand-%EC%83%9D%EC%84%B1">5. 캡차 이미지 생성을 위한 GetImageCaptchaCommand 생성</a></li>
 <li><a href="#index%ED%8E%98%EC%9D%B4%EC%A7%80%EC%97%90%EC%84%9C-loginpage%EB%A1%9C-%EC%9D%B4%EB%8F%99">6. index페이지에서 loginPage로 이동</a></li>
-<li><a href="#loginpage%EC%9D%98-logindo-%EC%9A%94%EC%B2%AD-%EC%B2%98%EB%A6%AC%EB%A5%BC-%EC%9C%84%ED%95%9C-%EC%BB%A8%ED%8A%B8%EB%A1%A4%EB%9F%AC-%EC%9E%91%EC%84%B1">7. loginPage의...</a></li></ul>
+<li><a href="#loginpage%EC%9D%98-logindo-%EC%9A%94%EC%B2%AD-%EC%B2%98%EB%A6%AC%EB%A5%BC-%EC%9C%84%ED%95%9C-%EC%BB%A8%ED%8A%B8%EB%A1%A4%EB%9F%AC-%EC%9E%91%EC%84%B1">7. loginPage의 login...</a></li></ul>
             
             <span class="read-more"><a href="/2020/12/21/javacode/" title="Read article" class="posttitle">Read article</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
         </div>
@@ -795,7 +719,7 @@ import...</code></pre>
     var typedTextEl = $('.typed-text');
     if (typedTextEl && typedTextEl.length > 0) {
       var typed = new Typed('.typed-text', {
-        strings: ['Think like an artist, develop like an artisan', 'It does not matter how slowly you go as long as you do not stop'],
+        strings: ['Think like an artist, develop like an artisan', 'It doesn&#39;t matter how slowly you go as long as you don&#39;t stop'],
         typeSpeed: 90,
         loop: true,
         loopCount: Infinity,

@@ -5,12 +5,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>JSP-02 - Re-Coder</title>
+    <title>JSP-02 TEMPLATE - Re-Coder</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Jakezo Obsidian,"> 
-    
+    <meta name="description" content="01_SERVLET/EX01/Ex02_servlet.java 설명
+@WebServlet(&amp;quot;/Ex01_servlet&amp;quot;)
+public class Ex01_servl,"> 
     <meta name="author" content="Jakezo"> 
     <link rel="alternative" href="atom.xml" title="Re-Coder" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -58,7 +60,7 @@
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://jakezo.github.io">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">JSP-02</h3>
+        <h3 class="subtitle">JSP-02 TEMPLATE</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -93,20 +95,20 @@
                 
                 January 02, 2021
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2021/01/02/JSP-02/" title="JSP-02" class="">JSP-02</a>
+            <h3 class="post-title animated fadeInDown"><a href="/2021/01/02/JSP-02/" title="JSP-02 TEMPLATE" class="">JSP-02 TEMPLATE</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    0
+                    13k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    1 mins.
+                    11 mins.
                 </span>
                 
                 
@@ -140,7 +142,323 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            
+            <h2 id="01-SERVLET-EX01-Ex02-servlet-java-설명"><a href="#01-SERVLET-EX01-Ex02-servlet-java-설명" class="headerlink" title="01_SERVLET/EX01/Ex02_servlet.java 설명"></a>01_SERVLET/EX01/Ex02_servlet.java 설명</h2><pre><code class="java">
+@WebServlet(&quot;/Ex01_servlet&quot;)
+public class Ex01_servlet extends HttpServlet &#123;
+    private static final long serialVersionUID = 1L;
+
+    /**
+     * Default constructor. 
+     * 
+     * 1. 생성자
+     *         생성자 호출 뒤 init() 메소드가 호출된다.
+     */
+    public Ex01_servlet() &#123;
+        System.out.println(&quot;생성자 호출&quot;);
+    &#125;
+
+    /**
+     * @see Servlet#init(ServletConfig)
+     * 
+     * 2. init() 메소드
+     *    1) 최초 한 번만 호출된다.
+     *    2) 초기화 용도로 사용할 수 있다.
+     *    3) init() 호출 뒤 service() 메소드가 호출된다.
+     */
+    public void init(ServletConfig config) throws ServletException &#123;
+        System.out.println(&quot;init() 호출&quot;);
+    &#125;
+
+    /**
+     * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
+     * 
+     * 3. service() 메소드
+     *    1) 실제 처리를 할 수 있다.
+     *    2) 매개변수-1
+     *       (1) 타입: HttpServletRequest
+     *       (2) 변수: request
+     *       (3) 사용자의 요청을 저장하는 변수이다.
+     *           예) 사용자가 입력한 검색어, 아이디, 비밀번호 등이 저장된 곳이다.
+     *    3) 매개변수-2
+     *       (1) 타입: HttpServletResponse
+     *       (2) 변수: response
+     *       (3) 서버의 응답 정보를 저장하는 변수이다.
+     *           예) 검색어의 결과, 로그인 성공 유무 등이 저장된 곳이다.
+     */
+    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException &#123;
+        System.out.println(&quot;service() 호출&quot;);
+        if (request.getMethod().equalsIgnoreCase(&quot;GET&quot;)) &#123;  // GET방식의 요청이라면
+            doGet(request, response);  // doGet() 메소드 호출
+        &#125; else &#123;
+            doPost(request, response);
+        &#125;
+    &#125;
+
+    /**
+     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+     * 
+     * 4. doGet()
+     *    1) GET 방식의 요청인 경우에 자동으로 호출되는 메소드이다. (service() 메소드가 없으면)
+     *    2) GET 방식의 요청 방법
+     *       (1) &lt;form method=&quot;get&quot;&gt;
+     *       (2) $.ajax(&#123; type: &#39;get&#39;, &#125;);
+     */
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException &#123;
+        System.out.println(&quot;doGet() 호출&quot;);
+        response.getWriter().append(&quot;Served at: &quot;).append(request.getContextPath());
+    &#125;
+
+    /**
+     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+     * 
+     * 5. doPost()
+     *    1) POST 방식의 요청인 경우에 자동으로 호출되는 메소드이다. (service() 메소드가 없으면)
+     *    2) 요청(request)과 응답(response)를 모두 doGet() 메소드로 넘기고 자신은 아무 일도 하지 않는다.
+     */
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException &#123;
+        System.out.println(&quot;doPost() 호출&quot;);
+        doGet(request, response);
+    &#125;
+
+    /**
+     * @see Servlet#destroy()
+     * 
+     * 6. destroy()
+     * 
+     *    웹 서버에서 프로젝트가 소멸되면 자동으로 호출된다.
+     */
+    public void destroy() &#123;
+        System.out.println(&quot;destroy() 호출&quot;);
+    &#125;
+
+&#125;
+</code></pre>
+<hr>
+<h2 id="Ex02-response"><a href="#Ex02-response" class="headerlink" title="Ex02 response"></a>Ex02 response</h2><pre><code class="java">
+@WebServlet(&quot;/Ex01_response&quot;)
+public class Ex01_response extends HttpServlet &#123;
+    private static final long serialVersionUID = 1L;
+
+    public Ex01_response() &#123;
+        super();
+
+    &#125;
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException &#123;
+
+        // 모든 코드 작성은 doGet()에서 진행합니다.
+
+        // 사용자에게 보여 줄 응답(response)을 만듭니다.
+
+        // 1. response에 content-type과 charset을 결정해 준다.
+        //     1) content-type: 어떤 데이터(파일)를 보여주는 것이지 그 타입을 작성
+        //    (1) html : text/html
+        //      (2) css  : text/css
+        //    (3) js   : text/javascript
+
+        //  2) charset : 인코딩을 결정한다.
+        response.setContentType(&quot;text/html&quot;);
+        response.setCharacterEncoding(&quot;UTF-8&quot;);
+
+        // 위 2개 코드는 한 줄로 작성해도 된다.
+        // response.setContentType(&quot;text/html; charset=UTF-8&quot;);
+
+        // 2. 출력스트림을 만듭니다.
+        //       출력스트림은 response를 이용해서 만듭니다.
+
+        // 바이트스트림 vs 문자스트림 어느 것을 쓸까? &gt;&gt; 문자 스트림(html은 모두 문자로 구성되기 때문에)
+        // 참고, Reader와 Writer로 끝나면 모두 문자스트림
+
+        // 문자 기반 출력스트림
+        // 1. FileWriter
+        // 2. PrintWriter
+        // 3. BufferedWriter
+
+        PrintWriter out = response.getWriter();    
+
+        // out 출력스트림은 print(), println(), printf() 등을 사용할 수 있습니다.
+        // 이 중에서 가장 많이 사용되는 것은 println() 이다.
+        // out으로 html 태그들을 만들어야 하니까 자동으로 줄이 바뀌는 것이 좋습니다.
+
+        out.println(&quot;&lt;!DOGTYPE html&gt;&quot;);
+        out.println(&quot;&lt;html&gt;&quot;);
+        out.println(&quot;&lt;head&gt;&quot;);
+        out.println(&quot;&lt;title&gt;서블릿으로 만든 제목&lt;/title&gt;&quot;);
+        out.println(&quot;&lt;style&gt; h1&#123;color:red;&lt;/style&gt;&quot;);
+        out.println(&quot;&lt;script&gt;alert(&#39;반갑습니다.&#39;)&lt;/script&gt;&quot;);
+        out.println(&quot;&lt;/head&gt;&quot;);
+        out.println(&quot;&lt;body&gt;&quot;);
+        out.println(&quot;&lt;h1&gt;안녕하세요&lt;/h1&gt;&quot;);
+        out.println(&quot;&lt;/body&gt;&quot;);
+        out.println(&quot;&lt;/html&gt;&quot;);
+
+    &#125;
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException &#123;
+
+        doGet(request, response);
+    &#125;
+
+&#125;
+</code></pre>
+<h2 id="request-객체의-정보-설명-1"><a href="#request-객체의-정보-설명-1" class="headerlink" title="request 객체의 정보 설명 1"></a>request 객체의 정보 설명 1</h2><pre><code class="java">
+protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException &#123;
+
+        // request 객체의 기본 정보
+        String ip = request.getRemoteAddr();            // 요청한 사람의 IP주소 (중요)
+        String contextPath = request.getContextPath();  // 컨텍스트패스 알아내기 (중요)
+        String charset = request.getCharacterEncoding();// 사용자 인코딩 알아내기
+        String contentType = request.getContentType();    // 컨텐트 타입 알아내기
+        String method = request.getMethod();            // 전송타입(GET, POST) 알아내기
+
+
+        // response 생성
+        // 1. content-type, charset
+        response.setContentType(&quot;text/html&quot;);
+        response.setCharacterEncoding(&quot;UTF-8&quot;);
+
+        // 2. 출력스트림 생성
+        PrintWriter out = response.getWriter();
+
+        // 3. 출력할 내용 만들기
+        out.println(&quot;&lt;!DOGTYPE html&gt;&quot;);    // html5 의미
+        out.println(&quot;&lt;html&gt;&quot;);
+        out.println(&quot;&lt;head&gt;&quot;);
+        out.println(&quot;&lt;title&gt;제목&lt;/title&gt;&quot;);
+        out.println(&quot;&lt;/head&gt;&quot;);
+        out.println(&quot;&lt;body&gt;&quot;);
+        out.println(&quot;&lt;h3&gt;&quot; + ip + &quot;&lt;/h3&gt;&quot;);
+        out.println(&quot;&lt;h3&gt;ContextPath: &quot; + contextPath + &quot;&lt;/h3&gt;&quot;);
+        out.println(&quot;&lt;h3&gt;Charset: &quot; + charset + &quot;&lt;/h3&gt;&quot;);
+        out.println(&quot;&lt;h3&gt;contentType: &quot; + contentType + &quot;&lt;/h3&gt;&quot;);
+        out.println(&quot;&lt;h3&gt;method: &quot; + method + &quot;&lt;/h3&gt;&quot;);
+        out.println(&quot;&lt;/body&gt;&quot;);
+        out.println(&quot;&lt;/html&gt;&quot;);
+
+    &#125;</code></pre>
+<hr>
+<h2 id="request-객체의-설명2"><a href="#request-객체의-설명2" class="headerlink" title="request 객체의 설명2."></a>request 객체의 설명2.</h2><blockquote>
+<p><strong><em>request</em></strong></p>
+</blockquote>
+<pre><code class="html">/*
+     *    request 
+     * 
+     *     1. 사용자가 요청한 정보가 저장되는 객체
+     *     2. request에 저장된 요청 정보는 &quot;파라미터(parameter)&quot;라고 한다.
+     *     3. 모든 파라미터의 타입은 String or String[] 이다.
+     *         1) String value = request.getParameter(&quot;parameter&quot;)
+     *         2) String[] list = request.getParameterValues(&quot;parameter&quot;)
+     *     4. request를 이용해 정보를 요청하는 방법
+     *         1) &lt;form&gt; 태그의 모든 하위 폼 요소들은 submit하면 정보가 요청된다.
+     *            사용자: &lt;input type=&quot;text&quot; name=&quot;id&quot; /&gt; submit 하면
+     *            서버   : String id = request.getParameter(&quot;id&quot;); 로 받아 들인다.
+     *             * 태그의 name이 없을 경우 서버측에서 데이터를 받아들이지 못 한다.
+     *         2) URL에 파라미터를 포함한다.
+     *             URL: 호스트:포트번호/ContextPath/URLMapping?파라미터=값&amp;파라미터=값
+     */
+</code></pre>
+<h2 id="다른-페이지를-포함하는-방법"><a href="#다른-페이지를-포함하는-방법" class="headerlink" title="다른 페이지를 포함하는 방법"></a>다른 페이지를 포함하는 방법</h2><ol>
+<li>정적 페이지: 바닥글<ol>
+<li>변하는 내용이 없는 페이지</li>
+<li><code>&lt;%@ include file=&quot;페이지&quot; %&gt;</code></li>
+</ol>
+</li>
+</ol>
+<ol start="2">
+<li>동적 페이지: 머리글<ol>
+<li>변하는 내용이 있는 페이지</li>
+<li><code>&lt;jsp:include page=&quot;페이지&quot;&gt;&lt;/jsp:include&gt;</code></li>
+</ol>
+</li>
+</ol>
+<hr>
+<h3 id="login-jsp"><a href="#login-jsp" class="headerlink" title="login.jsp"></a>login.jsp</h3><pre><code class="javascript">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+    pageEncoding=&quot;UTF-8&quot;%&gt;
+
+&lt;% request.setCharacterEncoding(&quot;UTF-8&quot;); %&gt;
+
+&lt;%--
+    주의. 태그 내부 주석은 위험합니다.
+    header.jsp 페이지에 파라미터 title을 전달합니다.
+--%&gt;
+&lt;jsp:include page=&quot;../template/header.jsp&quot;&gt;
+    &lt;jsp:param value=&quot;로그인&quot; name=&quot;title&quot; /&gt;
+&lt;/jsp:include&gt;
+
+
+            &lt;div class=&quot;login-box&quot;&gt;
+                &lt;input type=&quot;text&quot; name=&quot;id&quot; placeholder=&quot;아이디&quot; /&gt;&lt;br/&gt;
+                &lt;input type=&quot;password&quot; name=&quot;pw&quot; placeholder=&quot;****&quot; /&gt;&lt;br/&gt;&lt;br/&gt;
+                &lt;button&gt;로그인&lt;/button&gt;
+            &lt;/div&gt;
+
+
+
+&lt;%@ include file=&quot;../template/footer.jsp&quot; %&gt;</code></pre>
+<hr>
+<h3 id="footer-jsp"><a href="#footer-jsp" class="headerlink" title="footer.jsp"></a>footer.jsp</h3><pre><code class="javascript">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+    pageEncoding=&quot;UTF-8&quot;%&gt;
+
+    &lt;!-- main-wrap 종료 --&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;foot-wrap&quot;&gt;
+        &lt;a href=&quot;javascript:void(0)&quot;&gt;기업체정보&lt;/a&gt; / 
+        &lt;a href=&quot;javascript:void(0)&quot;&gt;저작권&lt;/a&gt; / 
+        &lt;a href=&quot;javascript:void(0)&quot;&gt;약관&lt;/a&gt; 
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<hr>
+<h3 id="header-jsp"><a href="#header-jsp" class="headerlink" title="header.jsp"></a>header.jsp</h3><pre><code class="javascript">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+    pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;%
+    // 항상 header.jsp는 페이지의 제목을 받아온다.
+    request.setCharacterEncoding(&quot;UTF-8&quot;);
+    String title = request.getParameter(&quot;title&quot;);
+    if (title == null || title.isEmpty()) &#123;
+        title = &quot;마이MALL&quot;;  // 기본제목
+    &#125;
+%&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;&lt;%=title%&gt;&lt;/title&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;../assets/style/common.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class=&quot;head-wrap&quot;&gt;
+        &lt;ul&gt;
+            &lt;li&gt;홈&lt;/li&gt;
+            &lt;li&gt;방명록&lt;/li&gt;
+            &lt;li&gt;게시판&lt;/li&gt;
+            &lt;li&gt;리뷰&lt;/li&gt;
+            &lt;li&gt;Q&amp;A&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;!-- main-wrap 시작 --&gt;
+    &lt;div class=&quot;wrap&quot;&gt;
+        &lt;div class=&quot;main-wrap&quot;&gt;
+</code></pre>
+<hr>
+<h3 id="index-jsp"><a href="#index-jsp" class="headerlink" title="index.jsp"></a>index.jsp</h3><pre><code class="javascript">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+    pageEncoding=&quot;UTF-8&quot;%&gt;
+
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;assets/style/common.css&quot;&gt;
+
+    &lt;% request.setCharacterEncoding(&quot;UTF-8&quot;); %&gt;
+
+    &lt;jsp:include page=&quot;/template/header.jsp&quot;&gt;
+        &lt;jsp:param value=&quot;대문페이지&quot; name=&quot;title&quot;/&gt;
+    &lt;/jsp:include&gt;
+
+    &lt;h1&gt;홈페이지에 오신 걸 환영합니다.&lt;/h1&gt;
+
+    &lt;%@ include file=&quot;template/footer.jsp&quot; %&gt;
+</code></pre>
+<h3 id="결과-페이지"><a href="#결과-페이지" class="headerlink" title="결과 페이지"></a>결과 페이지</h3><img src="https://i.esdrop.com/d/E0k3BzgtYL.png" width=""/>
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
                 data-autoplay="false">
@@ -187,13 +505,20 @@
                     </dl>
                 </div>
                 <ul>
-                    <li><a href="/">16 <p>Articles</p></a></li>
+                    <li><a href="/">15 <p>Articles</p></a></li>
                     <li><a href="/categories">3 <p>Categories</p></a></li>
                     <li><a href="/tags">4 <p>Tags</p></a></li>
                 </ul>
             </div>
             
             
+            
+            <div class="box sticky animated fadeInRight faster">
+                <div id="toc" class="subbox">
+                    <h4>Contents</h4>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#01-SERVLET-EX01-Ex02-servlet-java-%EC%84%A4%EB%AA%85"><span class="toc-number">1.</span> <span class="toc-text">01_SERVLET&#x2F;EX01&#x2F;Ex02_servlet.java 설명</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ex02-response"><span class="toc-number">2.</span> <span class="toc-text">Ex02 response</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#request-%EA%B0%9D%EC%B2%B4%EC%9D%98-%EC%A0%95%EB%B3%B4-%EC%84%A4%EB%AA%85-1"><span class="toc-number">3.</span> <span class="toc-text">request 객체의 정보 설명 1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#request-%EA%B0%9D%EC%B2%B4%EC%9D%98-%EC%84%A4%EB%AA%852"><span class="toc-number">4.</span> <span class="toc-text">request 객체의 설명2.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EB%8B%A4%EB%A5%B8-%ED%8E%98%EC%9D%B4%EC%A7%80%EB%A5%BC-%ED%8F%AC%ED%95%A8%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95"><span class="toc-number">5.</span> <span class="toc-text">다른 페이지를 포함하는 방법</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#login-jsp"><span class="toc-number">5.1.</span> <span class="toc-text">login.jsp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#footer-jsp"><span class="toc-number">5.2.</span> <span class="toc-text">footer.jsp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#header-jsp"><span class="toc-number">5.3.</span> <span class="toc-text">header.jsp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#index-jsp"><span class="toc-number">5.4.</span> <span class="toc-text">index.jsp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EA%B2%B0%EA%B3%BC-%ED%8E%98%EC%9D%B4%EC%A7%80"><span class="toc-number">5.5.</span> <span class="toc-text">결과 페이지</span></a></li></ol></li></ol>
+                </div>
+            </div>
             
             
         </div>
@@ -400,7 +725,7 @@
     var typedTextEl = $('.typed-text');
     if (typedTextEl && typedTextEl.length > 0) {
       var typed = new Typed('.typed-text', {
-        strings: ['Think like an artist, develop like an artisan', 'It does not matter how slowly you go as long as you do not stop'],
+        strings: ['Think like an artist, develop like an artisan', 'It doesn&#39;t matter how slowly you go as long as you don&#39;t stop'],
         typeSpeed: 90,
         loop: true,
         loopCount: Infinity,
