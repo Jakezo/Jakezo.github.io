@@ -5,16 +5,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>네이버 API CAPTCHA - Re-Coder</title>
+    <title>JSP-15 네이버 캡차 (capcha) - Re-Coder</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Jakezo Obsidian,"> 
-    <meta name="description" content="로그인 시 자동 입력 방지를 위해 사람의 눈으로 식별가능한 문자가 포함된 이미지를 전송하고 입력값을 검증하는 REST API 입니다.
-목차
-
-1. 인덱스 페이지
-2. Servle,"> 
+    <meta name="description" content="캡차(Capcha) 란 무엇일까로그인 시 자동 입력 방지를 위해 사람의 눈으로 식별가능한 문자가 포함된 이미지를 전송하고 입력값을 검증하는 REST API 입니다.
+캡차 만들기 ,"> 
     <meta name="author" content="Jakezo"> 
     <link rel="alternative" href="atom.xml" title="Re-Coder" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -62,7 +59,7 @@
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://jakezo.github.io">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">네이버 API CAPTCHA</h3>
+        <h3 class="subtitle">JSP-15 네이버 캡차 (capcha)</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -95,9 +92,9 @@
                 <a href="/categories/JAVA-WEB"><b>「
                     </b>JAVA-WEB<b> 」</b></a>
                 
-                December 21, 2020
+                December 29, 2020
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2020/12/21/javacode/" title="네이버 API CAPTCHA" class="">네이버 API CAPTCHA</a>
+            <h3 class="post-title animated fadeInDown"><a href="/2020/12/29/JSP-15/" title="JSP-15 네이버 캡차 (capcha)" class="">JSP-15 네이버 캡차 (capcha)</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
@@ -110,7 +107,7 @@
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    23 mins.
+                    22 mins.
                 </span>
                 
                 
@@ -123,7 +120,7 @@
             </p>
             
             
-            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/API/" rel="tag">API</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Captcha/" rel="tag">Captcha</a></li></ul>
+            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/API/" rel="tag">API</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Captcha/" rel="tag">Captcha</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/JSP/" rel="tag">JSP</a></li></ul>
             
         </div>
     </div>
@@ -144,21 +141,19 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <p>로그인 시 자동 입력 방지를 위해 사람의 눈으로 식별가능한 문자가 포함된 이미지를 전송하고 입력값을 검증하는 REST API 입니다.</p>
-<p><strong>목차</strong></p>
-<ul>
-<li><a href="#%EC%9D%B8%EB%8D%B1%EC%8A%A4-%ED%8E%98%EC%9D%B4%EC%A7%80">1. 인덱스 페이지</a></li>
-<li><a href="#servlet%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-controller">2. Servlet을 이용한 Controller</a></li>
-<li><a href="#pathnredirect-%EC%99%80-command">3. pathNRedirect 와 command</a></li>
-<li><a href="#index%EC%9D%98-%EB%A1%9C%EA%B7%B8%EC%9D%B8%ED%95%98%EB%9F%AC-%EA%B0%80%EA%B8%B0">4. index의 로그인하러 가기</a></li>
-<li><a href="#%EC%BA%A1%EC%B0%A8-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%83%9D%EC%84%B1%EC%9D%84-%EC%9C%84%ED%95%9C-getimagecaptchacommand-%EC%83%9D%EC%84%B1">5. 캡차 이미지 생성을 위한 GetImageCaptchaCommand 생성</a></li>
-<li><a href="#index%ED%8E%98%EC%9D%B4%EC%A7%80%EC%97%90%EC%84%9C-loginpage%EB%A1%9C-%EC%9D%B4%EB%8F%99">6. index페이지에서 loginPage로 이동</a></li>
-<li><a href="#loginpage%EC%9D%98-logindo-%EC%9A%94%EC%B2%AD-%EC%B2%98%EB%A6%AC%EB%A5%BC-%EC%9C%84%ED%95%9C-%EC%BB%A8%ED%8A%B8%EB%A1%A4%EB%9F%AC-%EC%9E%91%EC%84%B1">7. loginPage의 login.do 요청 처리를 위한 컨트롤러 작성</a></li>
-<li><a href="#logindo-%EC%9D%98-%EB%AA%A8%EB%8D%B8-inputkeycheckcommand-%EC%83%9D%EC%84%B1">8. login.do 의 모델 InputKeyCheckCommand 생성</a></li>
-<li><a href="#captcha%EC%9D%B4%EB%AF%B8%EC%A7%80%EC%99%80-%EC%9E%85%EB%A0%A5%EA%B0%92%EC%9D%98-%EA%B2%B0%EA%B3%BC-%EC%B6%9C%EB%A0%A5">9. Captcha이미지와 입력값의 결과 출력</a></li>
-<li><a href="#%EB%A7%88%EC%B9%98%EB%A9%B0">마치며</a></li>
+            <h2 id="캡차-Capcha-란-무엇일까"><a href="#캡차-Capcha-란-무엇일까" class="headerlink" title="캡차(Capcha) 란 무엇일까"></a>캡차(Capcha) 란 무엇일까</h2><p>로그인 시 자동 입력 방지를 위해 사람의 눈으로 식별가능한 문자가 포함된 이미지를 전송하고 입력값을 검증하는 REST API 입니다.</p>
+<h2 id="캡차-만들기-시작"><a href="#캡차-만들기-시작" class="headerlink" title="캡차 만들기 시작"></a>캡차 만들기 시작</h2><h3 id="만들고-싶은-캡챠-화면"><a href="#만들고-싶은-캡챠-화면" class="headerlink" title="만들고 싶은 캡챠 화면"></a>만들고 싶은 캡챠 화면</h3><img src="https://i.esdrop.com/d/kUJdbiA2V8.png"/>
+
+<blockquote>
+<p>위와 같은 캡챠 화면을 목표로 만들어 봅시다!</p>
+</blockquote>
+<h3 id="필요한-라이브러리"><a href="#필요한-라이브러리" class="headerlink" title="필요한 라이브러리"></a>필요한 라이브러리</h3><ul>
+<li>json-simple-1.1.1</li>
 </ul>
-<h3 id="인덱스-페이지ddsddddddddddddddddd"><a href="#인덱스-페이지ddsddddddddddddddddd" class="headerlink" title="인덱스 페이지ddsddddddddddddddddd"></a>인덱스 페이지ddsddddddddddddddddd</h3><hr>
+<hr>
+<h3 id="index-jsp"><a href="#index-jsp" class="headerlink" title="index.jsp"></a>index.jsp</h3><blockquote>
+<p>인덱스 페이지를 만들어 처음 화면을 구성한다.</p>
+</blockquote>
 <pre><code class="html">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
     pageEncoding=&quot;UTF-8&quot;%&gt;
 &lt;!DOCTYPE html&gt;
@@ -174,8 +169,10 @@
 
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-<p>로그인 페이지로 이동하기 위한 인덱스 페이지 생성</p>
-<h3 id="Servlet을-이용한-Controller"><a href="#Servlet을-이용한-Controller" class="headerlink" title="Servlet을 이용한 Controller"></a>Servlet을 이용한 Controller</h3><hr>
+<hr>
+<h3 id="Controller-java"><a href="#Controller-java" class="headerlink" title="Controller.java"></a>Controller.java</h3><blockquote>
+<p>컨트롤러를 이용해 요청을 처리한다.</p>
+</blockquote>
 <pre><code class="java">package controller;
 
 import java.io.IOException;
@@ -210,17 +207,17 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
     PathNRedirect pathNRedirect = null;
     Command command = null;
 </code></pre>
-<h3 id="pathNRedirect-와-command"><a href="#pathNRedirect-와-command" class="headerlink" title="pathNRedirect 와 command"></a>pathNRedirect 와 command</h3><hr>
-<p>경로와 redirect 여부를 반환해줄 <strong>pathNRedirect</strong> 클래스와 MVC패턴 에서 Model을 공통으로 처리해줄 <strong>Command</strong> 인터페이스를 생성한다.</p>
-<ul>
-<li><strong>PathNRedirect</strong></li>
-</ul>
+<h3 id="common"><a href="#common" class="headerlink" title="common"></a>common</h3><blockquote>
+<p><strong>PathNRedirect.java</strong></p>
+</blockquote>
+<hr>
+<p><code>pathNRedirect</code> class 를 만들어 경로와 redirect 여부를 반환해준다.</p>
 <pre><code class="java">package common;
 
 public class PathNRedirect &#123;
 
-    private String path;
-    private boolean isRedirect;
+    private String path; //경로
+    private boolean isRedirect;  // 리다이렉트 여부.
 
     public String getPath() &#123;
         return path;
@@ -236,9 +233,22 @@ public class PathNRedirect &#123;
     &#125;
 
 &#125;</code></pre>
-<ul>
-<li><strong>Command</strong></li>
-</ul>
+<h3 id="Command"><a href="#Command" class="headerlink" title="Command"></a>Command</h3><p><code>Command</code> 인터페이스 생성 (MVC의 Model 공통 처리)</p>
+<blockquote>
+<p>Model</p>
+</blockquote>
+<ol>
+<li>Controller에게 결과와 응답할 VIEW를 반환한다.<ol>
+<li>반환값은 응답VIEW이다.</li>
+<li>결과값은 request에 저장한다.</li>
+</ol>
+</li>
+<li>매개변수로 HttpServletRequest 클래스 타입의 request가 필요하다.</li>
+<li>매개변수로 HttpServletResponse 클래스 타입의 response도 필요할 수 있다.</li>
+</ol>
+<blockquote>
+<p><em>Command</em></p>
+</blockquote>
 <pre><code class="java">package command;
 
 import javax.servlet.http.HttpServletRequest;
@@ -251,8 +261,23 @@ public interface Command &#123;
   public PathNRedirect execute(HttpServletRequest request, HttpServletResponse response);
 
 &#125;</code></pre>
-<h3 id="index의-로그인하러-가기"><a href="#index의-로그인하러-가기" class="headerlink" title="index의 로그인하러 가기"></a>index의 로그인하러 가기</h3><hr>
-<p><a href="#servlet%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-controller">Controller</a> 의 doGet메소드에 추가 작성</p>
+<h3 id="Controller"><a href="#Controller" class="headerlink" title="Controller"></a>Controller</h3><blockquote>
+<p>Controller의 역할</p>
+</blockquote>
+<ol>
+<li><p>요청을 확인하고, 요청을 처리할 Model(Command)을 호출한다.</p>
+</li>
+<li><p>Model(Command)이 반환한 결과와 응답VIEW를 이용해서 페이지이동(응답)을 한다.</p>
+<pre><code> Today today = new Today();
+ String path = today.execute(request, response);
+
+ path로 이동
+ Today Command가 request에 result를 저장해 주었으므로
+ 이를 전달하기 위해서 forward한다.</code></pre>
+</li>
+</ol>
+<hr>
+<p><code>Controller</code>의 doGet메소드에 추가 작성</p>
 <pre><code class="java">protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException &#123;
     request.setCharacterEncoding(&quot;utf-8&quot;);
     response.setContentType(&quot;text/html; charset=UTF-8&quot;);
@@ -270,11 +295,14 @@ public interface Command &#123;
         pathNRedirect = command.execute(request, response);
         break;
     &#125;</code></pre>
-<p><a href="#%EC%9D%B8%EB%8D%B1%EC%8A%A4-%ED%8E%98%EC%9D%B4%EC%A7%80">인덱스 페이지</a>의 <code>로그인하러 가기</code><br>의 /getImageCaptcha.do 요청을 Controller에서 처리해 준다.</p>
+<p><code>indexPage.java</code> 의 로그인하러 가기<br>의 /getImageCaptcha.do 요청을 Controller에서 처리해 준다.</p>
 <blockquote>
 <p>로그인을 하러 가면 캡차 이미지가 생성됨</p>
 </blockquote>
-<h3 id="캡차-이미지-생성을-위한-GetImageCaptchaCommand-생성"><a href="#캡차-이미지-생성을-위한-GetImageCaptchaCommand-생성" class="headerlink" title="캡차 이미지 생성을 위한 GetImageCaptchaCommand 생성"></a>캡차 이미지 생성을 위한 GetImageCaptchaCommand 생성</h3><hr>
+<h3 id="GetImageCaptchaCommand-생성"><a href="#GetImageCaptchaCommand-생성" class="headerlink" title="GetImageCaptchaCommand 생성"></a>GetImageCaptchaCommand 생성</h3><blockquote>
+<p> 캡차 이미지 생성을 위해 만든다.</p>
+</blockquote>
+<hr>
 <p><strong>캡차 키 발급 요청</strong> 과  <strong>이미지를 다운받는다.</strong></p>
 <pre><code class="java">package command;
 
@@ -524,7 +552,7 @@ public class GetImageCaptchaCommand implements Command &#123;
 
 &#125;</code></pre>
 <hr>
-<p><a href="#%EC%BA%A1%EC%B0%A8-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%83%9D%EC%84%B1%EC%9D%84-%EC%9C%84%ED%95%9C-getimagecaptchacommand-%EC%83%9D%EC%84%B1">GetImageCaptchaCommand</a> 메소드 순서 요약</p>
+<p><code>GetImageCaptchaCommand</code>메소드 순서 요약</p>
 <ol>
 <li>네이버 캡차 API에서 clientId 와 password를 발급 받는다.</li>
 <li>캡차 키 요청(get() 메소드 활용)을 받고 Json parse를위한 JSONSimple 라이브러리 사용</li>
@@ -533,8 +561,8 @@ public class GetImageCaptchaCommand implements Command &#123;
 <li>파일명과 파일위치를 반환받아 request 영역에 저장 (String filename, directory)</li>
 </ol>
 <hr>
-<h3 id="index페이지에서-loginPage로-이동"><a href="#index페이지에서-loginPage로-이동" class="headerlink" title="index페이지에서 loginPage로 이동"></a>index페이지에서 loginPage로 이동</h3><hr>
-<p><a href="#%EC%9D%B8%EB%8D%B1%EC%8A%A4-%ED%8E%98%EC%9D%B4%EC%A7%80">index페이지</a>에서 loginPage로 이동해서 생성된 캡차이미지 활용</p>
+<h3 id="indexPage-gt-loginPage"><a href="#indexPage-gt-loginPage" class="headerlink" title="indexPage -&gt;  loginPage"></a>indexPage -&gt;  loginPage</h3><hr>
+<p><code>indexPage.jsp</code> 에서 loginPage로 이동해서 생성된 캡차이미지 활용</p>
 <pre><code class="html">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
     pageEncoding=&quot;UTF-8&quot;%&gt;
 &lt;!DOCTYPE html&gt;
@@ -564,9 +592,9 @@ public class GetImageCaptchaCommand implements Command &#123;
 <blockquote>
 <p>img 태그의 경로설정에서 이미지가 안불러와져서 한참 애먹었다.. 상대경로로 지정해주니 해결되었음<br>src=”${directory}/${filename}: localhost:8080/18_CAPCHA/storage/1608569563538.jpg</p>
 </blockquote>
-<h3 id="loginPage의-login-do-요청-처리를-위한-컨트롤러-작성"><a href="#loginPage의-login-do-요청-처리를-위한-컨트롤러-작성" class="headerlink" title="loginPage의 login.do 요청 처리를 위한 컨트롤러 작성"></a>loginPage의 login.do 요청 처리를 위한 컨트롤러 작성</h3><hr>
+<h3 id="login-do-Controller-생성"><a href="#login-do-Controller-생성" class="headerlink" title="login.do Controller 생성"></a>login.do Controller 생성</h3><hr>
 <blockquote>
-<p><a href="#index%EC%9D%98-%EB%A1%9C%EA%B7%B8%EC%9D%B8%ED%95%98%EB%9F%AC-%EA%B0%80%EA%B8%B0">위 코드</a>에 추가</p>
+<p>위 코드 (<code>index의-로그인하러-가기</code>)에 추가</p>
 </blockquote>
 <pre><code class="java">switch(cmd)&#123;
     case &quot;/getImageCaptcha.do&quot;:
@@ -578,8 +606,8 @@ public class GetImageCaptchaCommand implements Command &#123;
         pathNRedirect = command.execute(request, response);
         break;
     &#125;</code></pre>
-<h3 id="login-do-의-모델-InputKeyCheckCommand-생성"><a href="#login-do-의-모델-InputKeyCheckCommand-생성" class="headerlink" title="login.do 의 모델 InputKeyCheckCommand 생성"></a>login.do 의 모델 InputKeyCheckCommand 생성</h3><blockquote>
-<p>captcha 이미지와 입력값을 비교한다.</p>
+<h3 id="InputKeyCheckCommand"><a href="#InputKeyCheckCommand" class="headerlink" title="InputKeyCheckCommand"></a>InputKeyCheckCommand</h3><blockquote>
+<p> <code>login.do</code> 의 모델 captcha 이미지와 입력값을 비교한다.</p>
 </blockquote>
 <hr>
 <pre><code class="java">package command;
@@ -704,7 +732,7 @@ public class InputKeyCheckCommand implements Command &#123;
 
 &#125;</code></pre>
 <p>request에 비교한 입력값에대한 결과를 <code>boolean</code> 타입으로 저장시켜 준다.<br>그리고 Path와 Redirect 유무를 가진 <strong>PathNRedirect</strong> 를 반환해준다.</p>
-<h3 id="Captcha이미지와-입력값의-결과-출력"><a href="#Captcha이미지와-입력값의-결과-출력" class="headerlink" title="Captcha이미지와 입력값의 결과 출력"></a>Captcha이미지와 입력값의 결과 출력</h3><blockquote>
+<h3 id="결과-출력-Page"><a href="#결과-출력-Page" class="headerlink" title="결과 출력 Page"></a>결과 출력 Page</h3><blockquote>
 <p>loginPage.jsp</p>
 </blockquote>
 <pre><code class="html">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
@@ -719,7 +747,13 @@ public class InputKeyCheckCommand implements Command &#123;
         location.href = &#39;/18_CAPTCHA/getImageCaptcha.do&#39;;
     &#125;
 &lt;/script&gt;</code></pre>
-<h3 id="마치며"><a href="#마치며" class="headerlink" title="마치며"></a>마치며</h3>
+<h2 id="결과-페이지"><a href="#결과-페이지" class="headerlink" title="결과 페이지"></a>결과 페이지</h2><img src="https://i.esdrop.com/d/yKWHJ8GAN2.png"/>
+
+<p>그 후에 맨 위와 같은 화면이 나오고</p>
+<img src="https://i.esdrop.com/d/Es5ZlPkRxN.png"/>
+
+<p>캡챠를 제대로 입력하면 뜨는 화면입니다.</p>
+
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
                 data-autoplay="false">
@@ -777,7 +811,7 @@ public class InputKeyCheckCommand implements Command &#123;
             <div class="box sticky animated fadeInRight faster">
                 <div id="toc" class="subbox">
                     <h4>Contents</h4>
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%9D%B8%EB%8D%B1%EC%8A%A4-%ED%8E%98%EC%9D%B4%EC%A7%80ddsddddddddddddddddd"><span class="toc-number">1.</span> <span class="toc-text">인덱스 페이지ddsddddddddddddddddd</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Servlet%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-Controller"><span class="toc-number">2.</span> <span class="toc-text">Servlet을 이용한 Controller</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pathNRedirect-%EC%99%80-command"><span class="toc-number">3.</span> <span class="toc-text">pathNRedirect 와 command</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#index%EC%9D%98-%EB%A1%9C%EA%B7%B8%EC%9D%B8%ED%95%98%EB%9F%AC-%EA%B0%80%EA%B8%B0"><span class="toc-number">4.</span> <span class="toc-text">index의 로그인하러 가기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%BA%A1%EC%B0%A8-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%83%9D%EC%84%B1%EC%9D%84-%EC%9C%84%ED%95%9C-GetImageCaptchaCommand-%EC%83%9D%EC%84%B1"><span class="toc-number">5.</span> <span class="toc-text">캡차 이미지 생성을 위한 GetImageCaptchaCommand 생성</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#index%ED%8E%98%EC%9D%B4%EC%A7%80%EC%97%90%EC%84%9C-loginPage%EB%A1%9C-%EC%9D%B4%EB%8F%99"><span class="toc-number">6.</span> <span class="toc-text">index페이지에서 loginPage로 이동</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#loginPage%EC%9D%98-login-do-%EC%9A%94%EC%B2%AD-%EC%B2%98%EB%A6%AC%EB%A5%BC-%EC%9C%84%ED%95%9C-%EC%BB%A8%ED%8A%B8%EB%A1%A4%EB%9F%AC-%EC%9E%91%EC%84%B1"><span class="toc-number">7.</span> <span class="toc-text">loginPage의 login.do 요청 처리를 위한 컨트롤러 작성</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#login-do-%EC%9D%98-%EB%AA%A8%EB%8D%B8-InputKeyCheckCommand-%EC%83%9D%EC%84%B1"><span class="toc-number">8.</span> <span class="toc-text">login.do 의 모델 InputKeyCheckCommand 생성</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Captcha%EC%9D%B4%EB%AF%B8%EC%A7%80%EC%99%80-%EC%9E%85%EB%A0%A5%EA%B0%92%EC%9D%98-%EA%B2%B0%EA%B3%BC-%EC%B6%9C%EB%A0%A5"><span class="toc-number">9.</span> <span class="toc-text">Captcha이미지와 입력값의 결과 출력</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%A7%88%EC%B9%98%EB%A9%B0"><span class="toc-number">10.</span> <span class="toc-text">마치며</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%BA%A1%EC%B0%A8-Capcha-%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C"><span class="toc-number">1.</span> <span class="toc-text">캡차(Capcha) 란 무엇일까</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%BA%A1%EC%B0%A8-%EB%A7%8C%EB%93%A4%EA%B8%B0-%EC%8B%9C%EC%9E%91"><span class="toc-number">2.</span> <span class="toc-text">캡차 만들기 시작</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%A7%8C%EB%93%A4%EA%B3%A0-%EC%8B%B6%EC%9D%80-%EC%BA%A1%EC%B1%A0-%ED%99%94%EB%A9%B4"><span class="toc-number">2.1.</span> <span class="toc-text">만들고 싶은 캡챠 화면</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%ED%95%84%EC%9A%94%ED%95%9C-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC"><span class="toc-number">2.2.</span> <span class="toc-text">필요한 라이브러리</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#index-jsp"><span class="toc-number">2.3.</span> <span class="toc-text">index.jsp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Controller-java"><span class="toc-number">2.4.</span> <span class="toc-text">Controller.java</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#common"><span class="toc-number">2.5.</span> <span class="toc-text">common</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Command"><span class="toc-number">2.6.</span> <span class="toc-text">Command</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Controller"><span class="toc-number">2.7.</span> <span class="toc-text">Controller</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GetImageCaptchaCommand-%EC%83%9D%EC%84%B1"><span class="toc-number">2.8.</span> <span class="toc-text">GetImageCaptchaCommand 생성</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#indexPage-gt-loginPage"><span class="toc-number">2.9.</span> <span class="toc-text">indexPage -&gt;  loginPage</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#login-do-Controller-%EC%83%9D%EC%84%B1"><span class="toc-number">2.10.</span> <span class="toc-text">login.do Controller 생성</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#InputKeyCheckCommand"><span class="toc-number">2.11.</span> <span class="toc-text">InputKeyCheckCommand</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EA%B2%B0%EA%B3%BC-%EC%B6%9C%EB%A0%A5-Page"><span class="toc-number">2.12.</span> <span class="toc-text">결과 출력 Page</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EA%B2%B0%EA%B3%BC-%ED%8E%98%EC%9D%B4%EC%A7%80"><span class="toc-number">3.</span> <span class="toc-text">결과 페이지</span></a></li></ol>
                 </div>
             </div>
             
