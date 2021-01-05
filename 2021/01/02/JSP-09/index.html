@@ -11,9 +11,14 @@
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Jakezo Obsidian,"> 
     <meta name="description" content="AJAX 실전 (2)
-AJAX를 사용하기 위한 설정 My Batis의 DBService.java 객체 생성 sqlmap-config.xml, member.xml 설정
+AJAX를 사용하기 위한 설정 
 
-mybat,"> 
+
+My Batis의 DBService.java 객체 생성 
+
+
+sqlmap-config.xml, member.xml 설정
+,"> 
     <meta name="author" content="Jakezo"> 
     <link rel="alternative" href="atom.xml" title="Re-Coder" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -103,13 +108,13 @@ mybat,">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    13k
+                    18k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    12 mins.
+                    16 mins.
                 </span>
                 
                 
@@ -144,7 +149,13 @@ mybat,">
     <div class='main'>
         <div class="content markdown animated fadeIn">
             <h2 id="AJAX-실전-2"><a href="#AJAX-실전-2" class="headerlink" title="AJAX 실전 (2)"></a>AJAX 실전 (2)</h2><blockquote>
-<p>AJAX를 사용하기 위한 설정 My Batis의 DBService.java 객체 생성 sqlmap-config.xml, member.xml 설정</p>
+<p>AJAX를 사용하기 위한 설정 </p>
+</blockquote>
+<blockquote>
+<p>My Batis의 DBService.java 객체 생성 </p>
+</blockquote>
+<blockquote>
+<p>sqlmap-config.xml, member.xml 설정</p>
 </blockquote>
 <h3 id="mybatis-config-DBService-java"><a href="#mybatis-config-DBService-java" class="headerlink" title="mybatis/config/DBService.java"></a>mybatis/config/DBService.java</h3><pre><code class="java">package mybatis.config;
 
@@ -308,55 +319,7 @@ public class BlackDao &#123;
 
 &#125;</code></pre>
 <blockquote>
-<p>Controller 만들기</p>
-</blockquote>
-<h3 id="BlackController-java"><a href="#BlackController-java" class="headerlink" title="BlackController.java"></a>BlackController.java</h3><pre><code class="java">import command.BlackCommand;
-import common.PathNRedirect;
-
-@WebServlet(&quot;*.black&quot;)
-public class BlackController extends HttpServlet &#123;
-    private static final long serialVersionUID = 1L;
-    public BlackController() &#123;
-        super();
-    &#125;
-
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException &#123;
-
-        request.setCharacterEncoding(&quot;UTF-8&quot;);
-        response.setContentType(&quot;text/html; charset=UTF-8&quot;);
-
-        String requestURI = request.getRequestURI();
-        String contextPath = request.getContextPath();
-        String cmd = requestURI.substring(contextPath.length());
-
-        PathNRedirect pathNRedirect = null;
-
-        BlackCommand command = null;
-
-        switch (cmd) &#123;
-
-        &#125;
-
-        String path = pathNRedirect.getPath();
-        boolean isRedirect = pathNRedirect.isRedirect();
-
-        if (isRedirect) &#123;
-            response.sendRedirect(path);
-        &#125; else &#123;
-            request.getRequestDispatcher(path).forward(request, response);
-        &#125;
-
-    &#125;
-
-
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException &#123;
-        doGet(request, response);
-    &#125;
-&#125;
-</code></pre>
-<blockquote>
-<p>Common PathNRedirect 만들기</p>
+<p>Common 에 PathNRedirect 만들기</p>
 </blockquote>
 <h3 id="PathNRedirect-java"><a href="#PathNRedirect-java" class="headerlink" title="PathNRedirect.java"></a>PathNRedirect.java</h3><pre><code class="java">package common;
 
@@ -379,7 +342,6 @@ public class PathNRedirect &#123;
     &#125;
 
 &#125;</code></pre>
-<hr>
 <blockquote>
 <p>Command 만들기</p>
 </blockquote>
@@ -389,14 +351,189 @@ package command;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import common.PathNRedirect;
+
+public interface BlackCommand &#123;
+
+    /* 일반 Command */
+    // public PathNRedirect execute(HttpServletRequest request, HttpServletResponse response);
+
+    /* AJAX Command */
+    // 요청한 JSP로 값을 반환하므로 path, redirect/forward가 필요 없다.
+    // 반환 값이 실제 데이터이다.
+    // 모든 반환 값은 String 타입으로 반환한다.
+    public String execute(HttpServletRequest request, HttpServletResponse response);
+
+&#125;</code></pre>
+<blockquote>
+<p>BlackJsonCommand.java</p>
+</blockquote>
+<pre><code class="java">package command;
+
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
+import dao.BlackDao;
+import dto.BlackDto;
+
+public class BlackJSONCommand implements BlackCommand &#123;
+
+    @Override
+    public String execute(HttpServletRequest request, HttpServletResponse response) &#123;
+
+        /* 동작 확인용(DB를 사용 안 함) */
+        /*
+        JSONObject obj = new JSONObject();    // simple-json-1.1.1.jar(lib)
+        obj.put(&quot;name&quot;,&quot;james&quot;);
+        obj.put(&quot;age&quot;, 20);
+        obj.put(&quot;gender&quot;,&quot;여&quot;);
+        obj.put(&quot;phone&quot;,&quot;010-1111-1111&quot;);
+        obj.put(&quot;address&quot;,&quot;속초&quot;);
+
+        return obj.toJSONString();
+        */
+
+        /* DB에 들어가 데이터 가져오기 */
+        List&lt;BlackDto&gt; list = BlackDao.getInstance().list();
+
+        // list를 JSON으로 만들기
+        // JSONObject를 BlackDto로 보면 되기 때문에
+        // list는 JSONArray로 보면 된다.
+        JSONArray jsonArray = new JSONArray();
+
+        for (BlackDto blackDto : list) &#123;
+            JSONObject obj = new JSONObject();
+            obj.put(&quot;name&quot;, blackDto.getName());
+            obj.put(&quot;age&quot;, blackDto.getAge());
+            obj.put(&quot;gender&quot;, blackDto.getGender());
+            obj.put(&quot;phone&quot;, blackDto.getPhone());
+            obj.put(&quot;address&quot;, blackDto.getAddress());
+
+            jsonArray.add(obj);    // JSONArray는 ArrayList처럼 사용한다.
+        &#125;
+        return jsonArray.toJSONString();
+    &#125;
+
+&#125;
+
+</code></pre>
+<blockquote>
+<p>BlackStringCommand.java</p>
+</blockquote>
+<pre><code class="java">package command;
+
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import dao.BlackDao;
+import dto.BlackDto;
+
 public class BlackStringCommand implements BlackCommand &#123;
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) &#123;
-        return &quot;&lt;tr&gt;&lt;td colspan=\&quot;5\&quot;&gt;AJAX통신결과&lt;/td&gt;&lt;/tr&gt;&quot;;
+        // DB 사용 안 하고 출력 
+        // return &quot;&lt;tr&gt;&lt;td colspan=\&quot;5\&quot;&gt;AJAX통신결과&lt;/td&gt;&lt;/tr&gt;&quot;;
+
+        List&lt;BlackDto&gt; list = BlackDao.getInstance().list();
+        String result = &quot;&quot;;
+        for (BlackDto blackDto : list) &#123;
+            result += &quot;&lt;tr&gt;&quot;;
+            result += &quot;&lt;td&gt;&quot; + blackDto.getName() + &quot;&lt;/td&gt;&quot;;
+            result += &quot;&lt;td&gt;&quot; + blackDto.getAge() + &quot;&lt;/td&gt;&quot;;
+            result += &quot;&lt;td&gt;&quot; + blackDto.getGender() + &quot;&lt;/td&gt;&quot;;
+            result += &quot;&lt;td&gt;&quot; + blackDto.getPhone() + &quot;&lt;/td&gt;&quot;;
+            result += &quot;&lt;td&gt;&quot; + blackDto.getAddress() + &quot;&lt;/td&gt;&quot;;
+            result += &quot;&lt;/tr&gt;&quot;;
+        &#125;
+        return result;
     &#125;
 
 &#125;</code></pre>
+<blockquote>
+<p>Controller 만들기</p>
+</blockquote>
+<h3 id="BlackController-java"><a href="#BlackController-java" class="headerlink" title="BlackController.java"></a>BlackController.java</h3><pre><code class="java">package controller;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import command.BlackCommand;
+import command.BlackJSONCommand;
+import command.BlackStringCommand;
+
+@WebServlet(&quot;*.black&quot;)
+public class BlackController extends HttpServlet &#123;
+    private static final long serialVersionUID = 1L;
+    public BlackController() &#123;
+        super();
+    &#125;
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException &#123;
+
+        request.setCharacterEncoding(&quot;UTF-8&quot;);
+        response.setContentType(&quot;text/html; charset=UTF-8&quot;);
+
+        String requestURI = request.getRequestURI();
+        String contextPath = request.getContextPath();
+        String cmd = requestURI.substring(contextPath.length());
+        /*
+            AJAX를 처리하는 Controller는 PathNRedirect가 필요하지 않다.
+            PathNRedirect pathNRedirect = null;
+
+            AJAX는 실제 데이터를 String 타입으로 반환하므로  String result가 필요하다.
+        */
+        String result = null;
+
+        BlackCommand command = null;
+
+        switch (cmd) &#123;
+
+        case &quot;/getString.black&quot;:
+            command = new BlackStringCommand();
+            result = command.execute(request, response);
+            break;
+
+        case &quot;/getJSON.black&quot;:
+            command = new BlackJSONCommand();
+            result = command.execute(request, response);
+            break;
+        &#125;
+        /* AJAX를 처리하는 Controller는 PathNRedirect가 필요하지 않다.
+        String path = pathNRedirect.getPath();
+        boolean isRedirect = pathNRedirect.isRedirect();
+
+        if (isRedirect) &#123;
+            response.sendRedirect(path);
+        &#125; else &#123;
+            request.getRequestDispatcher(path).forward(request, response);
+        &#125;
+        */
+
+        // 반환 값(결과)을 요청한 곳으로 보내면 된다.
+        // 응답
+        PrintWriter out = response.getWriter();
+        out.println(result);    // AJAX 통신이 성공하면 succes: function(data) &#123;...&#125;의 data로 result가 전달된다.
+    &#125;
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException &#123;
+        doGet(request, response);
+    &#125;
+&#125;</code></pre>
+<hr>
 <h2 id="화면구성-프론트"><a href="#화면구성-프론트" class="headerlink" title="화면구성(프론트)"></a>화면구성(프론트)</h2><h3 id="index-jsp"><a href="#index-jsp" class="headerlink" title="index.jsp"></a>index.jsp</h3><pre><code class="html">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
     pageEncoding=&quot;UTF-8&quot;%&gt;
 &lt;!DOCTYPE html&gt;
@@ -562,9 +699,9 @@ public class BlackStringCommand implements BlackCommand &#123;
                     </dl>
                 </div>
                 <ul>
-                    <li><a href="/">19 <p>Articles</p></a></li>
+                    <li><a href="/">21 <p>Articles</p></a></li>
                     <li><a href="/categories">3 <p>Categories</p></a></li>
-                    <li><a href="/tags">15 <p>Tags</p></a></li>
+                    <li><a href="/tags">20 <p>Tags</p></a></li>
                 </ul>
             </div>
             
@@ -573,7 +710,7 @@ public class BlackStringCommand implements BlackCommand &#123;
             <div class="box sticky animated fadeInRight faster">
                 <div id="toc" class="subbox">
                     <h4>Contents</h4>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#AJAX-%EC%8B%A4%EC%A0%84-2"><span class="toc-number">1.</span> <span class="toc-text">AJAX 실전 (2)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#mybatis-config-DBService-java"><span class="toc-number">1.1.</span> <span class="toc-text">mybatis&#x2F;config&#x2F;DBService.java</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sqlmap-config-xml"><span class="toc-number">1.2.</span> <span class="toc-text">sqlmap-config.xml</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mapper-xml-member"><span class="toc-number">1.3.</span> <span class="toc-text">mapper.xml(member)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#db-black-sql"><span class="toc-number">1.4.</span> <span class="toc-text">db&#x2F;black.sql</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dto-BlackDto-java"><span class="toc-number">1.5.</span> <span class="toc-text">dto&#x2F;BlackDto.java</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dao-BlackDao-java"><span class="toc-number">1.6.</span> <span class="toc-text">dao&#x2F;BlackDao.java</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BlackController-java"><span class="toc-number">1.7.</span> <span class="toc-text">BlackController.java</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PathNRedirect-java"><span class="toc-number">1.8.</span> <span class="toc-text">PathNRedirect.java</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BlackCommand-java"><span class="toc-number">1.9.</span> <span class="toc-text">BlackCommand.java</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%ED%99%94%EB%A9%B4%EA%B5%AC%EC%84%B1-%ED%94%84%EB%A1%A0%ED%8A%B8"><span class="toc-number">2.</span> <span class="toc-text">화면구성(프론트)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#index-jsp"><span class="toc-number">2.1.</span> <span class="toc-text">index.jsp</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EA%B2%B0%EA%B3%BC%ED%99%94%EB%A9%B4"><span class="toc-number">3.</span> <span class="toc-text">결과화면</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#AJAX-%EC%8B%A4%EC%A0%84-2"><span class="toc-number">1.</span> <span class="toc-text">AJAX 실전 (2)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#mybatis-config-DBService-java"><span class="toc-number">1.1.</span> <span class="toc-text">mybatis&#x2F;config&#x2F;DBService.java</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sqlmap-config-xml"><span class="toc-number">1.2.</span> <span class="toc-text">sqlmap-config.xml</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mapper-xml-member"><span class="toc-number">1.3.</span> <span class="toc-text">mapper.xml(member)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#db-black-sql"><span class="toc-number">1.4.</span> <span class="toc-text">db&#x2F;black.sql</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dto-BlackDto-java"><span class="toc-number">1.5.</span> <span class="toc-text">dto&#x2F;BlackDto.java</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dao-BlackDao-java"><span class="toc-number">1.6.</span> <span class="toc-text">dao&#x2F;BlackDao.java</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PathNRedirect-java"><span class="toc-number">1.7.</span> <span class="toc-text">PathNRedirect.java</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BlackCommand-java"><span class="toc-number">1.8.</span> <span class="toc-text">BlackCommand.java</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BlackController-java"><span class="toc-number">1.9.</span> <span class="toc-text">BlackController.java</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%ED%99%94%EB%A9%B4%EA%B5%AC%EC%84%B1-%ED%94%84%EB%A1%A0%ED%8A%B8"><span class="toc-number">2.</span> <span class="toc-text">화면구성(프론트)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#index-jsp"><span class="toc-number">2.1.</span> <span class="toc-text">index.jsp</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EA%B2%B0%EA%B3%BC%ED%99%94%EB%A9%B4"><span class="toc-number">3.</span> <span class="toc-text">결과화면</span></a></li></ol>
                 </div>
             </div>
             

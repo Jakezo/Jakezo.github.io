@@ -1,0 +1,680 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>JSP-11 DBCP View - Re-Coder</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Jakezo Obsidian,"> 
+    <meta name="description" content="indexPageindex Page&amp;lt;%@ page language=&amp;quot;java&amp;quot; contentType=&amp;quot;text/html; charset=UTF-8,"> 
+    <meta name="author" content="Jakezo"> 
+    <link rel="alternative" href="atom.xml" title="Re-Coder" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link href="https://fonts.loli.net/css?family=Roboto+Mono|Rubik&display=swap" rel="stylesheet">
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1429596_nzgqgvnmkjb.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.7.2/animate.min.css">
+
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/codemirror.min.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/theme/dracula.css">
+
+    
+<link rel="stylesheet" href="/css/obsidian.css">
+
+    
+<link rel="stylesheet" href="/css/ball-atom.min.css">
+
+    
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body class="loading">
+    <div class="loader">
+        <div class="la-ball-atom la-2x">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <span id="config-title" style="display:none">Re-Coder</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div class="scrollbar gradient-bg-rev"></div>
+<div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <div class="navigation animated fadeIn fast delay-1s">
+        <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://jakezo.github.io">
+        <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
+        <h3 class="subtitle">JSP-11 DBCP View</h3>
+        <div class="social">
+            <!--        <div class="like-icon">-->
+            <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+            <!--        </div>-->
+            <div>
+                <div class="share">
+                    
+                        <a href="javascript:;" class="iconfont icon-share1"></a>
+                        <div class="share-component-cc" data-disabled="facebook,douban,linkedin,diandian,tencent,google"></div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="section">
+        <div class=article-header-wrapper>
+    <div class="article-header">
+        <div class="article-cover animated fadeIn" style="
+            animation-delay: 600ms;
+            animation-duration: 1.2s;
+            background-image: 
+                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+                url(/img/cover.jpg) ">
+        </div>
+        <div class="else">
+            <p class="animated fadeInDown">
+                
+                <a href="/categories/JAVA-WEB"><b>「
+                    </b>JAVA-WEB<b> 」</b></a>
+                
+                January 04, 2021
+            </p>
+            <h3 class="post-title animated fadeInDown"><a href="/2021/01/04/JSP-11/" title="JSP-11 DBCP View" class="">JSP-11 DBCP View</a>
+            </h3>
+            
+            <p class="post-count animated fadeInDown">
+                
+                <span>
+                    <b class="iconfont icon-text2"></b> <i>Words count</i>
+                    12k
+                </span>
+                
+                
+                <span>
+                    <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
+                    11 mins.
+                </span>
+                
+                
+                
+                <span id="busuanzi_container_page_pv">
+                    <b class="iconfont icon-read"></b> <i>Read count</i>
+                    <span id="busuanzi_value_page_pv">0</span>
+                </span>
+                
+            </p>
+            
+            
+            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/DBCP/" rel="tag">DBCP</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/JSON/" rel="tag">JSON</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/JSP/" rel="tag">JSP</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/SQL/" rel="tag">SQL</a></li></ul>
+            
+        </div>
+    </div>
+</div>
+
+<div class="screen-gradient-after">
+    <div class="screen-gradient-content">
+        <div class="screen-gradient-content-inside">
+            <div class="bold-underline-links screen-gradient-sponsor">
+                <p>
+                    <span class="animated fadeIn delay-1s"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="article">
+    <div class='main'>
+        <div class="content markdown animated fadeIn">
+            <h1 id="indexPage"><a href="#indexPage" class="headerlink" title="indexPage"></a>indexPage</h1><h2 id="index-Page"><a href="#index-Page" class="headerlink" title="index Page"></a>index Page</h2><pre><code class="java">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+    pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;Insert title here&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;a href=&quot;/15_DBCP/listPage.do&quot;&gt;게시판으로 이동&lt;/a&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h1 id="ViewPage"><a href="#ViewPage" class="headerlink" title="ViewPage"></a>ViewPage</h1><h2 id="List-페이지"><a href="#List-페이지" class="headerlink" title="List 페이지"></a>List 페이지</h2><h3 id="listPage-jsp"><a href="#listPage-jsp" class="headerlink" title="listPage.jsp"></a>listPage.jsp</h3><pre><code class="java">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+    pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;%@ taglib uri=&quot;http://java.sun.com/jsp/jstl/core&quot; prefix=&quot;c&quot; %&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;Insert title here&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;a href=&quot;/15_DBCP/insertPage.do&quot;&gt;새 글 작성하기&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;
+
+    &lt;table border=&quot;1&quot;&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;td&gt;게시글번호&lt;/td&gt;
+                &lt;td&gt;제목&lt;/td&gt;
+                &lt;td&gt;작성자&lt;/td&gt;
+                &lt;td&gt;조회수&lt;/td&gt;
+                &lt;td&gt;작성일자&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;c:if test=&quot;$&#123;empty list&#125;&quot;&gt;
+                &lt;tr&gt;
+                    &lt;td colspan=&quot;5&quot;&gt;작성된 게시글이 없습니다.&lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/c:if&gt;
+            &lt;c:if test=&quot;$&#123;not empty list&#125;&quot;&gt;
+                &lt;c:forEach var=&quot;greenDto&quot; items=&quot;$&#123;list&#125;&quot;&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;$&#123;greenDto.no&#125;&lt;/td&gt;
+                        &lt;td&gt;$&#123;greenDto.writer&#125;&lt;/td&gt;
+                        &lt;td&gt;&lt;a href=&quot;/15_DBCP/viewPage.do?no=$&#123;greenDto.no&#125;&quot;&gt;$&#123;greenDto.title&#125;&lt;/a&gt;&lt;/td&gt;
+                        &lt;td&gt;$&#123;greenDto.hit&#125;&lt;/td&gt;
+                        &lt;td&gt;$&#123;greenDto.postDate&#125;&lt;/td&gt;
+                    &lt;/tr&gt;
+                &lt;/c:forEach&gt;
+            &lt;/c:if&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h2 id="insert-페이지와-결과"><a href="#insert-페이지와-결과" class="headerlink" title="insert 페이지와 결과"></a>insert 페이지와 결과</h2><h3 id="insertPage-jsp"><a href="#insertPage-jsp" class="headerlink" title="insertPage.jsp"></a>insertPage.jsp</h3><pre><code class="java">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+    pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;Insert title here&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;form 
+        action=&quot;/15_DBCP/insert.do&quot;
+        method=&quot;post&quot;&gt;
+
+        작성자&lt;br/&gt;
+        &lt;input type=&quot;text&quot; name=&quot;writer&quot; /&gt;&lt;br/&gt;&lt;br/&gt;
+
+        제목&lt;br/&gt;
+        &lt;input type=&quot;text&quot; name=&quot;title&quot; /&gt;&lt;br/&gt;&lt;br/&gt;
+
+        내용&lt;br/&gt;
+        &lt;textarea rows=&quot;5&quot; cols=&quot;50&quot; name=&quot;content&quot;&gt;&lt;/textarea&gt;&lt;br/&gt;&lt;br/&gt;
+
+        &lt;button&gt;삽입하기&lt;/button&gt;
+        &lt;input type=&quot;reset&quot; value=&quot;다시작성하기&quot; /&gt;
+        &lt;input type=&quot;button&quot; value=&quot;목록으로이동&quot; onclick=&quot;location.href=&#39;/15_DBCP/listPage.do&#39;&quot; /&gt;
+
+    &lt;/form&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h3 id="insertResult-jsp"><a href="#insertResult-jsp" class="headerlink" title="insertResult.jsp"></a>insertResult.jsp</h3><pre><code class="java">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+    pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;script&gt;
+    if ($&#123;param.result&#125; &gt; 0) &#123;
+        alert(&#39;게시글이 등록되었습니다.&#39;);
+        location.href = &#39;/15_DBCP/listPage.do&#39;;
+    &#125; else &#123;
+        alert(&#39;게시글이 등록되지 않았습니다.&#39;);
+        history.back();
+    &#125;
+&lt;/script&gt;</code></pre>
+<h2 id="Update-페이지와-결과"><a href="#Update-페이지와-결과" class="headerlink" title="Update 페이지와 결과"></a>Update 페이지와 결과</h2><h3 id="UpdatePage-jsp"><a href="#UpdatePage-jsp" class="headerlink" title="UpdatePage.jsp"></a>UpdatePage.jsp</h3><pre><code class="java">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+    pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;Insert title here&lt;/title&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+
+    function fn_update(f) &#123;
+        if (f.title.value == &#39;&#39;) &#123;
+            alert(&#39;제목은 필수입니다.&#39;);
+            f.title.focus();
+            return;
+        &#125;
+        if (&#39;$&#123;param.title&#125;&#39; == f.title.value  &amp;&amp; &#39;$&#123;param.content&#125;&#39; == f.content.value) &#123;
+            alert(&#39;수정할 내용이 없습니다.&#39;);
+        &#125;
+        f.action = &#39;/15_DBCP/update.do&#39;;
+        f.submit();
+    &#125;
+
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;h3&gt;$&#123;param.no&#125;번 게시글을 수정합니다.&lt;/h3&gt;
+    &lt;form method=&quot;post&quot;&gt;
+        작성자&lt;br/&gt;
+        $&#123;param.writer&#125;&lt;br/&gt;&lt;br/&gt;
+
+        제목&lt;br/&gt;
+        &lt;input type=&quot;text&quot; name=&quot;title&quot; value=&quot;$&#123;param.title&#125;&quot; /&gt;&lt;br/&gt;&lt;br/&gt;
+
+        내용&lt;br/&gt;
+        &lt;textarea rows=&quot;5&quot; cols=&quot;50&quot; name=&quot;content&quot;&gt;$&#123;param.content&#125;&lt;/textarea&gt;&lt;br/&gt;&lt;br/&gt;
+
+        조회수&lt;br/&gt;
+        $&#123;param.hit&#125;&lt;br/&gt;&lt;br/&gt;
+
+        작성일&lt;br/&gt;
+        $&#123;param.postDate&#125;&lt;br/&gt;&lt;br/&gt;
+
+        &lt;input type=&quot;hidden&quot; name=&quot;no&quot; value=&quot;$&#123;param.no&#125;&quot; /&gt;
+
+        &lt;input type=&quot;button&quot; value=&quot;수정하기&quot; onclick=&quot;fn_update(this.form)&quot; /&gt;
+        &lt;input type=&quot;reset&quot; value=&quot;다시작성&quot; /&gt;
+        &lt;input type=&quot;button&quot; value=&quot;취소하기&quot; onclick=&quot;alert(&#39;취소합니다.&#39;); history.back()&quot; /&gt;
+        &lt;input type=&quot;button&quot; value=&quot;목록으로이동&quot; onclick=&quot;location.href=&#39;/15_DBCP/listPage.do&#39;&quot; /&gt;
+    &lt;/form&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h3 id="updateSuccess-jsp"><a href="#updateSuccess-jsp" class="headerlink" title="updateSuccess.jsp"></a>updateSuccess.jsp</h3><pre><code class="java">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+    pageEncoding=&quot;UTF-8&quot;%&gt;
+
+    &lt;script&gt;
+            alert(&#39;게시글이 수정되었습니다.&#39;);
+            location.href=&#39;/15_DBCP/viewPage.do?no=$&#123;param.no&#125;&#39;;
+    &lt;/script&gt;</code></pre>
+<h3 id="updateFail-jsp"><a href="#updateFail-jsp" class="headerlink" title="updateFail.jsp"></a>updateFail.jsp</h3><pre><code class="java">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+    pageEncoding=&quot;UTF-8&quot;%&gt;
+
+    &lt;script&gt;
+            alert(&#39;수정되지 않았습니다.&#39;);
+            history.back();
+    &lt;/script&gt;</code></pre>
+<h2 id="View-페이지"><a href="#View-페이지" class="headerlink" title="View 페이지"></a>View 페이지</h2><h3 id="viewPage-jsp"><a href="#viewPage-jsp" class="headerlink" title="viewPage.jsp"></a>viewPage.jsp</h3><pre><code class="java">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+    pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;Insert title here&lt;/title&gt;
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+
+    function fn_delete(f) &#123;
+        if (confirm(&#39;게시글을 삭제할까요?&#39;)) &#123;
+            f.action = &#39;/15_DBCP/delete.do&#39;;
+            f.submit();
+        &#125; else &#123;
+            alert(&#39;취소되었습니다.&#39;);
+        &#125;
+    &#125;
+
+    function fn_updatePage(f) &#123;
+        f.action = &#39;/15_DBCP/updatePage.do&#39;;
+        f.submit();
+    &#125;
+
+&lt;/script&gt;
+
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;h3&gt;$&#123;greenDto.no&#125;번게시글입니다.&lt;/h3&gt;
+    &lt;form&gt;
+        작성자 &lt;br /&gt; 
+        $&#123;greenDto.writer&#125;&lt;br /&gt;&lt;br /&gt;
+
+         제목 &lt;br /&gt;
+        &lt;pre&gt;$&#123;greenDto.title&#125;&lt;/pre&gt;&lt;br /&gt;&lt;br /&gt;
+
+        내용 &lt;br /&gt;
+        &lt;pre&gt;$&#123;greenDto.content&#125;&lt;/pre&gt;&lt;br /&gt;&lt;br /&gt;
+
+        조회수 &lt;br /&gt;
+        &lt;pre&gt;$&#123;greenDto.hit&#125;&lt;/pre&gt;&lt;br /&gt;&lt;br /&gt;
+
+        작성일 &lt;br /&gt;
+        &lt;pre&gt;$&#123;greenDto.postDate&#125;&lt;/pre&gt;&lt;br /&gt;&lt;br /&gt;
+
+        &lt;input type=&quot;hidden&quot; name=&quot;no&quot; value=&quot;$&#123;greenDto.no&#125;&quot; /&gt;
+        &lt;input type=&quot;hidden&quot; name=&quot;writer&quot; value=&quot;$&#123;greenDto.writer&#125;&quot; /&gt;
+        &lt;input type=&quot;hidden&quot; name=&quot;title&quot; value=&quot;$&#123;greenDto.title&#125;&quot; /&gt;
+        &lt;input type=&quot;hidden&quot; name=&quot;content&quot; value=&quot;$&#123;greenDto.content&#125;&quot; /&gt;
+        &lt;input type=&quot;hidden&quot; name=&quot;hit&quot; value=&quot;$&#123;greenDto.hit&#125;&quot; /&gt;
+        &lt;input type=&quot;hidden&quot; name=&quot;postDate&quot; value=&quot;$&#123;greenDto.postDate&#125;&quot; /&gt;
+
+        &lt;input type=&quot;button&quot; value=&quot;수정하기&quot; onclick=&quot;fn_updatePage(this.form)&quot; /&gt;
+        &lt;input type=&quot;button&quot; value=&quot;삭제하기&quot; onclick=&quot;fn_delete(this.form)&quot; /&gt;
+        &lt;input type=&quot;button&quot; value=&quot;목록으로이동&quot; onclick=&quot;location.href=&#39;/15_DBCP/listPage.do&#39;&quot; /&gt;
+
+    &lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h3 id="viewFail-jsp"><a href="#viewFail-jsp" class="headerlink" title="viewFail.jsp"></a>viewFail.jsp</h3><pre><code class="java">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+    pageEncoding=&quot;UTF-8&quot;%&gt;
+
+   &lt;script&gt;
+           alert(&#39;게시글의 정보를 확인할 수 없습니다.&#39;);
+           location.href = &#39;/15_DBCP/listPage.do&#39;;
+   &lt;/script&gt;</code></pre>
+<h2 id="Delete-관련-페이지"><a href="#Delete-관련-페이지" class="headerlink" title="Delete 관련 페이지"></a>Delete 관련 페이지</h2><h3 id="deleteSuccess-jsp"><a href="#deleteSuccess-jsp" class="headerlink" title="deleteSuccess.jsp"></a>deleteSuccess.jsp</h3><pre><code class="java">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+    pageEncoding=&quot;UTF-8&quot;%&gt;
+
+&lt;script&gt;
+        alert(&#39;게시글이 삭제되었습니다.&#39;);
+        location.href = &#39;/15_DBCP/listPage.do&#39;;
+&lt;/script&gt;</code></pre>
+<h3 id="deleteFail-jsp"><a href="#deleteFail-jsp" class="headerlink" title="deleteFail.jsp"></a>deleteFail.jsp</h3><pre><code class="java">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+    pageEncoding=&quot;UTF-8&quot;%&gt;
+
+&lt;script&gt;
+        alert(&#39;게시글이 삭제되지 않았습니다.&#39;);
+        history.back();
+&lt;/script&gt;</code></pre>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls"
+                data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+            <ul id="audio-list" style="display:none">
+                
+                
+                <li title='0' data-url='/statics/chengdu.mp3'></li>
+                
+                    
+            </ul>
+            
+            
+            
+    <div id='gitalk-container' class="comment link"
+        data-ae='true'
+        data-ci='b71d412ba1e7a1a6a699'
+        data-cs='b5058587509d4ec60e52677d4c79d46bae266b57'
+        data-r='gitalkHexoComment'
+        data-o='Jakezo'
+        data-a='Jakezo'
+        data-d=''
+    >Comments</div>
+
+
+            
+            
+        </div>
+        <div class="sidebar">
+            <div class="box animated fadeInRight">
+                <div class="subbox">
+                    <img src="/img/logo_icon.png" height=300 width=300></img>
+                    <p>Jakezo</p>
+                    <span>Think like an artist, develop like an artisan</span>
+                    <dl>
+                        <dd><a href="https://github.com/Jakezo" target="_blank"><span
+                                    class=" iconfont icon-github"></span></a></dd>
+                        <dd><a href="https://twitter.com/TriDiamond6" target="_blank"><span
+                                    class=" iconfont icon-twitter"></span></a></dd>
+                        <dd><a href="https://stackoverflow.com/users/7602324/tridiamond?tab=profile" target="_blank"><span
+                                    class=" iconfont icon-stack-overflow"></span></a></dd>
+                    </dl>
+                </div>
+                <ul>
+                    <li><a href="/">21 <p>Articles</p></a></li>
+                    <li><a href="/categories">3 <p>Categories</p></a></li>
+                    <li><a href="/tags">20 <p>Tags</p></a></li>
+                </ul>
+            </div>
+            
+            
+            
+            <div class="box sticky animated fadeInRight faster">
+                <div id="toc" class="subbox">
+                    <h4>Contents</h4>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#indexPage"><span class="toc-number">1.</span> <span class="toc-text">indexPage</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#index-Page"><span class="toc-number">1.1.</span> <span class="toc-text">index Page</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ViewPage"><span class="toc-number">2.</span> <span class="toc-text">ViewPage</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#List-%ED%8E%98%EC%9D%B4%EC%A7%80"><span class="toc-number">2.1.</span> <span class="toc-text">List 페이지</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#listPage-jsp"><span class="toc-number">2.1.1.</span> <span class="toc-text">listPage.jsp</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#insert-%ED%8E%98%EC%9D%B4%EC%A7%80%EC%99%80-%EA%B2%B0%EA%B3%BC"><span class="toc-number">2.2.</span> <span class="toc-text">insert 페이지와 결과</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#insertPage-jsp"><span class="toc-number">2.2.1.</span> <span class="toc-text">insertPage.jsp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#insertResult-jsp"><span class="toc-number">2.2.2.</span> <span class="toc-text">insertResult.jsp</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Update-%ED%8E%98%EC%9D%B4%EC%A7%80%EC%99%80-%EA%B2%B0%EA%B3%BC"><span class="toc-number">2.3.</span> <span class="toc-text">Update 페이지와 결과</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#UpdatePage-jsp"><span class="toc-number">2.3.1.</span> <span class="toc-text">UpdatePage.jsp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#updateSuccess-jsp"><span class="toc-number">2.3.2.</span> <span class="toc-text">updateSuccess.jsp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#updateFail-jsp"><span class="toc-number">2.3.3.</span> <span class="toc-text">updateFail.jsp</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#View-%ED%8E%98%EC%9D%B4%EC%A7%80"><span class="toc-number">2.4.</span> <span class="toc-text">View 페이지</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#viewPage-jsp"><span class="toc-number">2.4.1.</span> <span class="toc-text">viewPage.jsp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#viewFail-jsp"><span class="toc-number">2.4.2.</span> <span class="toc-text">viewFail.jsp</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Delete-%EA%B4%80%EB%A0%A8-%ED%8E%98%EC%9D%B4%EC%A7%80"><span class="toc-number">2.5.</span> <span class="toc-text">Delete 관련 페이지</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#deleteSuccess-jsp"><span class="toc-number">2.5.1.</span> <span class="toc-text">deleteSuccess.jsp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#deleteFail-jsp"><span class="toc-number">2.5.2.</span> <span class="toc-text">deleteFail.jsp</span></a></li></ol></li></ol></li></ol>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+</div>
+    <div id="back-to-top" class="animated fadeIn faster">
+        <div class="flow"></div>
+        <span class="percentage animated fadeIn faster">0%</span>
+        <span class="iconfont icon-top02 animated fadeIn faster"></span>
+    </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":0.85}});</script></body>
+<footer>
+    <p class="copyright" id="copyright">
+        &copy; 2021
+        <span class="gradient-text">
+            Jakezo
+        </span>.
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+        Theme
+        <span class="gradient-text">
+            <a href="https://github.com/TriDiamond/hexo-theme-obsidian" title="Obsidian" target="_blank" rel="noopener">Obsidian</a>
+        </span>
+        <small><a href="https://github.com/TriDiamond/hexo-theme-obsidian/blob/master/CHANGELOG.md" title="v1.4.4" target="_blank" rel="noopener">v1.4.4</a></small>
+    </p>
+</footer>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script>
+  MathJax.Hub.Config({
+    "HTML-CSS": {
+      preferredFont: "TeX",
+      availableFonts: ["STIX", "TeX"],
+      linebreaks: {
+        automatic: true
+      },
+      EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+      inlineMath: [
+        ["$", "$"],
+        ["\\(", "\\)"]
+      ],
+      processEscapes: true,
+      ignoreClass: "tex2jax_ignore|dno",
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      noUndefined: {
+        attributes: {
+          mathcolor: "red",
+          mathbackground: "#FFEEEE",
+          mathsize: "90%"
+        }
+      },
+      Macros: {
+        href: "{}"
+      }
+    },
+    messageStyle: "none"
+  });
+</script>
+<script>
+  function initialMathJax() {
+    MathJax.Hub.Queue(function () {
+      var all = MathJax.Hub.getAllJax(),
+        i;
+      // console.log(all);
+      for (i = 0; i < all.length; i += 1) {
+        console.log(all[i].SourceElement().parentNode)
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  }
+
+  function reprocessMathJax() {
+    if (typeof MathJax !== 'undefined') {
+      MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+    }
+  }
+</script>
+
+
+ 
+<link rel="stylesheet" href="//cdn.bootcss.com/gitalk/1.5.0/gitalk.min.css">
+ 
+<script src="//cdn.bootcss.com/gitalk/1.5.0/gitalk.min.js"></script>
+  
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/obsidian.js"></script>
+<script src="/js/jquery.truncate.js"></script>
+<script src="/js/search.js"></script>
+ 
+<script src="//cdn.bootcss.com/typed.js/2.0.10/typed.min.js"></script>
+ 
+<script src="//cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script>
+ 
+<script src="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+
+<script src="https://cdn.bootcss.com/codemirror/5.48.4/codemirror.min.js"></script>
+ 
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/javascript/javascript.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/css/css.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/xml/xml.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/htmlmixed/htmlmixed.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/clike/clike.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/php/php.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/shell/shell.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/python/python.min.js"></script>
+   
+<script src="/js/busuanzi.min.js"></script>
+
+<script>
+  $(document).ready(function () {
+    if ($('span[id^="busuanzi_"]').length) {
+      initialBusuanzi();
+    }
+  });
+</script>
+ 
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/default-skin/default-skin.min.css">
+
+
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+ 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="//www.googletagmanager.com/gtag/js?id=UA-149874671-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-149874671-1');
+</script>
+ 
+
+<script>
+  function initialTyped() {
+    var typedTextEl = $('.typed-text');
+    if (typedTextEl && typedTextEl.length > 0) {
+      var typed = new Typed('.typed-text', {
+        strings: ['Think like an artist, develop like an artisan', 'It doesn&#39;t matter how slowly you go as long as you don&#39;t stop'],
+        typeSpeed: 90,
+        loop: true,
+        loopCount: Infinity,
+        backSpeed: 20,
+      });
+    }
+  }
+
+  if ($('.article-header') && $('.article-header').length) {
+    $(document).ready(function () {
+      initialTyped();
+    });
+  }
+</script>
+
+
+
+
+ <!-- 例：百度统计 --> <script> var _hmt = _hmt || []; (function() { var hm = document.createElement("script"); hm.src = "https://hm.baidu.com/hm.js?your_code"; var s = document.getElementsByTagName("script")[0];  s.parentNode.insertBefore(hm, s); })(); </script> 
+
+</html>

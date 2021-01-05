@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>JSP-11  MVC 패턴 - Re-Coder</title>
+    <title>JSP-13  MVC 패턴 - Re-Coder</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
@@ -63,7 +63,7 @@ MVC 패턴의 의미MVC는 Model-View-Controller 의 약자입니다.개발 할 
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://jakezo.github.io">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">JSP-11  MVC 패턴</h3>
+        <h3 class="subtitle">JSP-13  MVC 패턴</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -98,20 +98,20 @@ MVC 패턴의 의미MVC는 Model-View-Controller 의 약자입니다.개발 할 
                 
                 January 02, 2021
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2021/01/02/JSP-11/" title="JSP-11  MVC 패턴" class="">JSP-11  MVC 패턴</a>
+            <h3 class="post-title animated fadeInDown"><a href="/2021/01/02/JSP-13/" title="JSP-13  MVC 패턴" class="">JSP-13  MVC 패턴</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    15k
+                    17k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    13 mins.
+                    16 mins.
                 </span>
                 
                 
@@ -124,7 +124,7 @@ MVC 패턴의 의미MVC는 Model-View-Controller 의 약자입니다.개발 할 
             </p>
             
             
-            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/JSP/" rel="tag">JSP</a></li></ul>
+            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/JSP/" rel="tag">JSP</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/MVC/" rel="tag">MVC</a></li></ul>
             
         </div>
     </div>
@@ -164,18 +164,73 @@ MVC 패턴의 의미MVC는 Model-View-Controller 의 약자입니다.개발 할 
 <blockquote>
 <p>MyBatis는 JDBC의 편한 사용을 위함</p>
 </blockquote>
-<hr>
-<h2 id="사용환경을-위한-준비"><a href="#사용환경을-위한-준비" class="headerlink" title="사용환경을 위한 준비"></a>사용환경을 위한 준비</h2><h3 id="jar-준비"><a href="#jar-준비" class="headerlink" title="jar 준비"></a>jar 준비</h3><ul>
-<li>mybatis.jar</li>
-<li>ojdbc6.jar</li>
-<li>taglib.jar<ul>
-<li>taglib-standard-impl.jar</li>
-<li>taglib-standard-jstlel.jar</li>
-<li>taglib-standard-spec.jar</li>
-</ul>
+<h3 id="각각-구성-요소들의-의미"><a href="#각각-구성-요소들의-의미" class="headerlink" title="각각 구성 요소들의 의미;"></a>각각 구성 요소들의 의미;</h3><ul>
+<li><p>MVC(Model, View, Controller) : 데이터 및 논리 제어를 구현하는데 널리 사용되는 소프트웨어 디자인 패턴</p>
 </li>
-<li>json-simple.jar</li>
+<li><p>Model = Service, DAO, DTO</p>
+</li>
+<li><p>View = 사용자가 보는 것</p>
+</li>
+<li><p>Controller = View와 Model를 이어주는 것</p>
+</li>
 </ul>
+<ul>
+<li><p>DAO(Data Access Object) :</p>
+<p>  domain logic을 persistence mechanism과 분리하기 위해 사용</p>
+<p>  데이터 요청이 들어올때마다 DAO에서 Connection 객체를 생성하면, 너무 많은 커넥션으로 인해 오류가 생긴다.</p>
+<p>  그렇기 때문에 Singleton 패턴으로 하나의 객체만 생성되도록 구성한다.</p>
+</li>
+</ul>
+<ul>
+<li><p>domain logic : business logic이나 DB와 관련 없는 로직</p>
+</li>
+<li><p>persistence layer : DB에 data를 CRUD하는 계층</p>
+</li>
+<li><p>CRUD(Create, Read, Update, Drop) : DB Query</p>
+</li>
+</ul>
+<ul>
+<li><p>Connection 객체 : DB에 접근해 Query를 수행하는 객체</p>
+</li>
+<li><p>Query : DB를 사용하는 명령어</p>
+</li>
+<li><p>Singleton 패턴 : 클래스가 메모리에 할당 될 때 고정된 하나의 객체를 할당하고, 이후 그것만 참조하는 디자인패턴.</p>
+</li>
+<li><p>DTO(Data Transfer Object) :</p>
+<p>  계층간 데이터 교환을 위한 Java Beans.</p>
+<p>  DB에서 받아온 데이터들을 매핑하기위한 객체.</p>
+<p>  일반적으로 logic을 가지고 있지 않고 getter, setter만 있다.</p>
+</li>
+</ul>
+<ul>
+<li><p>Java Beans : 자바 관련 소프트웨어 개발에 있어 재사용이 가능한 표준 컴포넌트 모델</p>
+<ol>
+<li><p>private field를 가지고 있다.</p>
+</li>
+<li><p>getter, setter로 필드에 접근한다.</p>
+</li>
+<li><p>생성자를 가진다.</p>
+</li>
+<li><p>Serializable 구현</p>
+</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><p>private field : 인스턴스 변수를 private로 가짐.</p>
+</li>
+<li><p>Serializable : 자바 내부의 Object나 데이터를 외부에서도 사용할 수 있도록 하는 기술</p>
+</li>
+</ul>
+<ul>
+<li><p>Service :</p>
+<p>  Controller가 Request를 받으면 적절한 Service에 전달하고, 전달 받은 Service는 business logic을 처리한다.</p>
+<p>  Service가 DB에 DAO로 접근하고, 데이터를 DTO로 전달받은 다음, 데이터를 필요에 맞게 가공하여 반환한다.<br>[출처] Java - Service, DAO, DTO 정리|작성자 브혼</p>
+</li>
+</ul>
+<hr>
+<h2 id="사용환경을-위한-준비"><a href="#사용환경을-위한-준비" class="headerlink" title="사용환경을 위한 준비"></a>사용환경을 위한 준비</h2><h3 id="jar-준비"><a href="#jar-준비" class="headerlink" title="jar 준비"></a>jar 준비</h3><img src="https://i.esdrop.com/d/ZEwcXmxott.png"/>
+
 <h3 id="MyBatis"><a href="#MyBatis" class="headerlink" title="MyBatis"></a>MyBatis</h3><blockquote>
 <p>mybatis를 사용하기 위한 설정<br>DBService.java 객체 생성<br>sqlmap-config.xml, member.xml 설정</p>
 </blockquote>
@@ -220,36 +275,68 @@ public class DBService &#123;
 &#125;
 </code></pre>
 <ul>
-<li>sqlmap-config.xml</li>
+<li>mapper.xml</li>
 </ul>
 <pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;!DOCTYPE configuration 
-PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot; 
- &quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot; &gt;
+&lt;!DOCTYPE mapper
+        PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;
+        &quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot; &gt;
 
-&lt;configuration&gt;
+&lt;mapper namespace=&quot;mybatis.mapper.mapper&quot;&gt;
+  &lt;!-- 
+      패키지 : mybatis.mapper
+      클래스 : mapper
+  --&gt;
 
-    &lt;environments default=&quot;development&quot;&gt;
-        &lt;environment id=&quot;development&quot;&gt;
-            &lt;transactionManager type=&quot;JDBC&quot;/&gt;
-            &lt;dataSource type=&quot;POOLED&quot;&gt;
-                &lt;property name=&quot;driver&quot; value=&quot;oracle.jdbc.driver.OracleDriver&quot;/&gt;
-                &lt;property name=&quot;url&quot; value=&quot;jdbc:oracle:thin:@localhost:1521:xe&quot;/&gt;
-                &lt;property name=&quot;username&quot; value=&quot;spring&quot;/&gt;
-                &lt;property name=&quot;password&quot; value=&quot;oracle&quot;/&gt;
-            &lt;/dataSource&gt;
-        &lt;/environment&gt;
-    &lt;/environments&gt;
+  &lt;!-- 
+      1. 사용태그
+          1) &lt;select&gt;
+          2) &lt;insert&gt;
+          3) &lt;update&gt;
+          4) &lt;delete&gt;
+      2. 쿼리문에 전달할 파라미터가 있는 경우
+          : parameterType 속성
+          ex)
+              &lt;select parameterType=&quot;int&quot;&gt;    파라미터가 정수 
+              &lt;select parameterType=&quot;dto.LimeDto&quot;&gt;    파라미터가 dto패키지의 LimeDto 
+              &lt;select parameterType=&quot;Map&quot;&gt;    
+      3. 쿼리문의 결과
+          : resultType 속성
+          1) 결과가 List&lt;LimeDto&gt;인 경우    &lt;select resultType=&quot;dto.LimeDto&quot;&gt;
+          2) 결과가 LimeDto인 경우            &lt;select resultType=&quot;dto.LimeDto&quot;&gt;
+          3) 결과가 0 또는 1인 경우            &lt;insert&gt; &lt;update&gt; &lt;delete&gt; 태그는 resultType을 작성하지 않는다.
+   --&gt;
 
-    &lt;mappers&gt;
-        &lt;mapper resource=&quot;mybatis/mapper/member.xml&quot;/&gt;
-    &lt;/mappers&gt;
+  &lt;select id=&quot;list&quot; resultType=&quot;dto.LimeDto&quot;&gt;
+    SELECT * FROM LIME
+  &lt;/select&gt;
 
-&lt;/configuration&gt;
+  &lt;insert id=&quot;insert&quot; parameterType=&quot;dto.LimeDto&quot;&gt;
+    INSERT INTO
+    LIME (NO, WRITER, TITLE, CONTENT, POSTDATE)
+    VALUES (LIME_SEQ.NEXTVAL, #&#123;writer&#125;, #&#123;title&#125;, #&#123;content&#125;, SYSDATE)
+  &lt;/insert&gt;
+
+  &lt;select id=&quot;view&quot; resultType=&quot;dto.LimeDto&quot;&gt;
+    SELECT * FROM LIME WHERE NO = #&#123;no&#125;
+  &lt;/select&gt;
+
+  &lt;delete id=&quot;delete&quot; parameterType=&quot;int&quot;&gt;
+    DELETE FROM LIME WHERE NO = #&#123;no&#125;
+  &lt;/delete&gt;
+
+  &lt;update id=&quot;update&quot; parameterType=&quot;dto.LimeDto&quot;&gt;
+    UPDATE LIME SET TITLE = #&#123;title&#125;, CONTENT = #&#123;content&#125; WHERE NO = #&#123;no&#125;
+  &lt;/update&gt;
+
+
+
+&lt;/mapper&gt;
 </code></pre>
 <ul>
-<li>mapper.xml(member)</li>
+<li>sqlmap-config.xml(member)</li>
 </ul>
+<p>먼저 멤버의 값을 여기 추가한다. 나중에 추가될때마다 차차 추가됩니다.</p>
 <pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE mapper 
 PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot; 
@@ -321,7 +408,45 @@ public class MemberDto &#123;
 
 &#125;</code></pre>
 <hr>
-<h2 id="MVC-패턴-구축"><a href="#MVC-패턴-구축" class="headerlink" title="MVC 패턴 구축"></a>MVC 패턴 구축</h2><h3 id="Controller"><a href="#Controller" class="headerlink" title="- Controller"></a>- Controller</h3><pre><code class="java">package controller;
+<h2 id="MVC-패턴-구축"><a href="#MVC-패턴-구축" class="headerlink" title="MVC 패턴 구축"></a>MVC 패턴 구축</h2><h3 id="pathNRedirect-만들기"><a href="#pathNRedirect-만들기" class="headerlink" title="pathNRedirect 만들기"></a>pathNRedirect 만들기</h3><blockquote>
+<p>controller의 doGet()메소드의 pathNRedirect</p>
+</blockquote>
+<pre><code class="java">package common;
+
+public class PathNRedirect &#123;
+
+    private String path;
+    private boolean isRedirect;
+
+    public String getPath() &#123;
+        return path;
+    &#125;
+    public void setPath(String path) &#123;
+        this.path = path;
+    &#125;
+    public boolean isRedirect() &#123;
+        return isRedirect;
+    &#125;
+    public void setRedirect(boolean isRedirect) &#123;
+        this.isRedirect = isRedirect;
+    &#125;
+
+
+&#125;
+</code></pre>
+<h3 id="Command"><a href="#Command" class="headerlink" title="Command"></a>Command</h3><pre><code class="java">package command.member;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import common.PathNRedirect;
+
+public interface MemberCommand &#123;
+
+    public PathNRedirect execute(HttpServletRequest request, HttpServletResponse response);
+&#125;
+</code></pre>
+<h3 id="Controller"><a href="#Controller" class="headerlink" title="Controller"></a>Controller</h3><pre><code class="java">package controller;
 
 import java.io.IOException;
 
@@ -365,45 +490,7 @@ public class MemberController extends HttpServlet &#123;
 
 &#125;
 </code></pre>
-<blockquote>
-<p>controller의 doGet()메소드의 pathNRedirect</p>
-</blockquote>
-<pre><code class="java">package common;
-
-public class PathNRedirect &#123;
-
-    private String path;
-    private boolean isRedirect;
-
-    public String getPath() &#123;
-        return path;
-    &#125;
-    public void setPath(String path) &#123;
-        this.path = path;
-    &#125;
-    public boolean isRedirect() &#123;
-        return isRedirect;
-    &#125;
-    public void setRedirect(boolean isRedirect) &#123;
-        this.isRedirect = isRedirect;
-    &#125;
-
-
-&#125;
-</code></pre>
-<h3 id="Command"><a href="#Command" class="headerlink" title="- Command"></a>- Command</h3><pre><code class="java">package command.member;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import common.PathNRedirect;
-
-public interface MemberCommand &#123;
-
-    public PathNRedirect execute(HttpServletRequest request, HttpServletResponse response);
-&#125;
-</code></pre>
-<h3 id="view"><a href="#view" class="headerlink" title="- view"></a>- view</h3><blockquote>
+<h3 id="view"><a href="#view" class="headerlink" title="view"></a>view</h3><blockquote>
 <p>index 파일 - header와 footer를 include 해준다.</p>
 </blockquote>
 <pre><code class="html">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
@@ -557,9 +644,9 @@ public interface MemberCommand &#123;
                     </dl>
                 </div>
                 <ul>
-                    <li><a href="/">19 <p>Articles</p></a></li>
+                    <li><a href="/">21 <p>Articles</p></a></li>
                     <li><a href="/categories">3 <p>Categories</p></a></li>
-                    <li><a href="/tags">15 <p>Tags</p></a></li>
+                    <li><a href="/tags">20 <p>Tags</p></a></li>
                 </ul>
             </div>
             
@@ -568,7 +655,7 @@ public interface MemberCommand &#123;
             <div class="box sticky animated fadeInRight faster">
                 <div id="toc" class="subbox">
                     <h4>Contents</h4>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#MVC-%ED%8C%A8%ED%84%B4%EC%9D%84-%EB%B0%B0%EC%9B%8C%EB%B4%85%EC%8B%9C%EB%8B%A4"><span class="toc-number">1.</span> <span class="toc-text">MVC 패턴을 배워봅시다.</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MVC-%ED%8C%A8%ED%84%B4%EC%9D%98-%EC%9D%98%EB%AF%B8"><span class="toc-number">1.1.</span> <span class="toc-text">MVC 패턴의 의미</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%97%86-JDBC-%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%EC%9A%94"><span class="toc-number">1.2.</span> <span class="toc-text">◆ JDBC 란 무엇일까요</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%97%86-MyBatis%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B4%EC%A3%A0"><span class="toc-number">1.3.</span> <span class="toc-text">◆  MyBatis란 무엇이죠?</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%82%AC%EC%9A%A9%ED%99%98%EA%B2%BD%EC%9D%84-%EC%9C%84%ED%95%9C-%EC%A4%80%EB%B9%84"><span class="toc-number">2.</span> <span class="toc-text">사용환경을 위한 준비</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#jar-%EC%A4%80%EB%B9%84"><span class="toc-number">2.1.</span> <span class="toc-text">jar 준비</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MyBatis"><span class="toc-number">2.2.</span> <span class="toc-text">MyBatis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DB"><span class="toc-number">2.3.</span> <span class="toc-text">DB</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DAO"><span class="toc-number">2.4.</span> <span class="toc-text">DAO</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DTO"><span class="toc-number">2.5.</span> <span class="toc-text">DTO</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MVC-%ED%8C%A8%ED%84%B4-%EA%B5%AC%EC%B6%95"><span class="toc-number">3.</span> <span class="toc-text">MVC 패턴 구축</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Controller"><span class="toc-number">3.1.</span> <span class="toc-text">- Controller</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Command"><span class="toc-number">3.2.</span> <span class="toc-text">- Command</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#view"><span class="toc-number">3.3.</span> <span class="toc-text">- view</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#MVC-%ED%8C%A8%ED%84%B4%EC%9D%84-%EB%B0%B0%EC%9B%8C%EB%B4%85%EC%8B%9C%EB%8B%A4"><span class="toc-number">1.</span> <span class="toc-text">MVC 패턴을 배워봅시다.</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MVC-%ED%8C%A8%ED%84%B4%EC%9D%98-%EC%9D%98%EB%AF%B8"><span class="toc-number">1.1.</span> <span class="toc-text">MVC 패턴의 의미</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%97%86-JDBC-%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%EC%9A%94"><span class="toc-number">1.2.</span> <span class="toc-text">◆ JDBC 란 무엇일까요</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%97%86-MyBatis%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B4%EC%A3%A0"><span class="toc-number">1.3.</span> <span class="toc-text">◆  MyBatis란 무엇이죠?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EA%B0%81%EA%B0%81-%EA%B5%AC%EC%84%B1-%EC%9A%94%EC%86%8C%EB%93%A4%EC%9D%98-%EC%9D%98%EB%AF%B8"><span class="toc-number">1.4.</span> <span class="toc-text">각각 구성 요소들의 의미;</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%82%AC%EC%9A%A9%ED%99%98%EA%B2%BD%EC%9D%84-%EC%9C%84%ED%95%9C-%EC%A4%80%EB%B9%84"><span class="toc-number">2.</span> <span class="toc-text">사용환경을 위한 준비</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#jar-%EC%A4%80%EB%B9%84"><span class="toc-number">2.1.</span> <span class="toc-text">jar 준비</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MyBatis"><span class="toc-number">2.2.</span> <span class="toc-text">MyBatis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DB"><span class="toc-number">2.3.</span> <span class="toc-text">DB</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DAO"><span class="toc-number">2.4.</span> <span class="toc-text">DAO</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DTO"><span class="toc-number">2.5.</span> <span class="toc-text">DTO</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MVC-%ED%8C%A8%ED%84%B4-%EA%B5%AC%EC%B6%95"><span class="toc-number">3.</span> <span class="toc-text">MVC 패턴 구축</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#pathNRedirect-%EB%A7%8C%EB%93%A4%EA%B8%B0"><span class="toc-number">3.1.</span> <span class="toc-text">pathNRedirect 만들기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Command"><span class="toc-number">3.2.</span> <span class="toc-text">Command</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Controller"><span class="toc-number">3.3.</span> <span class="toc-text">Controller</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#view"><span class="toc-number">3.4.</span> <span class="toc-text">view</span></a></li></ol></li></ol>
                 </div>
             </div>
             

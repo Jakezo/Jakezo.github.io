@@ -5,12 +5,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>JSP-10 - Re-Coder</title>
+    <title>JSP-10 DBCP란 - Re-Coder</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Jakezo Obsidian,"> 
-    
+    <meta name="description" content="DBCP를 배워봅시다.DBCP의 의미데이터 베이스에 연결하여 사용하는 경우 데이터 베이스에 접속하기 위해 Connection 등의 객체를 생성해야 한다.
+이게 혼자서 쓸 때는 접,"> 
     <meta name="author" content="Jakezo"> 
     <link rel="alternative" href="atom.xml" title="Re-Coder" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -58,7 +59,7 @@
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://jakezo.github.io">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">JSP-10</h3>
+        <h3 class="subtitle">JSP-10 DBCP란</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -88,24 +89,25 @@
         <div class="else">
             <p class="animated fadeInDown">
                 
-                <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
+                <a href="/categories/JAVA-WEB"><b>「
+                    </b>JAVA-WEB<b> 」</b></a>
                 
                 January 04, 2021
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2021/01/04/JSP-10/" title="JSP-10" class="">JSP-10</a>
+            <h3 class="post-title animated fadeInDown"><a href="/2021/01/04/JSP-10/" title="JSP-10 DBCP란" class="">JSP-10 DBCP란</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    0
+                    20k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    1 mins.
+                    18 mins.
                 </span>
                 
                 
@@ -117,6 +119,8 @@
                 
             </p>
             
+            
+            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/DBCP/" rel="tag">DBCP</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/JSON/" rel="tag">JSON</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/JSP/" rel="tag">JSP</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/SQL/" rel="tag">SQL</a></li></ul>
             
         </div>
     </div>
@@ -137,7 +141,580 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            
+            <h1 id="DBCP를-배워봅시다"><a href="#DBCP를-배워봅시다" class="headerlink" title="DBCP를 배워봅시다."></a>DBCP를 배워봅시다.</h1><h2 id="DBCP의-의미"><a href="#DBCP의-의미" class="headerlink" title="DBCP의 의미"></a>DBCP의 의미</h2><p>데이터 베이스에 연결하여 사용하는 경우 데이터 베이스에 접속하기 위해 Connection 등의 객체를 생성해야 한다.</p>
+<p>이게 혼자서 쓸 때는 접속 할 때마다 객체를 생성해도 괜찮지만 사람들이 많이 접속하는 사이트에서는 사용자 한 명당 하나씩 계속 객체를 생성하게 되면 서버가 객체를 생성하는데 리소스를 많이 쓰게 된다.</p>
+<p>이러한 현상을 해결하고자 ‘커넥션 풀’이라는 공간을 만들어 커넥션 객체들을 담아놓고 차후 사용자가 데이터 베이스에 접속을 시도하면 커넥션 풀에 담겨있는 커넥션 객체를 하나하나 꺼내주는 방법을 적용시켰다.</p>
+<p>이것이 바로 DBCP(DataBase Connection Pool)이다.</p>
+<hr>
+<h1 id="사용환경을-위한-준비"><a href="#사용환경을-위한-준비" class="headerlink" title="사용환경을 위한 준비"></a>사용환경을 위한 준비</h1><h2 id="jar-준비"><a href="#jar-준비" class="headerlink" title="jar 준비"></a>jar 준비</h2><img src="https://i.esdrop.com/d/6nCfp14fhx.png"/>
+
+<hr>
+<h1 id="페이지-만들기"><a href="#페이지-만들기" class="headerlink" title="페이지 만들기"></a>페이지 만들기</h1><h2 id="DB"><a href="#DB" class="headerlink" title="DB"></a>DB</h2><ul>
+<li>green.sql</li>
+</ul>
+<pre><code class="sql">DROP TABLE GREEN;
+CREATE TABLE GREEN
+(
+    NO NUMBER PRIMARY KEY,
+    WRITER VARCHAR2(100),
+    TITLE VARCHAR2(1000) NOT NULL,
+    CONTENT VARCHAR2(4000),
+    HIT NUMBER,
+    POSTDATE DATE
+);
+
+DROP SEQUENCE GREEN_SEQ;
+CREATE SEQUENCE GREEN_SEQ
+START WITH 1000
+INCREMENT BY 1
+MAXVALUE 999999
+NOCYCLE
+NOCACHE;</code></pre>
+<h2 id="Dto"><a href="#Dto" class="headerlink" title="Dto"></a>Dto</h2><blockquote>
+<p>GreenDto</p>
+</blockquote>
+<pre><code class="java">package dto;
+
+import java.sql.Date;
+
+public class GreenDto &#123;
+
+    private int no;
+    private String writer;
+    private String title;
+    private String content;
+    private int hit;
+    private Date postDate;
+
+    public final int getNo() &#123;
+        return no;
+    &#125;
+    public final void setNo(int no) &#123;
+        this.no = no;
+    &#125;
+    public final String getWriter() &#123;
+        return writer;
+    &#125;
+    public final void setWriter(String writer) &#123;
+        this.writer = writer;
+    &#125;
+    public final String getTitle() &#123;
+        return title;
+    &#125;
+    public final void setTitle(String title) &#123;
+        this.title = title;
+    &#125;
+    public final String getContent() &#123;
+        return content;
+    &#125;
+    public final void setContent(String content) &#123;
+        this.content = content;
+    &#125;
+    public final int getHit() &#123;
+        return hit;
+    &#125;
+    public final void setHit(int hit) &#123;
+        this.hit = hit;
+    &#125;
+    public final Date getPostDate() &#123;
+        return postDate;
+    &#125;
+    public final void setPostDate(Date postDate) &#123;
+        this.postDate = postDate;
+    &#125;
+
+&#125;</code></pre>
+<h2 id="DAO"><a href="#DAO" class="headerlink" title="DAO"></a>DAO</h2><p>기능 추가될때마다 들어와서 수정해 주어야 한다.</p>
+<pre><code class="java">package dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
+import dto.GreenDto;
+
+public class GreenDao &#123;
+
+    private Connection con;
+    private PreparedStatement ps;
+    private ResultSet rs;
+    private String sql;
+
+    private static DataSource dataSource;
+    static &#123;
+        try &#123;
+            Context context = new InitialContext();
+            dataSource = (DataSource)context.lookup(&quot;java:comp/env/jdbc/oracle&quot;);
+        &#125; catch (NamingException e) &#123;
+            e.printStackTrace();
+        &#125;
+    &#125;
+
+    private GreenDao() &#123;&#125;
+    private static GreenDao greenDao = new GreenDao();
+    public static GreenDao getInstance() &#123;
+        return greenDao;
+    &#125;
+
+    /***** 1. 접속 해제 *****/
+    public void close(Connection con, PreparedStatement ps, ResultSet rs) &#123;
+        try &#123;
+            if (rs != null) &#123; rs.close(); &#125;
+            if (ps != null) &#123; ps.close(); &#125;
+            if (con != null) &#123; con.close(); &#125;
+        &#125; catch (Exception e) &#123;
+            e.printStackTrace();
+        &#125;
+    &#125;
+
+    /***** 2. 전체 목록 가져오기 *****/
+    public ArrayList&lt;GreenDto&gt; list() &#123;
+        ArrayList&lt;GreenDto&gt; list = new ArrayList&lt;&gt;();
+        try &#123;
+            con = dataSource.getConnection();
+            sql = &quot;SELECT * FROM GREEN ORDER BY HIT DESC&quot;;
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) &#123;
+                GreenDto greenDto = new GreenDto();
+                greenDto.setNo( rs.getInt(&quot;NO&quot;) );
+                greenDto.setWriter( rs.getString(&quot;WRITER&quot;) );
+                greenDto.setTitle( rs.getString(&quot;TITLE&quot;) );
+                greenDto.setContent( rs.getString(&quot;CONTENT&quot;) );
+                greenDto.setHit( rs.getInt(&quot;HIT&quot;) );
+                greenDto.setPostDate( rs.getDate(&quot;POSTDATE&quot;) );
+                list.add(greenDto);
+            &#125;
+        &#125; catch (Exception e) &#123;
+            e.printStackTrace();
+        &#125; finally &#123;
+            close(con, ps, rs);
+        &#125;
+        return list;
+    &#125;
+
+    /***** 3. 삽입하기 *****/
+    public int insert(GreenDto greenDto) &#123;
+        int result = 0;
+        try &#123;
+            con = dataSource.getConnection();
+            sql = &quot;INSERT INTO GREEN VALUES (GREEN_SEQ.NEXTVAL, ?, ?, ?, 0, SYSDATE)&quot;;
+            ps = con.prepareStatement(sql);
+            ps.setString(1, greenDto.getWriter());
+            ps.setString(2, greenDto.getTitle());
+            ps.setString(3, greenDto.getContent());
+            result = ps.executeUpdate();
+        &#125; catch (Exception e) &#123;
+            e.printStackTrace();
+        &#125; finally &#123;
+            close(con, ps, null);
+        &#125;
+        return result;
+    &#125;
+
+
+    /***** 4. 게시글 가져오기 *****/
+    public GreenDto view(int no) &#123;
+
+        GreenDto greenDto = null;
+
+        try &#123;
+            con = dataSource.getConnection();
+            sql = &quot;SELECT * FROM GREEN WHERE NO = ?&quot;;
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, no);
+
+            rs = ps.executeQuery();
+
+            if (rs.next()) &#123;
+                greenDto = new GreenDto();
+                greenDto.setNo( rs.getInt(1) );
+                greenDto.setWriter( rs.getString(2) );
+                greenDto.setTitle( rs.getString(3) );
+                greenDto.setContent( rs.getString(4) );
+                greenDto.setHit( rs.getInt(5) );
+                greenDto.setPostDate( rs.getDate(6) );
+            &#125;
+
+        &#125; catch (Exception e) &#123;
+            e.printStackTrace();
+        &#125; finally &#123;
+            close(con, ps, rs);
+        &#125;
+
+        return greenDto;
+    &#125;
+
+    /***** 5. 조회수 증가하기 *****/
+    public int updateHit(int no) &#123;
+        int result = 0;
+
+        try &#123;
+            con = dataSource.getConnection();
+            sql = &quot;UPDATE GREEN SET HIT = HIT + 1 WHERE NO = ?&quot;;
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, no);
+
+            result = ps.executeUpdate();
+        &#125; catch (Exception e) &#123;
+            e.printStackTrace();
+        &#125; finally &#123;
+            close(con, ps, null);
+        &#125;
+
+        return result;
+    &#125;
+
+    /***** 6. 게시글 삭제하기 *****/
+    public int delete(int no) &#123;
+        int result = 0;
+
+        try &#123;
+            con = dataSource.getConnection();
+            sql = &quot;DELETE FROM GREEN WHERE NO = ?&quot;;
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, no);
+
+            result = ps.executeUpdate();
+        &#125; catch (Exception e) &#123;
+            e.printStackTrace();
+        &#125; finally &#123;
+            close(con, ps, null);
+        &#125;
+
+        return result;
+    &#125;
+
+    /***** 7. 게시글 수정하기 *****/
+    public int update(GreenDto greenDto) &#123;
+        int result = 0;
+        try &#123;
+            con = dataSource.getConnection();
+            sql = &quot;UPDATE GREEN SET TITLE = ?, CONTENT = ? WHERE NO = ?&quot;;
+            ps = con.prepareStatement(sql);
+            ps.setString(1, greenDto.getTitle());
+            ps.setString(2, greenDto.getContent());
+            ps.setInt(3, greenDto.getNo());
+
+            result = ps.executeUpdate();
+        &#125; catch (Exception e) &#123;
+            e.printStackTrace();
+        &#125; finally &#123;
+            close(con, ps, null);
+        &#125;
+        return result;
+    &#125;
+
+&#125;</code></pre>
+<h2 id="Common"><a href="#Common" class="headerlink" title="Common"></a>Common</h2><blockquote>
+<p>PathNRedirect.java 생성</p>
+</blockquote>
+<pre><code class="java">package common;
+
+public class PathNRedirect &#123;
+
+    private String path;    // 경로
+    private boolean isRedirect;    // 리다이렉트 여부
+
+    public String getPath() &#123;
+        return path;
+    &#125;
+    public void setPath(String path) &#123;
+        this.path = path;
+    &#125;
+    public boolean isRedirect() &#123;
+        return isRedirect;
+    &#125;
+    public void setRedirect(boolean isRedirect) &#123;
+        this.isRedirect = isRedirect;
+    &#125;
+
+&#125;</code></pre>
+<h2 id="Command"><a href="#Command" class="headerlink" title="Command"></a>Command</h2><p><code>Interface</code> 생성으로 다른 command 들이 implements 할 <code>Command</code> 생성</p>
+<h3 id="GreenCommand-java"><a href="#GreenCommand-java" class="headerlink" title="GreenCommand.java"></a>GreenCommand.java</h3><pre><code class="java">package command;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import common.PathNRedirect;
+
+public interface GreenCommand &#123;
+
+    public PathNRedirect execute(HttpServletRequest request, HttpServletResponse response);
+
+&#125;</code></pre>
+<h3 id="GreenListCommand-java"><a href="#GreenListCommand-java" class="headerlink" title="GreenListCommand.java"></a>GreenListCommand.java</h3><pre><code class="java">package command;
+
+import java.util.ArrayList;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import common.PathNRedirect;
+import dao.GreenDao;
+import dto.GreenDto;
+
+public class GreenListCommand implements GreenCommand &#123;
+
+    @Override
+    public PathNRedirect execute(HttpServletRequest request, HttpServletResponse response) &#123;
+        // Green테이블의 전체목록을 request에 저장해 두기
+        ArrayList&lt;GreenDto&gt; list = GreenDao.getInstance().list();
+        request.setAttribute(&quot;list&quot;, list);
+
+        PathNRedirect pathNRedirect = new PathNRedirect();
+        pathNRedirect.setPath(&quot;green/listPage.jsp&quot;);
+        pathNRedirect.setRedirect(false);    // forward (request.setAttribute(&quot;list&quot;, list);) 잘 전달된다.
+
+        return pathNRedirect;
+    &#125;
+
+&#125;</code></pre>
+<h3 id="GreenInsertCommand-java"><a href="#GreenInsertCommand-java" class="headerlink" title="GreenInsertCommand.java"></a>GreenInsertCommand.java</h3><pre><code class="java">package command;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import common.PathNRedirect;
+import dao.GreenDao;
+import dto.GreenDto;
+
+public class GreenInsertCommand implements GreenCommand &#123;
+
+    @Override
+    public PathNRedirect execute(HttpServletRequest request, HttpServletResponse response) &#123;
+
+        // DB에 삽입 후 결과를 request에 저장
+        String writer = request.getParameter(&quot;writer&quot;);
+        String title = request.getParameter(&quot;title&quot;);
+        String content = request.getParameter(&quot;content&quot;);
+
+        GreenDto greenDto = new GreenDto();
+        greenDto.setWriter(writer);
+        greenDto.setTitle(title);
+        greenDto.setContent(content);
+
+        int result = GreenDao.getInstance().insert(greenDto);
+
+        PathNRedirect pathNRedirect = new PathNRedirect();
+        pathNRedirect.setPath(&quot;green/insertResult.jsp?result=&quot; + result);    // redirect도 새로운 request는 전달된다.
+        pathNRedirect.setRedirect(true);    // redirect (기존 request를 넘기지 않는다)
+
+        return pathNRedirect; 
+
+    &#125;
+
+&#125;</code></pre>
+<h3 id="GreenViewCommand-java"><a href="#GreenViewCommand-java" class="headerlink" title="GreenViewCommand.java"></a>GreenViewCommand.java</h3><pre><code class="java">package command;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import common.PathNRedirect;
+import dao.GreenDao;
+import dto.GreenDto;
+
+public class GreenViewCommand implements GreenCommand &#123;
+
+    @Override
+    public PathNRedirect execute(HttpServletRequest request, HttpServletResponse response) &#123;
+
+        String strNo = request.getParameter(&quot;no&quot;);
+        int no = 0;
+
+        if (strNo != null &amp;&amp; !strNo.isEmpty()) &#123;
+            no = Integer.parseInt(strNo);
+        &#125;
+
+        GreenDao.getInstance().updateHit(no);    // 조회수 증가 결과는 처리하지 않음
+        GreenDto greenDto = GreenDao.getInstance().view(no);    
+
+        boolean result = false;
+        if (greenDto != null) &#123;
+            result = true;
+        &#125;
+        // boolean result = (greenDto != null);
+
+        PathNRedirect pathNRedirect = new PathNRedirect();
+        if (result) &#123;     // result가 true이므로 성공
+            request.setAttribute(&quot;greenDto&quot;, greenDto);
+            pathNRedirect.setPath(&quot;green/viewPage.jsp&quot;);
+            pathNRedirect.setRedirect(false);    // forward
+        &#125; else &#123;    // 실패
+            pathNRedirect.setPath(&quot;green/viewFail.jsp&quot;);
+            pathNRedirect.setRedirect(false);    // forward
+        &#125;
+            return pathNRedirect;
+    &#125;
+
+&#125;
+</code></pre>
+<h3 id="GreenDeleteCommand-java"><a href="#GreenDeleteCommand-java" class="headerlink" title="GreenDeleteCommand.java"></a>GreenDeleteCommand.java</h3><pre><code class="java">package command;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import common.PathNRedirect;
+import dao.GreenDao;
+
+public class GreenDeleteCommand implements GreenCommand &#123;
+
+    @Override
+    public PathNRedirect execute(HttpServletRequest request, HttpServletResponse response) &#123;
+
+        int no = Integer.parseInt(request.getParameter(&quot;no&quot;));
+        int result = GreenDao.getInstance().delete(no);
+
+        PathNRedirect pathNRedirect = new PathNRedirect();
+
+        //pathNRedirect.setPath(&quot;green/deleteResult.jsp&quot;);
+        if (result &gt; 0) &#123; // 삭제가 성공했을때
+            pathNRedirect.setPath(&quot;green/deleteSuccess.jsp&quot;);
+            pathNRedirect.setRedirect(true);    // redirect
+        &#125; else &#123;    // 삭제가 실패했을 떄
+            pathNRedirect.setPath(&quot;green/deleteFail.jsp&quot;);
+            pathNRedirect.setRedirect(false);    // forward
+        &#125;
+
+        return pathNRedirect;
+    &#125;
+
+&#125;</code></pre>
+<h3 id="GreenUpdateCommand-java"><a href="#GreenUpdateCommand-java" class="headerlink" title="GreenUpdateCommand.java"></a>GreenUpdateCommand.java</h3><pre><code class="java">package command;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import common.PathNRedirect;
+import dao.GreenDao;
+import dto.GreenDto;
+
+public class GreenUpdateCommand implements GreenCommand &#123;
+
+    @Override
+    public PathNRedirect execute(HttpServletRequest request, HttpServletResponse response) &#123;
+
+        int no = Integer.parseInt(request.getParameter(&quot;no&quot;));
+        String title = request.getParameter(&quot;title&quot;);
+        String content = request.getParameter(&quot;content&quot;);
+
+        GreenDto greenDto = new GreenDto();
+        greenDto.setNo(no);
+        greenDto.setTitle(title);
+        greenDto.setContent(content);
+
+        int result = GreenDao.getInstance().update(greenDto);
+
+        PathNRedirect pathNRedirect = new PathNRedirect();
+        if (result &gt; 0) &#123;    // 수정이 성공
+            pathNRedirect.setPath(&quot;green/updateSuccess.jsp?no=&quot; + no);
+            pathNRedirect.setRedirect(true);    // redirect
+        &#125; else &#123;    // 수정이 실패하면
+            pathNRedirect.setPath(&quot;green/updateFail.jsp&quot;);
+            pathNRedirect.setRedirect(false);    // forward
+        &#125;
+
+        return pathNRedirect;
+    &#125;
+
+&#125;</code></pre>
+<hr>
+<h2 id="Controller"><a href="#Controller" class="headerlink" title="Controller"></a>Controller</h2><p><code>Controller</code>에 새로운 기능 들이 추가 될 때 마다. <code>Command</code>를 만들어준다.</p>
+<h3 id="GreenController-java"><a href="#GreenController-java" class="headerlink" title="GreenController.java"></a>GreenController.java</h3><pre><code class="java">package controller;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import command.GreenCommand;
+import command.GreenDeleteCommand;
+import command.GreenInsertCommand;
+import command.GreenListCommand;
+import command.GreenUpdateCommand;
+import command.GreenViewCommand;
+import common.PathNRedirect;
+
+@WebServlet(&quot;*.do&quot;)
+public class GreenController extends HttpServlet &#123;
+    private static final long serialVersionUID = 1L;
+    public GreenController() &#123;
+        super();
+    &#125;
+
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException &#123;
+
+        request.setCharacterEncoding(&quot;UTF-8&quot;);
+        response.setContentType(&quot;text/html; chareset=UTF-8&quot;);
+
+        String requestURI = request.getRequestURI();
+        String contextPath = request.getContextPath();
+        String cmd = requestURI.substring(contextPath.length());
+
+        GreenCommand command = null;
+        // String path = null;
+        PathNRedirect pathNRedirect = null;
+
+        switch (cmd) &#123;
+        // Command 필요(DB, 로직)
+        case &quot;/listPage.do&quot;:
+            command = new GreenListCommand();
+            pathNRedirect = command.execute(request, response);
+            break;
+        case &quot;/insert.do&quot;:
+            command = new GreenInsertCommand();
+            pathNRedirect = command.execute(request, response);
+            break;
+        case &quot;/viewPage.do&quot;:
+            command = new GreenViewCommand();
+            pathNRedirect = command.execute(request, response);
+            break;
+        case &quot;/delete.do&quot; :
+            command = new GreenDeleteCommand();
+            pathNRedirect = command.execute(request, response);
+            break;
+        case &quot;/update.do&quot; :
+            command = new GreenUpdateCommand();
+            pathNRedirect = command.execute(request, response);
+            break;
+
+        // 단순이동
+        case &quot;/insertPage.do&quot;:
+            pathNRedirect = new PathNRedirect();
+            pathNRedirect.setPath(&quot;green/insertPage.jsp&quot;);
+            pathNRedirect.setRedirect(true);
+            break;
+        case &quot;/updatePage.do&quot; :
+            pathNRedirect = new PathNRedirect();
+            pathNRedirect.setPath(&quot;green/updatePage.jsp&quot;);
+            pathNRedirect.setRedirect(false);    // forward
+            break;
+        &#125;
+
+        String path = pathNRedirect.getPath();
+
+        if (pathNRedirect.isRedirect()) &#123;
+            response.sendRedirect(path);
+        &#125; else &#123;
+            request.getRequestDispatcher(path).forward(request, response);
+        &#125;
+    &#125;
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException &#123;
+        doGet(request, response);
+    &#125;
+&#125;</code></pre>
+<h2 id="ViewPage"><a href="#ViewPage" class="headerlink" title="ViewPage"></a>ViewPage</h2><p> <a href="https://jakezo.github.io/2021/01/04/JSP-11/">다음 포스트</a> </p>
+
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
                 data-autoplay="false">
@@ -184,13 +761,20 @@
                     </dl>
                 </div>
                 <ul>
-                    <li><a href="/">19 <p>Articles</p></a></li>
+                    <li><a href="/">21 <p>Articles</p></a></li>
                     <li><a href="/categories">3 <p>Categories</p></a></li>
-                    <li><a href="/tags">15 <p>Tags</p></a></li>
+                    <li><a href="/tags">20 <p>Tags</p></a></li>
                 </ul>
             </div>
             
             
+            
+            <div class="box sticky animated fadeInRight faster">
+                <div id="toc" class="subbox">
+                    <h4>Contents</h4>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#DBCP%EB%A5%BC-%EB%B0%B0%EC%9B%8C%EB%B4%85%EC%8B%9C%EB%8B%A4"><span class="toc-number">1.</span> <span class="toc-text">DBCP를 배워봅시다.</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DBCP%EC%9D%98-%EC%9D%98%EB%AF%B8"><span class="toc-number">1.1.</span> <span class="toc-text">DBCP의 의미</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%EC%82%AC%EC%9A%A9%ED%99%98%EA%B2%BD%EC%9D%84-%EC%9C%84%ED%95%9C-%EC%A4%80%EB%B9%84"><span class="toc-number">2.</span> <span class="toc-text">사용환경을 위한 준비</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#jar-%EC%A4%80%EB%B9%84"><span class="toc-number">2.1.</span> <span class="toc-text">jar 준비</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%A7%8C%EB%93%A4%EA%B8%B0"><span class="toc-number">3.</span> <span class="toc-text">페이지 만들기</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DB"><span class="toc-number">3.1.</span> <span class="toc-text">DB</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Dto"><span class="toc-number">3.2.</span> <span class="toc-text">Dto</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DAO"><span class="toc-number">3.3.</span> <span class="toc-text">DAO</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Common"><span class="toc-number">3.4.</span> <span class="toc-text">Common</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Command"><span class="toc-number">3.5.</span> <span class="toc-text">Command</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GreenCommand-java"><span class="toc-number">3.5.1.</span> <span class="toc-text">GreenCommand.java</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GreenListCommand-java"><span class="toc-number">3.5.2.</span> <span class="toc-text">GreenListCommand.java</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GreenInsertCommand-java"><span class="toc-number">3.5.3.</span> <span class="toc-text">GreenInsertCommand.java</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GreenViewCommand-java"><span class="toc-number">3.5.4.</span> <span class="toc-text">GreenViewCommand.java</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GreenDeleteCommand-java"><span class="toc-number">3.5.5.</span> <span class="toc-text">GreenDeleteCommand.java</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GreenUpdateCommand-java"><span class="toc-number">3.5.6.</span> <span class="toc-text">GreenUpdateCommand.java</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Controller"><span class="toc-number">3.6.</span> <span class="toc-text">Controller</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GreenController-java"><span class="toc-number">3.6.1.</span> <span class="toc-text">GreenController.java</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ViewPage"><span class="toc-number">3.7.</span> <span class="toc-text">ViewPage</span></a></li></ol></li></ol>
+                </div>
+            </div>
             
             
         </div>
