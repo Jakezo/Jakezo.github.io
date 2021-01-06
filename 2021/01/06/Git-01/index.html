@@ -5,15 +5,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>JSP-08 AJAX 실전(1) - Re-Coder</title>
+    <title>Git-01 - Re-Coder</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Jakezo Obsidian,"> 
-    <meta name="description" content="AJAX 실전Ex01_JSONObject.java
-public class Ex01_JSONObject &amp;#123;
-
-    public static void main(String,"> 
+    <meta name="description" content="Git 이란 무엇인가?Git이란 버전 관리 시스템(VCS, Version Control System)의 한 종류이다.
+그렇다면 여기서 말하는 버전 관리란 무엇이고, 왜 필요할까?,"> 
     <meta name="author" content="Jakezo"> 
     <link rel="alternative" href="atom.xml" title="Re-Coder" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -61,7 +59,7 @@ public class Ex01_JSONObject &amp;#123;
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://jakezo.github.io">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">JSP-08 AJAX 실전(1)</h3>
+        <h3 class="subtitle">Git-01</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -91,25 +89,25 @@ public class Ex01_JSONObject &amp;#123;
         <div class="else">
             <p class="animated fadeInDown">
                 
-                <a href="/categories/JAVA-WEB"><b>「
-                    </b>JAVA-WEB<b> 」</b></a>
+                <a href="/categories/Git"><b>「
+                    </b>GIT<b> 」</b></a>
                 
-                January 02, 2021
+                January 06, 2021
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2021/01/02/JSP-08/" title="JSP-08 AJAX 실전(1)" class="">JSP-08 AJAX 실전(1)</a>
+            <h3 class="post-title animated fadeInDown"><a href="/2021/01/06/Git-01/" title="Git-01" class="">Git-01</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    3.5k
+                    2.4k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    3 mins.
+                    2 mins.
                 </span>
                 
                 
@@ -122,7 +120,7 @@ public class Ex01_JSONObject &amp;#123;
             </p>
             
             
-            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Ajax/" rel="tag">Ajax</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/JSON/" rel="tag">JSON</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/JSP/" rel="tag">JSP</a></li></ul>
+            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Git/" rel="tag">Git</a></li></ul>
             
         </div>
     </div>
@@ -143,100 +141,34 @@ public class Ex01_JSONObject &amp;#123;
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <h2 id="AJAX-실전"><a href="#AJAX-실전" class="headerlink" title="AJAX 실전"></a>AJAX 실전</h2><h3 id="Ex01-JSONObject-java"><a href="#Ex01-JSONObject-java" class="headerlink" title="Ex01_JSONObject.java"></a>Ex01_JSONObject.java</h3><pre><code class="java">
-public class Ex01_JSONObject &#123;
-
-    public static void main(String[] args) &#123;
-
-
-        // 예제로 사용할 JSON
-        // &#123;&quot;name&quot;: &quot;emily&quot;, &quot;age&quot;: 20, &quot;isAdult&quot;: true&#125;
-
-        // OpenAPI에서 받아온 데이터로 생각합시다.
-        String strJSON = &quot;&#123;\&quot;name\&quot;: \&quot;emily\&quot;, \&quot;age\&quot;: 20, \&quot;isAdult\&quot;: true&#125;&quot;;
-
-
-        // 사용할 라이브러리: json-simple-1.1.1.jar
-        // 라이브러리 역할:  JSON데이터를 Java의 Map으로 처리
-
-
-        // 1. JSON Parser: 구문분석기 생성
-        JSONParser parser = new JSONParser();
-
-        // 2. JSON Object: parser가 분석한 결과를 저장할 객체
-        JSONObject obj = null;
-
-        // 3. parsing: 구문분석
-        try &#123;
-            obj = (JSONObject) parser.parse(strJSON);
-        &#125; catch (ParseException e) &#123;
-            e.printStackTrace();
-        &#125;
-
-        // 4. JSON Object는 Map과 사용법이 같다.
-        // JSONObject 클래스를 Map 인터페이스를 구현해서 만들었으므로
-        System.out.println(obj.get(&quot;name&quot;));  // get(&quot;key&quot;)
-        System.out.println(obj.get(&quot;age&quot;));  // get(&quot;key&quot;)
-        System.out.println((boolean)obj.get(&quot;isAdult&quot;) ? &quot;성인&quot; : &quot;미성년자&quot;);  // get(&quot;key&quot;)
-
-    &#125;
-
-&#125;</code></pre>
-<h3 id="Ex02-JSONArray-java"><a href="#Ex02-JSONArray-java" class="headerlink" title="Ex02_JSONArray.java"></a>Ex02_JSONArray.java</h3><pre><code class="java">
-
-public class Ex02_JSONArray &#123;
-
-    public static void main(String[] args) &#123;
-
-
-        // 예제로 사용할 JSON 배열
-        // [&#123;&#125;, &#123;&#125;]
-        // [&#123;&quot;name&quot;: &quot;emily&quot;, &quot;age&quot;: 20, &quot;isAdult&quot;: true&#125;, &#123;&quot;name&quot;: &quot;james&quot;, &quot;age&quot;: 19, &quot;isAdult&quot;: false&#125;]
-
-        String strJSON = &quot;[&#123;\&quot;name\&quot;: \&quot;emily\&quot;, \&quot;age\&quot;: 20, \&quot;isAdult\&quot;: true&#125;, &#123;\&quot;name\&quot;: \&quot;james\&quot;, \&quot;age\&quot;: 19, \&quot;isAdult\&quot;: false&#125;]&quot;;
-
-
-        // 1. JSON Parser 생성
-        JSONParser parser = new JSONParser();
-
-        // 2. JSON Array 준비
-        JSONArray list = null;
-
-        // 3. parsing
-        try &#123;
-            list = (JSONArray)parser.parse(strJSON);
-        &#125; catch (ParseException e) &#123;
-            e.printStackTrace();
-        &#125;
-
-        // JSONArray는 Java의 ArrayList와 사용법이 같다.
-        System.out.println(list.get(0));
-        System.out.println(list.get(1));
-
-    &#125;
-
-&#125; </code></pre>
-<h3 id="Ex03-toJSONString-java"><a href="#Ex03-toJSONString-java" class="headerlink" title="Ex03_toJSONString.java"></a>Ex03_toJSONString.java</h3><pre><code class="java">public class Ex03_toJSONString &#123;
-
-    public static void main(String[] args) &#123;
-
-        // 1. JSON 데이터 만들기
-
-        JSONObject obj = new JSONObject();
-
-        // Map 처럼 데이터를 저장할 수 있다.
-        obj.put(&quot;name&quot;, &quot;amanda&quot;);
-        obj.put(&quot;age&quot;, 22);
-        obj.put(&quot;isAdult&quot;, true);
-
-        // 2. JSON 데이터를 String으로 변환하기
-        String strJSON = obj.toJSONString();
-        System.out.println(strJSON);
-
-    &#125;
-
-&#125;</code></pre>
-<p><a href="https://jakezo.github.io/2021/01/02/JSP-09/">다음 포스트</a></p>
+            <h2 id="Git-이란-무엇인가"><a href="#Git-이란-무엇인가" class="headerlink" title="Git 이란 무엇인가?"></a>Git 이란 무엇인가?</h2><p><code>Git</code>이란 버전 관리 시스템(VCS, Version Control System)의 한 종류이다.</p>
+<p>그렇다면 여기서 말하는 버전 관리란 무엇이고, 왜 필요할까?</p>
+<p>버전 관리란 이름 그대로 여러 파일을 하나의 버전으로 묶어 관리하는 것이다. 버전 관리를 예를 들어 말해보자.</p>
+<p>예를 들어, 우리가 제출해야 하는 레포트가 하나 있다. 처음에 ‘report.txt’를 만들었다가 내용이 바뀔 경우 ‘report_최종.txt’으로 바꿨다가 다시 수정을 거치면서 ‘report_진짜최종.txt’ 이런식으로 만든 경험이 있을 것이다.</p>
+<p>우리는 여러 파일들을 복사, 저장, 백업 등을 하였고 이것을 버전 관리라고 부른다.</p>
+<h2 id="Git의-필요성"><a href="#Git의-필요성" class="headerlink" title="Git의 필요성"></a>Git의 필요성</h2><p>Git의 필요성을 말하기 위해 예를 하나 들어보자.</p>
+<p>나와 나의 동료가 동시에 같은 웹사이트에서 페이지를 업데이트하고 있다고 하자.</p>
+<p>나는 무언가를 변경하고 저장한 다음 웹사이트에 그것을 업로드한다. 그런데 이때 문제는 동료가 동시에 같은 페이지에서 작업할 때이다. 확인하지 않고 동시에 작업을 한다면 누군가의 작업은 겹쳐쓰여질 것이고 지워질 것이다.</p>
+<p>깃과 같은 버전관리 시스템은 그런 일을 방지해준다.</p>
+<p>나와 동료는 같은 페이지에 각자의 수정사항을 각각 업로드할 수 있고, 깃은 두 개의 복사본을 저장한다.</p>
+<p>그런 후 우리는 어떤 작업도 잃어버리지 않고 변경사항들을 병합(Merge)할 수 있다. 깃은 이전에 만들어진 모든 변경사항의 “스냅샷”을 저장하기 때문에 이전 시점의 어떤 버전으로 되돌릴 수도 있다.</p>
+<p>이렇기에 프로젝트를 진행할 때 Git은 아주 유용하며 필수적으로 많이 사용한다. 프로젝트에서 내가 작업한 부분을 올리고 다른 사람이 작업한 부분을 올려 스냅샷이 저장되고 어떠한 코드도 손실되지 않고 나눠서 작업한 파일을 병합할 수 있기때문이다.</p>
+<h2 id="Git-기본-용어"><a href="#Git-기본-용어" class="headerlink" title="Git 기본 용어"></a>Git 기본 용어</h2><p>Git을 사용하기 위해 알아야 할 용어들이 있다.</p>
+<p>Repository : 저장소를 의미하며, 저장소는 히스토리, 태그, 소스의 가지치기 혹은 branch에 따라 버전을 저장한다. 저장소를 통해 작업자가 변경한 모든 히스토리를 확인 할 수 있다.</p>
+<p>Working Tree : 저장소를 어느 한 시점을 바라보는 작업자의 현재 시점이다.</p>
+<p>Staging Area : 저장소에 커밋하기 전에 커밋을 준비하는 위치이다.</p>
+<p>Commit : 현재 변경된 작업 상태를 점검을 마치면 확정하고 저장소에 저장하는 작업이다.</p>
+<p>Head : 현재 작업중인 Branch를 가리키는 것이다.</p>
+<p>Branch : 가지 또는 분기점을 의미하며, 작업을 할때에 현재 상태를 복사하여 Branch에서 작업을 한 후에 완전하다 싶을때 Merge를 하여 작업을 한다.</p>
+<p>Merge : 다른 Branch의 내용을 현재 Branch로 가져와 합치는 작업을 의미한다.</p>
+<h2 id="Git-기본-용어-1"><a href="#Git-기본-용어-1" class="headerlink" title="Git 기본 용어"></a>Git 기본 용어</h2><p>Git을 사용하기 위해 알아야 할 용어들이 있다.</p>
+<p>Repository : 저장소를 의미하며, 저장소는 히스토리, 태그, 소스의 가지치기 혹은 branch에 따라 버전을 저장한다. 저장소를 통해 작업자가 변경한 모든 히스토리를 확인 할 수 있다.</p>
+<p>Working Tree : 저장소를 어느 한 시점을 바라보는 작업자의 현재 시점이다.</p>
+<p>Staging Area : 저장소에 커밋하기 전에 커밋을 준비하는 위치이다.</p>
+<p>Commit : 현재 변경된 작업 상태를 점검을 마치면 확정하고 저장소에 저장하는 작업이다.</p>
+<p>Head : 현재 작업중인 Branch를 가리키는 것이다.</p>
+<p>Branch : 가지 또는 분기점을 의미하며, 작업을 할때에 현재 상태를 복사하여 Branch에서 작업을 한 후에 완전하다 싶을때 Merge를 하여 작업을 한다.</p>
+<p>Merge : 다른 Branch의 내용을 현재 Branch로 가져와 합치는 작업을 의미한다.</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -295,7 +227,7 @@ public class Ex02_JSONArray &#123;
             <div class="box sticky animated fadeInRight faster">
                 <div id="toc" class="subbox">
                     <h4>Contents</h4>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#AJAX-%EC%8B%A4%EC%A0%84"><span class="toc-number">1.</span> <span class="toc-text">AJAX 실전</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ex01-JSONObject-java"><span class="toc-number">1.1.</span> <span class="toc-text">Ex01_JSONObject.java</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ex02-JSONArray-java"><span class="toc-number">1.2.</span> <span class="toc-text">Ex02_JSONArray.java</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ex03-toJSONString-java"><span class="toc-number">1.3.</span> <span class="toc-text">Ex03_toJSONString.java</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Git-%EC%9D%B4%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80"><span class="toc-number">1.</span> <span class="toc-text">Git 이란 무엇인가?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git%EC%9D%98-%ED%95%84%EC%9A%94%EC%84%B1"><span class="toc-number">2.</span> <span class="toc-text">Git의 필요성</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git-%EA%B8%B0%EB%B3%B8-%EC%9A%A9%EC%96%B4"><span class="toc-number">3.</span> <span class="toc-text">Git 기본 용어</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git-%EA%B8%B0%EB%B3%B8-%EC%9A%A9%EC%96%B4-1"><span class="toc-number">4.</span> <span class="toc-text">Git 기본 용어</span></a></li></ol>
                 </div>
             </div>
             

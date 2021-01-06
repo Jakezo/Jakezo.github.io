@@ -5,15 +5,15 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>JSP-08 AJAX 실전(1) - Re-Coder</title>
+    <title>Git(2) - Re-Coder</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Jakezo Obsidian,"> 
-    <meta name="description" content="AJAX 실전Ex01_JSONObject.java
-public class Ex01_JSONObject &amp;#123;
+    <meta name="description" content="Git 사용하기(다운로드 및 실행)
+git-scm.com 에서 git 다운로드 및 설치가 필요합니다.
 
-    public static void main(String,"> 
+sourcetreeapp.com 에서 sourcetree 다운로드 및 설치,"> 
     <meta name="author" content="Jakezo"> 
     <link rel="alternative" href="atom.xml" title="Re-Coder" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -61,7 +61,7 @@ public class Ex01_JSONObject &amp;#123;
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://jakezo.github.io">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">JSP-08 AJAX 실전(1)</h3>
+        <h3 class="subtitle">Git(2)</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -91,25 +91,25 @@ public class Ex01_JSONObject &amp;#123;
         <div class="else">
             <p class="animated fadeInDown">
                 
-                <a href="/categories/JAVA-WEB"><b>「
-                    </b>JAVA-WEB<b> 」</b></a>
+                <a href="/categories/Git"><b>「
+                    </b>GIT<b> 」</b></a>
                 
-                January 02, 2021
+                January 06, 2021
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2021/01/02/JSP-08/" title="JSP-08 AJAX 실전(1)" class="">JSP-08 AJAX 실전(1)</a>
+            <h3 class="post-title animated fadeInDown"><a href="/2021/01/06/Git-02/" title="Git(2)" class="">Git(2)</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    3.5k
+                    7.1k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    3 mins.
+                    6 mins.
                 </span>
                 
                 
@@ -122,7 +122,7 @@ public class Ex01_JSONObject &amp;#123;
             </p>
             
             
-            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Ajax/" rel="tag">Ajax</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/JSON/" rel="tag">JSON</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/JSP/" rel="tag">JSP</a></li></ul>
+            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Git/" rel="tag">Git</a></li></ul>
             
         </div>
     </div>
@@ -143,100 +143,100 @@ public class Ex01_JSONObject &amp;#123;
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <h2 id="AJAX-실전"><a href="#AJAX-실전" class="headerlink" title="AJAX 실전"></a>AJAX 실전</h2><h3 id="Ex01-JSONObject-java"><a href="#Ex01-JSONObject-java" class="headerlink" title="Ex01_JSONObject.java"></a>Ex01_JSONObject.java</h3><pre><code class="java">
-public class Ex01_JSONObject &#123;
-
-    public static void main(String[] args) &#123;
-
-
-        // 예제로 사용할 JSON
-        // &#123;&quot;name&quot;: &quot;emily&quot;, &quot;age&quot;: 20, &quot;isAdult&quot;: true&#125;
-
-        // OpenAPI에서 받아온 데이터로 생각합시다.
-        String strJSON = &quot;&#123;\&quot;name\&quot;: \&quot;emily\&quot;, \&quot;age\&quot;: 20, \&quot;isAdult\&quot;: true&#125;&quot;;
-
-
-        // 사용할 라이브러리: json-simple-1.1.1.jar
-        // 라이브러리 역할:  JSON데이터를 Java의 Map으로 처리
-
-
-        // 1. JSON Parser: 구문분석기 생성
-        JSONParser parser = new JSONParser();
-
-        // 2. JSON Object: parser가 분석한 결과를 저장할 객체
-        JSONObject obj = null;
-
-        // 3. parsing: 구문분석
-        try &#123;
-            obj = (JSONObject) parser.parse(strJSON);
-        &#125; catch (ParseException e) &#123;
-            e.printStackTrace();
-        &#125;
-
-        // 4. JSON Object는 Map과 사용법이 같다.
-        // JSONObject 클래스를 Map 인터페이스를 구현해서 만들었으므로
-        System.out.println(obj.get(&quot;name&quot;));  // get(&quot;key&quot;)
-        System.out.println(obj.get(&quot;age&quot;));  // get(&quot;key&quot;)
-        System.out.println((boolean)obj.get(&quot;isAdult&quot;) ? &quot;성인&quot; : &quot;미성년자&quot;);  // get(&quot;key&quot;)
-
-    &#125;
-
-&#125;</code></pre>
-<h3 id="Ex02-JSONArray-java"><a href="#Ex02-JSONArray-java" class="headerlink" title="Ex02_JSONArray.java"></a>Ex02_JSONArray.java</h3><pre><code class="java">
-
-public class Ex02_JSONArray &#123;
-
-    public static void main(String[] args) &#123;
-
-
-        // 예제로 사용할 JSON 배열
-        // [&#123;&#125;, &#123;&#125;]
-        // [&#123;&quot;name&quot;: &quot;emily&quot;, &quot;age&quot;: 20, &quot;isAdult&quot;: true&#125;, &#123;&quot;name&quot;: &quot;james&quot;, &quot;age&quot;: 19, &quot;isAdult&quot;: false&#125;]
-
-        String strJSON = &quot;[&#123;\&quot;name\&quot;: \&quot;emily\&quot;, \&quot;age\&quot;: 20, \&quot;isAdult\&quot;: true&#125;, &#123;\&quot;name\&quot;: \&quot;james\&quot;, \&quot;age\&quot;: 19, \&quot;isAdult\&quot;: false&#125;]&quot;;
-
-
-        // 1. JSON Parser 생성
-        JSONParser parser = new JSONParser();
-
-        // 2. JSON Array 준비
-        JSONArray list = null;
-
-        // 3. parsing
-        try &#123;
-            list = (JSONArray)parser.parse(strJSON);
-        &#125; catch (ParseException e) &#123;
-            e.printStackTrace();
-        &#125;
-
-        // JSONArray는 Java의 ArrayList와 사용법이 같다.
-        System.out.println(list.get(0));
-        System.out.println(list.get(1));
-
-    &#125;
-
-&#125; </code></pre>
-<h3 id="Ex03-toJSONString-java"><a href="#Ex03-toJSONString-java" class="headerlink" title="Ex03_toJSONString.java"></a>Ex03_toJSONString.java</h3><pre><code class="java">public class Ex03_toJSONString &#123;
-
-    public static void main(String[] args) &#123;
-
-        // 1. JSON 데이터 만들기
-
-        JSONObject obj = new JSONObject();
-
-        // Map 처럼 데이터를 저장할 수 있다.
-        obj.put(&quot;name&quot;, &quot;amanda&quot;);
-        obj.put(&quot;age&quot;, 22);
-        obj.put(&quot;isAdult&quot;, true);
-
-        // 2. JSON 데이터를 String으로 변환하기
-        String strJSON = obj.toJSONString();
-        System.out.println(strJSON);
-
-    &#125;
-
-&#125;</code></pre>
-<p><a href="https://jakezo.github.io/2021/01/02/JSP-09/">다음 포스트</a></p>
+            <h2 id="Git-사용하기-다운로드-및-실행"><a href="#Git-사용하기-다운로드-및-실행" class="headerlink" title="Git 사용하기(다운로드 및 실행)"></a>Git 사용하기(다운로드 및 실행)</h2><ol>
+<li><p>git-scm.com 에서 git 다운로드 및 설치가 필요합니다.</p>
+</li>
+<li><p>sourcetreeapp.com 에서 sourcetree 다운로드 및 설치를 할 수 있습니다.</p>
+</li>
+</ol>
+<blockquote>
+<p>sourcetree : git을 관리하는 gui 도구</p>
+</blockquote>
+<dl><dt>형상관리도구(버전관리도구)</dt><dd>프로젝트의 개발과정에서 필요한 필수 도구</dd></dl><h2 id="git-개요"><a href="#git-개요" class="headerlink" title="git 개요"></a>git 개요</h2><p>개인 PC에 로컬저장소(local)를 만든다. (폴더를 만든다.)<br>git init 명령을 통해서 로컬저장소를 git으로 관리한다. (.git 이라는 숨김 폴더가 생긴다.)<br>로컬저장소에 파일을 추가한다. 그렇다고 git이 관리하지 않는다.<br>관리할 파일을 git add 명령으로 관리할 수 있다. (staging)<br>관리할 파일을 git commit 할 수 있다. (로컬저장소에 저장)<br>commit이 완료되면 git push 명령으로 원격저장소(server)에 올릴 수 있다.</p>
+<h2 id="git-연습"><a href="#git-연습" class="headerlink" title="git 연습"></a>git 연습</h2><blockquote>
+<p>(시작 메뉴 - Git폴더 - Git Bash)</p>
+</blockquote>
+<p>~  : 루트 디렉토리 (사용자 폴더  C:/Users/ITSC)<br>.  : 현재 디렉토리<br>.. : 상위 디렉토리</p>
+<p><code>$</code> pwd  : 현재 경로 확인하기<br>/c/Users/ITSC</p>
+<p><code>$</code> cd ~  : 루트 디렉토리로 이동하기<br><code>$</code> pwd<br>/c/Users/ITSC</p>
+<p><code>$</code> cd .  : 현재 디렉토리로 이동하기<br><code>$</code> pwd<br>/c/Users/ITSC</p>
+<p><code>$</code> cd ..  : 상위 디렉토리로 이동하기<br><code>$</code> pwd<br>/c/Users</p>
+<p><code>$</code> clear  : 화면 초기화</p>
+<p>ITSC@DESKTOP-L7VVF0L MINGW64 /c/Users<br><code>$</code> mkdir local_vcs  : 현재 경로(/c/Users)에 local_vcs 디렉토리 만들기</p>
+<p>ITSC@DESKTOP-L7VVF0L MINGW64 /c/Users<br><code>$</code> cd local_vcs  : local_vcs 디렉토리로 이동하기</p>
+<p>ITSC@DESKTOP-L7VVF0L MINGW64 /c/Users/local_vcs<br><code>$</code> cd ..  : local_vcs 디렉토리의 상위 디렉토리로 이동하기</p>
+<p>ITSC@DESKTOP-L7VVF0L MINGW64 /c/Users<br><code>$</code> rmdir local_vcs  : local_vcs 디렉토리 삭제하기</p>
+<p>ITSC@DESKTOP-L7VVF0L MINGW64 /c/Users<br><code>$</code> ls<br>‘All Users’@  ‘Default User’@   ITSC/<br> Default/      desktop.ini      Public/</p>
+<p><code>$</code> git config –global user.name  : 사용자 확인하기<br>MINKYONGTAE</p>
+<p><code>$</code> git config –global user.email  : 사용자 이메일 확인하기<br><a href="mailto:&#103;&#x74;&#95;&#109;&#105;&#110;&#64;&#110;&#x61;&#118;&#101;&#114;&#46;&#x63;&#111;&#109;">&#103;&#x74;&#95;&#109;&#105;&#110;&#64;&#110;&#x61;&#118;&#101;&#114;&#46;&#x63;&#111;&#109;</a></p>
+<p><code>$</code> git config –global user.name “USERNAME”  : 사용자 이름 등록하기<br><code>$</code> git config –global user.email “EMAIL”  : 사용자 이메일 등록하기</p>
+<p><code>$</code> cd ~  : 루트 디렉토리로 이동</p>
+<p><code>$</code> mkdir local_vcs  : local_vcs 디렉토리 만들기</p>
+<p><code>$</code> cd local_vcs  : local_vcs 디렉토리로 이동하기</p>
+<p><code>$</code> git init  : 현재 디렉토리를 git으로 관리하라.<br>Initialized empty Git repository in C:/Users/ITSC/local_vcs/.git/</p>
+<p><code>$</code> ls -al  : 현재 디렉토리의 파일/디렉토리 목록 확인 (숨김파일확인+리스트보기)<br><code>$</code> ls -a  : -a(숨김파일보기옵션)</p>
+<p><code>$</code> touch master.txt  : master.txt 파일 만들기</p>
+<p><code>$</code> echo ‘hello git’ &gt;&gt; master.txt  : ‘hello git’을 master.txt로 보내기(기록하기)</p>
+<p><code>$</code> cat master.txt  : master.txt 파일 열기<br>hello git</p>
+<p><code>$</code> git status  : 상태보기(아직 Untracked 상태: 추적하기 전이다.)<br>On branch master</p>
+<p>No commits yet</p>
+<p>Untracked files:<br>  (use “git add <file>…” to include in what will be committed)<br>        master.txt</p>
+<p>nothing added to commit but untracked files present (use “git add” to track)</p>
+<p><code>$</code> git add master.txt  : master.txt 파일을 추적하라. (인덱스 영역으로 올린다. staging: 스태이징)</p>
+<p> <em>처음으로 git add 할 때는 git commit -am 명령이 불가능하다. 단독 명령으로 git add를 해야한다.</em></p>
+<p><code>$</code> git status  : 다시 상태보기 (staging 확인)<br>On branch master</p>
+<p>No commits yet</p>
+<p>Changes to be committed:<br>  (use “git rm –cached <file>…” to unstage)<br>        new file:   master.txt</p>
+<p><code>$</code> git rm –cached master.txt  : master.txt 파일을 더 이상 추적하지 않는다. (unstaging)<br>rm ‘master.txt’</p>
+<p><code>$</code> git add master.txt  : 다시 master.txt 파일을 추적하라. (인덱스 영역으로 올린다. staging: 스태이징)</p>
+<p><code>$</code> git commit  : 현재 로컬저장소(local_vcs)를 commit 하겠다. 커밋 메시지 작성을 위한 vim 에디터가 열린다.</p>
+<h2 id="vim-에디터-사용"><a href="#vim-에디터-사용" class="headerlink" title="vim 에디터 사용"></a>vim 에디터 사용</h2><p>단축키 i : 끼워넣기 상태<br>단축키 a : 끼워넣기 상태<br>키워넣기 상태에서 작성<br>작성 후 Esc (끼워넣기 상태에서 빠져나옴)<br>종료를 위해서 :wq (저장하고 닫기)</p>
+<hr>
+<p><code>$</code> git status  : 다시 상태보기 (commit이 완료되면 clean 상태가 되고, 원격저장소에 데이터를 올릴 수 있다.)<br>On branch master<br>nothing to commit, working tree clean</p>
+<p><code>$</code> git log  : 로그 확인하기 (커밋한 사람, 일시, 커밋메시지)</p>
+<p><code>$</code> git log –oneline  : 로그 한 줄로 보여주기</p>
+<p><code>$</code> echo ‘ nice to meet you’ &gt;&gt; master.txt  : ‘ nice to meet you’를 master.txt에 추가하기</p>
+<p><code>$</code> git status  : 다시 상태를 확인하면 Untracked 상태이므로 git add가 필요하다.</p>
+<p><code>$</code> git add .  : 로컬저장소의 모든 파일을 staging하라. (바뀐 파일이 많으면 사용)</p>
+<p><code>$</code> git commit -m ‘[02]master=&gt;modify master.txt add nice to meet you’  : 커밋하면서 커밋메시지 동시에 작성하기</p>
+<p><code>$</code> git log –oneline  : 로그보기 (2번의 커밋이 모두 나타난다. 최근 커밋 아이디를 HEAD라고 한다.)<br>2239f0b (HEAD -&gt; master) [02]master=&gt;modify master.txt add nice to meet you<br>af48e77 [01]master=&gt;create master.txt add hello git</p>
+<p><code>$</code> git diff –word-diff 2239f0b af48e77  : 두 커밋 아이디를 이용해서 차이를 비교</p>
+<p><code>$</code> git diff –word-diff HEAD HEAD<del>1  : HEAD(가장 최근 commit)와 HEAD</del>1(HEAD 이전 commit)의 차이를 비교</p>
+<p><code>$</code> echo ‘ how are you today?’ &gt;&gt; master.txt  : ‘ how are you today?’를 master.txt에 추가하기</p>
+<p><code>$</code> git commit -am ‘[03]master=&gt;modify master.txt add how are you today?’  : git add + git commit -m == git commit -am</p>
+<p><code>$</code> git log –oneline</p>
+<h2 id="github-com-에-접속해서-회원가입하기"><a href="#github-com-에-접속해서-회원가입하기" class="headerlink" title="github.com 에 접속해서 회원가입하기"></a>github.com 에 접속해서 회원가입하기</h2><ol>
+<li><p>create repository 클릭해서 새 저장소(repository) 만들기</p>
+<ul>
+<li>public</li>
+<li>add README.md 체크</li>
+</ul>
+</li>
+<li><p>repository에서 Code버튼을 클릭하면 원격저장소 확인 가능<br>-&gt; <a target="_blank" rel="noopener" href="https://github.com/itlecture/local_vcs.git">https://github.com/itlecture/local_vcs.git</a></p>
+</li>
+<li><p>로컬저장소(local_vcs)의 내용을 올리는 </p>
+</li>
+<li><p>원격저장소(<a target="_blank" rel="noopener" href="https://github.com/itlecture/local_vcs.git)%EB%A5%BC">https://github.com/itlecture/local_vcs.git)를</a> 등록해야 한다.</p>
+</li>
+<li><p>원격저장소 등록하기(앞으로 원격저장소는 origin이라고 부른다.)<br><code>$</code> git remote add origin <a target="_blank" rel="noopener" href="https://github.com/itlecture/local_vcs.git">https://github.com/itlecture/local_vcs.git</a></p>
+</li>
+<li><p>로컬저장소 -&gt; 원격저장소 : push  (올리기)</p>
+</li>
+<li><p>로컬저장소 &lt;- 원격저장소 : pull  (내려받기)</p>
+</li>
+</ol>
+<p> <strong>중요. 원격저장소에 올리려면 가장 먼저 pull을 해야 한다. (pull -&gt; push)</strong></p>
+<p><code>$</code> git push origin main  ## origin의 main브랜치로 올리기 (최초 실패)</p>
+<p><code>$</code> git pull origin main  ## origin의 main브랜치를 받아오기 (최초 실패)</p>
+<ul>
+<li>최초 pull을 할 때는 로컬저장소와 원격저장소가 서로 상관 없는 저장소이기 때문에 실패한다.</li>
+<li>상관 없어도 pull을 진행하는 옵션(–allow-unrelated-histories)을 써야 한다.</li>
+</ul>
+<p><code>$</code> git pull origin main –allow-unrelated-histories</p>
+<ul>
+<li>vim 편집기가 실행되면  :wq  눌러서 종료한다.</li>
+</ul>
+<p><code>$</code> git push origin main  ## 로컬저장소의 내용을 origin의 main 브랜치로 올린다.</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -295,7 +295,7 @@ public class Ex02_JSONArray &#123;
             <div class="box sticky animated fadeInRight faster">
                 <div id="toc" class="subbox">
                     <h4>Contents</h4>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#AJAX-%EC%8B%A4%EC%A0%84"><span class="toc-number">1.</span> <span class="toc-text">AJAX 실전</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ex01-JSONObject-java"><span class="toc-number">1.1.</span> <span class="toc-text">Ex01_JSONObject.java</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ex02-JSONArray-java"><span class="toc-number">1.2.</span> <span class="toc-text">Ex02_JSONArray.java</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ex03-toJSONString-java"><span class="toc-number">1.3.</span> <span class="toc-text">Ex03_toJSONString.java</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Git-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0-%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C-%EB%B0%8F-%EC%8B%A4%ED%96%89"><span class="toc-number">1.</span> <span class="toc-text">Git 사용하기(다운로드 및 실행)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-%EA%B0%9C%EC%9A%94"><span class="toc-number">2.</span> <span class="toc-text">git 개요</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-%EC%97%B0%EC%8A%B5"><span class="toc-number">3.</span> <span class="toc-text">git 연습</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vim-%EC%97%90%EB%94%94%ED%84%B0-%EC%82%AC%EC%9A%A9"><span class="toc-number">4.</span> <span class="toc-text">vim 에디터 사용</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#github-com-%EC%97%90-%EC%A0%91%EC%86%8D%ED%95%B4%EC%84%9C-%ED%9A%8C%EC%9B%90%EA%B0%80%EC%9E%85%ED%95%98%EA%B8%B0"><span class="toc-number">5.</span> <span class="toc-text">github.com 에 접속해서 회원가입하기</span></a></li></ol>
                 </div>
             </div>
             
