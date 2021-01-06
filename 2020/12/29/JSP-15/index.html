@@ -169,6 +169,32 @@
 
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
+<h3 id="common"><a href="#common" class="headerlink" title="common"></a>common</h3><blockquote>
+<p><strong>PathNRedirect.java</strong></p>
+</blockquote>
+<hr>
+<p><code>pathNRedirect</code> class 를 만들어 경로와 redirect 여부를 반환해준다.</p>
+<pre><code class="java">package common;
+
+public class PathNRedirect &#123;
+
+    private String path; //경로
+    private boolean isRedirect;  // 리다이렉트 여부.
+
+    public String getPath() &#123;
+        return path;
+    &#125;
+    public void setPath(String path) &#123;
+        this.path = path;
+    &#125;
+    public boolean isRedirect() &#123;
+        return isRedirect;
+    &#125;
+    public void setRedirect(boolean isRedirect) &#123; // Redirect 여부를 묻는 메소드 true: forward | false: redirect
+        this.isRedirect = isRedirect; 
+    &#125;
+
+&#125;</code></pre>
 <hr>
 <h3 id="Controller-java"><a href="#Controller-java" class="headerlink" title="Controller.java"></a>Controller.java</h3><blockquote>
 <p>컨트롤러를 이용해 요청을 처리한다.</p>
@@ -207,32 +233,6 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
     PathNRedirect pathNRedirect = null;
     Command command = null;
 </code></pre>
-<h3 id="common"><a href="#common" class="headerlink" title="common"></a>common</h3><blockquote>
-<p><strong>PathNRedirect.java</strong></p>
-</blockquote>
-<hr>
-<p><code>pathNRedirect</code> class 를 만들어 경로와 redirect 여부를 반환해준다.</p>
-<pre><code class="java">package common;
-
-public class PathNRedirect &#123;
-
-    private String path; //경로
-    private boolean isRedirect;  // 리다이렉트 여부.
-
-    public String getPath() &#123;
-        return path;
-    &#125;
-    public void setPath(String path) &#123;
-        this.path = path;
-    &#125;
-    public boolean isRedirect() &#123;
-        return isRedirect;
-    &#125;
-    public void setRedirect(boolean isRedirect) &#123; // Redirect 여부를 묻는 메소드 true: forward | false: redirect
-        this.isRedirect = isRedirect; 
-    &#125;
-
-&#125;</code></pre>
 <h3 id="Command"><a href="#Command" class="headerlink" title="Command"></a>Command</h3><p><code>Command</code> 인터페이스 생성 (MVC의 Model 공통 처리)</p>
 <blockquote>
 <p>Model</p>
@@ -808,7 +808,7 @@ public class InputKeyCheckCommand implements Command &#123;
             <div class="box sticky animated fadeInRight faster">
                 <div id="toc" class="subbox">
                     <h4>Contents</h4>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%BA%A1%EC%B0%A8-Capcha-%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C"><span class="toc-number">1.</span> <span class="toc-text">캡차(Capcha) 란 무엇일까</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%BA%A1%EC%B0%A8-%EB%A7%8C%EB%93%A4%EA%B8%B0-%EC%8B%9C%EC%9E%91"><span class="toc-number">2.</span> <span class="toc-text">캡차 만들기 시작</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%A7%8C%EB%93%A4%EA%B3%A0-%EC%8B%B6%EC%9D%80-%EC%BA%A1%EC%B1%A0-%ED%99%94%EB%A9%B4"><span class="toc-number">2.1.</span> <span class="toc-text">만들고 싶은 캡챠 화면</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%ED%95%84%EC%9A%94%ED%95%9C-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC"><span class="toc-number">2.2.</span> <span class="toc-text">필요한 라이브러리</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#index-jsp"><span class="toc-number">2.3.</span> <span class="toc-text">index.jsp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Controller-java"><span class="toc-number">2.4.</span> <span class="toc-text">Controller.java</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#common"><span class="toc-number">2.5.</span> <span class="toc-text">common</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Command"><span class="toc-number">2.6.</span> <span class="toc-text">Command</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Controller"><span class="toc-number">2.7.</span> <span class="toc-text">Controller</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GetImageCaptchaCommand-%EC%83%9D%EC%84%B1"><span class="toc-number">2.8.</span> <span class="toc-text">GetImageCaptchaCommand 생성</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#indexPage-gt-loginPage"><span class="toc-number">2.9.</span> <span class="toc-text">indexPage -&gt;  loginPage</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#login-do-Controller-%EC%83%9D%EC%84%B1"><span class="toc-number">2.10.</span> <span class="toc-text">login.do Controller 생성</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#InputKeyCheckCommand"><span class="toc-number">2.11.</span> <span class="toc-text">InputKeyCheckCommand</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EA%B2%B0%EA%B3%BC-%EC%B6%9C%EB%A0%A5-Page"><span class="toc-number">2.12.</span> <span class="toc-text">결과 출력 Page</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EA%B2%B0%EA%B3%BC-%ED%8E%98%EC%9D%B4%EC%A7%80"><span class="toc-number">3.</span> <span class="toc-text">결과 페이지</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%BA%A1%EC%B0%A8-Capcha-%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C"><span class="toc-number">1.</span> <span class="toc-text">캡차(Capcha) 란 무엇일까</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%BA%A1%EC%B0%A8-%EB%A7%8C%EB%93%A4%EA%B8%B0-%EC%8B%9C%EC%9E%91"><span class="toc-number">2.</span> <span class="toc-text">캡차 만들기 시작</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%A7%8C%EB%93%A4%EA%B3%A0-%EC%8B%B6%EC%9D%80-%EC%BA%A1%EC%B1%A0-%ED%99%94%EB%A9%B4"><span class="toc-number">2.1.</span> <span class="toc-text">만들고 싶은 캡챠 화면</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%ED%95%84%EC%9A%94%ED%95%9C-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC"><span class="toc-number">2.2.</span> <span class="toc-text">필요한 라이브러리</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#index-jsp"><span class="toc-number">2.3.</span> <span class="toc-text">index.jsp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#common"><span class="toc-number">2.4.</span> <span class="toc-text">common</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Controller-java"><span class="toc-number">2.5.</span> <span class="toc-text">Controller.java</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Command"><span class="toc-number">2.6.</span> <span class="toc-text">Command</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Controller"><span class="toc-number">2.7.</span> <span class="toc-text">Controller</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GetImageCaptchaCommand-%EC%83%9D%EC%84%B1"><span class="toc-number">2.8.</span> <span class="toc-text">GetImageCaptchaCommand 생성</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#indexPage-gt-loginPage"><span class="toc-number">2.9.</span> <span class="toc-text">indexPage -&gt;  loginPage</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#login-do-Controller-%EC%83%9D%EC%84%B1"><span class="toc-number">2.10.</span> <span class="toc-text">login.do Controller 생성</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#InputKeyCheckCommand"><span class="toc-number">2.11.</span> <span class="toc-text">InputKeyCheckCommand</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EA%B2%B0%EA%B3%BC-%EC%B6%9C%EB%A0%A5-Page"><span class="toc-number">2.12.</span> <span class="toc-text">결과 출력 Page</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EA%B2%B0%EA%B3%BC-%ED%8E%98%EC%9D%B4%EC%A7%80"><span class="toc-number">3.</span> <span class="toc-text">결과 페이지</span></a></li></ol>
                 </div>
             </div>
             
