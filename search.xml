@@ -4,6 +4,54 @@
   
     
     <entry>
+      <title>spring-03</title>
+      <link href="2021/01/09/spring-03/"/>
+      <url>2021/01/09/spring-03/</url>
+      
+        <content type="html"><![CDATA[<p>sdf</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>spring-02 Spring Collection(List Map Set) 활용</title>
+      <link href="2021/01/09/spring-02/"/>
+      <url>2021/01/09/spring-02/</url>
+      
+        <content type="html"><![CDATA[<h1 id="스프링-Collection"><a href="#스프링-Collection" class="headerlink" title="스프링 Collection"></a>스프링 Collection</h1><table><thead><tr><th align="center">컬렉션 유형</th><th align="center">엘리먼트</th></tr></thead><tbody><tr><td align="center">java.util.List, 배열</td><td align="center"><code>&lt;list&gt;</code></td></tr><tr><td align="center">java.util.Set</td><td align="center"><code>&lt;set&gt;</code></td></tr><tr><td align="center">java.util.Map</td><td align="center"><code>&lt;map&gt;</code></td></tr><tr><td align="center">java.util.Properties</td><td align="center"><code>&lt;props&gt;</code></td></tr></tbody></table><h2 id="List-타입-매핑"><a href="#List-타입-매핑" class="headerlink" title="List 타입 매핑"></a>List 타입 매핑</h2><p><sub>작은글씨</sub><br><small>작은2</small><br>그냥</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Spring </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Map </tag>
+            
+            <tag> Collection </tag>
+            
+            <tag> Spring </tag>
+            
+            <tag> bean </tag>
+            
+            <tag> List </tag>
+            
+            <tag> Set </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>spring-01</title>
       <link href="2021/01/06/spring-01/"/>
       <url>2021/01/06/spring-01/</url>

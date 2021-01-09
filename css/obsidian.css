@@ -101,7 +101,7 @@ pre code .language-mark b {
   word-break: normal !important;
 }
 div > .CodeMirror-line > span {
-  padding-right: 2.5rem !important;
+  padding-right: 2.8rem !important;
 }
 /* Responsive style */
 body {
@@ -115,7 +115,7 @@ body {
   font-weight: 700;
   position: relative;
   overflow-x: hidden;
-  font-size: 1.3em;
+  font-size: 1.2em;
   color: var(--font-color);
   line-height: 2;
 }
@@ -2439,7 +2439,8 @@ h1.title {
   margin: 0 0.3rem;
 }
 .else .md-content em {
-  color: #5d5d5d;
+  color: #730a9d;
+  font-size: larger;
 }
 .else .md-content ul {
   margin: 0 0 2rem 0;
@@ -2769,7 +2770,8 @@ h1.title {
   margin: 0 0.3em 2em;
 }
 .content em {
-  color: #9e9e9e;
+  color: #730a9d;
+  font-size: larger;
 }
 .content ul {
   margin: 0 0 1rem 0;
@@ -2940,7 +2942,7 @@ h1.title {
   background-color: rgba(169,8,8,0.05);
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
-  margin: 0 1em 2em;
+  margin: 0 0.3em 2em;
 }
 .content blockquote:before {
   content: '';
@@ -3580,6 +3582,11 @@ pre .keyword {
 /*코드 굵기 커스텀*/
 p > code {
   font-weight: bolder !important;
+}
+/*작은 글씨 커스텀*/
+sub {
+  color: #31a70b;
+  font-family: '메이플스토리' !important;
 }
 @-moz-keyframes spin {
   from {
