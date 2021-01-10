@@ -100,13 +100,13 @@
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    6.8k
+                    10k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    6 mins.
+                    9 mins.
                 </span>
                 
                 
@@ -299,7 +299,77 @@ public class MainClass &#123;
     &#125;
 
 &#125;</code></pre>
-<h2 id="Spring-스타일로-Main-만들기"><a href="#Spring-스타일로-Main-만들기" class="headerlink" title="Spring 스타일로 Main 만들기"></a>Spring 스타일로 Main 만들기</h2><h3 id="SpringMainClass-java"><a href="#SpringMainClass-java" class="headerlink" title="SpringMainClass.java"></a>SpringMainClass.java</h3><pre><code class="java">
+<p><sub>메인클래스에서 new생성자를 통해 매개변수를 전달하고 계산내용을 실행한다.</p>
+<p>만약 계산 값을 바꾸려면 MainClass의 set부분을 수정해줘야 한다.</sub></p>
+<h2 id="Spring-스타일로-Main-만들기"><a href="#Spring-스타일로-Main-만들기" class="headerlink" title="Spring 스타일로 Main 만들기"></a>Spring 스타일로 Main 만들기</h2><h3 id="★app-context-xml★-만들기-중요"><a href="#★app-context-xml★-만들기-중요" class="headerlink" title="★app-context.xml★ 만들기 (중요)"></a>★app-context.xml★ 만들기 (중요)</h3><blockquote>
+<p>resources 폴더 에서 생성</p>
+</blockquote>
+<p><sub>app-context.xml 빈(객체, 인스턴스)을 만들어 주는 xml 파일</sub></p>
+<p> spring bean configuration file </p>
+<ol>
+<li><p>디폴트 생성자 + setter</p>
+<ol>
+<li><p>디폴트 생성자<br><code>&lt;bean id=&quot;객체명&quot; class=&quot;클래스명&quot; /&gt;</code></p>
+</li>
+<li><p>디폴트 생성자 + setter<br><code> &lt;bean id=&quot;객체명&quot; class=&quot;클래스명&gt;</code><br><code>&lt;property name=&quot;필드명&quot;&gt;</code><br>   <code>&lt;value&gt;값&lt;/value&gt;</code>    // 일반 타입용, 문자, 숫자 상관 없이 따옴표 없이 그냥 적어요.<br><code>&lt;/property&gt;</code><br><code>&lt;property name=&quot;필드명&quot;&gt;</code><br>   <code>&lt;ref bean=&quot;객체명&quot; /&gt;</code>    // 다른 빈(bean)을 필드로 가지는 경우에 써요.<br><code>&lt;/property&gt;</code><br><code>&lt;/bean&gt;</code></p>
+</li>
+<li><p>디폴트 생성자 + setter<br><code>&lt;bean id=&quot;객체명&quot; class=&quot;클래스명&gt;</code><br><code>&lt;property name=&quot;필드명&quot; value=&quot;값&quot; /&gt;</code>    // 일반 타입용, 문자, 숫자 상관 없이 항상 따옴표를 써야 해요.<br><code>&lt;property name=&quot;필드명&quot; ref=&quot;객체명&quot; /&gt;</code>    // 다른 빈(bean)을 필드로 가지는 경우에 써요.<br><code>&lt;/bean&gt;</code></p>
+</li>
+</ol>
+</li>
+</ol>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&quot;&gt;
+
+
+
+
+    &lt;!--
+        지금부터 아래 빈을 만들거에요.
+        Calculator calculator1 = new Calculator();
+        Calculator calculator2 = new Calculator();
+    --&gt;
+    &lt;bean id=&quot;calculator1&quot; class=&quot;com.koreait.spring.Calculator&quot; /&gt;
+    &lt;bean id=&quot;calculator2&quot; class=&quot;com.koreait.spring.Calculator&quot; /&gt;
+
+    &lt;!--
+        지금부터 아래 빈을 만들거에요.
+        EngineerCalculator eCalculator1 = new EngineerCalculator();
+        eCalculator1.setA(10);
+        eCalculator1.setB(3);
+        eCalculator1.setCalculator(calculator1);
+    --&gt;
+    &lt;bean id=&quot;eCalculator1&quot; class=&quot;com.koreait.spring.EngineerCalculator&quot;&gt;
+        &lt;property name=&quot;a&quot;&gt;
+            &lt;value&gt;10&lt;/value&gt;
+        &lt;/property&gt;
+        &lt;property name=&quot;b&quot;&gt;
+            &lt;value&gt;3&lt;/value&gt;
+        &lt;/property&gt;
+        &lt;property name=&quot;calculator&quot;&gt;
+            &lt;ref bean=&quot;calculator1&quot; /&gt;
+        &lt;/property&gt;
+    &lt;/bean&gt;
+
+    &lt;!--
+        지금부터 아래 빈을 만들거에요.
+        EngineerCalculator eCalculator2 = new EngineerCalculator(calculator2, 100, 30);
+    --&gt;
+    &lt;bean id=&quot;eCalculator2&quot; class=&quot;com.koreait.spring.EngineerCalculator&quot;&gt;
+        &lt;constructor-arg&gt;
+            &lt;ref bean=&quot;calculator2&quot; /&gt;
+        &lt;/constructor-arg&gt;
+        &lt;constructor-arg&gt;
+            &lt;value&gt;100&lt;/value&gt;
+        &lt;/constructor-arg&gt;
+        &lt;constructor-arg&gt;
+            &lt;value&gt;30&lt;/value&gt;
+        &lt;/constructor-arg&gt;
+    &lt;/bean&gt;
+&lt;/beans&gt;</code></pre>
+<h3 id="SpringMainClass-java"><a href="#SpringMainClass-java" class="headerlink" title="SpringMainClass.java"></a>SpringMainClass.java</h3><pre><code class="java">
 public class SpringMainClass &#123;
 
     public static void main(String[] args) &#123;
@@ -390,7 +460,7 @@ public class SpringMainClass &#123;
                     </dl>
                 </div>
                 <ul>
-                    <li><a href="/">27 <p>Articles</p></a></li>
+                    <li><a href="/">31 <p>Articles</p></a></li>
                     <li><a href="/categories">5 <p>Categories</p></a></li>
                     <li><a href="/tags">25 <p>Tags</p></a></li>
                 </ul>
@@ -401,7 +471,7 @@ public class SpringMainClass &#123;
             <div class="box sticky animated fadeInRight faster">
                 <div id="toc" class="subbox">
                     <h4>Contents</h4>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%EC%8A%A4%ED%94%84%EB%A7%81-%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%9E%80"><span class="toc-number">1.</span> <span class="toc-text">스프링 프레임워크란 ?</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%8A%A4%ED%94%84%EB%A7%81-%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC-%EC%A3%BC%EC%9A%94-%ED%8A%B9%EC%A7%95"><span class="toc-number">1.1.</span> <span class="toc-text">스프링 프레임워크 주요 특징</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#spring-%EC%8B%9C%EC%9E%91"><span class="toc-number">2.</span> <span class="toc-text">spring 시작</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%B4%88%EA%B8%B0%EC%84%A4%EC%A0%95"><span class="toc-number">2.1.</span> <span class="toc-text">초기설정</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%8B%9C%EC%9E%91"><span class="toc-number">2.2.</span> <span class="toc-text">프로젝트 시작</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EA%B3%84%EC%82%B0%EA%B8%B0-%EB%A7%8C%EB%93%A4%EA%B8%B0"><span class="toc-number">2.3.</span> <span class="toc-text">계산기 만들기.</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Calculator-java"><span class="toc-number">2.3.1.</span> <span class="toc-text">Calculator.java</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EngineerCalculator-java"><span class="toc-number">2.3.2.</span> <span class="toc-text">EngineerCalculator.java</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%9E%90%EB%B0%94-%EC%8A%A4%ED%83%80%EC%9D%BC%EB%A1%9C-%EB%A7%8C%EB%93%A4%EA%B8%B0"><span class="toc-number">2.4.</span> <span class="toc-text">자바 스타일로 만들기</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MainClass-java"><span class="toc-number">2.4.1.</span> <span class="toc-text">MainClass.java</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring-%EC%8A%A4%ED%83%80%EC%9D%BC%EB%A1%9C-Main-%EB%A7%8C%EB%93%A4%EA%B8%B0"><span class="toc-number">2.5.</span> <span class="toc-text">Spring 스타일로 Main 만들기</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SpringMainClass-java"><span class="toc-number">2.5.1.</span> <span class="toc-text">SpringMainClass.java</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%EC%8A%A4%ED%94%84%EB%A7%81-%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%9E%80"><span class="toc-number">1.</span> <span class="toc-text">스프링 프레임워크란 ?</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%8A%A4%ED%94%84%EB%A7%81-%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC-%EC%A3%BC%EC%9A%94-%ED%8A%B9%EC%A7%95"><span class="toc-number">1.1.</span> <span class="toc-text">스프링 프레임워크 주요 특징</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#spring-%EC%8B%9C%EC%9E%91"><span class="toc-number">2.</span> <span class="toc-text">spring 시작</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%B4%88%EA%B8%B0%EC%84%A4%EC%A0%95"><span class="toc-number">2.1.</span> <span class="toc-text">초기설정</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%8B%9C%EC%9E%91"><span class="toc-number">2.2.</span> <span class="toc-text">프로젝트 시작</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EA%B3%84%EC%82%B0%EA%B8%B0-%EB%A7%8C%EB%93%A4%EA%B8%B0"><span class="toc-number">2.3.</span> <span class="toc-text">계산기 만들기.</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Calculator-java"><span class="toc-number">2.3.1.</span> <span class="toc-text">Calculator.java</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EngineerCalculator-java"><span class="toc-number">2.3.2.</span> <span class="toc-text">EngineerCalculator.java</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%9E%90%EB%B0%94-%EC%8A%A4%ED%83%80%EC%9D%BC%EB%A1%9C-%EB%A7%8C%EB%93%A4%EA%B8%B0"><span class="toc-number">2.4.</span> <span class="toc-text">자바 스타일로 만들기</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MainClass-java"><span class="toc-number">2.4.1.</span> <span class="toc-text">MainClass.java</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring-%EC%8A%A4%ED%83%80%EC%9D%BC%EB%A1%9C-Main-%EB%A7%8C%EB%93%A4%EA%B8%B0"><span class="toc-number">2.5.</span> <span class="toc-text">Spring 스타일로 Main 만들기</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%98%85app-context-xml%E2%98%85-%EB%A7%8C%EB%93%A4%EA%B8%B0-%EC%A4%91%EC%9A%94"><span class="toc-number">2.5.1.</span> <span class="toc-text">★app-context.xml★ 만들기 (중요)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SpringMainClass-java"><span class="toc-number">2.5.2.</span> <span class="toc-text">SpringMainClass.java</span></a></li></ol></li></ol></li></ol>
                 </div>
             </div>
             

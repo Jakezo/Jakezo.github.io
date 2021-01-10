@@ -5,21 +5,17 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>my new poas - Re-Coder</title>
+    <title>spring-06 quiz1 bmi - Re-Coder</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Jakezo Obsidian,"> 
-    <meta name="description" content="##java
+    <meta name="description" content="Bmi 계산기를 만들어보자결과화면
 
-자바 공부해봅시다
+ 결과 화면을 미리 보고 만들어보자
+계산기 만들기BMICalculator.javapackage com.koreait.quiz2;
 
-
-package ex01;
-
-import java.io.IOException;
-import javax.servlet.ServletConfig;
-,"> 
+public,"> 
     <meta name="author" content="Jakezo"> 
     <link rel="alternative" href="atom.xml" title="Re-Coder" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -67,7 +63,7 @@ import javax.servlet.ServletConfig;
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://jakezo.github.io">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">my new poas</h3>
+        <h3 class="subtitle">spring-06 quiz1 bmi</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -97,24 +93,25 @@ import javax.servlet.ServletConfig;
         <div class="else">
             <p class="animated fadeInDown">
                 
-                <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
+                <a href="/categories/Spring"><b>「
+                    </b>SPRING<b> 」</b></a>
                 
-                January 02, 2021
+                January 10, 2021
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2021/01/02/my-new-poas/" title="my new poas" class="">my new poas</a>
+            <h3 class="post-title animated fadeInDown"><a href="/2021/01/10/spring-06/" title="spring-06 quiz1 bmi" class="">spring-06 quiz1 bmi</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    3.4k
+                    6k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    3 mins.
+                    5 mins.
                 </span>
                 
                 
@@ -126,6 +123,8 @@ import javax.servlet.ServletConfig;
                 
             </p>
             
+            
+            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Collection/" rel="tag">Collection</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/List/" rel="tag">List</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Map/" rel="tag">Map</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Set/" rel="tag">Set</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Spring/" rel="tag">Spring</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/bean/" rel="tag">bean</a></li></ul>
             
         </div>
     </div>
@@ -146,119 +145,167 @@ import javax.servlet.ServletConfig;
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <p>##java</p>
-<blockquote>
-<p>자바 공부해봅시다</p>
-</blockquote>
-<pre><code class="java">
-package ex01;
+            <h2 id="Bmi-계산기를-만들어보자"><a href="#Bmi-계산기를-만들어보자" class="headerlink" title="Bmi 계산기를 만들어보자"></a>Bmi 계산기를 만들어보자</h2><h2 id="결과화면"><a href="#결과화면" class="headerlink" title="결과화면"></a>결과화면</h2><img src="https://i.esdrop.com/d/kbU7NAbqDu.png" />
 
-import java.io.IOException;
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+<p><sub> 결과 화면을 미리 보고 만들어보자</sub></p>
+<h2 id="계산기-만들기"><a href="#계산기-만들기" class="headerlink" title="계산기 만들기"></a>계산기 만들기</h2><h3 id="BMICalculator-java"><a href="#BMICalculator-java" class="headerlink" title="BMICalculator.java"></a>BMICalculator.java</h3><pre><code class="java">package com.koreait.quiz2;
 
-/**
- * Servlet implementation class Ex01_servlet
- */
-@WebServlet(&quot;/Ex01_servlet&quot;)
-public class Ex01_servlet extends HttpServlet &#123;
-    private static final long serialVersionUID = 1L;
+public class BMICalculator &#123;
 
-    /**
-     * Default constructor. 
-     * 
-     * 1. 생성자
-     *         생성자 호출 뒤 init() 메소드가 호출된다.
-     */
-    public Ex01_servlet() &#123;
-        System.out.println(&quot;생성자 호출&quot;);
+    // bmi = 몸무게(kg) / 키(m) 제곱
+
+    // field
+    // 저체중(bmi : ~19) 
+    private double normal; // 정상(bmi : 20~25) 20을 저장해둔다.
+    private double over; // 과체중(bmi : 26~30) 26을 저장해둔다.
+    private double obesity; // 비만(bmi : 31~)  31을 저장해둔다.
+
+    // constructor
+    public BMICalculator() &#123;
+
     &#125;
 
-    /**
-     * @see Servlet#init(ServletConfig)
-     * 
-     * 2. init() 메소드
-     *    1) 최초 한 번만 호출된다.
-     *    2) 초기화 용도로 사용할 수 있다.
-     *    3) init() 호출 뒤 service() 메소드가 호출된다.
-     */
-    public void init(ServletConfig config) throws ServletException &#123;
-        System.out.println(&quot;init() 호출&quot;);
-    &#125;
-
-    /**
-     * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
-     * 
-     * 3. service() 메소드
-     *    1) 실제 처리를 할 수 있다.
-     *    2) 매개변수-1
-     *       (1) 타입: HttpServletRequest
-     *       (2) 변수: request
-     *       (3) 사용자의 요청을 저장하는 변수이다.
-     *           예) 사용자가 입력한 검색어, 아이디, 비밀번호 등이 저장된 곳이다.
-     *    3) 매개변수-2
-     *       (1) 타입: HttpServletResponse
-     *       (2) 변수: response
-     *       (3) 서버의 응답 정보를 저장하는 변수이다.
-     *           예) 검색어의 결과, 로그인 성공 유무 등이 저장된 곳이다.
-     */
-    protected void service(HttpServletRequest request, HttpServletResponse response) 
-    throws ServletException, IOException &#123;
-        System.out.println(&quot;service() 호출&quot;);
-        if (request.getMethod().equalsIgnoreCase(&quot;GET&quot;)) &#123;  // GET방식의 요청이라면
-            doGet(request, response);  // doGet() 메소드 호출
+    // method
+    public void bmiInfo(double weight, double height) &#123;
+        double h = height * 0.01;  // cm -&gt; m
+        double bmi = weight / (h * h);
+        String state = null;
+        if ( bmi &gt;= obesity ) &#123;
+            state = &quot;비만&quot;;
+        &#125; else if ( bmi &gt;= over ) &#123;
+            state = &quot;과체중&quot;;
+        &#125; else if ( bmi &gt;= normal ) &#123;
+            state = &quot;정상체중&quot;;
         &#125; else &#123;
-            doPost(request, response);
+            state = &quot;저체중&quot;;
         &#125;
+        System.out.println(&quot;체질량지수: &quot; + bmi + &quot;(&quot; + state + &quot;)&quot;);
+    &#125;
+    public double getNormal() &#123;
+        return normal;
+    &#125;
+    public void setNormal(double normal) &#123;
+        this.normal = normal;
+    &#125;
+    public double getOver() &#123;
+        return over;
+    &#125;
+    public void setOver(double over) &#123;
+        this.over = over;
+    &#125;
+    public double getObesity() &#123;
+        return obesity;
+    &#125;
+    public void setObesity(double obesity) &#123;
+        this.obesity = obesity;
     &#125;
 
-    /**
-     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-     * 
-     * 4. doGet()
-     *    1) GET 방식의 요청인 경우에 자동으로 호출되는 메소드이다. (service() 메소드가 없으면)
-     *    2) GET 방식의 요청 방법
-     *       (1) &lt;form method=&quot;get&quot;&gt;
-     *       (2) $.ajax(&#123; type: &#39;get&#39;, &#125;);
-     */
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) 
-    throws ServletException, IOException &#123;
-        System.out.println(&quot;doGet() 호출&quot;);
-        response.getWriter().append(&quot;Served at: &quot;).append(request.getContextPath());
+&#125;</code></pre>
+<h3 id="Person-java"><a href="#Person-java" class="headerlink" title="Person.java"></a>Person.java</h3><pre><code class="java">package com.koreait.quiz2;
+
+import java.util.ArrayList;
+
+public class Person &#123;
+
+    // field
+    private String name;  // 이름
+    private double weight; // 몸무게
+    private double height; // 키
+    private BMICalculator bmiCalculator;  // bmi 계산기(체질량지수)
+    private ArrayList&lt;String&gt; hobbies; // 최소 3개의 취미
+
+    // constructor
+    public Person() &#123;
+
     &#125;
 
-    /**
-     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-     * 
-     * 5. doPost()
-     *    1) POST 방식의 요청인 경우에 자동으로 호출되는 메소드이다. (service() 메소드가 없으면)
-     *    2) 요청(request)과 응답(response)를 모두 doGet() 메소드로 넘기고 자신은 아무 일도 하지 않는다.
-     */
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-     throws ServletException, IOException &#123;
-        System.out.println(&quot;doPost() 호출&quot;);
-        doGet(request, response);
+    // method
+    public void personInfo() &#123;
+        System.out.println(&quot;성명: &quot; + name);
+        System.out.println(&quot;키: &quot; + height);
+        System.out.println(&quot;몸무게: &quot; + weight);
+        bmiCalculatorInfo();
+        System.out.println(&quot;취미: &quot; + hobbies);
+    &#125;
+    public void bmiCalculatorInfo() &#123;
+        bmiCalculator.bmiInfo(weight, height);
+    &#125;
+    public String getName() &#123;
+        return name;
+    &#125;
+    public void setName(String name) &#123;
+        this.name = name;
+    &#125;
+    public double getWeight() &#123;
+        return weight;
+    &#125;
+    public void setWeight(double weight) &#123;
+        this.weight = weight;
+    &#125;
+    public double getHeight() &#123;
+        return height;
+    &#125;
+    public void setHeight(double height) &#123;
+        this.height = height;
+    &#125;
+    public BMICalculator getBmiCalculator() &#123;
+        return bmiCalculator;
+    &#125;
+    public void setBmiCalculator(BMICalculator bmiCalculator) &#123;
+        this.bmiCalculator = bmiCalculator;
+    &#125;
+    public ArrayList&lt;String&gt; getHobbies() &#123;
+        return hobbies;
+    &#125;
+    public void setHobbies(ArrayList&lt;String&gt; hobbies) &#123;
+        this.hobbies = hobbies;
     &#125;
 
-    /**
-     * @see Servlet#destroy()
-     * 
-     * 6. destroy()
-     * 
-     *    웹 서버에서 프로젝트가 소멸되면 자동으로 호출된다.
-     */
-    public void destroy() &#123;
-        System.out.println(&quot;destroy() 호출&quot;);
+&#125;</code></pre>
+<h3 id="app-context-xml"><a href="#app-context-xml" class="headerlink" title="app-context.xml"></a>app-context.xml</h3><pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&quot;&gt;
+
+    &lt;bean id=&quot;bmiCalc&quot; class=&quot;com.koreait.quiz2.BMICalculator&quot;&gt;
+        &lt;property name=&quot;normal&quot; value=&quot;20&quot; /&gt;
+        &lt;property name=&quot;over&quot; value=&quot;26&quot; /&gt;
+        &lt;property name=&quot;obesity&quot; value=&quot;31&quot; /&gt;
+    &lt;/bean&gt;
+
+    &lt;bean id=&quot;person&quot; class=&quot;com.koreait.quiz2.Person&quot;&gt;
+        &lt;property name=&quot;name&quot; value=&quot;앨리스&quot; /&gt;
+        &lt;property name=&quot;weight&quot; value=&quot;55.5&quot; /&gt;
+        &lt;property name=&quot;height&quot; value=&quot;165.5&quot; /&gt;
+        &lt;property name=&quot;bmiCalculator&quot; ref=&quot;bmiCalc&quot; /&gt;
+        &lt;property name=&quot;hobbies&quot;&gt;
+            &lt;list&gt;
+                &lt;value&gt;운동&lt;/value&gt;
+                &lt;value&gt;여행&lt;/value&gt;
+                &lt;value&gt;독서&lt;/value&gt;
+            &lt;/list&gt;
+        &lt;/property&gt;
+    &lt;/bean&gt;
+
+&lt;/beans&gt;</code></pre>
+<hr>
+<h3 id="PersonMain-java"><a href="#PersonMain-java" class="headerlink" title="PersonMain.java"></a>PersonMain.java</h3><pre><code class="java">package com.koreait.quiz2;
+
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.GenericXmlApplicationContext;
+
+public class PersonMain &#123;
+
+    public static void main(String[] args) &#123;
+
+        AbstractApplicationContext ctx = new GenericXmlApplicationContext(&quot;classpath:app-context2.xml&quot;);
+        Person p = ctx.getBean(&quot;person&quot;, Person.class);
+        p.personInfo();
+        ctx.close();
+
     &#125;
 
-&#125;
-
-
-</code></pre>
+&#125;</code></pre>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -313,6 +360,13 @@ public class Ex01_servlet extends HttpServlet &#123;
             </div>
             
             
+            
+            <div class="box sticky animated fadeInRight faster">
+                <div id="toc" class="subbox">
+                    <h4>Contents</h4>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Bmi-%EA%B3%84%EC%82%B0%EA%B8%B0%EB%A5%BC-%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B3%B4%EC%9E%90"><span class="toc-number">1.</span> <span class="toc-text">Bmi 계산기를 만들어보자</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EA%B2%B0%EA%B3%BC%ED%99%94%EB%A9%B4"><span class="toc-number">2.</span> <span class="toc-text">결과화면</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EA%B3%84%EC%82%B0%EA%B8%B0-%EB%A7%8C%EB%93%A4%EA%B8%B0"><span class="toc-number">3.</span> <span class="toc-text">계산기 만들기</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#BMICalculator-java"><span class="toc-number">3.1.</span> <span class="toc-text">BMICalculator.java</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Person-java"><span class="toc-number">3.2.</span> <span class="toc-text">Person.java</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#app-context-xml"><span class="toc-number">3.3.</span> <span class="toc-text">app-context.xml</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PersonMain-java"><span class="toc-number">3.4.</span> <span class="toc-text">PersonMain.java</span></a></li></ol></li></ol>
+                </div>
+            </div>
             
             
         </div>

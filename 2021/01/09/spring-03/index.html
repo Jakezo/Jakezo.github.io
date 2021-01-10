@@ -5,13 +5,17 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>spring-03 - Re-Coder</title>
+    <title>spring-03 Collection 활용 - Re-Coder</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Jakezo Obsidian,"> 
-    <meta name="description" content="sdf
-"> 
+    <meta name="description" content="Handler##$ ListHandler
+public class ListHandler &amp;#123;
+
+    // field
+
+    private List&amp;lt;String&amp;gt,"> 
     <meta name="author" content="Jakezo"> 
     <link rel="alternative" href="atom.xml" title="Re-Coder" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -59,7 +63,7 @@
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://jakezo.github.io">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">spring-03</h3>
+        <h3 class="subtitle">spring-03 Collection 활용</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -89,24 +93,25 @@
         <div class="else">
             <p class="animated fadeInDown">
                 
-                <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
+                <a href="/categories/Spring"><b>「
+                    </b>SPRING<b> 」</b></a>
                 
                 January 09, 2021
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2021/01/09/spring-03/" title="spring-03" class="">spring-03</a>
+            <h3 class="post-title animated fadeInDown"><a href="/2021/01/09/spring-03/" title="spring-03 Collection 활용" class="">spring-03 Collection 활용</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    11
+                    9.2k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    1 mins.
+                    8 mins.
                 </span>
                 
                 
@@ -118,6 +123,8 @@
                 
             </p>
             
+            
+            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Collection/" rel="tag">Collection</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/List/" rel="tag">List</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Map/" rel="tag">Map</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Set/" rel="tag">Set</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Spring/" rel="tag">Spring</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/bean/" rel="tag">bean</a></li></ul>
             
         </div>
     </div>
@@ -138,7 +145,275 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <p>sdf</p>
+            <h2 id="Handler"><a href="#Handler" class="headerlink" title="Handler"></a>Handler</h2><p>##$ ListHandler</p>
+<pre><code class="java">public class ListHandler &#123;
+
+    // field
+
+    private List&lt;String&gt; list;
+
+    //constructor
+
+    public ListHandler() &#123;
+
+    &#125;
+    // method
+
+    public List&lt;String&gt; getList() &#123;
+        return list;
+    &#125;
+
+    public void setList(List&lt;String&gt; list) &#123;
+        this.list = list;
+    &#125;
+    public void listInfo() &#123;
+         for (String item : list) &#123;
+             System.out.println(item);
+         &#125;
+    &#125;
+&#125;</code></pre>
+<hr>
+<h3 id="SetHandle"><a href="#SetHandle" class="headerlink" title="SetHandle"></a>SetHandle</h3><pre><code class="java">public class SetHandler &#123;
+
+
+        // field
+        private Set&lt;String&gt; set;
+
+        // constructor
+        public SetHandler() &#123;
+
+        &#125;
+
+        // method
+        public Set&lt;String&gt; getSet() &#123;
+            return set;
+
+        &#125;
+        public void setSet(Set&lt;String&gt; set) &#123;
+            this.set = set;
+        &#125;
+        public void setInfo() &#123;
+            // Set 순회 1
+        //    for (String item : set) &#123;
+        //        System.out.println(item);
+        //    &#125;
+            // Set 순회 2
+            Iterator&lt;String&gt; itr = set.iterator();
+            while (itr.hasNext()) &#123;
+                System.out.println(itr.next());
+            &#125;
+        &#125;
+&#125;</code></pre>
+<hr>
+<h3 id="MapHandler"><a href="#MapHandler" class="headerlink" title="MapHandler"></a>MapHandler</h3><pre><code class="java">public class MapHandler &#123;
+
+    // field
+
+    private Map&lt;String, String&gt; map = new HashMap&lt;String, String&gt;();
+
+    // constructor
+    public MapHandler() &#123;
+
+    &#125;
+    //method
+
+    public Map&lt;String, String&gt; getMap() &#123;
+        return map;
+    &#125;
+
+    public void setMap(Map&lt;String, String&gt; map) &#123;
+        this.map = map;
+    &#125;
+
+    public void mapInfo() &#123;
+
+        // keySet() : key만 빼서 value를 알아내는 방식
+        // Set&lt;String&gt; keys = map.keySet();
+        // for(String key : keys) &#123;
+        // System.out.println(key + &quot;:&quot; + map.get(key));
+        // &#125;
+        // entrySet() : key와 value를 동시에 빼는 방식
+
+
+        Set&lt;String&gt; keys =map.keySet();
+        for (String key :keys) &#123;
+            System.out.println(key + &quot;:&quot; + map.get(key));
+        &#125;
+        for (Map.Entry&lt;String, String&gt; entry : map.entrySet()) &#123;
+            System.out.println(entry.getKey() + &quot;:&quot; + entry.getValue());
+
+        &#125;
+    &#125;
+&#125;</code></pre>
+<h2 id="Main"><a href="#Main" class="headerlink" title="Main"></a>Main</h2><h3 id="Spring을-사용하지-않을때"><a href="#Spring을-사용하지-않을때" class="headerlink" title="Spring을 사용하지 않을때"></a>Spring을 사용하지 않을때</h3><pre><code class="java">public class MainClass &#123;
+
+    public static void main(String[] args) &#123;
+
+        ListHandler listHandler = new ListHandler();
+
+        List&lt;String&gt; foods = new ArrayList&lt;String&gt;();
+        foods.add(&quot;떡볶이&quot;);
+        foods.add(&quot;김밥&quot;);
+        foods.add(&quot;순대&quot;);
+        foods.add(&quot;튀김&quot;);
+        foods.add(&quot;어묵&quot;);
+
+        listHandler.setList(foods);
+        listHandler.listInfo();
+        System.out.println(listHandler.getList());
+
+        SetHandler setHandler = new  SetHandler();
+
+        Set&lt;String&gt; courses = new HashSet&lt;String&gt;();
+        courses.add(&quot;자바&quot;);
+        courses.add(&quot;자바&quot;);
+        courses.add(&quot;파이썬&quot;);
+        courses.add(&quot;파이썬&quot;);
+        courses.add(&quot;스프링&quot;);
+        courses.add(&quot;스프링&quot;);
+
+        setHandler.setSet(courses);
+        setHandler.setInfo();
+
+        MapHandler mapHandler = new MapHandler();
+        Map&lt;String, String&gt; dict = new HashMap&lt;String, String&gt;();
+
+        dict.put(&quot;spring&quot;, &quot;봄&quot;);
+        dict.put(&quot;summer&quot;, &quot;여름&quot;);
+        dict.put(&quot;fall&quot;, &quot;가을&quot;);
+        dict.put(&quot;winter&quot;, &quot;겨울&quot;);
+
+        mapHandler.setMap(dict);
+        mapHandler.mapInfo();
+
+&#125;</code></pre>
+<p><sub>메인클래스에서 new생성자를 통해 매개변수를 전달하고 계산내용을 실행한다.</p>
+<p>만약 계산 값을 바꾸려면 MainClass의 set부분을 수정해줘야 한다.<br></sub></p>
+<h3 id="app-context-xml"><a href="#app-context-xml" class="headerlink" title="app-context.xml"></a>app-context.xml</h3><pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&quot;&gt;
+
+    &lt;!--
+
+        ** List 계열은 &lt;list&gt;태그와 &lt;value&gt;태그로 처리합니다.
+
+        ListHandler listHandler = new ListHandler();
+
+        List&lt;String&gt; foods = new ArrayList&lt;String&gt;();
+        foods.add(&quot;떡볶이&quot;);
+        foods.add(&quot;김밥&quot;);
+        foods.add(&quot;순대&quot;);
+        foods.add(&quot;튀김&quot;);
+        foods.add(&quot;어묵&quot;);
+
+        listHandler.setList(foods);
+    --&gt;
+    &lt;bean id=&quot;listHandler&quot; class=&quot;com.koreait.spring.ListHandler&quot;&gt;
+        &lt;property name=&quot;list&quot;&gt;
+            &lt;list&gt;
+                &lt;value&gt;떡볶이&lt;/value&gt;
+                &lt;value&gt;김밥&lt;/value&gt;
+                &lt;value&gt;순대&lt;/value&gt;
+                &lt;value&gt;튀김&lt;/value&gt;
+                &lt;value&gt;어묵&lt;/value&gt;
+            &lt;/list&gt;
+        &lt;/property&gt;
+    &lt;/bean&gt;
+
+    &lt;!--
+        ** Set 계열은 &lt;set&gt;태그와 &lt;value&gt;태그로 처리합니다.
+        SetHandler setHandler = new SetHandler();
+
+        Set&lt;String&gt; courses = new HashSet&lt;String&gt;();
+        courses.add(&quot;자바&quot;);
+        courses.add(&quot;자바&quot;);
+        courses.add(&quot;파이썬&quot;);
+        courses.add(&quot;파이썬&quot;);
+        courses.add(&quot;스프링&quot;);
+        courses.add(&quot;스프링&quot;);
+
+        setHandler.setSet(courses);
+    --&gt;
+
+     &lt;bean id=&quot;setHandler&quot; class=&quot;com.koreait.spring.SetHandler&quot;&gt;
+         &lt;property name=&quot;set&quot;&gt;
+             &lt;set&gt;
+                 &lt;value&gt;자바&lt;/value&gt;
+                 &lt;value&gt;자바&lt;/value&gt;
+                 &lt;value&gt;파이썬&lt;/value&gt;
+                 &lt;value&gt;파이썬&lt;/value&gt;
+                 &lt;value&gt;스프링&lt;/value&gt;
+                 &lt;value&gt;스프링&lt;/value&gt;
+             &lt;/set&gt;
+         &lt;/property&gt;
+     &lt;/bean&gt;
+
+    &lt;!-- 
+        ** Map 계열은 &lt;map&gt;태그와 &lt;entry&gt;태그로 처리합니다.
+        MapHandler mapHandler = new MapHandler();
+        Map&lt;String, String&gt; dict = new HashMap&lt;String, String&gt;();
+
+        dict.put(&quot;spring&quot;, &quot;봄&quot;);
+        dict.put(&quot;summer&quot;, &quot;여름&quot;);
+        dict.put(&quot;fall&quot;, &quot;가을&quot;);
+        dict.put(&quot;winter&quot;, &quot;겨울&quot;);
+
+        mapHandler.setMap(dict);
+        mapHandler.mapInfo(); --&gt;
+
+    &lt;bean id=&quot;mapHandler&quot; class=&quot;com.koreait.spring.MapHandler&quot;&gt;
+        &lt;property name=&quot;map&quot;&gt;
+            &lt;map&gt;
+                &lt;entry key=&quot;spring&quot; value=&quot;봄&quot; /&gt;
+                &lt;entry key=&quot;summer&quot; value=&quot;여름&quot; /&gt;
+                &lt;entry key=&quot;fall&quot; value=&quot;가을&quot; /&gt;
+                &lt;entry key=&quot;winter&quot; value=&quot;겨울&quot; /&gt;
+            &lt;/map&gt;
+        &lt;/property&gt;
+    &lt;/bean&gt;
+
+&lt;/beans&gt;
+</code></pre>
+<h3 id="SpringMainClass"><a href="#SpringMainClass" class="headerlink" title="SpringMainClass"></a>SpringMainClass</h3><pre><code class="java">package com.koreait.spring;
+
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.GenericXmlApplicationContext;
+
+public class SpringMainClass &#123;
+
+    public static void main(String[] args) &#123;
+        // TODO Auto-generated method stub
+
+
+        String resourceLocations = &quot;classpath:appcontext.xml&quot;;
+        AbstractApplicationContext ctx = new GenericXmlApplicationContext(resourceLocations);
+
+        ListHandler handler1 = ctx.getBean(&quot;listHandler&quot;, ListHandler.class);
+        handler1.listInfo();
+
+
+        SetHandler handler2 = ctx.getBean(&quot;setHandler&quot;, SetHandler.class);
+        handler2.setInfo();
+
+        MapHandler handler3 = ctx.getBean(&quot;mapHandler&quot;, MapHandler.class);
+        handler3.mapInfo();
+
+        ctx.close();
+
+    &#125;
+
+&#125;</code></pre>
+<h2 id="결과화면"><a href="#결과화면" class="headerlink" title="결과화면"></a>결과화면</h2><img src="https://i.esdrop.com/d/QyoOhorAtJ.png"/>
+
+<blockquote>
+<p>spring의 필요성?</p>
+</blockquote>
+<sub> 
+자바는 털 끝하나 건드릴 필요없이 xml만 수정하면 되기 때문에 부품을 생성하고 조립하는데 편리하다.
+
+<p>당장 길이가 짧은 예제로는 와닿지 않아도 대형 프로젝트나 개인 프로젝트를 할 때<br>MainClass를 수정하지 않아도 되는 편리함이 좋다고 하니 일단 그렇다고 해두자. </sub></p>
+<hr>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -186,13 +461,20 @@
                     </dl>
                 </div>
                 <ul>
-                    <li><a href="/">27 <p>Articles</p></a></li>
+                    <li><a href="/">31 <p>Articles</p></a></li>
                     <li><a href="/categories">5 <p>Categories</p></a></li>
                     <li><a href="/tags">25 <p>Tags</p></a></li>
                 </ul>
             </div>
             
             
+            
+            <div class="box sticky animated fadeInRight faster">
+                <div id="toc" class="subbox">
+                    <h4>Contents</h4>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Handler"><span class="toc-number">1.</span> <span class="toc-text">Handler</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SetHandle"><span class="toc-number">1.1.</span> <span class="toc-text">SetHandle</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MapHandler"><span class="toc-number">1.2.</span> <span class="toc-text">MapHandler</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Main"><span class="toc-number">2.</span> <span class="toc-text">Main</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Spring%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%98%EC%A7%80-%EC%95%8A%EC%9D%84%EB%95%8C"><span class="toc-number">2.1.</span> <span class="toc-text">Spring을 사용하지 않을때</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#app-context-xml"><span class="toc-number">2.2.</span> <span class="toc-text">app-context.xml</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SpringMainClass"><span class="toc-number">2.3.</span> <span class="toc-text">SpringMainClass</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EA%B2%B0%EA%B3%BC%ED%99%94%EB%A9%B4"><span class="toc-number">3.</span> <span class="toc-text">결과화면</span></a></li></ol>
+                </div>
+            </div>
             
             
         </div>

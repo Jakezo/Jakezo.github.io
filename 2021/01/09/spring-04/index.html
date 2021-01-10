@@ -5,21 +5,16 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>my new poas - Re-Coder</title>
+    <title>spring-04 Collection 활용(2) - Re-Coder</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Jakezo Obsidian,"> 
-    <meta name="description" content="##java
+    <meta name="description" content="알아볼 내용
+app-context 가 두개 있는경우
 
-자바 공부해봅시다
-
-
-package ex01;
-
-import java.io.IOException;
-import javax.servlet.ServletConfig;
-,"> 
+app-context가 두개가 있는 경우 그리고 porperty 태그를 대신할수 있는 p속성에 대해 알아봅시다
+예제Car.j,"> 
     <meta name="author" content="Jakezo"> 
     <link rel="alternative" href="atom.xml" title="Re-Coder" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -67,7 +62,7 @@ import javax.servlet.ServletConfig;
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://jakezo.github.io">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">my new poas</h3>
+        <h3 class="subtitle">spring-04 Collection 활용(2)</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -97,24 +92,25 @@ import javax.servlet.ServletConfig;
         <div class="else">
             <p class="animated fadeInDown">
                 
-                <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
+                <a href="/categories/Spring"><b>「
+                    </b>SPRING<b> 」</b></a>
                 
-                January 02, 2021
+                January 09, 2021
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2021/01/02/my-new-poas/" title="my new poas" class="">my new poas</a>
+            <h3 class="post-title animated fadeInDown"><a href="/2021/01/09/spring-04/" title="spring-04 Collection 활용(2)" class="">spring-04 Collection 활용(2)</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    3.4k
+                    6k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    3 mins.
+                    5 mins.
                 </span>
                 
                 
@@ -126,6 +122,8 @@ import javax.servlet.ServletConfig;
                 
             </p>
             
+            
+            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Collection/" rel="tag">Collection</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/List/" rel="tag">List</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Map/" rel="tag">Map</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Set/" rel="tag">Set</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Spring/" rel="tag">Spring</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/bean/" rel="tag">bean</a></li></ul>
             
         </div>
     </div>
@@ -146,119 +144,161 @@ import javax.servlet.ServletConfig;
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <p>##java</p>
-<blockquote>
-<p>자바 공부해봅시다</p>
+            <h2 id="알아볼-내용"><a href="#알아볼-내용" class="headerlink" title="알아볼 내용"></a>알아볼 내용</h2><blockquote>
+<p>app-context 가 두개 있는경우</p>
 </blockquote>
-<pre><code class="java">
-package ex01;
+<p><sub>app-context가 두개가 있는 경우 그리고 porperty 태그를 대신할수 있는 p속성에 대해 알아봅시다</sub></p>
+<h2 id="예제"><a href="#예제" class="headerlink" title="예제"></a>예제</h2><h3 id="Car-java"><a href="#Car-java" class="headerlink" title="Car.java"></a>Car.java</h3><pre><code class="java">package com.koreait.spring;
 
-import java.io.IOException;
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+public class Person &#123;
 
-/**
- * Servlet implementation class Ex01_servlet
- */
-@WebServlet(&quot;/Ex01_servlet&quot;)
-public class Ex01_servlet extends HttpServlet &#123;
-    private static final long serialVersionUID = 1L;
+    // field
+    private String name;
+    private Car myCar;
 
-    /**
-     * Default constructor. 
-     * 
-     * 1. 생성자
-     *         생성자 호출 뒤 init() 메소드가 호출된다.
-     */
-    public Ex01_servlet() &#123;
-        System.out.println(&quot;생성자 호출&quot;);
+    // constructor
+    public Person() &#123;
+
     &#125;
 
-    /**
-     * @see Servlet#init(ServletConfig)
-     * 
-     * 2. init() 메소드
-     *    1) 최초 한 번만 호출된다.
-     *    2) 초기화 용도로 사용할 수 있다.
-     *    3) init() 호출 뒤 service() 메소드가 호출된다.
-     */
-    public void init(ServletConfig config) throws ServletException &#123;
-        System.out.println(&quot;init() 호출&quot;);
+    // method
+    public String getName() &#123;
+        return name;
+    &#125;
+    public void setName(String name) &#123;
+        this.name = name;
+    &#125;
+    public Car getMyCar() &#123;
+        return myCar;
+    &#125;
+    public void setMyCar(Car myCar) &#123;
+        this.myCar = myCar;
+    &#125;
+    public void personInfo() &#123;
+        System.out.println(&quot;이름: &quot; + name);
+        myCar.carInfo();
     &#125;
 
-    /**
-     * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
-     * 
-     * 3. service() 메소드
-     *    1) 실제 처리를 할 수 있다.
-     *    2) 매개변수-1
-     *       (1) 타입: HttpServletRequest
-     *       (2) 변수: request
-     *       (3) 사용자의 요청을 저장하는 변수이다.
-     *           예) 사용자가 입력한 검색어, 아이디, 비밀번호 등이 저장된 곳이다.
-     *    3) 매개변수-2
-     *       (1) 타입: HttpServletResponse
-     *       (2) 변수: response
-     *       (3) 서버의 응답 정보를 저장하는 변수이다.
-     *           예) 검색어의 결과, 로그인 성공 유무 등이 저장된 곳이다.
-     */
-    protected void service(HttpServletRequest request, HttpServletResponse response) 
-    throws ServletException, IOException &#123;
-        System.out.println(&quot;service() 호출&quot;);
-        if (request.getMethod().equalsIgnoreCase(&quot;GET&quot;)) &#123;  // GET방식의 요청이라면
-            doGet(request, response);  // doGet() 메소드 호출
-        &#125; else &#123;
-            doPost(request, response);
-        &#125;
+&#125;</code></pre>
+<blockquote>
+<p><code>personInfo()</code> 부분을 잘 살펴보자</p>
+</blockquote>
+<h3 id="Person-java"><a href="#Person-java" class="headerlink" title="Person.java"></a>Person.java</h3><pre><code class="java">package com.koreait.spring;
+
+public class Person &#123;
+
+    // field
+    private String name;
+    private Car myCar;
+
+    // constructor
+    public Person() &#123;
+
     &#125;
 
-    /**
-     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-     * 
-     * 4. doGet()
-     *    1) GET 방식의 요청인 경우에 자동으로 호출되는 메소드이다. (service() 메소드가 없으면)
-     *    2) GET 방식의 요청 방법
-     *       (1) &lt;form method=&quot;get&quot;&gt;
-     *       (2) $.ajax(&#123; type: &#39;get&#39;, &#125;);
-     */
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) 
-    throws ServletException, IOException &#123;
-        System.out.println(&quot;doGet() 호출&quot;);
-        response.getWriter().append(&quot;Served at: &quot;).append(request.getContextPath());
+    // method
+    public String getName() &#123;
+        return name;
+    &#125;
+    public void setName(String name) &#123;
+        this.name = name;
+    &#125;
+    public Car getMyCar() &#123;
+        return myCar;
+    &#125;
+    public void setMyCar(Car myCar) &#123;
+        this.myCar = myCar;
+    &#125;
+    public void personInfo() &#123;
+        System.out.println(&quot;이름: &quot; + name);
+        myCar.carInfo();
+    &#125;
+&#125;</code></pre>
+<h2 id="기본-Java-방법"><a href="#기본-Java-방법" class="headerlink" title="기본 Java 방법"></a>기본 Java 방법</h2><h3 id="MainClass-java"><a href="#MainClass-java" class="headerlink" title="MainClass.java"></a>MainClass.java</h3><pre><code class="java">package com.koreait.spring;
+
+public class MainClass &#123;
+
+    public static void main(String[] args) &#123;
+
+        Car car = new Car();
+        car.setModel(&quot;520d&quot;);
+        car.setPrice(7000);
+        car.carInfo();
+
+        Person person = new Person();
+        person.setName(&quot;제임스&quot;);
+        person.setMyCar(car);
+
+        person.personInfo();
+
+    &#125;
+&#125;</code></pre>
+<h2 id="Spring-방법"><a href="#Spring-방법" class="headerlink" title="Spring 방법"></a>Spring 방법</h2><h3 id="app-context1-xml"><a href="#app-context1-xml" class="headerlink" title="app-context1.xml"></a>app-context1.xml</h3><p><sub> Namespaces 탭에서 p 속성을 선택해서 <code>&lt;property&gt;</code>태그를 대신 사용한다.<br></sub></p>
+<p><sub>Car 과 Person을 분리해서 xml을 만드는 방식</sub></p>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xmlns:p=&quot;http://www.springframework.org/schema/p&quot;
+    xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&quot;&gt;
+
+&lt;!-- app-context1.xml 에서는 Car만 만들었습니다. --&gt;
+
+    &lt;!--
+        원래 디폴트 생성자 + setter
+        &lt;bean id=&quot;객체명&quot; class=&quot;클래스명&quot;&gt;
+            &lt;property name=&quot;필드명&quot; value=&quot;값&quot; /&gt;
+        &lt;/bean&gt;
+
+        Namespaces 탭에서 p 속성을 선택하면 아래와 같이 바꿀 수 있어요.
+        &lt;bean id=&quot;객체명&quot; class=&quot;클래스명&quot; p:필드명=&quot;값&quot; /&gt;
+    --&gt;
+
+    &lt;!--
+        Car car = new Car();
+        car.setModel(&quot;520d&quot;);
+        car.setPrice(7000);
+    --&gt;
+    &lt;bean id=&quot;car&quot; class=&quot;com.koreait.spring.Car&quot; p:model=&quot;520d&quot; p:price=&quot;7000&quot; /&gt;
+
+&lt;/beans&gt;</code></pre>
+<h3 id="app-context2-xml"><a href="#app-context2-xml" class="headerlink" title="app-context2.xml"></a>app-context2.xml</h3><pre><code class="xml">&lt;!-- app-context2.xml 에서는 Person만 생성합니다. --&gt;
+
+    &lt;!--
+        Person person = new Person();
+        person.setName(&quot;제임스&quot;);
+        person.setMyCar(car);
+    --&gt;
+    &lt;bean id=&quot;person&quot; class=&quot;com.koreait.spring.Person&quot; p:name=&quot;제임스&quot; p:myCar-ref=&quot;car&quot; /&gt;
+&lt;/beans&gt;</code></pre>
+<h3 id="SpringMainClass-java"><a href="#SpringMainClass-java" class="headerlink" title="SpringMainClass.java"></a>SpringMainClass.java</h3><pre><code class="java">package com.koreait.spring;
+public class SpringMainClass &#123;
+
+    public static void main(String[] args) &#123;
+        String resourceLocation1 = &quot;classpath:app-context1.xml&quot;;
+        String resourceLocation2 = &quot;classpath:app-context2.xml&quot;;
+
+        AbstractApplicationContext ctx = new GenericXmlApplicationContext(resourceLocation1, resourceLocation2);
+
+        Person p = ctx.getBean(&quot;person&quot;, Person.class);
+
+        // &quot;person&quot; 은 app-Context2.xml 의 bean id
+        p.personInfo();
+
+        ctx.close();    
     &#125;
 
-    /**
-     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-     * 
-     * 5. doPost()
-     *    1) POST 방식의 요청인 경우에 자동으로 호출되는 메소드이다. (service() 메소드가 없으면)
-     *    2) 요청(request)과 응답(response)를 모두 doGet() 메소드로 넘기고 자신은 아무 일도 하지 않는다.
-     */
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-     throws ServletException, IOException &#123;
-        System.out.println(&quot;doPost() 호출&quot;);
-        doGet(request, response);
-    &#125;
-
-    /**
-     * @see Servlet#destroy()
-     * 
-     * 6. destroy()
-     * 
-     *    웹 서버에서 프로젝트가 소멸되면 자동으로 호출된다.
-     */
-    public void destroy() &#123;
-        System.out.println(&quot;destroy() 호출&quot;);
-    &#125;
-
-&#125;
+&#125;</code></pre>
+<p><sub>AbstractApplicationContext ctx = new GenericXmlApplicationContext(resourceLocation1, resourceLocation2);  부분 중요</sub></p>
+<h2 id="결과화면"><a href="#결과화면" class="headerlink" title="결과화면"></a>결과화면</h2><img src="https://i.esdrop.com/d/Ke1fGkw2xh.png" />
 
 
-</code></pre>
+
+<p><strong>resuouceLocation</strong>: 이 친구를 통해 <strong>classpath</strong>를 <code>app-Context.xml</code> 로 쓰겠다! 라고</p>
+<p>위치를 지정해주면 스프링 컨테이너(IOC컨테이너)가 만들어진다.</p>
+<p><strong>AbstractApplicationContext</strong> : 컨택스트를 생성하는 인터페이스</p>
+<p><strong>getBean</strong> : <code>app-Context.xml</code>에 지정된 bean id에서 뽑아오겠다 라는 의미이다.</p>
+<p>MyCalculator.class는 해당클래스를 나타낸다.</p>
+<p>즉, 설정파일.xml로 위치를 지정해주고<br><strong>AbstractApplicationContext</strong>라는 인터페이스를 통해서 저장한 파일을 ctx에 담고<br><strong>getBean</strong>을 통해서 <strong>xml</strong>에 있는 클래스와 해당 정보를 담는 것</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -313,6 +353,13 @@ public class Ex01_servlet extends HttpServlet &#123;
             </div>
             
             
+            
+            <div class="box sticky animated fadeInRight faster">
+                <div id="toc" class="subbox">
+                    <h4>Contents</h4>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%95%8C%EC%95%84%EB%B3%BC-%EB%82%B4%EC%9A%A9"><span class="toc-number">1.</span> <span class="toc-text">알아볼 내용</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%98%88%EC%A0%9C"><span class="toc-number">2.</span> <span class="toc-text">예제</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Car-java"><span class="toc-number">2.1.</span> <span class="toc-text">Car.java</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Person-java"><span class="toc-number">2.2.</span> <span class="toc-text">Person.java</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EA%B8%B0%EB%B3%B8-Java-%EB%B0%A9%EB%B2%95"><span class="toc-number">3.</span> <span class="toc-text">기본 Java 방법</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MainClass-java"><span class="toc-number">3.1.</span> <span class="toc-text">MainClass.java</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring-%EB%B0%A9%EB%B2%95"><span class="toc-number">4.</span> <span class="toc-text">Spring 방법</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#app-context1-xml"><span class="toc-number">4.1.</span> <span class="toc-text">app-context1.xml</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#app-context2-xml"><span class="toc-number">4.2.</span> <span class="toc-text">app-context2.xml</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SpringMainClass-java"><span class="toc-number">4.3.</span> <span class="toc-text">SpringMainClass.java</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EA%B2%B0%EA%B3%BC%ED%99%94%EB%A9%B4"><span class="toc-number">5.</span> <span class="toc-text">결과화면</span></a></li></ol>
+                </div>
+            </div>
             
             
         </div>

@@ -10,7 +10,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Jakezo Obsidian,"> 
-    <meta name="description" content="스프링 Collection
+    <meta name="description" content="스프링 Collection 객체 설정
 
 
 컬렉션 유형
@@ -25,8 +25,7 @@ java.util.List, 배열
 java.util.Set
 &amp;lt;set&amp;gt;
 
-
-java.,"> 
+,"> 
     <meta name="author" content="Jakezo"> 
     <link rel="alternative" href="atom.xml" title="Re-Coder" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -116,13 +115,13 @@ java.,">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    792
+                    3.1k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    1 mins.
+                    3 mins.
                 </span>
                 
                 
@@ -156,7 +155,7 @@ java.,">
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <h1 id="스프링-Collection"><a href="#스프링-Collection" class="headerlink" title="스프링 Collection"></a>스프링 Collection</h1><table>
+            <h2 id="스프링-Collection-객체-설정"><a href="#스프링-Collection-객체-설정" class="headerlink" title="스프링 Collection 객체 설정"></a>스프링 Collection 객체 설정</h2><table>
 <thead>
 <tr>
 <th align="center">컬렉션 유형</th>
@@ -180,7 +179,88 @@ java.,">
 <td align="center"><code>&lt;props&gt;</code></td>
 </tr>
 </tbody></table>
-<h2 id="List-타입-매핑"><a href="#List-타입-매핑" class="headerlink" title="List 타입 매핑"></a>List 타입 매핑</h2><p><sub>작은글씨</sub><br><small>작은2</small><br>그냥</p>
+<h3 id="List-타입-매핑"><a href="#List-타입-매핑" class="headerlink" title="List 타입 매핑"></a>List 타입 매핑</h3><p><sub>* 매핑(mapping)이란 하나의 값을 다른 값으로 대응시키는 것을 말한다.</sub></p>
+<pre><code class="java">&lt;bean id=&quot;빈 아이디&quot; class=&quot;클래스 주소&quot;&gt;
+
+&lt;property name=&quot;메소드이름&quot;&gt;
+
+&lt;list&gt;
+
+&lt;value&gt;리스트1&lt;/value&gt;
+
+&lt;value&gt;리스트2&lt;/value&gt;
+
+&lt;/list&gt;
+
+&lt;/property&gt;
+
+&lt;/bean&gt;</code></pre>
+<h3 id="Map-타입-매핑"><a href="#Map-타입-매핑" class="headerlink" title="Map 타입 매핑"></a>Map 타입 매핑</h3><pre><code class="java">&lt;bean id=&quot;빈 아이디&quot; class=&quot;클래스 주소&quot;&gt;
+
+&lt;property name=&quot;메소드이름&quot;&gt;
+
+&lt;map&gt;
+
+&lt;entry&gt;
+
+&lt;key&gt;&lt;value&gt;킴썽&lt;/value&gt;&lt;/key&gt;
+
+&lt;value&gt; 한화 이글스 만세 &lt;/value&gt;
+
+&lt;/entry&gt;
+
+&lt;entry&gt;
+
+&lt;key&gt;&lt;value&gt;하루키&lt;/value&gt;&lt;/key&gt;
+
+&lt;value&gt; 야쿠르트 스왈로즈 만세 &lt;/value&gt;
+
+&lt;/entry&gt;
+
+&lt;/map&gt;
+
+&lt;/property&gt;
+
+&lt;/bean&gt;</code></pre>
+<p><sub><code>&lt;entry&gt;</code>엘리먼트에서 사용된 <code>&lt;key&gt;</code>엘리먼트는 Map 객체의 key값을 설정할 때 사용, </p>
+<p><code>&lt;value&gt;</code> 엘리먼트는 Map객체의 value를 설정할 때 사용 </sub></p>
+<h3 id="Set-타입-매핑"><a href="#Set-타입-매핑" class="headerlink" title="Set 타입 매핑"></a>Set 타입 매핑</h3><pre><code class="java">&lt;bean id=&quot;빈 아이디&quot; class=&quot;클래스 주소&quot;&gt; 
+
+&lt;property name=&quot;메소드이름&quot;&gt;
+
+&lt;set value-type=&quot;java.lang.String&quot;&gt; -&gt;여기는 근데 int타입을 넣고싶으면 java.lang.Integer 넣으면 되는건가
+
+&lt;value&gt; 한화이글스 화이팅 &lt;/value&gt;
+
+&lt;value&gt; 한화이글스 화이팅 &lt;/value&gt;
+
+&lt;value&gt; KT 위즈도 힘내랑! &lt;/value&gt;
+
+&lt;/set&gt;
+
+&lt;/property&gt;
+
+&lt;/bean&gt;
+</code></pre>
+<p>중복값을 허용하지 않는 경우에 사용하는 set 컬렉션이다. 위의 예는 메소드를 호출할 때 문자열 타입의 데이터 여러개를 저장한 Set 컬렉션을 인자로 전달하겠다는 설정이다. 그런데 위 설정을 보면 “한화이글스 화이팅”이라는 문장이 두 번 등록된 것을 볼 수 있다. </p>
+<p><code>Set 컬렉션은 같은 데이터를 중복해서 저장하지 않으므로</code> 실제 실행해보면 “한화이글스 화이팅”은 한 번만 저장된다. </p>
+<hr>
+<h3 id="Properties-타입-매핑"><a href="#Properties-타입-매핑" class="headerlink" title="Properties 타입 매핑"></a>Properties 타입 매핑</h3><pre><code class="java">&lt;bean id=&quot;빈 아이디&quot; class=&quot;클래스 주소&quot;&gt;
+
+&lt;property name=&quot;메소드 이름&quot;&gt;
+
+&lt;props&gt;
+
+&lt;prop key=&quot;킴썽&quot;&gt;한화를 응원합니다. &lt;/prop&gt;
+
+&lt;prop key=&quot;무라카미하루키&quot;&gt; 야쿠르트 스왈로즈를 응원합니다. &lt;/prop&gt;
+
+&lt;/props&gt;
+
+&lt;/property&gt;
+
+&lt;/bean&gt;</code></pre>
+<p><sub>key=value 형태의 데이터를 등록하고 사용할 때 Properties라는 컬렉션을 사용한다.</sub></p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -228,7 +308,7 @@ java.,">
                     </dl>
                 </div>
                 <ul>
-                    <li><a href="/">27 <p>Articles</p></a></li>
+                    <li><a href="/">31 <p>Articles</p></a></li>
                     <li><a href="/categories">5 <p>Categories</p></a></li>
                     <li><a href="/tags">25 <p>Tags</p></a></li>
                 </ul>
@@ -239,7 +319,7 @@ java.,">
             <div class="box sticky animated fadeInRight faster">
                 <div id="toc" class="subbox">
                     <h4>Contents</h4>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%EC%8A%A4%ED%94%84%EB%A7%81-Collection"><span class="toc-number">1.</span> <span class="toc-text">스프링 Collection</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#List-%ED%83%80%EC%9E%85-%EB%A7%A4%ED%95%91"><span class="toc-number">1.1.</span> <span class="toc-text">List 타입 매핑</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%8A%A4%ED%94%84%EB%A7%81-Collection-%EA%B0%9D%EC%B2%B4-%EC%84%A4%EC%A0%95"><span class="toc-number">1.</span> <span class="toc-text">스프링 Collection 객체 설정</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#List-%ED%83%80%EC%9E%85-%EB%A7%A4%ED%95%91"><span class="toc-number">1.1.</span> <span class="toc-text">List 타입 매핑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Map-%ED%83%80%EC%9E%85-%EB%A7%A4%ED%95%91"><span class="toc-number">1.2.</span> <span class="toc-text">Map 타입 매핑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Set-%ED%83%80%EC%9E%85-%EB%A7%A4%ED%95%91"><span class="toc-number">1.3.</span> <span class="toc-text">Set 타입 매핑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Properties-%ED%83%80%EC%9E%85-%EB%A7%A4%ED%95%91"><span class="toc-number">1.4.</span> <span class="toc-text">Properties 타입 매핑</span></a></li></ol></li></ol>
                 </div>
             </div>
             
