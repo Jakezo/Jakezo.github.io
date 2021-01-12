@@ -105,13 +105,13 @@ public,">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    6k
+                    6.9k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    5 mins.
+                    6 mins.
                 </span>
                 
                 
@@ -201,6 +201,7 @@ public class BMICalculator &#123;
     &#125;
 
 &#125;</code></pre>
+<p><sub>BMI지수를 구하기 위해서는 공식이 필요하니까<br>필드를 정해주고 bmiCalculator 메서드를 통해 계산 공식을 넣고 setter를 지정한다.</sub></p>
 <h3 id="Person-java"><a href="#Person-java" class="headerlink" title="Person.java"></a>Person.java</h3><pre><code class="java">package com.koreait.quiz2;
 
 import java.util.ArrayList;
@@ -262,6 +263,7 @@ public class Person &#123;
     &#125;
 
 &#125;</code></pre>
+<p><sub> 나의 정보와 관련된 클래스이ㅏㄷ. </sub></p>
 <h3 id="app-context-xml"><a href="#app-context-xml" class="headerlink" title="app-context.xml"></a>app-context.xml</h3><pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
     xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
@@ -288,6 +290,15 @@ public class Person &#123;
     &lt;/bean&gt;
 
 &lt;/beans&gt;</code></pre>
+<p>특히 중요한 부분은 <code>xml</code> 매핑이다.<br>각 클래스의 setter는 값을 달라고 열어놓기만 하는 상태이고<br>모든 값은 xml에서 해결한다는 것!</p>
+<p><code>bmiCalculator</code></p>
+<p>3개 필드가 setter형태로 존재하므로 꼭 property로 묶어주고 bmi지수대로 값을 지정해준다는 것</p>
+<p>public void bmiCalculator도 신경써야하지 않나? 처음에는 헷갈렸는데</p>
+<p>유심히 보면 person에서 소환하고 있어서 여기서 해결할거니까 신경쓸 것이 없다.</p>
+<p><code>person</code></p>
+<p> 5개의 필드가 setter형태로 존재하므로 property로 묶어주고</p>
+<p>중요한 점은 위에서 유심히 보라고 했던 <code>ArrayList&lt;String&gt; hobbies</code><br>hobbies는 List타입이라는 인터페이스를 가지고 있으므로 List형태로 묶고 value값을 지정해주면 된다.</p>
+<p>또 bmiCalculator는 BMICalculator를 참조한다는 의미로 ref를 써주면 된다.</p>
 <hr>
 <h3 id="PersonMain-java"><a href="#PersonMain-java" class="headerlink" title="PersonMain.java"></a>PersonMain.java</h3><pre><code class="java">package com.koreait.quiz2;
 
@@ -306,6 +317,10 @@ public class PersonMain &#123;
     &#125;
 
 &#125;</code></pre>
+<p>그러면 classpath:app-context2.xml로 위치를 지정하고</p>
+<p>ctx에 그 값을 넣어주고</p>
+<p>Person를 가져와서 getBean에서 뽑아오는 person Bean객체를 넣어주고</p>
+<p>내 신상정보 메서드를 소환해서 정하면 원하는 결과값이 나온다.</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -353,9 +368,9 @@ public class PersonMain &#123;
                     </dl>
                 </div>
                 <ul>
-                    <li><a href="/">31 <p>Articles</p></a></li>
-                    <li><a href="/categories">5 <p>Categories</p></a></li>
-                    <li><a href="/tags">25 <p>Tags</p></a></li>
+                    <li><a href="/">33 <p>Articles</p></a></li>
+                    <li><a href="/categories">7 <p>Categories</p></a></li>
+                    <li><a href="/tags">27 <p>Tags</p></a></li>
                 </ul>
             </div>
             
