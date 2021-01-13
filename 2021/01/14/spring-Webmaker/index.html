@@ -1,0 +1,925 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>spring-Webmaker-게시판 - Re-Coder</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Jakezo Obsidian,"> 
+    <meta name="description" content="lombok과 Spring을 이용해 게시판을 만들어보자lombok 이란일반적으로 자바개발을 하다보면 Model 을 만들고 각 멤버변수를 접근할수 있는 (각 요소들이 private,"> 
+    <meta name="author" content="Jakezo"> 
+    <link rel="alternative" href="atom.xml" title="Re-Coder" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link href="https://fonts.loli.net/css?family=Roboto+Mono|Rubik&display=swap" rel="stylesheet">
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1429596_nzgqgvnmkjb.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.7.2/animate.min.css">
+
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/codemirror.min.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/theme/dracula.css">
+
+    
+<link rel="stylesheet" href="/css/obsidian.css">
+
+    
+<link rel="stylesheet" href="/css/ball-atom.min.css">
+
+    
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body class="loading">
+    <div class="loader">
+        <div class="la-ball-atom la-2x">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <span id="config-title" style="display:none">Re-Coder</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div class="scrollbar gradient-bg-rev"></div>
+<div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <div class="navigation animated fadeIn fast delay-1s">
+        <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://jakezo.github.io">
+        <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
+        <h3 class="subtitle">spring-Webmaker-게시판</h3>
+        <div class="social">
+            <!--        <div class="like-icon">-->
+            <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+            <!--        </div>-->
+            <div>
+                <div class="share">
+                    
+                        <a href="javascript:;" class="iconfont icon-share1"></a>
+                        <div class="share-component-cc" data-disabled="facebook,douban,linkedin,diandian,tencent,google"></div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="section">
+        <div class=article-header-wrapper>
+    <div class="article-header">
+        <div class="article-cover animated fadeIn" style="
+            animation-delay: 600ms;
+            animation-duration: 1.2s;
+            background-image: 
+                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+                url(/img/cover.jpg) ">
+        </div>
+        <div class="else">
+            <p class="animated fadeInDown">
+                
+                <a href="/categories/Spring"><b>「
+                    </b>SPRING<b> 」</b></a>
+                
+                January 14, 2021
+            </p>
+            <h3 class="post-title animated fadeInDown"><a href="/2021/01/14/spring-Webmaker/" title="spring-Webmaker-게시판" class="">spring-Webmaker-게시판</a>
+            </h3>
+            
+            <p class="post-count animated fadeInDown">
+                
+                <span>
+                    <b class="iconfont icon-text2"></b> <i>Words count</i>
+                    17k
+                </span>
+                
+                
+                <span>
+                    <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
+                    16 mins.
+                </span>
+                
+                
+                
+                <span id="busuanzi_container_page_pv">
+                    <b class="iconfont icon-read"></b> <i>Read count</i>
+                    <span id="busuanzi_value_page_pv">0</span>
+                </span>
+                
+            </p>
+            
+            
+            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Spring/" rel="tag">Spring</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/board/" rel="tag">board</a></li></ul>
+            
+        </div>
+    </div>
+</div>
+
+<div class="screen-gradient-after">
+    <div class="screen-gradient-content">
+        <div class="screen-gradient-content-inside">
+            <div class="bold-underline-links screen-gradient-sponsor">
+                <p>
+                    <span class="animated fadeIn delay-1s"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="article">
+    <div class='main'>
+        <div class="content markdown animated fadeIn">
+            <h2 id="lombok과-Spring을-이용해-게시판을-만들어보자"><a href="#lombok과-Spring을-이용해-게시판을-만들어보자" class="headerlink" title="lombok과 Spring을 이용해 게시판을 만들어보자"></a>lombok과 Spring을 이용해 게시판을 만들어보자</h2><h3 id="lombok-이란"><a href="#lombok-이란" class="headerlink" title="lombok 이란"></a>lombok 이란</h3><p>일반적으로 자바개발을 하다보면 Model 을 만들고 각 멤버변수를 접근할수 있는 (각 요소들이 private 접근권한을 가지고 있을때) method 를 만들게 된다. 아래처럼 말이다. (윈도우/이클립스 기준)</p>
+<pre><code class="java">public class Student &#123;
+    private int id;
+    private String name;
+    private int grade;
+    private String department;
+
+    public int getId() &#123;
+        return id;
+    &#125;
+
+    public void setId(int id) &#123;
+        this.id = id;
+    &#125;
+
+    public String getName() &#123;
+        return name;
+    &#125;
+
+    public void setName(String name) &#123;
+        this.name = name;
+    &#125;
+
+    public int getGrade() &#123;
+        return grade;
+    &#125;
+
+    public void setGrade(int grade) &#123;
+        this.grade = grade;
+    &#125;
+
+    public String getDepartment() &#123;
+        return department;
+    &#125;
+
+    public void setDepartment(String department) &#123;
+        this.department = department;
+    &#125;
+
+    @Override
+    public String toString() &#123;
+        return &quot;Student [id=&quot; + id + &quot;, name=&quot; + name + &quot;, grade=&quot; + grade + &quot;, department=&quot; + department + &quot;]&quot;;
+    &#125;    
+&#125;</code></pre>
+<p>이렇게 하는 방법도 있지만 어노테이션 설정으로 적용할수 있는 간단한 라이브러리를 소개하고자 한다. 바로 lombok, 공식 홈페이지 : <a target="_blank" rel="noopener" href="https://projectlombok.org/">https://projectlombok.org</a> 설치 및 사용방법은 아주 간단하다. 공식 홈페이지에서 jar를 다운받고 실행, 아래처럼 이클립스 실행파일 경로를 설정해준다음에 인스톨을 누르면 된다. lombok.png maven 환경에서 dependency를 가져오기 위해서는 당연히 추가설정을 해줘야 한다.</p>
+<pre><code class="xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
+    &lt;artifactId&gt;lombok&lt;/artifactId&gt;
+    &lt;version&gt;1.16.10&lt;/version&gt; &lt;!--버전은 그때 맞춰서--&gt;
+&lt;/dependency&gt;</code></pre>
+<p><sub>실제로 코드상에서 사용방법은 다음과 같다. 정말 간단히, 어노테이션만 적용해주면 끝!</sub></p>
+<p><sub>lombok 설치 방법중 중요한 부분만 캡쳐해 보았다 자세한 사항은 따로 검색해 보길 바란다. </sub></p>
+<img src="https://i.esdrop.com/d/Lbw57CuDef.png"/>
+
+<img src="https://i.esdrop.com/d/FhTRtT45rP.png"/>
+
+
+<h2 id="Db설정"><a href="#Db설정" class="headerlink" title="Db설정"></a>Db설정</h2><pre><code class="sql">DROP SEQUENCE SIMPLE_SEQ;
+CREATE SEQUENCE SIMPLE_SEQ
+START WITH 1
+INCREMENT BY 1
+MAXVALUE 999999
+NOCYCLE
+NOCACHE;
+
+DROP TABLE SIMPLE;
+CREATE TABLE SIMPLE
+(
+    NO NUMBER PRIMARY KEY,
+    WRITER VARCHAR2(100),
+    TITLE VARCHAR2(1000),
+    CONTENT VARCHAR2(4000),
+    REGDATE DATE
+
+);
+``
+
+## DTO 생성
+
+
+```java
+package com.koreait.simple1.dto;
+
+import java.sql.Date;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor  // 디폴트 생성자를 자동으로 생성해 줍니다.
+@AllArgsConstructor  // 필드를 이용한 생성자를 자동으로 생성해 줍니다.
+@Data  // lombok의 애너테이션, getter/setter등을 자동으로 생성해 줍니다.
+       // Window - Show View - Outline 에서 확인이 가능합니다.
+public class SimpleDto &#123;
+
+    // field
+    private int no;
+    private String writer;
+    private String title;
+    private String content;
+    private Date regDate;
+
+&#125;</code></pre>
+<p><sub> lombok과 애너테이션들을 이용해 생성자를 자동으로 생성!!<sub></p>
+<hr>
+<h2 id="DAO"><a href="#DAO" class="headerlink" title="DAO"></a>DAO</h2><pre><code class="java">package com.koreait.simple1.dao;
+
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
+import com.koreait.simple1.dto.SimpleDto;
+
+public class SimpleDao &#123;
+
+    // Connection Pool 처리는 DataSource 클래스가 합니다.
+    // 필요한 설정은 톰캣 내부의 context.xml에 있습니다.
+    // &lt;Resource name=&quot;jdbc/oracle&quot;&gt;을 처리하는 Context 클래스가 필요합니다.
+    // name에 의한 접근: JNDI
+
+    private DataSource dataSource;
+
+    // singleton
+    private SimpleDao() &#123;
+        // context.xml에 있는 설정을 읽어와서 dataSource를 만듭니다.
+        try &#123;
+            Context context = new InitialContext();
+            dataSource = (DataSource)context.lookup(&quot;java:comp/env/jdbc/oracle&quot;);  // 톰캣이다: java:comp/env/ 나머지는 &lt;Resource&gt;의 name 속성
+        &#125; catch (NamingException e) &#123;
+            e.printStackTrace();
+        &#125;
+    &#125;
+    private static SimpleDao simpleDao = new SimpleDao();
+    public static SimpleDao getInstance() &#123;
+        return simpleDao;
+    &#125;
+
+
+    private Connection con;
+    private PreparedStatement ps;
+    private ResultSet rs;
+    private String sql;
+
+
+    private void close(Connection con, PreparedStatement ps, ResultSet rs) &#123;
+        try &#123;
+            if (rs != null) &#123; rs.close(); &#125;
+            if (ps != null) &#123; ps.close(); &#125;
+            if (con != null) &#123; con.close(); &#125;
+        &#125; catch (SQLException e) &#123;
+            e.printStackTrace();
+        &#125;
+    &#125;
+
+
+    /***** 1. list *****/
+    public List&lt;SimpleDto&gt; simpleList() &#123;
+
+        List&lt;SimpleDto&gt; list = new ArrayList&lt;SimpleDto&gt;();
+
+        try &#123;
+            con = dataSource.getConnection();
+            sql = &quot;SELECT NO, WRITER, TITLE, CONTENT, REGDATE FROM SIMPLE&quot;;
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();  // select문 실행 메소드
+            while (rs.next()) &#123;
+                int no = rs.getInt(&quot;NO&quot;);
+                String writer = rs.getString(&quot;WRITER&quot;);
+                String title = rs.getString(&quot;TITLE&quot;);
+                String content = rs.getString(&quot;CONTENT&quot;);
+                Date regDate = rs.getDate(&quot;REGDATE&quot;);
+                SimpleDto simpleDto = new SimpleDto(no, writer, title, content, regDate);
+                list.add(simpleDto);
+            &#125;
+        &#125; catch (Exception e) &#123;
+            e.printStackTrace();
+        &#125; finally &#123;
+            close(con, ps, rs);
+        &#125;
+
+        return list;
+
+    &#125;
+
+
+    /***** 2. insert *****/
+    public void simpleInsert(SimpleDto simpleDto) &#123;
+
+        try &#123;
+            con = dataSource.getConnection();
+            sql = &quot;INSERT INTO SIMPLE VALUES (SIMPLE_SEQ.NEXTVAL, ?, ?, ?, SYSDATE)&quot;;
+            ps = con.prepareStatement(sql);
+            ps.setString(1, simpleDto.getWriter());
+            ps.setString(2, simpleDto.getTitle());
+            ps.setString(3, simpleDto.getContent());
+            ps.executeUpdate();
+        &#125; catch (Exception e) &#123;
+            e.printStackTrace();
+        &#125; finally &#123;
+            close(con, ps, null);
+        &#125;
+
+    &#125;
+
+
+    /***** 3. view *****/
+    public SimpleDto simpleView(int no) &#123;
+
+        SimpleDto simpleDto = null;
+
+        try &#123;
+            con = dataSource.getConnection();
+            sql = &quot;SELECT * FROM SIMPLE WHERE NO = ?&quot;;
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, no);
+            rs = ps.executeQuery();
+            if (rs.next()) &#123;
+                String writer = rs.getString(&quot;WRITER&quot;);
+                String title = rs.getString(&quot;TITLE&quot;);
+                String content = rs.getString(&quot;CONTENT&quot;);
+                Date regDate = rs.getDate(&quot;REGDATE&quot;);
+                simpleDto = new SimpleDto(no, writer, title, content, regDate);
+            &#125;
+        &#125; catch (Exception e) &#123;
+            e.printStackTrace();
+        &#125; finally &#123;
+            close(con, ps, rs);
+        &#125;
+
+        return simpleDto;
+
+    &#125;
+
+    /***** 4. delete *****/
+    public void simpleDelete(int no) &#123;
+
+        try &#123;
+            con = dataSource.getConnection();
+            sql = &quot;DELETE FROM SIMPLE WHERE NO = ?&quot;;
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, no);
+            ps.executeUpdate();
+        &#125; catch (Exception e) &#123;
+            e.printStackTrace();
+        &#125; finally &#123;
+            close(con, ps, null);
+        &#125;
+
+    &#125;
+
+
+    /***** 5. update *****/
+    public void simpleUpdate(SimpleDto simpleDto) &#123;
+
+        try &#123;
+            con = dataSource.getConnection();
+            sql = &quot;UPDATE SIMPLE SET TITLE = ?, CONTENT = ? WHERE NO = ?&quot;;
+            ps = con.prepareStatement(sql);
+            ps.setString(1, simpleDto.getTitle());
+            ps.setString(2, simpleDto.getContent());
+            ps.setInt(3, simpleDto.getNo());
+            ps.executeUpdate();
+        &#125; catch (Exception e) &#123;
+            e.printStackTrace();
+        &#125; finally &#123;
+            close(con, ps, null);
+        &#125;
+
+    &#125;
+
+&#125;</code></pre>
+<p><sub> 기능 추가될 때마다 추가시켜 나간다</sub></p>
+<h2 id="Command"><a href="#Command" class="headerlink" title="Command"></a>Command</h2><p><sub>첫번째로 Java interface 를 이용해 모든 커멘드에 기본 인터페이스로 참조될 SimpleCommand.java 생성 </sub></p>
+<h3 id="SimpleCommand"><a href="#SimpleCommand" class="headerlink" title="SimpleCommand"></a>SimpleCommand</h3><pre><code class="java">package com.koreait.simple1.command;
+
+import org.springframework.ui.Model;
+
+public interface SimpleCommand &#123;
+
+    public void execute(Model model);
+&#125;</code></pre>
+<h3 id="SimpleListCommand"><a href="#SimpleListCommand" class="headerlink" title="SimpleListCommand"></a>SimpleListCommand</h3><pre><code class="java">package com.koreait.simple1.command;
+
+import org.springframework.ui.Model;
+
+import com.koreait.simple1.dao.SimpleDao;
+
+public class SimpleListCommand implements SimpleCommand &#123;
+
+    @Override
+    public void execute(Model model) &#123;
+
+        // JSP와 달리 command는 데이터만 처리하면 됩니다.
+        // VIEW는 컨트롤러가 처리합니다.
+        model.addAttribute(&quot;list&quot;, SimpleDao.getInstance().simpleList());
+
+    &#125;
+
+&#125;</code></pre>
+<h3 id="SimpleInsertCommand"><a href="#SimpleInsertCommand" class="headerlink" title="SimpleInsertCommand"></a>SimpleInsertCommand</h3><pre><code class="java">package com.koreait.simple1.command;
+
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.ui.Model;
+
+import com.koreait.simple1.dao.SimpleDao;
+import com.koreait.simple1.dto.SimpleDto;
+
+public class SimpleInsertCommand implements SimpleCommand &#123;
+
+    @Override
+    public void execute(Model model) &#123;
+
+        // 전달 받은 model에는 request가 들어 있어요.
+        // 그걸 꺼내야 합니다.
+
+        // model에 저장된 속성을 직접 꺼내는 방법은 없어요.
+        // 대신 model은 Map으로 바꾸는 것이 가능합니다. (asMap() 메소드)
+
+        // Map으로 바꾸고 나면 Map에서 꺼내는 메소드인 get() 메소드를 이용해서 꺼내면 됩니다.
+
+        Map&lt;String, Object&gt; map = model.asMap();
+
+        HttpServletRequest request = (HttpServletRequest) map.get(&quot;request&quot;);  // model에 저장된 속성(attribute)을 키 값으로 사용하면 됩니다.
+
+        String writer = request.getParameter(&quot;writer&quot;);
+        String title = request.getParameter(&quot;title&quot;);
+        String content = request.getParameter(&quot;content&quot;);
+
+        SimpleDto simpleDto = new SimpleDto();
+        simpleDto.setWriter(writer);
+        simpleDto.setTitle(title);
+        simpleDto.setContent(content);
+
+        SimpleDao.getInstance().simpleInsert(simpleDto);
+
+    &#125;
+
+&#125;</code></pre>
+<h2 id="Controller"><a href="#Controller" class="headerlink" title="Controller"></a>Controller</h2><pre><code class="java">@Controller
+public class SimpleController &#123;
+
+
+    // 21_simple 프로젝트는 command들을 new로 생성하는 연습입니다.
+
+
+    // field
+    private SimpleCommand command;
+
+    @RequestMapping(value=&quot;/&quot;, method=RequestMethod.GET)
+    public String index() &#123;
+        return &quot;index&quot;;
+    &#125;
+
+    @RequestMapping(value=&quot;simpleList.do&quot;)
+    public String simpleList(Model model) &#123;
+        // DB에서 list를 가져와서 simpleListPage.jsp로 이동시킵니다.
+        // simpleListPage.jsp로 보낼 데이터인 list는 Model에 저장합니다.
+        // Model에 저장된 데이터를 simpleListPage.jsp으로 보내려면 forward합니다.
+        /*
+            SimpleListCommand가 없다면 아래와 같이 작업할 수 있겠습니다.
+            하지만, 이렇게 하시면 안 됩니다.
+            SimpleDao simpleDao = SimpleDao.getInstance();
+            model.addAttribute(&quot;list&quot;, simpleDao.simpleList());
+            return &quot;simple/simpleListPage&quot;;
+        */
+
+        command = new SimpleListCommand();  // 개발자 직접 생성
+        command.execute(model);
+        return &quot;simple/simpleListPage&quot;;  // simple 폴더 아래 simpleListPage.jsp로 forward합니다.
+
+    &#125;
+
+    @RequestMapping(value=&quot;simpleInsertPage.do&quot;)
+    public String simpleInsertPage() &#123;
+        return &quot;simple/simpleInsertPage&quot;;  // simple 폴더 아래 simpleInsertPage.jsp로 forward합니다.
+    &#125;
+
+    @RequestMapping(value=&quot;simpleInsert.do&quot;)
+    public String simpleInsert(HttpServletRequest request, Model model) &#123;
+
+        // SimpleInsertCommand 가 삽입을 담당합니다.
+        // 모든 command들은 model이 필요합니다.
+
+        // SimpleInsertCommand에게 request를 전달하려면?
+        // 모든 command들은 실행할 때 model만 전달 받습니다.
+        // 따라서, model에 request를 저장해 둡니다. 그리고 model을 전달합니다.
+        model.addAttribute(&quot;request&quot;, request);
+
+        command = new SimpleInsertCommand();  // 개발자가 직접 생성
+        command.execute(model);
+
+        // return &quot;simple/simpleListPage&quot;;  // insert 후에는 forward하면 안 됩니다.
+        return &quot;redirect:simpleList.do&quot;;  // insert 후에는 redirect 합니다.
+
+    &#125;    
+&#125;</code></pre>
+<h2 id="View"><a href="#View" class="headerlink" title="View"></a>View</h2><h3 id="Index-jsp"><a href="#Index-jsp" class="headerlink" title="Index.jsp"></a>Index.jsp</h3><p>&lt;%@ page language=”java” contentType=”text/html; charset=UTF-8”<br>    pageEncoding=”UTF-8”%&gt;<br><!DOCTYPE html></p>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<pre><code>    &lt;!-- 이동합니다 --&gt;
+    &lt;a href=&quot;simpleList.do&quot;&gt;간단게시판으로 이동&lt;/a&gt;</code></pre>
+</body>
+</html>
+
+<p><sub>첫 화면을 먼저 만들어 준다 </sub></p>
+<h3 id="SimpleListPage"><a href="#SimpleListPage" class="headerlink" title="SimpleListPage"></a>SimpleListPage</h3><pre><code class="java">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+    pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;%@ taglib uri=&quot;http://java.sun.com/jsp/jstl/core&quot; prefix=&quot;c&quot; %&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;
+&lt;title&gt;Insert title here&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;table border=&quot;1&quot;&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;td&gt;번호&lt;/td&gt;
+                &lt;td&gt;작성자&lt;/td&gt;
+                &lt;td&gt;제목&lt;/td&gt;
+                &lt;td&gt;작성일&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;c:if test=&quot;$&#123;empty list&#125;&quot;&gt;
+                &lt;tr&gt;
+                    &lt;td colspan=&quot;4&quot;&gt;없음&lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/c:if&gt;
+            &lt;c:if test=&quot;$&#123;not empty list&#125;&quot;&gt;
+                &lt;c:forEach var=&quot;simpleDto&quot; items=&quot;$&#123;list&#125;&quot;&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;$&#123;simpleDto.no&#125;&lt;/td&gt;
+                        &lt;td&gt;$&#123;simpleDto.writer&#125;&lt;/td&gt;
+                        &lt;td&gt;$&#123;simpleDto.title&#125;&lt;/td&gt;
+                        &lt;td&gt;$&#123;simpleDto.regDate&#125;&lt;/td&gt;
+                    &lt;/tr&gt;
+                &lt;/c:forEach&gt;
+            &lt;/c:if&gt;
+        &lt;/tbody&gt;
+        &lt;tfoot&gt;
+            &lt;tr&gt;
+                &lt;td colspan=&quot;4&quot;&gt;
+                    &lt;input type=&quot;button&quot; value=&quot;새글작성하러가기&quot; onclick=&quot;location.href=&#39;simpleInsertPage.do&#39;&quot; /&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tfoot&gt;
+    &lt;/table&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p><sub> 간단게시판으로 이동하면 보여줄화면이다</sub></p>
+<h3 id="SimpleInsertPage"><a href="#SimpleInsertPage" class="headerlink" title="SimpleInsertPage"></a>SimpleInsertPage</h3><pre><code class="html">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+    pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;
+&lt;title&gt;Insert title here&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;form action=&quot;simpleInsert.do&quot;&gt;
+        작성자
+        &lt;input type=&quot;text&quot; name=&quot;writer&quot; /&gt;&lt;br/&gt;
+        제목
+        &lt;input type=&quot;text&quot; name=&quot;title&quot; /&gt; &lt;br/&gt;
+        내용
+        &lt;input type=&quot;text&quot; name=&quot;content&quot; /&gt;&lt;br/&gt;
+        &lt;button&gt;작성완료&lt;/button&gt;
+    &lt;/form&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p><sub> 새글 작성하러 가기로 가면 보여줄 화면이다 </sub></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls"
+                data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+            <ul id="audio-list" style="display:none">
+                
+                
+                <li title='0' data-url='/statics/chengdu.mp3'></li>
+                
+                    
+            </ul>
+            
+            
+            
+    <div id='gitalk-container' class="comment link"
+        data-ae='true'
+        data-ci='b71d412ba1e7a1a6a699'
+        data-cs='b5058587509d4ec60e52677d4c79d46bae266b57'
+        data-r='gitalkHexoComment'
+        data-o='Jakezo'
+        data-a='Jakezo'
+        data-d=''
+    >Comments</div>
+
+
+            
+            
+        </div>
+        <div class="sidebar">
+            <div class="box animated fadeInRight">
+                <div class="subbox">
+                    <img src="/img/logo_icon.png" height=300 width=300></img>
+                    <p>Jakezo</p>
+                    <span>Think like an artist, develop like an artisan</span>
+                    <dl>
+                        <dd><a href="https://github.com/Jakezo" target="_blank"><span
+                                    class=" iconfont icon-github"></span></a></dd>
+                        <dd><a href="https://twitter.com/TriDiamond6" target="_blank"><span
+                                    class=" iconfont icon-twitter"></span></a></dd>
+                        <dd><a href="https://stackoverflow.com/users/7602324/tridiamond?tab=profile" target="_blank"><span
+                                    class=" iconfont icon-stack-overflow"></span></a></dd>
+                    </dl>
+                </div>
+                <ul>
+                    <li><a href="/">35 <p>Articles</p></a></li>
+                    <li><a href="/categories">7 <p>Categories</p></a></li>
+                    <li><a href="/tags">29 <p>Tags</p></a></li>
+                </ul>
+            </div>
+            
+            
+            
+            <div class="box sticky animated fadeInRight faster">
+                <div id="toc" class="subbox">
+                    <h4>Contents</h4>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#lombok%EA%B3%BC-Spring%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%B4-%EA%B2%8C%EC%8B%9C%ED%8C%90%EC%9D%84-%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B3%B4%EC%9E%90"><span class="toc-number">1.</span> <span class="toc-text">lombok과 Spring을 이용해 게시판을 만들어보자</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#lombok-%EC%9D%B4%EB%9E%80"><span class="toc-number">1.1.</span> <span class="toc-text">lombok 이란</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Db%EC%84%A4%EC%A0%95"><span class="toc-number">2.</span> <span class="toc-text">Db설정</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DAO"><span class="toc-number">3.</span> <span class="toc-text">DAO</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Command"><span class="toc-number">4.</span> <span class="toc-text">Command</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SimpleCommand"><span class="toc-number">4.1.</span> <span class="toc-text">SimpleCommand</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SimpleListCommand"><span class="toc-number">4.2.</span> <span class="toc-text">SimpleListCommand</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SimpleInsertCommand"><span class="toc-number">4.3.</span> <span class="toc-text">SimpleInsertCommand</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Controller"><span class="toc-number">5.</span> <span class="toc-text">Controller</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#View"><span class="toc-number">6.</span> <span class="toc-text">View</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Index-jsp"><span class="toc-number">6.1.</span> <span class="toc-text">Index.jsp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SimpleListPage"><span class="toc-number">6.2.</span> <span class="toc-text">SimpleListPage</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SimpleInsertPage"><span class="toc-number">6.3.</span> <span class="toc-text">SimpleInsertPage</span></a></li></ol></li></ol>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+</div>
+    <div id="back-to-top" class="animated fadeIn faster">
+        <div class="flow"></div>
+        <span class="percentage animated fadeIn faster">0%</span>
+        <span class="iconfont icon-top02 animated fadeIn faster"></span>
+    </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":0.85}});</script></body>
+<footer>
+    <p class="copyright" id="copyright">
+        &copy; 2021
+        <span class="gradient-text">
+            Jakezo
+        </span>.
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+        Theme
+        <span class="gradient-text">
+            <a href="https://github.com/TriDiamond/hexo-theme-obsidian" title="Obsidian" target="_blank" rel="noopener">Obsidian</a>
+        </span>
+        <small><a href="https://github.com/TriDiamond/hexo-theme-obsidian/blob/master/CHANGELOG.md" title="v1.4.4" target="_blank" rel="noopener">v1.4.4</a></small>
+    </p>
+</footer>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script>
+  MathJax.Hub.Config({
+    "HTML-CSS": {
+      preferredFont: "TeX",
+      availableFonts: ["STIX", "TeX"],
+      linebreaks: {
+        automatic: true
+      },
+      EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+      inlineMath: [
+        ["$", "$"],
+        ["\\(", "\\)"]
+      ],
+      processEscapes: true,
+      ignoreClass: "tex2jax_ignore|dno",
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      noUndefined: {
+        attributes: {
+          mathcolor: "red",
+          mathbackground: "#FFEEEE",
+          mathsize: "90%"
+        }
+      },
+      Macros: {
+        href: "{}"
+      }
+    },
+    messageStyle: "none"
+  });
+</script>
+<script>
+  function initialMathJax() {
+    MathJax.Hub.Queue(function () {
+      var all = MathJax.Hub.getAllJax(),
+        i;
+      // console.log(all);
+      for (i = 0; i < all.length; i += 1) {
+        console.log(all[i].SourceElement().parentNode)
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  }
+
+  function reprocessMathJax() {
+    if (typeof MathJax !== 'undefined') {
+      MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+    }
+  }
+</script>
+
+
+ 
+<link rel="stylesheet" href="//cdn.bootcss.com/gitalk/1.5.0/gitalk.min.css">
+ 
+<script src="//cdn.bootcss.com/gitalk/1.5.0/gitalk.min.js"></script>
+  
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/obsidian.js"></script>
+<script src="/js/jquery.truncate.js"></script>
+<script src="/js/search.js"></script>
+ 
+<script src="//cdn.bootcss.com/typed.js/2.0.10/typed.min.js"></script>
+ 
+<script src="//cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script>
+ 
+<script src="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+
+<script src="https://cdn.bootcss.com/codemirror/5.48.4/codemirror.min.js"></script>
+ 
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/javascript/javascript.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/css/css.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/xml/xml.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/htmlmixed/htmlmixed.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/clike/clike.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/php/php.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/shell/shell.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/python/python.min.js"></script>
+   
+<script src="/js/busuanzi.min.js"></script>
+
+<script>
+  $(document).ready(function () {
+    if ($('span[id^="busuanzi_"]').length) {
+      initialBusuanzi();
+    }
+  });
+</script>
+ 
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/default-skin/default-skin.min.css">
+
+
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+ 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="//www.googletagmanager.com/gtag/js?id=UA-149874671-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-149874671-1');
+</script>
+ 
+
+<script>
+  function initialTyped() {
+    var typedTextEl = $('.typed-text');
+    if (typedTextEl && typedTextEl.length > 0) {
+      var typed = new Typed('.typed-text', {
+        strings: ['Think like an artist, develop like an artisan', 'It doesn&#39;t matter how slowly you go as long as you don&#39;t stop'],
+        typeSpeed: 90,
+        loop: true,
+        loopCount: Infinity,
+        backSpeed: 20,
+      });
+    }
+  }
+
+  if ($('.article-header') && $('.article-header').length) {
+    $(document).ready(function () {
+      initialTyped();
+    });
+  }
+</script>
+
+
+
+
+ <!-- 例：百度统计 --> <script> var _hmt = _hmt || []; (function() { var hm = document.createElement("script"); hm.src = "https://hm.baidu.com/hm.js?your_code"; var s = document.getElementsByTagName("script")[0];  s.parentNode.insertBefore(hm, s); })(); </script> 
+
+</html>
