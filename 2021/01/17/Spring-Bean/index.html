@@ -5,16 +5,17 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>JSP-05 File Upload Download - Re-Coder</title>
+    <title>Spring Bean - Re-Coder</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Jakezo Obsidian,"> 
-    <meta name="description" content="File upload
-cos.jar 라이브러리를 추가한다. (servlets.com)
+    <meta name="description" content="Spring Bean 이란
 
-MultipartRequest 클래스를 이용한다.
-기존의 request를 이용해서 Mult,"> 
+
+Spring에서 POJO(plain, old java object)를 ‘Beans’라고 부른다.
+
+Beans는 애플리케이션의 핵심을 이루는 객체이며,"> 
     <meta name="author" content="Jakezo"> 
     <link rel="alternative" href="atom.xml" title="Re-Coder" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -62,7 +63,7 @@ MultipartRequest 클래스를 이용한다.
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://jakezo.github.io">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">JSP-05 File Upload Download</h3>
+        <h3 class="subtitle">Spring Bean</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -92,19 +93,19 @@ MultipartRequest 클래스를 이용한다.
         <div class="else">
             <p class="animated fadeInDown">
                 
-                <a href="/categories/JAVA-WEB"><b>「
-                    </b>JAVA-WEB<b> 」</b></a>
+                <a href="/categories/Spring"><b>「
+                    </b>SPRING<b> 」</b></a>
                 
-                January 04, 2021
+                January 17, 2021
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2021/01/04/JSP-05/" title="JSP-05 File Upload Download" class="">JSP-05 File Upload Download</a>
+            <h3 class="post-title animated fadeInDown"><a href="/2021/01/17/Spring-Bean/" title="Spring Bean" class="">Spring Bean</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    7.6k
+                    8.1k
                 </span>
                 
                 
@@ -123,7 +124,7 @@ MultipartRequest 클래스를 이용한다.
             </p>
             
             
-            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Download/" rel="tag">Download</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/File/" rel="tag">File</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/JSP/" rel="tag">JSP</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/JSTL/" rel="tag">JSTL</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Upload/" rel="tag">Upload</a></li></ul>
+            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Bean/" rel="tag">Bean</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Spring/" rel="tag">Spring</a></li></ul>
             
         </div>
     </div>
@@ -144,189 +145,203 @@ MultipartRequest 클래스를 이용한다.
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <h2 id="File-upload"><a href="#File-upload" class="headerlink" title="File upload"></a>File upload</h2><ol>
-<li><p><code>cos.jar</code> 라이브러리를 추가한다. (<code>servlets.com</code>)</p>
-<ol>
-<li><code>MultipartRequest</code> 클래스를 이용한다.</li>
-<li>기존의 <code>request</code>를 이용해서 <code>MultipartRequest</code> 클래스 객체를 만든다.</li>
+            <h2 id="Spring-Bean-이란"><a href="#Spring-Bean-이란" class="headerlink" title="Spring Bean 이란"></a>Spring Bean 이란</h2><img src="https://i.esdrop.com/d/9u1vAcOPrd.png"/>
+
+<ul>
+<li><p>Spring에서 POJO(plain, old java object)를 ‘Beans’라고 부른다.</p>
+</li>
+<li><p>Beans는 애플리케이션의 핵심을 이루는 객체이며, Spring IoC(Inversion of Control) 컨테이너에 의해 인스턴스화, 관리, 생성된다.</p>
+</li>
+<li><p>Beans는 우리가 컨테이너에 공급하는 설정 메타 데이터(XML 파일)에 의해 생성된다.</p>
+<ul>
+<li>컨테이너는 이 메타 데이터를 통해 Bean의 생성, Bean Life Cycle, Bean Dependency(종속성) 등을 알 수 있다.</li>
+</ul>
+</li>
+<li><p>애플리케이션의 객체가 지정되면, 해당 객체는 getBean() 메서드를 통해 가져올 수 있다.</p>
+</li>
+</ul>
+<h2 id="Spring-Bean의-정의"><a href="#Spring-Bean의-정의" class="headerlink" title="Spring Bean의 정의"></a>Spring Bean의 정의</h2><ul>
+<li>일반적으로 XML 파일에 정의한다.</li>
+<li>주요 속성<ul>
+<li>class(필수): 정규화된 자바 클래스 이름</li>
+<li>id: bean의 고유 식별자</li>
+<li>scope: 객체의 범위 (sigleton, prototype)</li>
+<li>constructor-arg: 생성 시 생성자에 전달할 인수</li>
+<li>property: 생성 시 bean setter에 전달할 인수</li>
+<li>init method와 destroy method</li>
+</ul>
+</li>
+</ul>
+<h3 id="XML-based-configuration-file"><a href="#XML-based-configuration-file" class="headerlink" title="XML based configuration file"></a>XML based configuration file</h3><pre><code class="xml">&lt;!-- A simple bean definition --&gt;
+&lt;bean id=&quot;...&quot; class=&quot;...&quot;&gt;&lt;/bean&gt;
+
+&lt;!-- A bean definition with scope--&gt;
+&lt;bean id=&quot;...&quot; class=&quot;...&quot; scope=&quot;singleton&quot;&gt;&lt;/bean&gt;
+
+&lt;!-- A bean definition with property --&gt;
+&lt;bean id=&quot;...&quot; class=&quot;...&quot;&gt;
+    &lt;property name=&quot;message&quot; value=&quot;Hello World!&quot;/&gt;
+&lt;/bean&gt;
+
+&lt;!-- A bean definition with initialization method --&gt;
+&lt;bean id=&quot;...&quot; class=&quot;...&quot; init-method=&quot;...&quot;&gt;&lt;/bean&gt;</code></pre>
+<h2 id="Spring-Bean-Scope"><a href="#Spring-Bean-Scope" class="headerlink" title="Spring Bean Scope"></a>Spring Bean Scope</h2><ul>
+<li><p>스프링은 기본적으로 모든 bean을 singleton으로 생성하여 관리한다.</p>
+<ul>
+<li>구체적으로는 애플리케이션 구동 시 JVM 안에서 스프링이 bean마다 하나의 객체를 생성하는 것을 의미한다.</li>
+<li>그래서 우리는 스프링을 통해서 bean을 제공받으면 언제나 주입받은 bean은 동일한 객체라는 가정하에서 개발을 한다.</li>
+</ul>
+</li>
+<li><p>request, session, global session의 Scope는 일반 Spring 어플리케이션이 아닌, Spring MVC Web Application에서만 사용된다.</p>
+</li>
+</ul>
+<img src="https://i.esdrop.com/d/yIIIfm3kC0.png"/>
+
+
+<h3 id="1-Singleton"><a href="#1-Singleton" class="headerlink" title="1. Singleton"></a>1. Singleton</h3><ul>
+<li>‘singleton’ bean은 Spring 컨테이너에서 <strong>한 번</strong> 생성된다. <ul>
+<li>컨테이너가 사라질 때 bean도 제거된다.</li>
+</ul>
+</li>
+<li>생성된 하나의 인스턴스는 single beans cache에 저장되고, 해당 bean에 대한 요청과 참조가 있으면 캐시된 객체를 반환한다.<ul>
+<li>즉, 하나만 생성되기 때문에 동일한 것을 참조한다.</li>
+</ul>
+</li>
+<li>기본적으로 모든 bean은 scope이 명시적으로 지정되지 않으면 singleton이다.</li>
+</ul>
+<img src="https://i.esdrop.com/d/QAhMdYTI4I.png"/>
+
+<ul>
+<li>xml 설정<ul>
+<li><code>&lt;bean id=&quot;...&quot; class=&quot;...&quot; scope=&quot;singleton&quot;&gt;&lt;/bean&gt;</code></li>
+</ul>
+</li>
+<li>annotation 설정<ul>
+<li>대상 클래스에 <code>@Scope(&quot;singletone&quot;)</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="2-Prototype"><a href="#2-Prototype" class="headerlink" title="2. Prototype"></a>2. Prototype</h3><ul>
+<li>‘prototype’ bean은 모든 요청에서 <strong>새로운</strong> 객체를 생성하는 것을 의미한다.<ul>
+<li>즉, prototype bean은 의존성 관계의 bean에 주입 될 때 새로운 객체가 생성되어 주입된다.</li>
+<li>정상적인 방식으로 gc에 의해 bean이 제거된다.</li>
+</ul>
+</li>
+</ul>
+<img src="https://i.esdrop.com/d/kSoen0z9et.png"/>
+
+<ul>
+<li>xml 설정<ul>
+<li><code>&lt;bean id=&quot;...&quot; class=&quot;...&quot; scope=&quot;prototype&quot;&gt;&lt;/bean&gt;</code></li>
+</ul>
+</li>
+<li>annotation 설정<ul>
+<li>대상 클래스에 <code>@Scope(&quot;prototype&quot;)</code></li>
+</ul>
+</li>
+</ul>
+<p><mark>참고</mark></p>
+<ul>
+<li>싱글톤으로 적합한 객체 <ol>
+<li>상태가 없는 공유 객체: 상태를 가지고 있지 않은 객체는 동기화 비용이 없다. 따라서 매번 이 객체를 참조하는 곳에서 새로운 객체를 생성할 이유가 없다.</li>
+<li>읽기용으로만 상태를 가진 공유 객체: 1번과 유사하게 상태를 가지고 있으나 읽기 전용이므로 여전히 동기화 비용이 들지 않는다. 매 요청마다 새로운 객체 생성할 필요가 없다. </li>
+<li>공유가 필요한 상태를 지닌 공유 객체: 객체 간의 반드시 공유해야 할 상태를 지닌 객체가 하나 있다면,  이 경우에는 해당 상태의 쓰기를 가능한 동기화 할 경우 싱글톤도 적합하다.</li>
+<li>쓰기가 가능한 상태를 지니면서도 사용빈도가 매우 높은 객체: 애플리케이션 안에서 정말로 사용빈도가 높다면, 쓰기 접근에 대한 동기화 비용을 감안하고서라도 싱글톤을 고려할만하다. 이 방법은 1. 장시간에 걸쳐 매우 많은 객체가 생성될 때, 2. 해당 객체가 매우 작은 양의 쓰기상태를 가지고 있을 때, 3. 객체 생성비용이 매우 클 때에 유용한 선택이 될 수 있다.</li>
 </ol>
 </li>
-<li><p><code>&lt;form method=&quot;post&quot;enctype=&quot;multipart/form-data&quot;&gt;</code></p>
-</li>
-<li><p><code>&lt;input type=&quot;file&quot; name=&quot;&quot; /&gt;</code></p>
-</li>
-<li><p>업로드 할 디렉토리(폴더)를 생성해 둔다.<br>-&gt; WebContent 디렉토리 아래에 임의의 디렉토리를 만든다.</p>
-</li>
+<li>비싱글톤으로 적합한 객체<ol>
+<li>쓰기가 가능한 상태를 지닌 객체: 쓰기가 가능한 상태가 많아서 동기화 비용이 객체 생성 비용보다 크다면 싱글톤으로 적합하지 않다.</li>
+<li>상태가 노출되지 않은 객체: 일부 제한적인 경우, 내부 상태를 외부에 노출하지 않는 빈을 참조하여 다른 의존객체와는 독립적으로 작업을 수행하는 의존 객체가 있다면 싱글톤보다 비싱글톤 객체를 사용하는 것이 더 나을 수 있다.</li>
 </ol>
-<hr>
-<blockquote>
-<p><em>업로드 페이지</em></p>
-</blockquote>
-<h3 id="uploadPage-jsp"><a href="#uploadPage-jsp" class="headerlink" title="uploadPage.jsp"></a>uploadPage.jsp</h3><pre><code class="html">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
-    pageEncoding=&quot;UTF-8&quot;%&gt;
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-&lt;meta charset=&quot;UTF-8&quot;&gt;
-&lt;title&gt;Insert title here&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
+</li>
+</ul>
+<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><ul>
+<li>PetOwner Class</li>
+</ul>
+<pre><code class="java">package com.spring;
 
-    &lt;h3&gt;파일 업로드 폼&lt;/h3&gt;
-    &lt;form action=&quot;upload.jsp&quot;
-          method=&quot;post&quot;
-          enctype=&quot;multipart/form-data&quot;&gt;
+public class PetOwner &#123;
+    String userName;
+    public AnimalType animal;
 
-          업로더 &lt;input type=&quot;text&quot; name=&quot;uploader&quot; /&gt;&lt;br/&gt;&lt;br/&gt;
-          첨부 &lt;input type=&quot;file&quot; name=&quot;filename&quot; /&gt;&lt;br/&gt;&lt;br/&gt;
-          &lt;button&gt;올리기&lt;/button&gt;
+    public PerOwner(AnimalType animal) &#123; this.animal = animal; &#125;
 
-    &lt;/form&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-<blockquote>
-<p><em>업로드 설정</em></p>
-</blockquote>
-<h3 id="upload-jsp"><a href="#upload-jsp" class="headerlink" title="upload.jsp"></a>upload.jsp</h3><pre><code class="html">
-&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
-    pageEncoding=&quot;UTF-8&quot;%&gt;
-
-&lt;%@ taglib uri=&quot;http://java.sun.com/jsp/jstl/fmt&quot; prefix=&quot;fmt&quot; %&gt;
-
-&lt;%-- 업로드가 진행되는 곳 --%&gt;
-&lt;%
-    // request의 인코딩을 할 필요가 없다.
-    // MultipartRequest 객체를 만들 때 인코딩을 한다.
-
-    // 디렉토리명을 변수로 저장한다.
-    String directory = &quot;archive&quot;;
-    // 디렉토리의 실제 경로를 알아낸다.
-    String realPath = request.getServletContext().getRealPath(directory);
-
-    // MultipartRequest 객체를 만든다. (이 때 업로드가 진행된다.)
-    MultipartRequest multipart = new MultipartRequest(
-            request,
-            realPath,
-            1024 * 1024 * 10,  // 업로드 크기 (10MB)
-            &quot;UTF-8&quot;,
-            new DefaultFileRenamePolicy()  // 동일한 파일이 업로드되면 기존 파일명을 수정하는 방법이다.(원래 파일명에 숫자 붙이기)
-            );
-%&gt;
-
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-&lt;meta charset=&quot;UTF-8&quot;&gt;
-&lt;title&gt;Insert title here&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-
-    &lt;h3&gt;업로드 결과&lt;/h3&gt;
-    &lt;ul&gt;
-        &lt;li&gt;경로: &lt;%=realPath%&gt;&lt;/li&gt;
-        &lt;li&gt;업로더: &lt;%=request.getParameter(&quot;uploader&quot;)%&gt;&lt;/li&gt;
-        &lt;li&gt;업로더: &lt;%=multipart.getParameter(&quot;uploader&quot;)%&gt;&lt;/li&gt;
-        &lt;li&gt;올릴 때 파일명: &lt;%=multipart.getOriginalFileName(&quot;filename&quot;)%&gt;&lt;/li&gt;
-        &lt;li&gt;저장된 파일명: &lt;%=multipart.getFilesystemName(&quot;filename&quot;)%&gt;&lt;/li&gt;
-        &lt;%
-            // multipart 객체에 저장된 파일을 가져오는 메소드: getFile()
-            File file = multipart.getFile(&quot;filename&quot;);
-            // file을 통해서 필요한 정보를 얻어낸다.
-            String filename = file.getName();        // 파일명
-            long filesize = file.length() / 1024;    // file.length()는 바이트이므로 / 1024를 통해서 KB로 변환
-            pageContext.setAttribute(&quot;filesize&quot;, filesize);
-            String lastModifiedDate = new SimpleDateFormat(&quot;yyyy-MM-dd a h:mm&quot;).format(file.lastModified());  // 최종 수정일
-        %&gt;
-        &lt;li&gt;저장된 파일명: &lt;%=filename%&gt;&lt;/li&gt;
-        &lt;li&gt;파일크기: &lt;fmt:formatNumber value=&quot;$&#123;filesize&#125;&quot; pattern=&quot;#,##0&quot; /&gt;KB&lt;/li&gt;
-        &lt;li&gt;최종수정일: &lt;%=lastModifiedDate%&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;br/&gt;&lt;br/&gt;
-
-    &lt;a href=&quot;download.jsp?directory=&lt;%=directory%&gt;&amp;filename=&lt;%=filename%&gt;&quot;&gt;다운로드&lt;/a&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-<blockquote>
-<p><em>다운로드 설정</em></p>
-</blockquote>
-<h3 id="download-jsp"><a href="#download-jsp" class="headerlink" title="download.jsp"></a>download.jsp</h3><pre><code class="html">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
-    pageEncoding=&quot;UTF-8&quot;%&gt;
-&lt;%
-    request.setCharacterEncoding(&quot;UTF-8&quot;);
-    String directory = request.getParameter(&quot;directory&quot;);
-    String filename = request.getParameter(&quot;filename&quot;);
-
-    // 1. realPath 알아내기
-    String realPath = request.getServletContext().getRealPath(directory);
-
-    // 2. filename을 이용해서 File 객체 생성하기
-    // File file = new File(realPath, filename);   // new File(realPath + &quot;/&quot; + filename);
-    File file = new File(realPath, filename);
-    // 3. (이건 다운로드다)라는 헤더 타입을 만든다.
-    // 파일의 이름과 파일의 길이가 필요하다.
-    // 서버 -&gt; 사용자 : response의 헤더 작업
-    // response.setContentType(&quot;application/x-msdownload&quot;);  // 아래와 같은 코드입니다.
-    response.setHeader(&quot;Content-Type&quot;, &quot;application/x-msdownload&quot;);
-    response.setHeader(&quot;Content-Disposition&quot;, &quot;attachment; filename=&quot; + URLEncoder.encode(filename, &quot;UTF-8&quot;).replaceAll(&quot;\\+&quot;, &quot; &quot;));
-    // response.setContentLengthLong(file.length());  // 아래와 같은 코드입니다.
-    response.setHeader(&quot;Content-Length&quot;, file.length() + &quot;&quot;);
-
-    // 4. 진짜 다운로드를 진행한다. (파일복사와 유사한 프로그램)
-    // 모든 파일을 처리할 수 있는 바이트 기반 스트림을 사용한다.
-    BufferedInputStream bis = null;
-    BufferedOutputStream bos = null;
-    try &#123;
-
-        // JSP에서 OutputStream을 사용하려면 
-        // JSP와 Servlet의 출력스트림 겹침 방지(IllegalStateException 발생 방지)처리가 필요하다.
-        out.clear();
-        out = pageContext.pushBody();
-
-        bis = new BufferedInputStream(new FileInputStream(file));
-        bos = new BufferedOutputStream(response.getOutputStream());
-
-        // 한 번에 옮기기
-        // file.length() 만큼 byte 배열을 확보해서 옮긴다.
-        byte[] array = new byte[(int)file.length()];
-
-        // 서버에서 읽기
-        bis.read(array, 0, (int)file.length());
-        // 읽은 내용을 array배열의 0번인덱스부터 길이만큼 영역에 저장해라.
-        // (int)file.length() -&gt; 길이가 10이라면
-        // bis.read(array, 0, 10) : array배열의 0번인덱스부터 10개공간 사용해서 저장해라.
-
-        // 사용자에게 쓰기
-        bos.write(array);
-
-    &#125; catch (FileNotFoundException e) &#123;
-
-    &#125; catch (IOException e) &#123;
-
-    &#125; finally &#123;
-        try &#123;
-            if (bos != null) &#123;
-                bos.close();
-            &#125;
-            if (bis != null) &#123;
-                bis.close();
-            &#125;
-        &#125; catch (Exception e) &#123;
-
-        &#125;
+    public String getUserName() &#123;
+        System.out.println(&quot;Person name is &quot; + , userName);
+        return userName;
     &#125;
+    public void setUserName(String userName) &#123; this.userName = userName; &#125;
 
-%&gt;</code></pre>
-<h2 id="업로드-페이지및-결과-페이지"><a href="#업로드-페이지및-결과-페이지" class="headerlink" title="업로드 페이지및 결과 페이지"></a>업로드 페이지및 결과 페이지</h2><h3 id="처음화면"><a href="#처음화면" class="headerlink" title="처음화면"></a>처음화면</h3><img src="https://i.esdrop.com/d/KXiXzTr0EU.png"/>
+    public void play() &#123; animal.sound(); &#125;
+&#125;</code></pre>
+<ul>
+<li>MainApp Class</li>
+</ul>
+<pre><code class="java">package com.spring;
 
-<h3 id="업로드-파일-선택-후-화면"><a href="#업로드-파일-선택-후-화면" class="headerlink" title="업로드 파일 선택 후 화면"></a>업로드 파일 선택 후 화면</h3><img src="https://i.esdrop.com/d/w3aGPqwl80.png"/>
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-<h3 id="올린-후-화면"><a href="#올린-후-화면" class="headerlink" title="올린 후 화면"></a>올린 후 화면</h3><img src="https://i.esdrop.com/d/QCMLvC7cHk.png"/>
+public class MainApp &#123;
+    public static void main(String[] args) &#123;
+        /* main함수에서 Contaier를 생성 */ 
+        // 설정 파일은 인자로 넣고, 해당 설정 파일에 맞게 bean들을 만든다.
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(&quot;com/spring/beans/bean.xml&quot;);
 
-<h3 id="다운로드"><a href="#다운로드" class="headerlink" title="다운로드"></a>다운로드</h3><p>밑의 다운로드를 누르면 다운로드가 동작합니다.</p>
+        // getBean()을 통해 bean의 주소값을 가져온다.  
+        PetOwner person1 = (PerOwner) context.getBean(&quot;petOwner&quot;);
+        person1.setUserName(&quot;Alice&quot;);
+        person1.getUserName();
+
+        PetOwner person2 = (PerOwner) context.getBean(&quot;petOwner&quot;);
+        person2.getUserName();
+
+        context.close();
+    &#125; 
+&#125;</code></pre>
+<ul>
+<li>bean.xml</li>
+</ul>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+      xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+      xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+      xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd&quot;&gt;
+
+    &lt;bean id=&quot;dog&quot; class=&quot;com.spring.Dog&quot;&gt;
+        &lt;property name=&quot;myName&quot; value=&quot;poodle&quot;&gt;&lt;/property&gt;
+    &lt;/bean&gt;
+
+    &lt;bean id=&quot;cat&quot; class=&quot;com.spring.Cat&quot;&gt;
+        &lt;property name=&quot;myName&quot; value=&quot;bella&quot;&gt;&lt;/property&gt;
+    &lt;/bean&gt;
+
+    &lt;bean id=&quot;petOwner&quot; class=&quot;com.spring.PetOwner&quot; scope=&quot;singleton&quot;&gt;
+        &lt;constructor-arg name=&quot;animal&quot; ref=&quot;dog&quot;&gt;&lt;/constructor-arg&gt;
+    &lt;/bean&gt;
+&lt;/beans&gt;</code></pre>
+<ul>
+<li>결과 <ul>
+<li><code>scope=&quot;singleton&quot;</code> 인 경우<ul>
+<li>Person name is Alice</li>
+<li>Person name is Alice</li>
+</ul>
+</li>
+<li><code>scope=&quot;prototype&quot;</code> 인 경우<ul>
+<li>Person name is Alice</li>
+<li>Person name is null</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.slipp.net/wiki/pages/viewpage.action?pageId=25528177">https://www.slipp.net/wiki/pages/viewpage.action?pageId=25528177</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.spring.io/spring/docs/4.2.5.RELEASE/spring-framework-reference/html/beans.html#beans-factory-scopes">https://docs.spring.io/spring/docs/4.2.5.RELEASE/spring-framework-reference/html/beans.html#beans-factory-scopes</a></li>
+<li><a target="_blank" rel="noopener" href="http://javaslave.tistory.com/45">http://javaslave.tistory.com/45</a></li>
+</ul>
+</blockquote>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -385,7 +400,7 @@ MultipartRequest 클래스를 이용한다.
             <div class="box sticky animated fadeInRight faster">
                 <div id="toc" class="subbox">
                     <h4>Contents</h4>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#File-upload"><span class="toc-number">1.</span> <span class="toc-text">File upload</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#uploadPage-jsp"><span class="toc-number">1.1.</span> <span class="toc-text">uploadPage.jsp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#upload-jsp"><span class="toc-number">1.2.</span> <span class="toc-text">upload.jsp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#download-jsp"><span class="toc-number">1.3.</span> <span class="toc-text">download.jsp</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%97%85%EB%A1%9C%EB%93%9C-%ED%8E%98%EC%9D%B4%EC%A7%80%EB%B0%8F-%EA%B2%B0%EA%B3%BC-%ED%8E%98%EC%9D%B4%EC%A7%80"><span class="toc-number">2.</span> <span class="toc-text">업로드 페이지및 결과 페이지</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%B2%98%EC%9D%8C%ED%99%94%EB%A9%B4"><span class="toc-number">2.1.</span> <span class="toc-text">처음화면</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%97%85%EB%A1%9C%EB%93%9C-%ED%8C%8C%EC%9D%BC-%EC%84%A0%ED%83%9D-%ED%9B%84-%ED%99%94%EB%A9%B4"><span class="toc-number">2.2.</span> <span class="toc-text">업로드 파일 선택 후 화면</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%98%AC%EB%A6%B0-%ED%9B%84-%ED%99%94%EB%A9%B4"><span class="toc-number">2.3.</span> <span class="toc-text">올린 후 화면</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C"><span class="toc-number">2.4.</span> <span class="toc-text">다운로드</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring-Bean-%EC%9D%B4%EB%9E%80"><span class="toc-number">1.</span> <span class="toc-text">Spring Bean 이란</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring-Bean%EC%9D%98-%EC%A0%95%EC%9D%98"><span class="toc-number">2.</span> <span class="toc-text">Spring Bean의 정의</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#XML-based-configuration-file"><span class="toc-number">2.1.</span> <span class="toc-text">XML based configuration file</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring-Bean-Scope"><span class="toc-number">3.</span> <span class="toc-text">Spring Bean Scope</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Singleton"><span class="toc-number">3.1.</span> <span class="toc-text">1. Singleton</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Prototype"><span class="toc-number">3.2.</span> <span class="toc-text">2. Prototype</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Example"><span class="toc-number">3.3.</span> <span class="toc-text">Example</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#References"><span class="toc-number"></span> <span class="toc-text">References</span></a>
                 </div>
             </div>
             

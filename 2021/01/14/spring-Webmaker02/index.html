@@ -5,16 +5,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>JSP-05 File Upload Download - Re-Coder</title>
+    <title>spring-Webmaker02 - Re-Coder</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Jakezo Obsidian,"> 
-    <meta name="description" content="File upload
-cos.jar 라이브러리를 추가한다. (servlets.com)
-
-MultipartRequest 클래스를 이용한다.
-기존의 request를 이용해서 Mult,"> 
+    
     <meta name="author" content="Jakezo"> 
     <link rel="alternative" href="atom.xml" title="Re-Coder" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -62,7 +58,7 @@ MultipartRequest 클래스를 이용한다.
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://jakezo.github.io">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">JSP-05 File Upload Download</h3>
+        <h3 class="subtitle">spring-Webmaker02</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -92,25 +88,25 @@ MultipartRequest 클래스를 이용한다.
         <div class="else">
             <p class="animated fadeInDown">
                 
-                <a href="/categories/JAVA-WEB"><b>「
-                    </b>JAVA-WEB<b> 」</b></a>
+                <a href="/categories/Spring"><b>「
+                    </b>SPRING<b> 」</b></a>
                 
-                January 04, 2021
+                January 14, 2021
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2021/01/04/JSP-05/" title="JSP-05 File Upload Download" class="">JSP-05 File Upload Download</a>
+            <h3 class="post-title animated fadeInDown"><a href="/2021/01/14/spring-Webmaker02/" title="spring-Webmaker02" class="">spring-Webmaker02</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    7.6k
+                    0
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    7 mins.
+                    1 mins.
                 </span>
                 
                 
@@ -123,7 +119,7 @@ MultipartRequest 클래스를 이용한다.
             </p>
             
             
-            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Download/" rel="tag">Download</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/File/" rel="tag">File</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/JSP/" rel="tag">JSP</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/JSTL/" rel="tag">JSTL</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Upload/" rel="tag">Upload</a></li></ul>
+            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Spring/" rel="tag">Spring</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/board/" rel="tag">board</a></li></ul>
             
         </div>
     </div>
@@ -144,190 +140,7 @@ MultipartRequest 클래스를 이용한다.
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <h2 id="File-upload"><a href="#File-upload" class="headerlink" title="File upload"></a>File upload</h2><ol>
-<li><p><code>cos.jar</code> 라이브러리를 추가한다. (<code>servlets.com</code>)</p>
-<ol>
-<li><code>MultipartRequest</code> 클래스를 이용한다.</li>
-<li>기존의 <code>request</code>를 이용해서 <code>MultipartRequest</code> 클래스 객체를 만든다.</li>
-</ol>
-</li>
-<li><p><code>&lt;form method=&quot;post&quot;enctype=&quot;multipart/form-data&quot;&gt;</code></p>
-</li>
-<li><p><code>&lt;input type=&quot;file&quot; name=&quot;&quot; /&gt;</code></p>
-</li>
-<li><p>업로드 할 디렉토리(폴더)를 생성해 둔다.<br>-&gt; WebContent 디렉토리 아래에 임의의 디렉토리를 만든다.</p>
-</li>
-</ol>
-<hr>
-<blockquote>
-<p><em>업로드 페이지</em></p>
-</blockquote>
-<h3 id="uploadPage-jsp"><a href="#uploadPage-jsp" class="headerlink" title="uploadPage.jsp"></a>uploadPage.jsp</h3><pre><code class="html">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
-    pageEncoding=&quot;UTF-8&quot;%&gt;
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-&lt;meta charset=&quot;UTF-8&quot;&gt;
-&lt;title&gt;Insert title here&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-
-    &lt;h3&gt;파일 업로드 폼&lt;/h3&gt;
-    &lt;form action=&quot;upload.jsp&quot;
-          method=&quot;post&quot;
-          enctype=&quot;multipart/form-data&quot;&gt;
-
-          업로더 &lt;input type=&quot;text&quot; name=&quot;uploader&quot; /&gt;&lt;br/&gt;&lt;br/&gt;
-          첨부 &lt;input type=&quot;file&quot; name=&quot;filename&quot; /&gt;&lt;br/&gt;&lt;br/&gt;
-          &lt;button&gt;올리기&lt;/button&gt;
-
-    &lt;/form&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-<blockquote>
-<p><em>업로드 설정</em></p>
-</blockquote>
-<h3 id="upload-jsp"><a href="#upload-jsp" class="headerlink" title="upload.jsp"></a>upload.jsp</h3><pre><code class="html">
-&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
-    pageEncoding=&quot;UTF-8&quot;%&gt;
-
-&lt;%@ taglib uri=&quot;http://java.sun.com/jsp/jstl/fmt&quot; prefix=&quot;fmt&quot; %&gt;
-
-&lt;%-- 업로드가 진행되는 곳 --%&gt;
-&lt;%
-    // request의 인코딩을 할 필요가 없다.
-    // MultipartRequest 객체를 만들 때 인코딩을 한다.
-
-    // 디렉토리명을 변수로 저장한다.
-    String directory = &quot;archive&quot;;
-    // 디렉토리의 실제 경로를 알아낸다.
-    String realPath = request.getServletContext().getRealPath(directory);
-
-    // MultipartRequest 객체를 만든다. (이 때 업로드가 진행된다.)
-    MultipartRequest multipart = new MultipartRequest(
-            request,
-            realPath,
-            1024 * 1024 * 10,  // 업로드 크기 (10MB)
-            &quot;UTF-8&quot;,
-            new DefaultFileRenamePolicy()  // 동일한 파일이 업로드되면 기존 파일명을 수정하는 방법이다.(원래 파일명에 숫자 붙이기)
-            );
-%&gt;
-
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-&lt;meta charset=&quot;UTF-8&quot;&gt;
-&lt;title&gt;Insert title here&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-
-    &lt;h3&gt;업로드 결과&lt;/h3&gt;
-    &lt;ul&gt;
-        &lt;li&gt;경로: &lt;%=realPath%&gt;&lt;/li&gt;
-        &lt;li&gt;업로더: &lt;%=request.getParameter(&quot;uploader&quot;)%&gt;&lt;/li&gt;
-        &lt;li&gt;업로더: &lt;%=multipart.getParameter(&quot;uploader&quot;)%&gt;&lt;/li&gt;
-        &lt;li&gt;올릴 때 파일명: &lt;%=multipart.getOriginalFileName(&quot;filename&quot;)%&gt;&lt;/li&gt;
-        &lt;li&gt;저장된 파일명: &lt;%=multipart.getFilesystemName(&quot;filename&quot;)%&gt;&lt;/li&gt;
-        &lt;%
-            // multipart 객체에 저장된 파일을 가져오는 메소드: getFile()
-            File file = multipart.getFile(&quot;filename&quot;);
-            // file을 통해서 필요한 정보를 얻어낸다.
-            String filename = file.getName();        // 파일명
-            long filesize = file.length() / 1024;    // file.length()는 바이트이므로 / 1024를 통해서 KB로 변환
-            pageContext.setAttribute(&quot;filesize&quot;, filesize);
-            String lastModifiedDate = new SimpleDateFormat(&quot;yyyy-MM-dd a h:mm&quot;).format(file.lastModified());  // 최종 수정일
-        %&gt;
-        &lt;li&gt;저장된 파일명: &lt;%=filename%&gt;&lt;/li&gt;
-        &lt;li&gt;파일크기: &lt;fmt:formatNumber value=&quot;$&#123;filesize&#125;&quot; pattern=&quot;#,##0&quot; /&gt;KB&lt;/li&gt;
-        &lt;li&gt;최종수정일: &lt;%=lastModifiedDate%&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;br/&gt;&lt;br/&gt;
-
-    &lt;a href=&quot;download.jsp?directory=&lt;%=directory%&gt;&amp;filename=&lt;%=filename%&gt;&quot;&gt;다운로드&lt;/a&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-<blockquote>
-<p><em>다운로드 설정</em></p>
-</blockquote>
-<h3 id="download-jsp"><a href="#download-jsp" class="headerlink" title="download.jsp"></a>download.jsp</h3><pre><code class="html">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
-    pageEncoding=&quot;UTF-8&quot;%&gt;
-&lt;%
-    request.setCharacterEncoding(&quot;UTF-8&quot;);
-    String directory = request.getParameter(&quot;directory&quot;);
-    String filename = request.getParameter(&quot;filename&quot;);
-
-    // 1. realPath 알아내기
-    String realPath = request.getServletContext().getRealPath(directory);
-
-    // 2. filename을 이용해서 File 객체 생성하기
-    // File file = new File(realPath, filename);   // new File(realPath + &quot;/&quot; + filename);
-    File file = new File(realPath, filename);
-    // 3. (이건 다운로드다)라는 헤더 타입을 만든다.
-    // 파일의 이름과 파일의 길이가 필요하다.
-    // 서버 -&gt; 사용자 : response의 헤더 작업
-    // response.setContentType(&quot;application/x-msdownload&quot;);  // 아래와 같은 코드입니다.
-    response.setHeader(&quot;Content-Type&quot;, &quot;application/x-msdownload&quot;);
-    response.setHeader(&quot;Content-Disposition&quot;, &quot;attachment; filename=&quot; + URLEncoder.encode(filename, &quot;UTF-8&quot;).replaceAll(&quot;\\+&quot;, &quot; &quot;));
-    // response.setContentLengthLong(file.length());  // 아래와 같은 코드입니다.
-    response.setHeader(&quot;Content-Length&quot;, file.length() + &quot;&quot;);
-
-    // 4. 진짜 다운로드를 진행한다. (파일복사와 유사한 프로그램)
-    // 모든 파일을 처리할 수 있는 바이트 기반 스트림을 사용한다.
-    BufferedInputStream bis = null;
-    BufferedOutputStream bos = null;
-    try &#123;
-
-        // JSP에서 OutputStream을 사용하려면 
-        // JSP와 Servlet의 출력스트림 겹침 방지(IllegalStateException 발생 방지)처리가 필요하다.
-        out.clear();
-        out = pageContext.pushBody();
-
-        bis = new BufferedInputStream(new FileInputStream(file));
-        bos = new BufferedOutputStream(response.getOutputStream());
-
-        // 한 번에 옮기기
-        // file.length() 만큼 byte 배열을 확보해서 옮긴다.
-        byte[] array = new byte[(int)file.length()];
-
-        // 서버에서 읽기
-        bis.read(array, 0, (int)file.length());
-        // 읽은 내용을 array배열의 0번인덱스부터 길이만큼 영역에 저장해라.
-        // (int)file.length() -&gt; 길이가 10이라면
-        // bis.read(array, 0, 10) : array배열의 0번인덱스부터 10개공간 사용해서 저장해라.
-
-        // 사용자에게 쓰기
-        bos.write(array);
-
-    &#125; catch (FileNotFoundException e) &#123;
-
-    &#125; catch (IOException e) &#123;
-
-    &#125; finally &#123;
-        try &#123;
-            if (bos != null) &#123;
-                bos.close();
-            &#125;
-            if (bis != null) &#123;
-                bis.close();
-            &#125;
-        &#125; catch (Exception e) &#123;
-
-        &#125;
-    &#125;
-
-%&gt;</code></pre>
-<h2 id="업로드-페이지및-결과-페이지"><a href="#업로드-페이지및-결과-페이지" class="headerlink" title="업로드 페이지및 결과 페이지"></a>업로드 페이지및 결과 페이지</h2><h3 id="처음화면"><a href="#처음화면" class="headerlink" title="처음화면"></a>처음화면</h3><img src="https://i.esdrop.com/d/KXiXzTr0EU.png"/>
-
-<h3 id="업로드-파일-선택-후-화면"><a href="#업로드-파일-선택-후-화면" class="headerlink" title="업로드 파일 선택 후 화면"></a>업로드 파일 선택 후 화면</h3><img src="https://i.esdrop.com/d/w3aGPqwl80.png"/>
-
-<h3 id="올린-후-화면"><a href="#올린-후-화면" class="headerlink" title="올린 후 화면"></a>올린 후 화면</h3><img src="https://i.esdrop.com/d/QCMLvC7cHk.png"/>
-
-<h3 id="다운로드"><a href="#다운로드" class="headerlink" title="다운로드"></a>다운로드</h3><p>밑의 다운로드를 누르면 다운로드가 동작합니다.</p>
-
+            
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
                 data-autoplay="false">
@@ -381,13 +194,6 @@ MultipartRequest 클래스를 이용한다.
             </div>
             
             
-            
-            <div class="box sticky animated fadeInRight faster">
-                <div id="toc" class="subbox">
-                    <h4>Contents</h4>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#File-upload"><span class="toc-number">1.</span> <span class="toc-text">File upload</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#uploadPage-jsp"><span class="toc-number">1.1.</span> <span class="toc-text">uploadPage.jsp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#upload-jsp"><span class="toc-number">1.2.</span> <span class="toc-text">upload.jsp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#download-jsp"><span class="toc-number">1.3.</span> <span class="toc-text">download.jsp</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%97%85%EB%A1%9C%EB%93%9C-%ED%8E%98%EC%9D%B4%EC%A7%80%EB%B0%8F-%EA%B2%B0%EA%B3%BC-%ED%8E%98%EC%9D%B4%EC%A7%80"><span class="toc-number">2.</span> <span class="toc-text">업로드 페이지및 결과 페이지</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%B2%98%EC%9D%8C%ED%99%94%EB%A9%B4"><span class="toc-number">2.1.</span> <span class="toc-text">처음화면</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%97%85%EB%A1%9C%EB%93%9C-%ED%8C%8C%EC%9D%BC-%EC%84%A0%ED%83%9D-%ED%9B%84-%ED%99%94%EB%A9%B4"><span class="toc-number">2.2.</span> <span class="toc-text">업로드 파일 선택 후 화면</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%98%AC%EB%A6%B0-%ED%9B%84-%ED%99%94%EB%A9%B4"><span class="toc-number">2.3.</span> <span class="toc-text">올린 후 화면</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C"><span class="toc-number">2.4.</span> <span class="toc-text">다운로드</span></a></li></ol></li></ol>
-                </div>
-            </div>
             
             
         </div>
