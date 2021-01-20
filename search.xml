@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>spring-Webmaker03</title>
+      <link href="2021/01/20/spring-Webmaker03/"/>
+      <url>2021/01/20/spring-Webmaker03/</url>
+      
+        <content type="html"><![CDATA[<p>공삼</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Spring </category>
+          
+          <category> WEB </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Spring </tag>
+            
+            <tag> board </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Spring MVC 프로젝트의 기본 구조와 실행 순서</title>
       <link href="2021/01/18/spring-sequence/"/>
       <url>2021/01/18/spring-sequence/</url>
@@ -93,7 +122,7 @@
       <link href="2021/01/14/spring-Webmaker02/"/>
       <url>2021/01/14/spring-Webmaker02/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<p>웹메이커</p>]]></content>
       
       
       <categories>
