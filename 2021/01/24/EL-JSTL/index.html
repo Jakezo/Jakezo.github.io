@@ -5,13 +5,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>java-03 ArrayList - Re-Coder</title>
+    <title>EL/JSTL - Re-Coder</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Jakezo Obsidian,"> 
-    <meta name="description" content="List란리스트는 배열과 비슷한 자바의 자료형으로 배열보다 편리한 기능을 많이 가지고 있다.
-배열은 크기가 정해져 있다. 예를 들어 배열의 크기를 10개로 정했다면 10개 이상의,"> 
+    <meta name="description" content="EL / JSTL 정리JSP파일에 자바형식의 코드를 사용하면 불편한 점을 한방에 해결할 수 있는 EL (Expression Language) 과 JSTL (Jsp Standard,"> 
     <meta name="author" content="Jakezo"> 
     <link rel="alternative" href="atom.xml" title="Re-Coder" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -59,7 +58,7 @@
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://jakezo.github.io">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">java-03 ArrayList</h3>
+        <h3 class="subtitle">EL/JSTL</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -89,25 +88,25 @@
         <div class="else">
             <p class="animated fadeInDown">
                 
-                <a href="/categories/JAVA"><b>「
-                    </b>JAVA<b> 」</b></a>
+                <a href="/categories/JAVA-WEB"><b>「
+                    </b>JAVA-WEB<b> 」</b></a>
                 
-                January 02, 2021
+                January 24, 2021
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2021/01/02/java-03/" title="java-03 ArrayList" class="">java-03 ArrayList</a>
+            <h3 class="post-title animated fadeInDown"><a href="/2021/01/24/EL-JSTL/" title="EL&#x2F;JSTL" class="">EL&#x2F;JSTL</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    2.9k
+                    6.1k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    3 mins.
+                    6 mins.
                 </span>
                 
                 
@@ -120,7 +119,7 @@
             </p>
             
             
-            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/ArrayList/" rel="tag">ArrayList</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Collection/" rel="tag">Collection</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
+            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/EL/" rel="tag">EL</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/JSP/" rel="tag">JSP</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/JSTL/" rel="tag">JSTL</a></li></ul>
             
         </div>
     </div>
@@ -141,96 +140,161 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <h2 id="List란"><a href="#List란" class="headerlink" title="List란"></a>List란</h2><p>리스트는 배열과 비슷한 자바의 자료형으로 배열보다 편리한 기능을 많이 가지고 있다.</p>
-<p>배열은 크기가 정해져 있다. 예를 들어 배열의 크기를 10개로 정했다면 10개 이상의 값을 담을 수는 없다.</p>
-<p>박찬호 선수의 투구스피드를 저장해야 한다고 가정해 보자. 배열을 이용하여 투구수를 저장할 수 있을까? 1회에 투구수가 3개도 될 수 있고 100개도 될 수 있지 않은가? 프로그래밍 시 크기를 알 수 있는 상황도 있지만 명확한 크기를 알 수 없는 경우가 더 많다. 이렇게 동적으로 자료형의 갯수가 가변하는 상황이라면 List를 사용하는 것이 유리하다.</p>
-<p><code>List</code> 자료형 중 가장 간단한 형태의 자료형인 <code>ArrayList</code>에 대해서 알아보자.</p>
+            <h2 id="EL-JSTL-정리"><a href="#EL-JSTL-정리" class="headerlink" title="EL / JSTL 정리"></a>EL / JSTL 정리</h2><p>JSP파일에 자바형식의 코드를 사용하면 불편한 점을 한방에 해결할 수 있는 EL (Expression Language) 과 JSTL (Jsp Standard Tag Library)를 이용해 코드를 간결하게 사용하는 방법에 대해 포스팅하도록 하겠습니다. </p>
+<p>EL의 개념은 해석 그대로 표현 언어를 이해하고 속성 값들을 편리하게 출력하기 위해 제공된 언어이며, JSTL은 표준 액션태그로 처리하기 힘든 부분을 담당합니다. </p>
+<p>JSP 2.0버전에서 새로 추가된 스크립트 언어인 <mark>EL(Expression Language)</mark>은 <strong>&lt;%= abc %&gt;</strong>를 <code>$&#123;abc&#125;</code>로 간단하게 사용할 수 있게 하였고, JSTL의 Core에서 c를 이용해 <strong>&lt;%= if%&gt;</strong>문을 <code>&lt;c:if&gt;</code>, <strong>&lt;%=for%&gt;</strong>문을 <code>&lt;c:forEach&gt;</code>로 대체하여 사용합니다. 그럼 따로따로 살펴보도록 하겠습니다. 둘을 같이 묶어서 포스팅하는 이유는 제 게시판 프로젝트에 같이 사용되기 때문입니다.</p>
 <hr>
-<blockquote>
-<p>ArrayList</p>
+<h3 id="EL-Expression-Language"><a href="#EL-Expression-Language" class="headerlink" title="EL (Expression Language)"></a>EL (Expression Language)</h3><blockquote>
+<p>▼ 사용목적</p>
 </blockquote>
-<ul>
-<li>ArrayList       옛날에는 Vector라는 것을 사용하기도 함</li>
-<li><ol>
-<li>List 인터페이스를 구현하는 클래스이다.</li>
+<p>&lt;%= %&gt; , out.println()과 같은 자바코드를 </p>
+<p>더 이상 사용하지 않고 좀더 간편하게 출력을 지원하기 위한 도구.</p>
+<p>배열이나 컬렉션에서도 사용되고, JavaBean의 프로퍼티에서도 사용됩니다.</p>
+<blockquote>
+<p>▼ 문법</p>
+</blockquote>
+<p>Attribute형식에서는 &lt;%= cnt + 1 %&gt;를 쓰지 않고 ${cnt + 1}로 쓰고</p>
+<p>Parameter형식에서는 ${param.abc}으로 씁니다.</p>
+<p>여기서 cnt는 자바에서는 변수 이름이고, EL 식에서는 Attribute의 이름으로 해석되는데요. </p>
+<p>값을 찾을때 Attribute는 작은 Scope에서 큰 Scope로 찾습니다.</p>
+<p>(page → request → session → application)</p>
+<table>
+<thead>
+<tr>
+<th><code>[ attribute란? : 메소드를 통해 저장되고 관리되는 데이터 ]</code></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><mark>PageContext / Request에서 사용될때</td>
+</tr>
+<tr>
+<td>setAttribute(“key”, value) → 값을 넣는다.</td>
+</tr>
+<tr>
+<td>getAttribute(“key”) → 값을 가져온다.</td>
+</tr>
+<tr>
+<td>removeAttribue(“key”) → 값을 지운다.</td>
+</tr>
+<tr>
+<td><mark>session에서 사용될때</td>
+</tr>
+<tr>
+<td>set / get / remove 동일하고 추가로++</td>
+</tr>
+<tr>
+<td>invalidate( ) → 값을 전부 지운다.</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>EL</p>
+</blockquote>
+<ol>
+<li><p>Expression Language (표현언어)</p>
+</li>
+<li><p>JSP의 새로운 스크립트 언어</p>
+</li>
+<li><p>기존의 표현식(&lt;%=표현식%&gt;을 대체하는 역할</p>
+</li>
+<li><p>대체방식<br> &lt;%=표현식%&gt; &gt; $ {표현언어}</p>
+</li>
+<li><p>데이터를 저장할 수 있는 4개 영역에서 사용할 수 있다.</p>
+<ol>
+<li>pageContext</li>
+<li>request</li>
+<li>session</li>
+<li>application</li>
 </ol>
 </li>
-<li><ol>
-<li>ArrayList<Integer> iList = new ArrayList&lt;&gt;();</li>
+<li><p>각 영역의 우선순위<br> pageContext &gt; request &gt; session &gt; application</p>
+</li>
+<li><p>각 영역의 스코프 키워드</p>
+<ol>
+<li>pageContext: pageScope</li>
+<li>request: requestScope</li>
+<li>session: sessionScope</li>
+<li>application: applicationScope</li>
 </ol>
 </li>
-<li><ol start="2">
-<li>List<Integer> iList = new ArrayList&lt;&gt;();    // 주로 사용</li>
+<li><p>저장이 “속성”으로 된 경우 다음과 같이 사용한다</p>
+<ol>
+<li>pageContext.setAttribute(“name”, “에밀리”) &gt; ${name} &gt; ${pageScope.name}</li>
+<li>request.setAttribute(“age”, 25) &gt; $ {age} &gt; $ {requestScope.age}</li>
 </ol>
 </li>
-<li></li>
-<li><ol start="2">
-<li>배열을 사용하기 쉽게 만들어 놓은 클래스이다.</li>
+<li><p>request에 파라미터로 저장된 경우 다음과 같이 사용<br> 문자열</p>
+<ol>
+<li><code>&lt;input type=&quot;text&quot; name=&quot;id&quot; /&gt;</code> -&gt; ${param.id}    // parameter의 줄임말<br>배열</li>
+<li><code>&lt;input type=&quot;checkbox&quot; name=&quot;hobbies&quot; /&gt;</code> -&gt; ${paramValues.honbbies[0]}<br> <code>&lt;input type=&quot;checkbox&quot; name=&quot;hobbies&quot; /&gt;</code> -&gt; ${paramValues.honbbies[1]}</li>
 </ol>
 </li>
-<li></li>
-<li><ol start="3">
-<li>장점 : 순차적인 접근이 빠르다.(검색이 빠르다)</li>
+<li><p>EL 연산자</p>
+<ol>
+<li><code>+</code></li>
+<li><code>-</code></li>
+<li><code>*</code></li>
+<li>/, div                 : 나누기</li>
+<li>%, mod                 : 나머지</li>
+<li><code>&gt;</code>, gt(greater than)     : 크다</li>
+<li><code>&gt;=</code>, ge(greater equal) : 크거나 같다</li>
+<li><code>&lt;</code>, lt(less than)         : 작다</li>
+<li>&lt;=, le(less equal)     : 작거나 같다</li>
+<li>==, eq(equal)          : 같다</li>
+<li>!=, ne(not equal)       : 같지 않다</li>
+<li>and                     : 그리고</li>
+<li>or                     : 또는</li>
+<li>not                  : 부정</li>
+<li>empty                  : 비어 있다</li>
 </ol>
 </li>
-<li><ol start="4">
-<li>단점 : 중간 위치에 요소를 추가(뒤의 값을 뒤로 밀어야하기 때문)하거나 삭제(뒤의 값을 당겨야하기 때문)할 때 느리다.</li>
 </ol>
-</li>
-</ul>
-<h3 id="예시코드"><a href="#예시코드" class="headerlink" title="예시코드"></a>예시코드</h3><pre><code class="java">public class Ex01_ArrayList &#123;
-
-    public static void main(String[] args) &#123;
-
-        ArrayList&lt;Integer&gt; iList = new ArrayList&lt;&gt;();
-
-        // 1. 저장 : add() 메소드 
-        iList.add(10);
-        iList.add(new Integer(20));
-        iList.add(new Integer(&quot;30&quot;));
-
-        // 2. 크기 : size() 메소드
-        System.out.println(&quot;iList 크기 : &quot; + iList.size());
-
-        // 3. 저장된 요소 가져오기 : get() 메소드
-        System.out.println(&quot;첫 번째 요소 : &quot; + iList.get(0));
-        System.out.println(&quot;마지막 요소 : &quot; + iList.get(iList.size() - 1));
-
-        // 4. 전체 순회하는 for문
-        // method 호출을 여러번 진행함, 성능이 필드 호출보다 안 좋음
-        // 나쁜 코드
-        for(int i = 0; i &lt; iList.size(); i++)
-            System.out.println((i + 1) + &quot;번째 요소 : &quot; + iList.get(i));
-
-        System.out.println(&quot;-----&quot;);
-
-        // 5. 개선된 for문 (size() 메소드 호출을 한 번으로 줄임)
-        // 클린 코드
-        for(int i = 0, size = iList.size(); i &lt; size; i++)
-            System.out.println((i + 1) + &quot;번째 요소 : &quot; + iList.get(i));
-
-        System.out.println(&quot;-----&quot;);
-
-        // 6. 삭제 : remove 메소드
-        iList.remove(0);  // 첫 번째 요소 삭제(인덱스 0), 삭제 된 값을 return
-        System.out.println(iList.get(0));    // 삭제된 자리 뒤의 요소들이 앞 당겨져 빈 자리를 메꾼다.
-
-        iList.remove(new Integer(20)); // 요소 번호가 아닌 요소의 값을 찾아 삭제, booleand type 으로 return
-
-        // 7. 검색 : contains() 메소드
-        if (iList.contains(new Integer(30)))    // iList에 30이 있는가?
-            System.out.println(&quot;30이 있다.&quot;);
-
-        // 8. 출력 
-        System.out.println(iList); //[ , , , .]
-
-        // 9. 초기화 (모두 삭제)
-        iList.clear();
-        System.out.println(iList);    // []
-
-    &#125;
-
-&#125;</code></pre>
+<h3 id="1-JSTL이란"><a href="#1-JSTL이란" class="headerlink" title="1. JSTL이란?"></a>1. JSTL이란?</h3><p>일반적으로 알고있는 JSTL이란 <strong>JSTL + EL</strong>의 조합을 말한다.</p>
+<p>HTML 코드 내에 java 코드인 스크립틀릿 <code>&lt;%= student %&gt;</code>를 <code>$&#123;student&#125;</code>로, <code>&lt;%=if %&gt;</code>문을 <code>&lt;c:if&gt;</code>, <code>&lt;%=for%&gt;</code>문을 <code>&lt;c:forEach&gt;</code>로 대체하여 사용한다.</p>
+<p>예전에는 스크립틀릿을 많이 사용했지만 가독성이 떨어지고, 뷰와 비즈니스로직의 분리로 인해 현재는 JSTL을 많이 사용하는 추세다. JSTL과 EL은 보통 함께 사용하는데 그 이유와 각각의 개념, 각각의 차이와 문법을 정리해보도록 하자.</p>
+<h3 id="2-JSTL"><a href="#2-JSTL" class="headerlink" title="2. JSTL"></a>2. JSTL</h3><p>JSTL의 정식 명칭은 <strong>자바서버 페이지 표준 태그 라이브러리</strong>(JavaServer Pages Standard Tag Library)이고 줄여서 JSTL이라 부른다.</p>
+<p><a target="_blank" rel="noopener" href="https://ko.wikipedia.org/wiki/%EC%9E%90%EB%B0%94%EC%84%9C%EB%B2%84_%ED%8E%98%EC%9D%B4%EC%A7%80_%ED%91%9C%EC%A4%80_%ED%83%9C%EA%B7%B8_%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC">위키피디아</a>를 참조하자면, JSTL은 Java EE 기반의 웹 애플리케이션 개발 플랫폼을 위한 컴포넌트 모음이다. JSTL은 XML 데이터 처리와 조건문, 반복문, 국제화와 지역화와 같은 일을 처리하기 위한 JSP 태그 라이브러리를 추가하여 JSP 사양을 확장했다.</p>
+<p>JSTL은 JSP 페이지 내에서 자바 코드를 바로 사용하지 않고 로직을 내장하는 효율적인 방법을 제공한다. 표준화된 태그 셋을 사용하여 자바 코드가 들락거리는 것보다 더 코드의 유지보수와 응용 소프트웨어 코드와 사용자 인터페이스 간의 관심사의 분리로 이어지게 한다.</p>
+<h5 id="JSTL의-사용법"><a href="#JSTL의-사용법" class="headerlink" title="JSTL의 사용법"></a>JSTL의 사용법</h5><p>JSTL은 라이브러리이기 때문에 사용하기전에 core를 header에 추가해주어야 한다.</p>
+<pre><code class="html">&lt;% @taglib uri=&quot;http://java.sun.com/jstl/core&quot; prefix=&quot;c&quot; %&gt;</code></pre>
+<p>사용방법은 다음과 같다.</p>
+<pre><code class="html">&lt;c:if test=&quot;&quot;&gt;&lt;/c:if&gt;
+&lt;c:forEach items=&quot;&quot;&gt;&lt;/c:forEach&gt;</code></pre>
+<h5 id="JSTL-core의-태그들"><a href="#JSTL-core의-태그들" class="headerlink" title="JSTL core의 태그들"></a>JSTL core의 태그들</h5><table>
+<thead>
+<tr>
+<th>태그명</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&lt;c:set&gt;</td>
+<td>변수명에 값을 할당</td>
+</tr>
+<tr>
+<td>&lt;c:out&gt;</td>
+<td>값을 출력</td>
+</tr>
+<tr>
+<td>&lt;c:if&gt;</td>
+<td>조건식에 해당하는 블럭과 사용될 scope설정</td>
+</tr>
+<tr>
+<td>&lt;c:choose&gt;</td>
+<td>다른 언어의 switch와 비슷</td>
+</tr>
+<tr>
+<td>&lt;c:when&gt;</td>
+<td>switch문의 case에 해당</td>
+</tr>
+<tr>
+<td>&lt;c:otherwise&gt;</td>
+<td>switch문의 default에 해당</td>
+</tr>
+<tr>
+<td>&lt;c:forEach&gt;</td>
+<td>다른언어의 loop문 items 속성에 배열을 할당할 수 있음</td>
+</tr>
+</tbody></table>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -289,7 +353,7 @@
             <div class="box sticky animated fadeInRight faster">
                 <div id="toc" class="subbox">
                     <h4>Contents</h4>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#List%EB%9E%80"><span class="toc-number">1.</span> <span class="toc-text">List란</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%98%88%EC%8B%9C%EC%BD%94%EB%93%9C"><span class="toc-number">1.1.</span> <span class="toc-text">예시코드</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#EL-JSTL-%EC%A0%95%EB%A6%AC"><span class="toc-number">1.</span> <span class="toc-text">EL &#x2F; JSTL 정리</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#EL-Expression-Language"><span class="toc-number">1.1.</span> <span class="toc-text">EL (Expression Language)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-JSTL%EC%9D%B4%EB%9E%80"><span class="toc-number">1.2.</span> <span class="toc-text">1. JSTL이란?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-JSTL"><span class="toc-number">1.3.</span> <span class="toc-text">2. JSTL</span></a></li></ol></li></ol>
                 </div>
             </div>
             
