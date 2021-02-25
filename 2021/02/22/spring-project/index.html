@@ -1,0 +1,730 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Spring MVC 프로젝트 쇼핑몰 만들기1 - Re-Coder</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Jakezo Obsidian,"> 
+    <meta name="description" content="프로젝트소개프로젝트를 위해 무엇을 해볼까 생각해 보다가, 실용적이고 많이 쓰이는 의류 쇼핑몰 사이트를 만들어 보았습니다. 
+기본적인 회원 기능과 관리자 기능을 넣어 만들어 보았습,"> 
+    <meta name="author" content="Jakezo"> 
+    <link rel="alternative" href="atom.xml" title="Re-Coder" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link href="https://fonts.loli.net/css?family=Roboto+Mono|Rubik&display=swap" rel="stylesheet">
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1429596_nzgqgvnmkjb.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.7.2/animate.min.css">
+
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/codemirror.min.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/theme/dracula.css">
+
+    
+<link rel="stylesheet" href="/css/obsidian.css">
+
+    
+<link rel="stylesheet" href="/css/ball-atom.min.css">
+
+    
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body class="loading">
+    <div class="loader">
+        <div class="la-ball-atom la-2x">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <span id="config-title" style="display:none">Re-Coder</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div class="scrollbar gradient-bg-rev"></div>
+<div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <div class="navigation animated fadeIn fast delay-1s">
+        <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://jakezo.github.io">
+        <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
+        <h3 class="subtitle">Spring MVC 프로젝트 쇼핑몰 만들기1</h3>
+        <div class="social">
+            <!--        <div class="like-icon">-->
+            <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+            <!--        </div>-->
+            <div>
+                <div class="share">
+                    
+                        <a href="javascript:;" class="iconfont icon-share1"></a>
+                        <div class="share-component-cc" data-disabled="facebook,douban,linkedin,diandian,tencent,google"></div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="section">
+        <div class=article-header-wrapper>
+    <div class="article-header">
+        <div class="article-cover animated fadeIn" style="
+            animation-delay: 600ms;
+            animation-duration: 1.2s;
+            background-image: 
+                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+                url(/img/cover.jpg) ">
+        </div>
+        <div class="else">
+            <p class="animated fadeInDown">
+                
+                <a href="/categories/Spring"><b>「
+                    </b>SPRING<b> 」</b></a>
+                
+                February 22, 2021
+            </p>
+            <h3 class="post-title animated fadeInDown"><a href="/2021/02/22/spring-project/" title="Spring MVC 프로젝트 쇼핑몰 만들기1" class="">Spring MVC 프로젝트 쇼핑몰 만들기1</a>
+            </h3>
+            
+            <p class="post-count animated fadeInDown">
+                
+                <span>
+                    <b class="iconfont icon-text2"></b> <i>Words count</i>
+                    15k
+                </span>
+                
+                
+                <span>
+                    <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
+                    14 mins.
+                </span>
+                
+                
+                <span id="/2021/02/22/spring-project/" class="leancloud_visitors" data-flag-title="Spring MVC 프로젝트 쇼핑몰 만들기1">
+                    <b class="iconfont icon-read"></b> <i>Read count</i>
+                    <span class="leancloud-visitors-count">1000000</span>
+                </span>
+                
+                
+            </p>
+            
+            
+            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Spring/" rel="tag">Spring</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/project/" rel="tag">project</a></li></ul>
+            
+        </div>
+    </div>
+</div>
+
+<div class="screen-gradient-after">
+    <div class="screen-gradient-content">
+        <div class="screen-gradient-content-inside">
+            <div class="bold-underline-links screen-gradient-sponsor">
+                <p>
+                    <span class="animated fadeIn delay-1s"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="article">
+    <div class='main'>
+        <div class="content markdown animated fadeIn">
+            <h1 id="프로젝트소개"><a href="#프로젝트소개" class="headerlink" title="프로젝트소개"></a>프로젝트소개</h1><p>프로젝트를 위해 무엇을 해볼까 생각해 보다가, 실용적이고 많이 쓰이는 의류 쇼핑몰 사이트를 만들어 보았습니다. </p>
+<p>기본적인 회원 기능과 관리자 기능을 넣어 만들어 보았습니다.</p>
+<h1 id="Database"><a href="#Database" class="headerlink" title="Database"></a>Database</h1><h2 id="테이블-구성도"><a href="#테이블-구성도" class="headerlink" title="테이블 구성도"></a>테이블 구성도</h2><img src="https://i.esdrop.com/d/mQf7zAzJl1.png"/>
+
+
+<h2 id="테이블-관계도"><a href="#테이블-관계도" class="headerlink" title="테이블 관계도"></a>테이블 관계도</h2><img src="https://i.esdrop.com/d/0G0Kv33QYV.jpg"/>
+
+
+<h1 id="프로젝트-구현과정"><a href="#프로젝트-구현과정" class="headerlink" title="프로젝트 구현과정"></a>프로젝트 구현과정</h1><h2 id="Member"><a href="#Member" class="headerlink" title="Member"></a>Member</h2><h3 id="MemberLoginCommand"><a href="#MemberLoginCommand" class="headerlink" title="MemberLoginCommand"></a>MemberLoginCommand</h3><pre><code class="java">public class MemberLoginCommand implements MemberCommand &#123;
+    @Override
+    public Map&lt;String, Object&gt; execute(SqlSession sqlSession, Model model) &#123;
+
+        Map&lt;String, Object&gt; map = model.asMap();
+        MemberDto memberDto = (MemberDto) map.get(&quot;memberDto&quot;);
+        HttpServletRequest request = (HttpServletRequest) map.get(&quot;request&quot;);
+        HttpSession session = request.getSession();
+
+        MemberDao memberDao = sqlSession.getMapper(MemberDao.class);
+        CartDao cartDao = sqlSession.getMapper(CartDao.class);
+        Map&lt;String, Object&gt; resultMap = new HashMap&lt;String, Object&gt;();
+
+        String m_id = memberDto.getM_id();
+        String m_pw = Sha256.sha256(memberDto.getM_pw());
+
+        if (memberDao.login(m_id, m_pw) != null) &#123;
+            resultMap.put(&quot;loginResult&quot;, 1); // 로그인 성공
+            session.setAttribute(&quot;loginDto&quot;, memberDao.login(m_id, m_pw));
+            // 장바구니 개수
+            int m_no = memberDao.login(m_id, m_pw).getM_no();
+            session.setAttribute(&quot;crt_count&quot;, cartDao.cartCount(m_no));
+            // TEST 코드
+            System.out.println(&quot;로그인한 회원 DB: &quot; + memberDao.login(m_id, m_pw));
+        &#125; else if (memberDto.getM_id() == &quot;&quot;) &#123;
+            resultMap.put(&quot;loginResult&quot;, 0); // 아이디 항목 공백
+        &#125; else if (memberDto.getM_pw() == &quot;&quot;) &#123;
+            resultMap.put(&quot;loginResult&quot;, -1); // 패스워드 항목 공백
+        &#125; else if (memberDto.getM_pw().length() &lt; 8) &#123;
+            resultMap.put(&quot;loginResult&quot;, -2); // 패스워드 항목 8자 미만 입력
+        &#125; else &#123;
+            resultMap.put(&quot;loginResult&quot;, -3); // 아이디 패스워드 불일치
+        &#125;
+        return resultMap;
+    &#125;
+&#125;</code></pre>
+<h3 id="loginPage-jsp"><a href="#loginPage-jsp" class="headerlink" title="loginPage.jsp"></a>loginPage.jsp</h3><pre><code class="java">function login() &#123;
+          var m_id = $(&#39;#m_id&#39;).val();
+        var m_pw = $(&#39;#m_pw&#39;).val();
+        var sendByIdPw = &#123;
+            &quot;m_id&quot; : m_id,
+            &quot;m_pw&quot; : m_pw
+        &#125;
+
+        $.ajax(&#123;
+            url: &#39;login.do&#39;,
+            type: &#39;post&#39;,
+            data: JSON.stringify(sendByIdPw),  // JSON -&gt; String 형변환 후 컨트롤러로 보내는 String 타입의 JSON 데이터
+            contentType: &#39;application/json&#39;,  // 컨트롤러로 보내는 데이터의 타입을 알려주기 위해
+            dataType: &#39;json&#39;,
+            success: function(responseObj) &#123;  // 성공하면 받아오는 데이터
+                if (responseObj.loginResult == 1) &#123;
+                    alert(m_id + &#39;님 환영합니다.&#39;)
+                    location.href = &#39;$&#123;referer&#125;&#39;;
+                &#125; else if (responseObj.loginResult == 0) &#123;
+                    alert(&#39;아이디 항목은 필수 입력값입니다.&#39;)
+                    $(&#39;#m_id&#39;).focus();
+                &#125; else if (responseObj.loginResult == -1) &#123;
+                    alert(&#39;패스워드 항목은 필수 입력값입니다.&#39;)
+                    $(&#39;#m_pw&#39;).focus();
+                &#125; else if (responseObj.loginResult == -2) &#123;
+                    alert(&#39;패스워드 항목이 8자(개) 이상으로 해주십시오.&#39;)
+                    $(&#39;#m_pw&#39;).focus();
+                &#125; else if (responseObj.loginResult == -3) &#123;
+                    alert(&#39;아이디 또는 비밀번호가 일치하지 않습니다.&#39;)
+                    $(&#39;#m_pw&#39;).focus();
+                    location.href=&#39;loginPage.do&#39;;
+                &#125; else &#123;
+                    alert(&#39;loginResult == null&#39;)
+                &#125;
+            &#125;,
+            error: function() &#123;
+                alert(&#39;AJAX FAIL&#39;)
+            &#125;
+        &#125;);
+      &#125;</code></pre>
+<h3 id="로그인-화면"><a href="#로그인-화면" class="headerlink" title="로그인 화면"></a>로그인 화면</h3><img src="https://i.esdrop.com/d/YNHQb69kzC.png"/>
+
+<hr>
+<h3 id="비밀번호-찾기-인증요청메일"><a href="#비밀번호-찾기-인증요청메일" class="headerlink" title="비밀번호 찾기 인증요청메일"></a>비밀번호 찾기 인증요청메일</h3><img src="https://i.esdrop.com/d/I729lHCb93.png"/>
+
+<hr>
+<h2 id="PRODUCT"><a href="#PRODUCT" class="headerlink" title="PRODUCT"></a>PRODUCT</h2><p>기본적으로 로그인, 사이즈 선택 안하고 구매, 카트 누르면 알림<br>카트에 담기, 구매하기 클릭시<br>재고가 없는 경우 (옵션에 품절 표시됨) 및 알림 : 제이쿼리 사용<br>Ajax로 카트 현황 파악하여 중복 알림</p>
+<img src="https://i.esdrop.com/d/8jjjRXlwJZ.png"/>
+
+<blockquote>
+<p>구성 </p>
+</blockquote>
+<p>사이즈 S와 free인 제품들만 프로덕트 리스트에 보여지므로<br>사이즈에 상관없이 카트나 오더, 리뷰에서 제품을 클릭했을 때 뷰 페이지 연결되도록 커맨드 작성</p>
+<p>컨트롤러에 상품 아래 리뷰 페이지 연결되도록 리뷰 리스트 커맨드 추가</p>
+<hr>
+<h2 id="Cart"><a href="#Cart" class="headerlink" title="Cart"></a>Cart</h2><img src="https://i.esdrop.com/d/5yq520WRXb.png"/>
+
+<p>카트 목록에서 수량 변경, 삭제, 주문 가능<br>수량변경은 ajax 사용<br>주문은 체크박스 선택해서 선택 주문하거나 전체주문 클릭해서 전체 주문 가능<br>Target에 제품번호를 넘겨서 이동하는데 전체 주문할 경우 target을 all로 임의로 설정해 카트에 있는 모든 제품을 불러옴</p>
+<h2 id="Order"><a href="#Order" class="headerlink" title="Order"></a>Order</h2><img src="https://i.esdrop.com/d/ieNS0bgKkG.png"/>
+
+<blockquote>
+<p>구성 </p>
+</blockquote>
+<p>주소 api 다음에서 제공하는 api 사용하여 적용<br>결제 시 적립금 제이쿼리로 연결하여 실시간 적용<br>구매수량별 가격 계산<br>결제수단에 따라 내용 변경..<br>결제하기 누르면 해당 제품 재고 감소, 사용한 포인트 감소</p>
+<img src="https://i.esdrop.com/d/DgKopmQpPr.png"/>
+
+<blockquote>
+<p>구성 </p>
+</blockquote>
+<p>주문조회에서 주문한 건 별로 리스트 출력<br>주문번호 클릭 시 주문 건에 대한 내용 조회<br>주문 취소가능<br>주문 취소하면 재고, 포인트 복구</p>
+<h2 id="Search"><a href="#Search" class="headerlink" title="Search"></a>Search</h2><p><sub>search 부분 ajax</sub></p>
+<pre><code class="java">$.ajax(&#123;
+            url : &#39;productSearch.do&#39;,
+            type : &#39;post&#39;,
+            data : JSON.stringify(obj),
+            contentType : &#39;application/json&#39;,
+            dataType : &#39;json&#39;,
+            success : function(responseObj) &#123;
+                $(&#39;#searchButton&#39;).empty();
+                $(&#39;#searchResult&#39;).empty();
+                $(&#39;#noData&#39;).empty();
+
+                $(&#39;&lt;strong&gt;&#39;).html(responseObj.search_count).appendTo(&#39;#searchResult&#39;);
+
+                if (responseObj.result) &#123;
+                    searchList(responseObj.list);
+                &#125; else &#123;
+                    $(&#39;&lt;strong&gt;&#39;)
+                    .html(&#39;검색결과가 없습니다&#39;)
+                    .append($(&#39;&lt;ul&gt;&#39;))
+                    .append($(&#39;&lt;li&gt;&#39;).html(&#39;검색어/제외검색어의 입력이 정확한지 확인해 보세요.&#39;))
+                    .append($(&#39;&lt;li&gt;&#39;).html(&#39;두 단어 이상의 검색어인 경우, 띄어쓰기를 확인해 보세요.&#39;))
+                    .append($(&#39;&lt;li&gt;&#39;).html(&#39;검색 옵션을 다시 확인해 보세요.&#39;))
+                    .appendTo(&#39;#noData&#39;);
+                &#125;
+
+                var paging = responseObj.paging;
+
+                $(&#39;#paging&#39;).empty();
+                if (paging.beginPage &lt;= paging.pagePerBlock) &#123;
+                    // class 의미
+                    // disable : css (클릭 안 되는 건 실버색) 적용하려고
+                    $(&#39;#paging&#39;).append(&#39;&lt;div class=&quot;disable&quot;&gt;&lt;a&gt;◀&lt;/a&gt;&lt;/div&gt;&#39;);
+                &#125; else &#123;
+                    // class 의미
+                    // 1) prev-block : 이전(◀)으로 이동하려고
+                    // 2) go-page : css (cursor: pointer) 적용하려고
+                    $(&#39;#paging&#39;).append(&#39;&lt;div class=&quot;prev-block go-page&quot; data-page=&quot;&#39; + (paging.beginPage - 1) + &#39;&quot;&gt;&lt;a&gt;◀&lt;/a&gt;&lt;/div&gt;&#39;);
+                &#125;
+                // 1 2 3 4 5
+                for (let p = paging.beginPage; p &lt;= paging.endPage; p++) &#123;
+                    if (paging.page == p) &#123; // 현재페이지는 링크가 안 됩니다.
+                        // class 의미
+                        // now-page : css (현재 페이지는 녹색) 적용하려고
+                        $(&#39;#paging&#39;).append(&#39;&lt;div class=&quot;now-page&quot;&gt;&lt;a&gt;&#39; + p + &#39;&lt;/a&gt;&lt;/div&gt;&#39;)
+                    &#125; else &#123;
+                        // class 의미
+                        // go-page : css (cursor: pointer) 적용하려고
+                        $(&#39;#paging&#39;).append(&#39;&lt;div class=&quot;go-page&quot; data-page=&quot;&#39; + p + &#39;&quot;&gt;&lt;a&gt;&#39; + p + &#39;&lt;/a&gt;&lt;/div&gt;&#39;);
+                    &#125;
+                &#125;
+
+                // ▶
+                if (paging.endPage &gt;= paging.totalPage) &#123;
+                    // class 의미
+                    // disable : css (클릭 안 되는 건 실버색) 적용하려고
+                    $(&#39;#paging&#39;).append(&#39;&lt;div class=&quot;disable&quot;&gt;&lt;a&gt;▶&lt;/a&gt;&lt;/div&gt;&#39;);
+                &#125; else &#123;
+                    // class 의미
+                    // 1) next-block : 다음(▶)으로 이동하려고
+                    // 2) go-page : css (cursor: pointer) 적용하려고
+                    $(&#39;#paging&#39;).append(&#39;&lt;div class=&quot;next-block go-page&quot; data-page=&quot;&#39; + (paging.endPage + 1) + &#39;&quot;&gt;&lt;a&gt;▶&lt;/a&gt;&lt;/div&gt;&#39;);
+                &#125;
+            &#125;,
+            error : function() &#123;
+                alert(&#39;AJAX FAIL&#39;);
+            &#125;
+        &#125;);</code></pre>
+<p>위의 <code>if (responseObj.result) &#123;                     searchList(responseObj.list);</code> 이부분이</p>
+<pre><code>아래부분으로  갑니다.</code></pre>
+<pre><code class="java">    function searchList(list) &#123;
+        $.each(list, function(index, item) &#123;
+            var s_List = &quot;&quot;;
+            s_List += &#39;&lt;li id=&quot;anchorBoxId_212&quot; class=&quot;xans-record-&quot;&gt;&#39;;
+            s_List += &#39; &lt;div class=&quot;thumbnail&quot;&gt;&#39;;
+            s_List += &#39;&lt;a href=&quot;productViewPage.do?p_No=&#39; + item.p_No + &#39;&quot;&gt;&#39;;
+            s_List += &#39;&lt;img src=&quot;&#39; + item.p_Image + &#39;&quot;&gt;&lt;/a&gt;&lt;/div&gt;&#39;;
+            s_List += &#39;&lt;div class=&quot;description&quot;&gt;&#39;;
+            s_List += &#39;&lt;strong class=&quot;name&quot; style=&quot;font-weight:normal;text-align:left&quot;&gt;&#39;;
+            s_List += &#39;&lt;a href=&quot;productViewPage.do?p_No=&#39; + item.p_No + &#39;&quot;&gt;&#39;;
+            s_List += &#39;&lt;span class=&quot;title displaynone&quot;&gt;&lt;span style=&quot;font-size:12px;color:#000000;&quot;&gt;상품명&lt;/span&gt; &lt;/span&gt;&#39;;
+            s_List += &#39;&lt;span style=&quot;font-size:12px;color:#000000;&quot;&gt;&#39; + item.p_Name + &#39;[&#39; + item.p_Color + &#39;]&#39; + &#39;&lt;/span&gt;&lt;/a&gt;&lt;/strong&gt;&#39;;
+            s_List += &#39;&lt;ul class=&quot;xans-element- xans-search xans-search-listitem spec&quot;&gt;&lt;li class=&quot; xans-record-&quot;&gt;&#39;;
+            s_List += &#39;&lt;strong class=&quot;title displaynone&quot;&gt;&lt;span style=&quot;font-size:12px;color:#000000;&quot;&gt;판매가&lt;/span&gt; &lt;/strong&gt;&#39;;
+            s_List += &#39;&lt;span style=&quot;font-size:12px;color:#000000;&quot;&gt;₩&#39; + item.p_Price + &#39;&lt;/span&gt;&lt;span id=&quot;span_product_tax_type_text&quot; style=&quot;&quot;&gt; &lt;/span&gt;&lt;/li&gt;&#39;;
+            s_List += &#39;&lt;/ul&gt; &lt;/li&gt;&#39;;
+            var $searchButton = $(&quot;#searchButton&quot;);
+            $searchButton.append(s_List);
+        &#125;);
+    &#125;</code></pre>
+<p>ajax로 값을 받아온후  result값이 true면 searchList를 불러옵니다</p>
+<h3 id="상품-정렬기준-설정"><a href="#상품-정렬기준-설정" class="headerlink" title="상품 정렬기준 설정"></a>상품 정렬기준 설정</h3><img src="https://i.esdrop.com/d/FY6TmBvc9i.png"/>
+
+<p>검색어와 선택한 option의 값이 모두 일치할때 나타나는 list 값이 달라집니다</p>
+<h3 id="Search-버튼-누른-이후-구성"><a href="#Search-버튼-누른-이후-구성" class="headerlink" title="Search 버튼  누른 이후 구성"></a>Search 버튼  누른 이후 구성</h3><img src="https://i.esdrop.com/d/LDmyZ4qZaK.png"/>
+
+
+<p>option 과 검색어 입력까지 완료후 search 버튼을 누르면 list 가 나타납니다<br>command에서 받아온 list의 갯수를 받아오는 search_count값을 입력하여 총 갯수를 나타내줍니다</p>
+<h3 id="페이징-처리"><a href="#페이징-처리" class="headerlink" title="페이징 처리"></a>페이징 처리</h3><img src="https://i.esdrop.com/d/d2QqSh62I6.png"/>
+
+<hr>
+<h2 id="Boards"><a href="#Boards" class="headerlink" title="Boards"></a>Boards</h2><blockquote>
+<p>1 </p>
+</blockquote>
+<img src="https://i.esdrop.com/d/fVuE17aAjv.png"/>
+
+<ul>
+<li>작성페이지는 EDITOR를 사용하여 CONTENT에 설정을 넣을 수 있도록 하였습니다.</li>
+<li>EDITOR는 CSS부분과 JS부분으로 나눌수있는데 CSS부분은 기본을 그대로 사용하였고, JS부분만 내용을 가져왔습니다. </li>
+<li>탬플릿과 같은 구성이기에 각주가 걸려있는부분과, 아래의 완료버튼과 연결되어있는 click function만 수정하면 손쉽게 사용할 수 있습니다.</li>
+<li>또한 첨부를 다중첨부를 할 수 있도록 구현하였고, 이미지일 경우 이미지를 작성된 게시물에 자동으로 보여지게끔 구현하였습니다.</li>
+<li>완료버튼 클릭 시 게시물이 작성되고 게시판의 가장 첫페이지로 넘어가게되며, 목록보기로 넘어갈경우 기존에 게시물 작성을 누르기전의 페이지를 기억하여 그곳으로 넘어갑니다.</li>
+</ul>
+<blockquote>
+<p>2</p>
+</blockquote>
+<img src="https://i.esdrop.com/d/2ADl3OASXL.png"/>
+
+<ul>
+<li>작성페이지는 EDITOR를 사용하여 CONTENT에 설정을 넣을 수 있도록 하였습니다.</li>
+<li>EDITOR는 CSS부분과 JS부분으로 나눌수있는데 CSS부분은 기본을 그대로 사용하였고, JS부분만 내용을 가져왔습니다.</li>
+<li>탬플릿과 같은 구성이기에 각주가 걸려있는부분과, 아래의 완료버튼과 연결되어있는 click function만 수정하면 손쉽게 사용할 수 있습니다.</li>
+<li>또한 첨부를 다중첨부를 할 수 있도록 구현하였고, 이미지일 경우 이미지를 작성된 게시물에 자동으로 보여지게끔 구현하였습니다.</li>
+<li>완료버튼 클릭 시 게시물이 작성되고 게시판의 가장 첫페이지로 넘어가게되며, 목록보기로 넘어갈경우 기존에 게시물 작성을 누르기전의 페이지를 기억하여 그곳으로 넘어갑니다.</li>
+</ul>
+<blockquote>
+<p>3</p>
+</blockquote>
+<ul>
+<li><p>댓글과 대댓글의 작성은 게시물 고유번호와 댓글의 순번, 그리고 대댓글의 일련번호로 로직이 이루어져있습니다.</p>
+</li>
+<li><p>댓글의 수정과 삭제는 ajax를 이용하지않고 게시판의 수정과 삭제와 동일한 방식으로 되지만, 구현되는 페이지상에서는 동기식처럼 구현이 되도록 jquery와 js를 사용하였습니다.</p>
+</li>
+<li><p>토글(checkbox)을 이용해 댓글의 수정 혹은 대댓글 작성을 버튼의 클릭에 따라 조정되도록 구현하였습니다.</p>
+</li>
+</ul>
+<img src="https://i.esdrop.com/d/KugUqIFqPW.png"/>
+
+<blockquote>
+<p>4</p>
+</blockquote>
+<ul>
+<li><p>게시물의 수정은 기본적으로 게시물작성과 동일한 상태로 작성된 데이터들만을 가져오는 방식으로 되어있습니다.</p>
+</li>
+<li><p>모든부분이 동일하지만,<br>수정되는 첨부파일은 기존에 가지고있던 첨부파일이름을 새 첨부파일로 전부 덮어쓰기하는 방식으로 진행이되었습니다.</p>
+</li>
+<li><p>삭제는 기본적인 구성을 하고있습니다만, 작성게시물의 첨부와, 댓글은 유지하지않고 모두 선삭제후 게시물이 삭제되도록 구현되어있습니다.</p>
+</li>
+</ul>
+<img src="https://i.esdrop.com/d/RT0zdvjmym.png"/>
+
+<blockquote>
+<p>5</p>
+</blockquote>
+<ul>
+<li>QNA와 리뷰게시판의경우 추가적인 기능이있습니다.<br>품목선택 기능과 비밀글기능이 바로 그것인데 품목선택의경우 게시판에서 작성이라면, 주문을한 제품에 대해서만 작성을 할 수 있게끔 되어있습니다. </li>
+<li>비밀글의경우 체크가 기본으로 되어있으며 체크시 비밀번호를 작성할수있고, 비밀글로 작성된글은 자물쇠표시가 달리게됩니다.</li>
+<li>로그인한사람과 글쓴이가 동일하다면 바로 view페이지로 넘어가게되며, 아닐경우엔 password입력페이지로 넘어가게됩니다.</li>
+</ul>
+<img src="https://i.esdrop.com/d/oI9rBYZ1uD.png"/>
+
+<h2 id="Admin"><a href="#Admin" class="headerlink" title="Admin"></a>Admin</h2><img src="https://i.esdrop.com/d/krHancTd8o.png"/>
+
+<img src="https://i.esdrop.com/d/zQUng1OfE4.png"/>
+
+<p><sub> admin 에서는 관리자 라는 아이디로 접속 할 경우에만 위에 Admin 버튼이 생기고 회원 관리를 할 수 있게 만들었습니다 </sub></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls"
+                data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+            <ul id="audio-list" style="display:none">
+                
+                
+                <li title='0' data-url='/statics/chengdu.mp3'></li>
+                
+                    
+            </ul>
+            
+            
+            
+            <div id="vcomments"></div>
+            
+        </div>
+        <div class="sidebar">
+            <div class="box animated fadeInRight">
+                <div class="subbox">
+                    <img src="/img/logo_icon.png" height=300 width=300></img>
+                    <p>Jakezo</p>
+                    <span>Think like an artist, develop like an artisan</span>
+                    <dl>
+                        <dd><a href="https://github.com/Jakezo" target="_blank"><span
+                                    class=" iconfont icon-github"></span></a></dd>
+                        <dd><a href="https://twitter.com/TriDiamond6" target="_blank"><span
+                                    class=" iconfont icon-twitter"></span></a></dd>
+                        <dd><a href="https://stackoverflow.com/users/7602324/tridiamond?tab=profile" target="_blank"><span
+                                    class=" iconfont icon-stack-overflow"></span></a></dd>
+                    </dl>
+                </div>
+                <ul>
+                    <li><a href="/">42 <p>Articles</p></a></li>
+                    <li><a href="/categories">8 <p>Categories</p></a></li>
+                    <li><a href="/tags">34 <p>Tags</p></a></li>
+                </ul>
+            </div>
+            
+            
+            
+            <div class="box sticky animated fadeInRight faster">
+                <div id="toc" class="subbox">
+                    <h4>Contents</h4>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%86%8C%EA%B0%9C"><span class="toc-number">1.</span> <span class="toc-text">프로젝트소개</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Database"><span class="toc-number">2.</span> <span class="toc-text">Database</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%ED%85%8C%EC%9D%B4%EB%B8%94-%EA%B5%AC%EC%84%B1%EB%8F%84"><span class="toc-number">2.1.</span> <span class="toc-text">테이블 구성도</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%ED%85%8C%EC%9D%B4%EB%B8%94-%EA%B4%80%EA%B3%84%EB%8F%84"><span class="toc-number">2.2.</span> <span class="toc-text">테이블 관계도</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EA%B5%AC%ED%98%84%EA%B3%BC%EC%A0%95"><span class="toc-number">3.</span> <span class="toc-text">프로젝트 구현과정</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Member"><span class="toc-number">3.1.</span> <span class="toc-text">Member</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MemberLoginCommand"><span class="toc-number">3.1.1.</span> <span class="toc-text">MemberLoginCommand</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#loginPage-jsp"><span class="toc-number">3.1.2.</span> <span class="toc-text">loginPage.jsp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%A1%9C%EA%B7%B8%EC%9D%B8-%ED%99%94%EB%A9%B4"><span class="toc-number">3.1.3.</span> <span class="toc-text">로그인 화면</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%B9%84%EB%B0%80%EB%B2%88%ED%98%B8-%EC%B0%BE%EA%B8%B0-%EC%9D%B8%EC%A6%9D%EC%9A%94%EC%B2%AD%EB%A9%94%EC%9D%BC"><span class="toc-number">3.1.4.</span> <span class="toc-text">비밀번호 찾기 인증요청메일</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PRODUCT"><span class="toc-number">3.2.</span> <span class="toc-text">PRODUCT</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cart"><span class="toc-number">3.3.</span> <span class="toc-text">Cart</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Order"><span class="toc-number">3.4.</span> <span class="toc-text">Order</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Search"><span class="toc-number">3.5.</span> <span class="toc-text">Search</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%83%81%ED%92%88-%EC%A0%95%EB%A0%AC%EA%B8%B0%EC%A4%80-%EC%84%A4%EC%A0%95"><span class="toc-number">3.5.1.</span> <span class="toc-text">상품 정렬기준 설정</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Search-%EB%B2%84%ED%8A%BC-%EB%88%84%EB%A5%B8-%EC%9D%B4%ED%9B%84-%EA%B5%AC%EC%84%B1"><span class="toc-number">3.5.2.</span> <span class="toc-text">Search 버튼  누른 이후 구성</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%ED%8E%98%EC%9D%B4%EC%A7%95-%EC%B2%98%EB%A6%AC"><span class="toc-number">3.5.3.</span> <span class="toc-text">페이징 처리</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Boards"><span class="toc-number">3.6.</span> <span class="toc-text">Boards</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Admin"><span class="toc-number">3.7.</span> <span class="toc-text">Admin</span></a></li></ol></li></ol>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+</div>
+    <div id="back-to-top" class="animated fadeIn faster">
+        <div class="flow"></div>
+        <span class="percentage animated fadeIn faster">0%</span>
+        <span class="iconfont icon-top02 animated fadeIn faster"></span>
+    </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":0.85}});</script></body>
+<footer>
+    <p class="copyright" id="copyright">
+        &copy; 2021
+        <span class="gradient-text">
+            Jakezo
+        </span>.
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+        Theme
+        <span class="gradient-text">
+            <a href="https://github.com/TriDiamond/hexo-theme-obsidian" title="Obsidian" target="_blank" rel="noopener">Obsidian</a>
+        </span>
+        <small><a href="https://github.com/TriDiamond/hexo-theme-obsidian/blob/master/CHANGELOG.md" title="v1.4.4" target="_blank" rel="noopener">v1.4.4</a></small>
+    </p>
+</footer>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script>
+  MathJax.Hub.Config({
+    "HTML-CSS": {
+      preferredFont: "TeX",
+      availableFonts: ["STIX", "TeX"],
+      linebreaks: {
+        automatic: true
+      },
+      EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+      inlineMath: [
+        ["$", "$"],
+        ["\\(", "\\)"]
+      ],
+      processEscapes: true,
+      ignoreClass: "tex2jax_ignore|dno",
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      noUndefined: {
+        attributes: {
+          mathcolor: "red",
+          mathbackground: "#FFEEEE",
+          mathsize: "90%"
+        }
+      },
+      Macros: {
+        href: "{}"
+      }
+    },
+    messageStyle: "none"
+  });
+</script>
+<script>
+  function initialMathJax() {
+    MathJax.Hub.Queue(function () {
+      var all = MathJax.Hub.getAllJax(),
+        i;
+      // console.log(all);
+      for (i = 0; i < all.length; i += 1) {
+        console.log(all[i].SourceElement().parentNode)
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  }
+
+  function reprocessMathJax() {
+    if (typeof MathJax !== 'undefined') {
+      MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+    }
+  }
+</script>
+
+
+ 
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/obsidian.js"></script>
+<script src="/js/jquery.truncate.js"></script>
+<script src="/js/search.js"></script>
+ 
+<script src="//cdn.bootcss.com/typed.js/2.0.10/typed.min.js"></script>
+ 
+<script src="//cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script>
+ 
+<script src="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+
+<script src="https://cdn.bootcss.com/codemirror/5.48.4/codemirror.min.js"></script>
+ 
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/javascript/javascript.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/css/css.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/xml/xml.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/htmlmixed/htmlmixed.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/clike/clike.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/php/php.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/shell/shell.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/python/python.min.js"></script>
+   
+<script src="/js/busuanzi.min.js"></script>
+
+<script>
+  $(document).ready(function () {
+    if ($('span[id^="busuanzi_"]').length) {
+      initialBusuanzi();
+    }
+  });
+</script>
+ 
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/default-skin/default-skin.min.css">
+
+
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+ 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="//www.googletagmanager.com/gtag/js?id=UA-149874671-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-149874671-1');
+</script>
+ 
+
+<script>
+  function initialTyped() {
+    var typedTextEl = $('.typed-text');
+    if (typedTextEl && typedTextEl.length > 0) {
+      var typed = new Typed('.typed-text', {
+        strings: ['Think like an artist, develop like an artisan', 'It doesn&#39;t matter how slowly you go as long as you don&#39;t stop'],
+        typeSpeed: 90,
+        loop: true,
+        loopCount: Infinity,
+        backSpeed: 20,
+      });
+    }
+  }
+
+  if ($('.article-header') && $('.article-header').length) {
+    $(document).ready(function () {
+      initialTyped();
+    });
+  }
+</script>
+
+ 
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var valine = new Valine();
+
+  function initValine(path) {
+    if (!path) path = window.location.pathname;
+    let language = 'en';
+    if (!language) {
+      language = 'en';
+    } else {
+      language = language.toLowerCase();
+    }
+    valine.init({
+      el: '#vcomments',
+      appId: 'Mi3U1jqNWN5KlNUd7YsuT0tx-MdYXbMMI',
+      appKey: 'G9lYjvdaqN7jbzGBHXoQzwsr',
+      notify: 'false',
+      verify: 'false',
+      avatar: 'mp',
+      placeholder: 'Leave your throughs behind~',
+      visitor: 'true',
+      path: path,
+      lang: language,
+    });
+  }
+
+  $(document).ready(function () {
+    initValine();
+  });
+</script>
+
+
+
+
+ <!-- 例：百度统计 --> <script> var _hmt = _hmt || []; (function() { var hm = document.createElement("script"); hm.src = "https://hm.baidu.com/hm.js?your_code"; var s = document.getElementsByTagName("script")[0];  s.parentNode.insertBefore(hm, s); })(); </script> 
+
+</html>
