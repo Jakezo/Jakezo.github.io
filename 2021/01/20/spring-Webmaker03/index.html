@@ -10,8 +10,11 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Jakezo Obsidian,"> 
-    <meta name="description" content="공삼
-"> 
+    <meta name="description" content="
+
+        &amp;lt;div class=&amp;quot;op-pay-method&amp;quot;&amp;gt;
+            &amp;lt;h6&amp;gt;결제수단&amp;lt;/h6&amp;gt;
+       ,"> 
     <meta name="author" content="Jakezo"> 
     <link rel="alternative" href="atom.xml" title="Re-Coder" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -101,13 +104,13 @@
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    10
+                    6.2k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    1 mins.
+                    6 mins.
                 </span>
                 
                 
@@ -141,7 +144,99 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <p>공삼</p>
+            <pre><code class="html">
+
+        &lt;div class=&quot;op-pay-method&quot;&gt;
+            &lt;h6&gt;결제수단&lt;/h6&gt;
+            &lt;div class=&quot;pay-area&quot;&gt;
+                &lt;div class=&quot;payment-choice&quot;&gt;
+                    &lt;input type=&quot;radio&quot; name=&quot;payment&quot; id=&quot;card&quot; value=&quot;1&quot; checked/&gt;카드결제
+                    &lt;input type=&quot;radio&quot; name=&quot;payment&quot; id=&quot;deposit&quot; value=&quot;2&quot;/&gt;무통장입금
+                &lt;/div&gt;
+                &lt;div class=&quot;payment-choice-result&quot;&gt;
+                    &lt;div class=&quot;left&quot;&gt;
+                        &lt;div class=&quot;payment-card&quot;&gt;
+                            &lt;div class=&quot;card-div&quot;&gt;
+                                &lt;p&gt;최소 결제 가능 금액은 결제금액에서 배송비를 제외한 금액입니다.&lt;/p&gt;
+                                &lt;p&gt;소액 결제의 경우 PG사 정책에 따라 결제 금액 제한이 있을 수 있습니다.&lt;/p&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;payment-deposit&quot;&gt;
+                            &lt;table class=&quot;deposit-info&quot;&gt;
+                                &lt;tbody&gt;
+                                    &lt;tr&gt;
+                                        &lt;td&gt;입금자명&lt;/td&gt;
+                                        &lt;td&gt;
+                                            &lt;input type=&quot;text&quot; name=&quot;deposit_name&quot; id=&quot;deposit_name&quot;/&gt;
+                                        &lt;/td&gt;
+                                    &lt;/tr&gt;
+                                    &lt;tr&gt;
+                                        &lt;td&gt;입금은행&lt;/td&gt;
+                                        &lt;td&gt;
+                                            &lt;select id=&quot;bankaccount&quot; name=&quot;bankaccount&quot;&gt;
+                                                &lt;option value=&quot;-1&quot;&gt;::: 선택해 주세요 :::&lt;/option&gt;
+                                                &lt;option value=&quot;1&quot;&gt;신한은행:110-123-12345 김사장&lt;/option&gt;
+                                            &lt;/select&gt;                  
+                                        &lt;/td&gt;
+                                    &lt;/tr&gt;
+                                &lt;/tbody&gt;
+                            &lt;/table&gt;
+                            &lt;p&gt;최소 결제 가능 금액은 결제금액에서 배송비를 제외한 금액입니다&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;right&quot;&gt;
+                        &lt;table class=&quot;pay-info&quot;&gt;
+                            &lt;tr&gt;
+                                &lt;td colspan=&quot;2&quot; id=&quot;bor&quot;&gt;
+                                    &lt;span class=&quot;payment-card&quot;&gt;카드결제&lt;/span&gt;
+                                    &lt;span class=&quot;payment-deposit&quot;&gt;무통장입금&lt;/span&gt;
+                                    최종 금액
+                                &lt;/td&gt;
+                            &lt;/tr&gt;
+                            &lt;tr&gt;
+
+                                &lt;td colspan=&quot;2&quot; id=&quot;bor&quot;&gt;
+                                    &lt;span&gt;&amp;#8361;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;pst_Price&quot;&gt;&lt;/span&gt;
+                                &lt;/td&gt;
+                            &lt;/tr&gt;
+                            &lt;tr&gt;
+                                &lt;td colspan=&quot;2&quot;&gt;
+                                    &lt;span class=&quot;payment-deposit&quot;&gt;
+                                &lt;input type=&quot;checkbox&quot; name=&quot;payment-agree&quot; id=&quot;payment-agree&quot; value=&quot;agree&quot;/&gt; 결제정보를 확인하였으며, 구매진행에 동의합니다.
+                                        &lt;/span&gt;
+                                &lt;/td&gt;
+                            &lt;/tr&gt;
+                            &lt;tr&gt;
+                                &lt;td colspan=&quot;2&quot;&gt;
+                                    &lt;input type=&quot;hidden&quot; name=&quot;prodPoint&quot; id=&quot;prodPoint&quot; value=&quot;&quot;/&gt;
+                                    &lt;input type=&quot;hidden&quot; name=&quot;o_price&quot; id=&quot;o_price&quot; value=&quot;&quot;/&gt;
+                                    &lt;input type=&quot;hidden&quot; name=&quot;m_no&quot; value=&quot;$&#123;memberDto.m_no&#125;&quot;/&gt;
+                                    &lt;input type=&quot;hidden&quot; name=&quot;p_No&quot; value=&quot;$&#123;productDto.p_No&#125;&quot;/&gt;
+                                    &lt;a href=&quot;#none&quot; class=&quot;pay&quot; onclick=&quot;fn_pay(this.form)&quot;&gt;&lt;img src=&quot;https://i.esdrop.com/d/Shc4pbWezP.gif&quot; alt=&quot;결제하기&quot; /&gt;&lt;/a&gt;
+                                    &lt;!-- &lt;input type=&quot;button&quot; class=&quot;pay&quot; value=&quot;결제하기&quot; onclick=&quot;fn_pay(this.form)&quot;/&gt; --&gt;
+                                &lt;/td&gt;
+                            &lt;/tr&gt;
+                            &lt;tr&gt;
+                                &lt;td&gt;총 적립예정금액&lt;/td&gt;
+                                &lt;td&gt;&lt;span class=&quot;point&quot;&gt;&lt;/span&gt;원&lt;/td&gt;
+                            &lt;/tr&gt;
+                            &lt;tr&gt;
+                                &lt;td&gt;상품별 구매적립금&lt;/td&gt;
+                                &lt;td&gt;
+                                    &lt;fmt:formatNumber value=&quot;$&#123;productDto.p_Price * 0.005&#125;&quot; pattern=&quot;#,##0&quot; /&gt;원
+                                &lt;/td&gt;
+                            &lt;/tr&gt;
+                            &lt;tr&gt;
+                                &lt;td&gt;회원 구매적립금&lt;/td&gt;
+                                &lt;td&gt;&lt;span class=&quot;inputPoint&quot;&gt;&lt;/span&gt;원&lt;/td&gt;
+                            &lt;/tr&gt;
+                        &lt;/table&gt;
+                    &lt;/div&gt;
+                 &lt;/div&gt;
+             &lt;/div&gt;
+         &lt;/div&gt;
+
+</code></pre>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -171,9 +266,9 @@
                     <dl>
                         <dd><a href="https://github.com/Jakezo" target="_blank"><span
                                     class=" iconfont icon-github"></span></a></dd>
-                        <dd><a href="https://twitter.com/TriDiamond6" target="_blank"><span
+                        <dd><a href="https://github.com/Jakezo" target="_blank"><span
                                     class=" iconfont icon-twitter"></span></a></dd>
-                        <dd><a href="https://stackoverflow.com/users/7602324/tridiamond?tab=profile" target="_blank"><span
+                        <dd><a href="https://github.com/Jakezo" target="_blank"><span
                                     class=" iconfont icon-stack-overflow"></span></a></dd>
                     </dl>
                 </div>
