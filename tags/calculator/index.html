@@ -160,6 +160,11 @@
             </span>
             
             
+            <span id="/2021/01/14/spring-quiz2/" class="leancloud_visitors" data-flag-title="">
+                <b class="iconfont icon-read"></b> <i>Read count</i>
+                <span class="leancloud-visitors-count">1000000</span>
+            </span>
+            
         </p>
         
         
@@ -280,10 +285,6 @@
 
 
  
-<link rel="stylesheet" href="//cdn.bootcss.com/gitalk/1.5.0/gitalk.min.css">
- 
-<script src="//cdn.bootcss.com/gitalk/1.5.0/gitalk.min.js"></script>
-  
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="/js/plugin.js"></script>
 <script src="/js/obsidian.js"></script>
@@ -415,6 +416,38 @@
   }
 </script>
 
+ 
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var valine = new Valine();
+
+  function initValine(path) {
+    if (!path) path = window.location.pathname;
+    let language = 'en';
+    if (!language) {
+      language = 'en';
+    } else {
+      language = language.toLowerCase();
+    }
+    valine.init({
+      el: '#vcomments',
+      appId: 'Mi3U1jqNWN5KlNUd7YsuT0tx-MdYXbMMI',
+      appKey: 'G9lYjvdaqN7jbzGBHXoQzwsr',
+      notify: 'true',
+      verify: 'false',
+      avatar: 'mp',
+      placeholder: 'Leave your throughs behind~',
+      visitor: 'true',
+      path: path,
+      lang: language,
+    });
+  }
+
+  $(document).ready(function () {
+    initValine();
+  });
+</script>
 
 
 
