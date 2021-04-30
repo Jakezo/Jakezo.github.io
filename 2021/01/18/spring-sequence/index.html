@@ -308,7 +308,7 @@ public class HomeController &#123;
 &lt;P&gt;  The time on the server is $&#123;serverTime&#125;. &lt;/P&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-<p>JSP 파일은 Model 객체를 넘겨받고 그 Model 객체 안의 속성 값들의 정보를 <code>$&#123;&#125;</code> 기호에 표현된 부분에 치환한다. 예로 들어 <code>$&#123;serverTime&#125;</code>은 Model에서 addAttribute 메서드를 통해 추가했던 serverTime 정보인 현재 날짜를 담고 있다.</p>
+<p>JSP 파일은 Model 객체를 넘겨받고 그 Model 객체 안의 속성 값들의 정보를 ${} 기호에 표현된 부분에 치환한다. 예로 들어 ${serverTime}은 Model에서 addAttribute 메서드를 통해 추가했던 serverTime 정보인 현재 날짜를 담고 있다.</p>
 <img src="https://i.esdrop.com/d/coTOl3oHJA.jpg"/>
 
 
