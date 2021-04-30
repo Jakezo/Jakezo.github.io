@@ -3583,14 +3583,17 @@ pre .keyword {
 p > code {
   font-weight: bolder !important;
   word-break: break-all;
+  white-space: pre-line;
 }
 li > code {
   font-weight: bolder !important;
   word-break: break-all;
+  white-space: pre-line;
 }
 pre > code {
   font-weight: bolder !important;
   word-break: break-all;
+  white-space: pre-line;
 }
 /*작은 글씨 커스텀*/
 sub {
