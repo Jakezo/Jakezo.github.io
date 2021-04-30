@@ -231,6 +231,7 @@ html.loading {
 a {
   text-decoration: none;
   color: var(--secondary);
+  word-break: break-all;
 }
 a:hover {
   text-decoration: none;
