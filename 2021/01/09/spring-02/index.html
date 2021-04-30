@@ -52,6 +52,8 @@ java.util.Set
 <link rel="stylesheet" href="/css/ball-atom.min.css">
 
     
+    <link rel="canonical" href="http://jakezo.github.io/2021/01/09/spring-02/"/>
+    <meta name="google-site-verification" content="yLzTFQtdEPu-BYH-mhFwFP-tfP05ugH7ZHBznTW_MR8" />
 <meta name="generator" content="Hexo 5.3.0"></head>
 
 
@@ -125,11 +127,11 @@ java.util.Set
                 </span>
                 
                 
-                
-                <span id="busuanzi_container_page_pv">
+                <span id="/2021/01/09/spring-02/" class="leancloud_visitors" data-flag-title="spring-02 Spring Collection(List Map Set) 활용">
                     <b class="iconfont icon-read"></b> <i>Read count</i>
-                    <span id="busuanzi_value_page_pv">0</span>
+                    <span class="leancloud-visitors-count">1000000</span>
                 </span>
+                
                 
             </p>
             
@@ -278,6 +280,8 @@ java.util.Set
             
             
             
+            <div id="vcomments"></div>
+            
         </div>
         <div class="sidebar">
             <div class="box animated fadeInRight">
@@ -295,9 +299,9 @@ java.util.Set
                     </dl>
                 </div>
                 <ul>
-                    <li><a href="/">42 <p>Articles</p></a></li>
+                    <li><a href="/">43 <p>Articles</p></a></li>
                     <li><a href="/categories">8 <p>Categories</p></a></li>
-                    <li><a href="/tags">34 <p>Tags</p></a></li>
+                    <li><a href="/tags">35 <p>Tags</p></a></li>
                 </ul>
             </div>
             
@@ -494,7 +498,7 @@ java.util.Set
 </div>
  
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="//www.googletagmanager.com/gtag/js?id=UA-149874671-1"></script>
+<script async src="//www.googletagmanager.com/gtag/js?id=G-GWQ07CGNWM"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag() {
@@ -502,7 +506,7 @@ java.util.Set
   }
   gtag('js', new Date());
 
-  gtag('config', 'UA-149874671-1');
+  gtag('config', 'G-GWQ07CGNWM');
 </script>
  
 
@@ -527,6 +531,38 @@ java.util.Set
   }
 </script>
 
+ 
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var valine = new Valine();
+
+  function initValine(path) {
+    if (!path) path = window.location.pathname;
+    let language = 'en';
+    if (!language) {
+      language = 'en';
+    } else {
+      language = language.toLowerCase();
+    }
+    valine.init({
+      el: '#vcomments',
+      appId: 'Mi3U1jqNWN5KlNUd7YsuT0tx-MdYXbMMI',
+      appKey: 'G9lYjvdaqN7jbzGBHXoQzwsr',
+      notify: 'true',
+      verify: 'false',
+      avatar: 'mp',
+      placeholder: 'Leave your throughs behind~',
+      visitor: 'true',
+      path: path,
+      lang: language,
+    });
+  }
+
+  $(document).ready(function () {
+    initValine();
+  });
+</script>
 
 
 

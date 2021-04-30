@@ -40,6 +40,8 @@ sourcetreeapp.com 에서 sourcetree 다운로드 및 설치,">
 <link rel="stylesheet" href="/css/ball-atom.min.css">
 
     
+    <link rel="canonical" href="http://jakezo.github.io/2021/01/06/git-02/"/>
+    <meta name="google-site-verification" content="yLzTFQtdEPu-BYH-mhFwFP-tfP05ugH7ZHBznTW_MR8" />
 <meta name="generator" content="Hexo 5.3.0"></head>
 
 
@@ -113,11 +115,11 @@ sourcetreeapp.com 에서 sourcetree 다운로드 및 설치,">
                 </span>
                 
                 
-                
-                <span id="busuanzi_container_page_pv">
+                <span id="/2021/01/06/Git-02/" class="leancloud_visitors" data-flag-title="Git(2)">
                     <b class="iconfont icon-read"></b> <i>Read count</i>
-                    <span id="busuanzi_value_page_pv">0</span>
+                    <span class="leancloud-visitors-count">1000000</span>
                 </span>
+                
                 
             </p>
             
@@ -254,6 +256,8 @@ sourcetreeapp.com 에서 sourcetree 다운로드 및 설치,">
             
             
             
+            <div id="vcomments"></div>
+            
         </div>
         <div class="sidebar">
             <div class="box animated fadeInRight">
@@ -271,9 +275,9 @@ sourcetreeapp.com 에서 sourcetree 다운로드 및 설치,">
                     </dl>
                 </div>
                 <ul>
-                    <li><a href="/">42 <p>Articles</p></a></li>
+                    <li><a href="/">43 <p>Articles</p></a></li>
                     <li><a href="/categories">8 <p>Categories</p></a></li>
-                    <li><a href="/tags">34 <p>Tags</p></a></li>
+                    <li><a href="/tags">35 <p>Tags</p></a></li>
                 </ul>
             </div>
             
@@ -470,7 +474,7 @@ sourcetreeapp.com 에서 sourcetree 다운로드 및 설치,">
 </div>
  
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="//www.googletagmanager.com/gtag/js?id=UA-149874671-1"></script>
+<script async src="//www.googletagmanager.com/gtag/js?id=G-GWQ07CGNWM"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag() {
@@ -478,7 +482,7 @@ sourcetreeapp.com 에서 sourcetree 다운로드 및 설치,">
   }
   gtag('js', new Date());
 
-  gtag('config', 'UA-149874671-1');
+  gtag('config', 'G-GWQ07CGNWM');
 </script>
  
 
@@ -503,6 +507,38 @@ sourcetreeapp.com 에서 sourcetree 다운로드 및 설치,">
   }
 </script>
 
+ 
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var valine = new Valine();
+
+  function initValine(path) {
+    if (!path) path = window.location.pathname;
+    let language = 'en';
+    if (!language) {
+      language = 'en';
+    } else {
+      language = language.toLowerCase();
+    }
+    valine.init({
+      el: '#vcomments',
+      appId: 'Mi3U1jqNWN5KlNUd7YsuT0tx-MdYXbMMI',
+      appKey: 'G9lYjvdaqN7jbzGBHXoQzwsr',
+      notify: 'true',
+      verify: 'false',
+      avatar: 'mp',
+      placeholder: 'Leave your throughs behind~',
+      visitor: 'true',
+      path: path,
+      lang: language,
+    });
+  }
+
+  $(document).ready(function () {
+    initValine();
+  });
+</script>
 
 
 
