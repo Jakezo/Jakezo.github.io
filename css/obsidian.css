@@ -231,7 +231,6 @@ html.loading {
 a {
   text-decoration: none;
   color: var(--secondary);
-  word-break: break-all;
 }
 a:hover {
   text-decoration: none;
@@ -3583,27 +3582,11 @@ pre .keyword {
 /*코드 굵기 커스텀*/
 p > code {
   font-weight: bolder !important;
-  word-break: break-all;
-  white-space: pre-line;
-}
-li > code {
-  font-weight: bolder !important;
-  word-break: break-all;
-  white-space: pre-line;
-}
-pre > code {
-  font-weight: bolder !important;
-  word-break: break-all;
-  white-space: pre-line;
 }
 /*작은 글씨 커스텀*/
 sub {
   color: #31a70b;
   font-family: '메이플스토리' !important;
-}
-/* 보라 글씨 커스텀 */
-blockquote > p {
-  word-break: break-all;
 }
 @-moz-keyframes spin {
   from {
