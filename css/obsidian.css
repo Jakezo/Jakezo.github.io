@@ -3582,11 +3582,16 @@ pre .keyword {
 /*코드 굵기 커스텀*/
 p > code {
   font-weight: bolder !important;
+  word-break: break-word;
 }
 /*작은 글씨 커스텀*/
 sub {
   color: #31a70b;
   font-family: '메이플스토리' !important;
+}
+/* 보라 글씨 커스텀 */
+blockquote > p {
+  word-break: break-word;
 }
 @-moz-keyframes spin {
   from {
