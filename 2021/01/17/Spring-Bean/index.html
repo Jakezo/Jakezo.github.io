@@ -116,6 +116,11 @@ Beans는 애플리케이션의 핵심을 이루는 객체이며,">
                 
                 
                 
+                <span id="busuanzi_container_page_pv">
+                    <b class="iconfont icon-read"></b> <i>Read count</i>
+                    <span id="busuanzi_value_page_pv">0</span>
+                </span>
+                
             </p>
             
             
@@ -354,8 +359,6 @@ public class MainApp &#123;
             </ul>
             
             
-            
-            <div id="vcomments"></div>
             
         </div>
         <div class="sidebar">
@@ -606,38 +609,6 @@ public class MainApp &#123;
   }
 </script>
 
- 
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-
-<script>
-  var valine = new Valine();
-
-  function initValine(path) {
-    if (!path) path = window.location.pathname;
-    let language = 'en';
-    if (!language) {
-      language = 'en';
-    } else {
-      language = language.toLowerCase();
-    }
-    valine.init({
-      el: '#vcomments',
-      appId: 'Mi3U1jqNWN5KlNUd7YsuT0tx-MdYXbMMI',
-      appKey: 'G9lYjvdaqN7jbzGBHXoQzwsr',
-      notify: 'true',
-      verify: 'true',
-      avatar: 'mp',
-      placeholder: 'Leave your throughs behind~',
-      visitor: 'false',
-      path: path,
-      lang: language,
-    });
-  }
-
-  $(document).ready(function () {
-    initValine();
-  });
-</script>
 
 
 
