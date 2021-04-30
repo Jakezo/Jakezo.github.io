@@ -3584,6 +3584,10 @@ p > code {
   font-weight: bolder !important;
   word-break: break-all;
 }
+li > code {
+  font-weight: bolder !important;
+  word-break: break-all;
+}
 /*작은 글씨 커스텀*/
 sub {
   color: #31a70b;
