@@ -3582,7 +3582,7 @@ pre .keyword {
 /*코드 굵기 커스텀*/
 p > code {
   font-weight: bolder !important;
-  word-break: break-word;
+  word-break: break-all;
 }
 /*작은 글씨 커스텀*/
 sub {
@@ -3591,7 +3591,7 @@ sub {
 }
 /* 보라 글씨 커스텀 */
 blockquote > p {
-  word-break: break-word;
+  word-break: break-all;
 }
 @-moz-keyframes spin {
   from {
