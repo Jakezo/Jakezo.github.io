@@ -3581,22 +3581,8 @@ pre .keyword {
 }
 /*코드 굵기 커스텀*/
 p > code {
-  font-weight: bolder;
-  word-break: break-all;
-  white-space: pre-line;
+  font-weight: bolder !important;
 }
-li > code {
-  font-weight: bolder;
-  word-break: break-all;
-  white-space: pre-line;
-}
-pre > code {
-  font-weight: bolder;
-  word-break: break-all;
-  white-space: pre-line;
-}
-
-
 /*작은 글씨 커스텀*/
 sub {
   color: #31a70b;
