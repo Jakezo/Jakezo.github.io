@@ -10,8 +10,8 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Jakezo Obsidian,"> 
-    <meta name="description" content="static 이 무엇인지 void는 무엇인지 하나 하나의 특성을 알아가면서 정작 코딩을 할 때는
-왜 이렇게 하지? public class ABCD { 왜 여기에는 static 을,"> 
+    <meta name="description" content="public static void main(String[] args) 메인의 의미는 무엇인가??
+static 이 무엇인지 void는 무엇인지 하나 하나의 특성을 알아가면서 정작 ,"> 
     <meta name="author" content="Jakezo"> 
     <link rel="alternative" href="atom.xml" title="Re-Coder" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -101,7 +101,7 @@
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    6.7k
+                    6.9k
                 </span>
                 
                 
@@ -136,13 +136,14 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <p>static 이 무엇인지 void는 무엇인지 하나 하나의 특성을 알아가면서 정작 코딩을 할 때는</p>
+            <h2 id="public-static-void-main-String-args-메인의-의미는-무엇인가"><a href="#public-static-void-main-String-args-메인의-의미는-무엇인가" class="headerlink" title="public static void main(String[] args) 메인의 의미는 무엇인가??"></a>public static void main(String[] args) 메인의 의미는 무엇인가??</h2><hr>
+<p>static 이 무엇인지 void는 무엇인지 하나 하나의 특성을 알아가면서 정작 코딩을 할 때는</p>
 <p>왜 이렇게 하지? public class ABCD { 왜 여기에는 static 을 안붙이고 void는 왜 안붙이지? 라는 생각을 매번 했습니다….ㅠㅠ</p>
 <p>그러다 결국 이클립스에서 하는 main + space 를 누르면 항상 자동완성 되는 public static void main(String[] args) </p>
 <p>이 부분에 대해서 검색해봤습니다.</p>
 <p>결국에 찾다가 상당히 좋은 글을 보았기에 출처와 함께 퍼왔습니다.</p>
 <p>초보자인 저에게는 상당한 도움이 되는 글이니 혹여나 다른 초보자분들도 보셨으면 이해가 쉽게 되실거라 생각됩니다!</p>
-<p>==========================================================================================================</p>
+<hr>
 <p>일단 가장 중요한 public static void main(String[] args)부터 이야기 하는데</p>
 <p>그 전에 그 밑의 public, static, void 등에 관해 먼저 읽고 오는걸 추천한다.</p>
 <p>일단 Java에서 main이 가지고 있는 의미부터 이야기를 해야 할 텐데,</p>
@@ -237,7 +238,11 @@
 <p>특정하게 값을 고정시켜 그 값을 이용해야 할 경우 사용할 수 있다.</p>
 <p>(물론 위의 설명은 변수를 예를 들어 사용한 것이지만, 변수가 아닌 클래스 메소드에도 사용 가능하다)</p>
 <p>혹시 몰라 부가적인 설명을 하나 더하자면,</p>
-<p>// final 변수 : 상수 (값을 변경할 수 없음).<br>// final 메소드 : 오버라이딩이 안되는 메소드<br>// final 클래스 : 상속이 안되는 클래스 정도로 구분하면 될 듯 하다.</p>
+<ul>
+<li>final 변수 : 상수 (값을 변경할 수 없음).</li>
+<li>final 메소드 : 오버라이딩이 안되는 메소드</li>
+<li>final 클래스 : 상속이 안되는 클래스 정도로 구분하면 될 듯 하다.</li>
+</ul>
 <p>final에 관한 내용을 더 이야기하자면 길어질 듯 하니 이건 여기서 그만;</p>
 <p>이건 메소드를 실행한 결과 그 메소드에서 최종적으로 특정한 return 값이 없을 경우</p>
 <p>return값이 없다라고 선언하는 명령어이다.</p>
@@ -304,6 +309,13 @@
             </div>
             
             
+            
+            <div class="box sticky animated fadeInRight faster">
+                <div id="toc" class="subbox">
+                    <h4>Contents</h4>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#public-static-void-main-String-args-%EB%A9%94%EC%9D%B8%EC%9D%98-%EC%9D%98%EB%AF%B8%EB%8A%94-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80"><span class="toc-number">1.</span> <span class="toc-text">public static void main(String[] args) 메인의 의미는 무엇인가??</span></a></li></ol>
+                </div>
+            </div>
             
             
         </div>
