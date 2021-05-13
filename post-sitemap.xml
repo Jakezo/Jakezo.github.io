@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>http://jakezo.github.io/2021/05/13/java-basic-02/</loc>
+        <lastmod>2021-05-13T05:58:28.932Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://jakezo.github.io/2021/05/11/java-basic-01/</loc>
         <lastmod>2021-05-11T09:05:22.796Z</lastmod>
         <changefreq>weekly</changefreq>
