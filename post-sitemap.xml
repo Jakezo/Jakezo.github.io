@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>http://jakezo.github.io/2021/05/22/java-BufferedReader/</loc>
+        <lastmod>2021-05-22T14:24:42.501Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://jakezo.github.io/2021/05/13/java-basic-02/</loc>
         <lastmod>2021-05-13T06:26:23.978Z</lastmod>
         <changefreq>weekly</changefreq>
