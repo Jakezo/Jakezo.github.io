@@ -3,21 +3,21 @@
 
 
     <url>
-        <loc>http://jakezo.github.io/tags/Spring/</loc>
-        <lastmod>2021-06-06T04:36:20.665Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://jakezo.github.io/tags/Java/</loc>
-        <lastmod>2021-05-22T14:24:42.501Z</lastmod>
+        <lastmod>2021-05-13T06:26:23.978Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://jakezo.github.io/tags/project/</loc>
+        <lastmod>2021-05-02T16:00:34.788Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://jakezo.github.io/tags/Spring/</loc>
         <lastmod>2021-05-02T16:00:34.788Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -96,6 +96,13 @@
     <url>
         <loc>http://jakezo.github.io/tags/Get/</loc>
         <lastmod>2021-01-17T12:52:14.067Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://jakezo.github.io/tags/Bean/</loc>
+        <lastmod>2021-01-17T08:22:40.266Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
