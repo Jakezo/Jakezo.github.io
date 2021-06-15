@@ -472,13 +472,13 @@
       
         <tags>
             
+            <tag> Map </tag>
+            
             <tag> Spring </tag>
             
             <tag> bean </tag>
             
             <tag> Collection </tag>
-            
-            <tag> Map </tag>
             
             <tag> List </tag>
             
@@ -507,13 +507,13 @@
       
         <tags>
             
+            <tag> Map </tag>
+            
             <tag> Spring </tag>
             
             <tag> bean </tag>
             
             <tag> Collection </tag>
-            
-            <tag> Map </tag>
             
             <tag> List </tag>
             
@@ -542,13 +542,13 @@
       
         <tags>
             
+            <tag> Map </tag>
+            
             <tag> Spring </tag>
             
             <tag> bean </tag>
             
             <tag> Collection </tag>
-            
-            <tag> Map </tag>
             
             <tag> List </tag>
             
@@ -577,13 +577,13 @@
       
         <tags>
             
+            <tag> Map </tag>
+            
             <tag> Spring </tag>
             
             <tag> bean </tag>
             
             <tag> Collection </tag>
-            
-            <tag> Map </tag>
             
             <tag> List </tag>
             
@@ -612,13 +612,13 @@
       
         <tags>
             
+            <tag> Map </tag>
+            
             <tag> Spring </tag>
             
             <tag> bean </tag>
             
             <tag> Collection </tag>
-            
-            <tag> Map </tag>
             
             <tag> List </tag>
             
@@ -647,13 +647,13 @@
       
         <tags>
             
+            <tag> Map </tag>
+            
             <tag> Spring </tag>
             
             <tag> bean </tag>
             
             <tag> Collection </tag>
-            
-            <tag> Map </tag>
             
             <tag> List </tag>
             
@@ -720,7 +720,7 @@
       <link href="2021/01/06/Git-02/"/>
       <url>2021/01/06/Git-02/</url>
       
-        <content type="html"><![CDATA[<h2 id="Git-사용하기-다운로드-및-실행"><a href="#Git-사용하기-다운로드-및-실행" class="headerlink" title="Git 사용하기(다운로드 및 실행)"></a>Git 사용하기(다운로드 및 실행)</h2><ol><li><p>git-scm.com 에서 git 다운로드 및 설치가 필요합니다.</p></li><li><p>sourcetreeapp.com 에서 sourcetree 다운로드 및 설치를 할 수 있습니다.</p></li></ol><blockquote><p>sourcetree : git을 관리하는 gui 도구</p></blockquote><dl><dt>형상관리도구(버전관리도구)</dt><dd>프로젝트의 개발과정에서 필요한 필수 도구</dd></dl><h2 id="git-개요"><a href="#git-개요" class="headerlink" title="git 개요"></a>git 개요</h2><p>개인 PC에 로컬저장소(local)를 만든다. (폴더를 만든다.)<br>git init 명령을 통해서 로컬저장소를 git으로 관리한다. (.git 이라는 숨김 폴더가 생긴다.)<br>로컬저장소에 파일을 추가한다. 그렇다고 git이 관리하지 않는다.<br>관리할 파일을 git add 명령으로 관리할 수 있다. (staging)<br>관리할 파일을 git commit 할 수 있다. (로컬저장소에 저장)<br>commit이 완료되면 git push 명령으로 원격저장소(server)에 올릴 수 있다.</p><h2 id="git-연습"><a href="#git-연습" class="headerlink" title="git 연습"></a>git 연습</h2><blockquote><p>(시작 메뉴 - Git폴더 - Git Bash)</p></blockquote><p>~  : 루트 디렉토리 (사용자 폴더  C:/Users/ITSC)<br>.  : 현재 디렉토리<br>.. : 상위 디렉토리</p><p><code>$</code> pwd  : 현재 경로 확인하기<br>/c/Users/ITSC</p><p><code>$</code> cd ~  : 루트 디렉토리로 이동하기<br><code>$</code> pwd<br>/c/Users/ITSC</p><p><code>$</code> cd .  : 현재 디렉토리로 이동하기<br><code>$</code> pwd<br>/c/Users/ITSC</p><p><code>$</code> cd ..  : 상위 디렉토리로 이동하기<br><code>$</code> pwd<br>/c/Users</p><p><code>$</code> clear  : 화면 초기화</p><p>ITSC@DESKTOP-L7VVF0L MINGW64 /c/Users<br><code>$</code> mkdir local_vcs  : 현재 경로(/c/Users)에 local_vcs 디렉토리 만들기</p><p>ITSC@DESKTOP-L7VVF0L MINGW64 /c/Users<br><code>$</code> cd local_vcs  : local_vcs 디렉토리로 이동하기</p><p>ITSC@DESKTOP-L7VVF0L MINGW64 /c/Users/local_vcs<br><code>$</code> cd ..  : local_vcs 디렉토리의 상위 디렉토리로 이동하기</p><p>ITSC@DESKTOP-L7VVF0L MINGW64 /c/Users<br><code>$</code> rmdir local_vcs  : local_vcs 디렉토리 삭제하기</p><p>ITSC@DESKTOP-L7VVF0L MINGW64 /c/Users<br><code>$</code> ls<br>‘All Users’@  ‘Default User’@   ITSC/<br> Default/      desktop.ini      Public/</p><p><code>$</code> git config –global user.name  : 사용자 확인하기<br>MINKYONGTAE</p><p><code>$</code> git config –global user.email  : 사용자 이메일 확인하기<br><a href="mailto:&#103;&#116;&#95;&#109;&#105;&#110;&#x40;&#x6e;&#x61;&#x76;&#x65;&#114;&#x2e;&#x63;&#x6f;&#x6d;">&#103;&#116;&#95;&#109;&#105;&#110;&#x40;&#x6e;&#x61;&#x76;&#x65;&#114;&#x2e;&#x63;&#x6f;&#x6d;</a></p><p><code>$</code> git config –global user.name “USERNAME”  : 사용자 이름 등록하기<br><code>$</code> git config –global user.email “EMAIL”  : 사용자 이메일 등록하기</p><p><code>$</code> cd ~  : 루트 디렉토리로 이동</p><p><code>$</code> mkdir local_vcs  : local_vcs 디렉토리 만들기</p><p><code>$</code> cd local_vcs  : local_vcs 디렉토리로 이동하기</p><p><code>$</code> git init  : 현재 디렉토리를 git으로 관리하라.<br>Initialized empty Git repository in C:/Users/ITSC/local_vcs/.git/</p><p><code>$</code> ls -al  : 현재 디렉토리의 파일/디렉토리 목록 확인 (숨김파일확인+리스트보기)<br><code>$</code> ls -a  : -a(숨김파일보기옵션)</p><p><code>$</code> touch master.txt  : master.txt 파일 만들기</p><p><code>$</code> echo ‘hello git’ &gt;&gt; master.txt  : ‘hello git’을 master.txt로 보내기(기록하기)</p><p><code>$</code> cat master.txt  : master.txt 파일 열기<br>hello git</p><p><code>$</code> git status  : 상태보기(아직 Untracked 상태: 추적하기 전이다.)<br>On branch master</p><p>No commits yet</p><p>Untracked files:<br>  (use “git add <file>…” to include in what will be committed)<br>        master.txt</p><p>nothing added to commit but untracked files present (use “git add” to track)</p><p><code>$</code> git add master.txt  : master.txt 파일을 추적하라. (인덱스 영역으로 올린다. staging: 스태이징)</p><p> <em>처음으로 git add 할 때는 git commit -am 명령이 불가능하다. 단독 명령으로 git add를 해야한다.</em></p><p><code>$</code> git status  : 다시 상태보기 (staging 확인)<br>On branch master</p><p>No commits yet</p><p>Changes to be committed:<br>  (use “git rm –cached <file>…” to unstage)<br>        new file:   master.txt</p><p><code>$</code> git rm –cached master.txt  : master.txt 파일을 더 이상 추적하지 않는다. (unstaging)<br>rm ‘master.txt’</p><p><code>$</code> git add master.txt  : 다시 master.txt 파일을 추적하라. (인덱스 영역으로 올린다. staging: 스태이징)</p><p><code>$</code> git commit  : 현재 로컬저장소(local_vcs)를 commit 하겠다. 커밋 메시지 작성을 위한 vim 에디터가 열린다.</p><h2 id="vim-에디터-사용"><a href="#vim-에디터-사용" class="headerlink" title="vim 에디터 사용"></a>vim 에디터 사용</h2><p>단축키 i : 끼워넣기 상태<br>단축키 a : 끼워넣기 상태<br>키워넣기 상태에서 작성<br>작성 후 Esc (끼워넣기 상태에서 빠져나옴)<br>종료를 위해서 :wq (저장하고 닫기)</p><hr><p><code>$</code> git status  : 다시 상태보기 (commit이 완료되면 clean 상태가 되고, 원격저장소에 데이터를 올릴 수 있다.)<br>On branch master<br>nothing to commit, working tree clean</p><p><code>$</code> git log  : 로그 확인하기 (커밋한 사람, 일시, 커밋메시지)</p><p><code>$</code> git log –oneline  : 로그 한 줄로 보여주기</p><p><code>$</code> echo ‘ nice to meet you’ &gt;&gt; master.txt  : ‘ nice to meet you’를 master.txt에 추가하기</p><p><code>$</code> git status  : 다시 상태를 확인하면 Untracked 상태이므로 git add가 필요하다.</p><p><code>$</code> git add .  : 로컬저장소의 모든 파일을 staging하라. (바뀐 파일이 많으면 사용)</p><p><code>$</code> git commit -m ‘[02]master=&gt;modify master.txt add nice to meet you’  : 커밋하면서 커밋메시지 동시에 작성하기</p><p><code>$</code> git log –oneline  : 로그보기 (2번의 커밋이 모두 나타난다. 최근 커밋 아이디를 HEAD라고 한다.)<br>2239f0b (HEAD -&gt; master) [02]master=&gt;modify master.txt add nice to meet you<br>af48e77 [01]master=&gt;create master.txt add hello git</p><p><code>$</code> git diff –word-diff 2239f0b af48e77  : 두 커밋 아이디를 이용해서 차이를 비교</p><p><code>$</code> git diff –word-diff HEAD HEAD<del>1  : HEAD(가장 최근 commit)와 HEAD</del>1(HEAD 이전 commit)의 차이를 비교</p><p><code>$</code> echo ‘ how are you today?’ &gt;&gt; master.txt  : ‘ how are you today?’를 master.txt에 추가하기</p><p><code>$</code> git commit -am ‘[03]master=&gt;modify master.txt add how are you today?’  : git add + git commit -m == git commit -am</p><p><code>$</code> git log –oneline</p><h2 id="github-com-에-접속해서-회원가입하기"><a href="#github-com-에-접속해서-회원가입하기" class="headerlink" title="github.com 에 접속해서 회원가입하기"></a>github.com 에 접속해서 회원가입하기</h2><ol><li><p>create repository 클릭해서 새 저장소(repository) 만들기</p><ul><li>public</li><li>add README.md 체크</li></ul></li><li><p>repository에서 Code버튼을 클릭하면 원격저장소 확인 가능<br>-&gt; <a href="https://github.com/itlecture/local_vcs.git">https://github.com/itlecture/local_vcs.git</a></p></li><li><p>로컬저장소(local_vcs)의 내용을 올리는 </p></li><li><p>원격저장소(<a href="https://github.com/itlecture/local_vcs.git)%EB%A5%BC">https://github.com/itlecture/local_vcs.git)를</a> 등록해야 한다.</p></li><li><p>원격저장소 등록하기(앞으로 원격저장소는 origin이라고 부른다.)<br><code>$</code> git remote add origin <a href="https://github.com/itlecture/local_vcs.git">https://github.com/itlecture/local_vcs.git</a></p></li><li><p>로컬저장소 -&gt; 원격저장소 : push  (올리기)</p></li><li><p>로컬저장소 &lt;- 원격저장소 : pull  (내려받기)</p></li></ol><p> <strong>중요. 원격저장소에 올리려면 가장 먼저 pull을 해야 한다. (pull -&gt; push)</strong></p><p><code>$</code> git push origin main  ## origin의 main브랜치로 올리기 (최초 실패)</p><p><code>$</code> git pull origin main  ## origin의 main브랜치를 받아오기 (최초 실패)</p><ul><li>최초 pull을 할 때는 로컬저장소와 원격저장소가 서로 상관 없는 저장소이기 때문에 실패한다.</li><li>상관 없어도 pull을 진행하는 옵션(–allow-unrelated-histories)을 써야 한다.</li></ul><p><code>$</code> git pull origin main –allow-unrelated-histories</p><ul><li>vim 편집기가 실행되면  :wq  눌러서 종료한다.</li></ul><p><code>$</code> git push origin main  ## 로컬저장소의 내용을 origin의 main 브랜치로 올린다.</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="Git-사용하기-다운로드-및-실행"><a href="#Git-사용하기-다운로드-및-실행" class="headerlink" title="Git 사용하기(다운로드 및 실행)"></a>Git 사용하기(다운로드 및 실행)</h2><ol><li><p>git-scm.com 에서 git 다운로드 및 설치가 필요합니다.</p></li><li><p>sourcetreeapp.com 에서 sourcetree 다운로드 및 설치를 할 수 있습니다.</p></li></ol><blockquote><p>sourcetree : git을 관리하는 gui 도구</p></blockquote><dl><dt>형상관리도구(버전관리도구)</dt><dd>프로젝트의 개발과정에서 필요한 필수 도구</dd></dl><h2 id="git-개요"><a href="#git-개요" class="headerlink" title="git 개요"></a>git 개요</h2><p>개인 PC에 로컬저장소(local)를 만든다. (폴더를 만든다.)<br>git init 명령을 통해서 로컬저장소를 git으로 관리한다. (.git 이라는 숨김 폴더가 생긴다.)<br>로컬저장소에 파일을 추가한다. 그렇다고 git이 관리하지 않는다.<br>관리할 파일을 git add 명령으로 관리할 수 있다. (staging)<br>관리할 파일을 git commit 할 수 있다. (로컬저장소에 저장)<br>commit이 완료되면 git push 명령으로 원격저장소(server)에 올릴 수 있다.</p><h2 id="git-연습"><a href="#git-연습" class="headerlink" title="git 연습"></a>git 연습</h2><blockquote><p>(시작 메뉴 - Git폴더 - Git Bash)</p></blockquote><p>~  : 루트 디렉토리 (사용자 폴더  C:/Users/ITSC)<br>.  : 현재 디렉토리<br>.. : 상위 디렉토리</p><p><code>$</code> pwd  : 현재 경로 확인하기<br>/c/Users/ITSC</p><p><code>$</code> cd ~  : 루트 디렉토리로 이동하기<br><code>$</code> pwd<br>/c/Users/ITSC</p><p><code>$</code> cd .  : 현재 디렉토리로 이동하기<br><code>$</code> pwd<br>/c/Users/ITSC</p><p><code>$</code> cd ..  : 상위 디렉토리로 이동하기<br><code>$</code> pwd<br>/c/Users</p><p><code>$</code> clear  : 화면 초기화</p><p>ITSC@DESKTOP-L7VVF0L MINGW64 /c/Users<br><code>$</code> mkdir local_vcs  : 현재 경로(/c/Users)에 local_vcs 디렉토리 만들기</p><p>ITSC@DESKTOP-L7VVF0L MINGW64 /c/Users<br><code>$</code> cd local_vcs  : local_vcs 디렉토리로 이동하기</p><p>ITSC@DESKTOP-L7VVF0L MINGW64 /c/Users/local_vcs<br><code>$</code> cd ..  : local_vcs 디렉토리의 상위 디렉토리로 이동하기</p><p>ITSC@DESKTOP-L7VVF0L MINGW64 /c/Users<br><code>$</code> rmdir local_vcs  : local_vcs 디렉토리 삭제하기</p><p>ITSC@DESKTOP-L7VVF0L MINGW64 /c/Users<br><code>$</code> ls<br>‘All Users’@  ‘Default User’@   ITSC/<br> Default/      desktop.ini      Public/</p><p><code>$</code> git config –global user.name  : 사용자 확인하기<br>MINKYONGTAE</p><p><code>$</code> git config –global user.email  : 사용자 이메일 확인하기<br><a href="mailto:&#x67;&#116;&#95;&#109;&#x69;&#x6e;&#x40;&#110;&#x61;&#x76;&#101;&#x72;&#x2e;&#99;&#x6f;&#109;">&#x67;&#116;&#95;&#109;&#x69;&#x6e;&#x40;&#110;&#x61;&#x76;&#101;&#x72;&#x2e;&#99;&#x6f;&#109;</a></p><p><code>$</code> git config –global user.name “USERNAME”  : 사용자 이름 등록하기<br><code>$</code> git config –global user.email “EMAIL”  : 사용자 이메일 등록하기</p><p><code>$</code> cd ~  : 루트 디렉토리로 이동</p><p><code>$</code> mkdir local_vcs  : local_vcs 디렉토리 만들기</p><p><code>$</code> cd local_vcs  : local_vcs 디렉토리로 이동하기</p><p><code>$</code> git init  : 현재 디렉토리를 git으로 관리하라.<br>Initialized empty Git repository in C:/Users/ITSC/local_vcs/.git/</p><p><code>$</code> ls -al  : 현재 디렉토리의 파일/디렉토리 목록 확인 (숨김파일확인+리스트보기)<br><code>$</code> ls -a  : -a(숨김파일보기옵션)</p><p><code>$</code> touch master.txt  : master.txt 파일 만들기</p><p><code>$</code> echo ‘hello git’ &gt;&gt; master.txt  : ‘hello git’을 master.txt로 보내기(기록하기)</p><p><code>$</code> cat master.txt  : master.txt 파일 열기<br>hello git</p><p><code>$</code> git status  : 상태보기(아직 Untracked 상태: 추적하기 전이다.)<br>On branch master</p><p>No commits yet</p><p>Untracked files:<br>  (use “git add <file>…” to include in what will be committed)<br>        master.txt</p><p>nothing added to commit but untracked files present (use “git add” to track)</p><p><code>$</code> git add master.txt  : master.txt 파일을 추적하라. (인덱스 영역으로 올린다. staging: 스태이징)</p><p> <em>처음으로 git add 할 때는 git commit -am 명령이 불가능하다. 단독 명령으로 git add를 해야한다.</em></p><p><code>$</code> git status  : 다시 상태보기 (staging 확인)<br>On branch master</p><p>No commits yet</p><p>Changes to be committed:<br>  (use “git rm –cached <file>…” to unstage)<br>        new file:   master.txt</p><p><code>$</code> git rm –cached master.txt  : master.txt 파일을 더 이상 추적하지 않는다. (unstaging)<br>rm ‘master.txt’</p><p><code>$</code> git add master.txt  : 다시 master.txt 파일을 추적하라. (인덱스 영역으로 올린다. staging: 스태이징)</p><p><code>$</code> git commit  : 현재 로컬저장소(local_vcs)를 commit 하겠다. 커밋 메시지 작성을 위한 vim 에디터가 열린다.</p><h2 id="vim-에디터-사용"><a href="#vim-에디터-사용" class="headerlink" title="vim 에디터 사용"></a>vim 에디터 사용</h2><p>단축키 i : 끼워넣기 상태<br>단축키 a : 끼워넣기 상태<br>키워넣기 상태에서 작성<br>작성 후 Esc (끼워넣기 상태에서 빠져나옴)<br>종료를 위해서 :wq (저장하고 닫기)</p><hr><p><code>$</code> git status  : 다시 상태보기 (commit이 완료되면 clean 상태가 되고, 원격저장소에 데이터를 올릴 수 있다.)<br>On branch master<br>nothing to commit, working tree clean</p><p><code>$</code> git log  : 로그 확인하기 (커밋한 사람, 일시, 커밋메시지)</p><p><code>$</code> git log –oneline  : 로그 한 줄로 보여주기</p><p><code>$</code> echo ‘ nice to meet you’ &gt;&gt; master.txt  : ‘ nice to meet you’를 master.txt에 추가하기</p><p><code>$</code> git status  : 다시 상태를 확인하면 Untracked 상태이므로 git add가 필요하다.</p><p><code>$</code> git add .  : 로컬저장소의 모든 파일을 staging하라. (바뀐 파일이 많으면 사용)</p><p><code>$</code> git commit -m ‘[02]master=&gt;modify master.txt add nice to meet you’  : 커밋하면서 커밋메시지 동시에 작성하기</p><p><code>$</code> git log –oneline  : 로그보기 (2번의 커밋이 모두 나타난다. 최근 커밋 아이디를 HEAD라고 한다.)<br>2239f0b (HEAD -&gt; master) [02]master=&gt;modify master.txt add nice to meet you<br>af48e77 [01]master=&gt;create master.txt add hello git</p><p><code>$</code> git diff –word-diff 2239f0b af48e77  : 두 커밋 아이디를 이용해서 차이를 비교</p><p><code>$</code> git diff –word-diff HEAD HEAD<del>1  : HEAD(가장 최근 commit)와 HEAD</del>1(HEAD 이전 commit)의 차이를 비교</p><p><code>$</code> echo ‘ how are you today?’ &gt;&gt; master.txt  : ‘ how are you today?’를 master.txt에 추가하기</p><p><code>$</code> git commit -am ‘[03]master=&gt;modify master.txt add how are you today?’  : git add + git commit -m == git commit -am</p><p><code>$</code> git log –oneline</p><h2 id="github-com-에-접속해서-회원가입하기"><a href="#github-com-에-접속해서-회원가입하기" class="headerlink" title="github.com 에 접속해서 회원가입하기"></a>github.com 에 접속해서 회원가입하기</h2><ol><li><p>create repository 클릭해서 새 저장소(repository) 만들기</p><ul><li>public</li><li>add README.md 체크</li></ul></li><li><p>repository에서 Code버튼을 클릭하면 원격저장소 확인 가능<br>-&gt; <a href="https://github.com/itlecture/local_vcs.git">https://github.com/itlecture/local_vcs.git</a></p></li><li><p>로컬저장소(local_vcs)의 내용을 올리는 </p></li><li><p>원격저장소(<a href="https://github.com/itlecture/local_vcs.git)%EB%A5%BC">https://github.com/itlecture/local_vcs.git)를</a> 등록해야 한다.</p></li><li><p>원격저장소 등록하기(앞으로 원격저장소는 origin이라고 부른다.)<br><code>$</code> git remote add origin <a href="https://github.com/itlecture/local_vcs.git">https://github.com/itlecture/local_vcs.git</a></p></li><li><p>로컬저장소 -&gt; 원격저장소 : push  (올리기)</p></li><li><p>로컬저장소 &lt;- 원격저장소 : pull  (내려받기)</p></li></ol><p> <strong>중요. 원격저장소에 올리려면 가장 먼저 pull을 해야 한다. (pull -&gt; push)</strong></p><p><code>$</code> git push origin main  ## origin의 main브랜치로 올리기 (최초 실패)</p><p><code>$</code> git pull origin main  ## origin의 main브랜치를 받아오기 (최초 실패)</p><ul><li>최초 pull을 할 때는 로컬저장소와 원격저장소가 서로 상관 없는 저장소이기 때문에 실패한다.</li><li>상관 없어도 pull을 진행하는 옵션(–allow-unrelated-histories)을 써야 한다.</li></ul><p><code>$</code> git pull origin main –allow-unrelated-histories</p><ul><li>vim 편집기가 실행되면  :wq  눌러서 종료한다.</li></ul><p><code>$</code> git push origin main  ## 로컬저장소의 내용을 origin의 main 브랜치로 올린다.</p>]]></content>
       
       
       <categories>
@@ -1082,9 +1082,9 @@
             
             <tag> JSON </tag>
             
-            <tag> AJAX </tag>
-            
             <tag> SQL </tag>
+            
+            <tag> AJAX </tag>
             
         </tags>
       
